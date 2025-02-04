@@ -1,0 +1,30 @@
+{
+  "name": "@gelato-ui/react",
+  "version": "0.1.0",
+  "author": "Santiago Molina Orozco <santi020k@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "dist/components.js",
+  "module": "dist/components.js",
+  "types": "dist/types/components.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "node ./__tests__/react-library.test.js",
+    "build": "npm run tsc",
+    "tsc": "tsc -p . --outDir ./dist"
+  },
+  "description": "",
+  "devDependencies": {
+    "@gelato-ui/components": "file:../components",
+    "@gelato-ui/hydrate": "file:../hydrate",
+    "@types/react": "^19.0.8",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@stencil/react-output-target": "^0.8.2"
+  }
+}

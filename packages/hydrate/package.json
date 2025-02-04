@@ -1,0 +1,16 @@
+{
+  "name": "@gelato-ui/hydrate",
+  "description": "components component hydration app.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "import": "./index.mjs"
+    }
+  },
+  "dependencies": {
+    "stream": "^0.0.3"
+  }
+
+}
