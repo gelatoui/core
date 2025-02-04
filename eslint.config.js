@@ -4,7 +4,15 @@ import { ConfigOption, eslintConfig, OptionalOption } from '@santi020k/eslint-co
 export default [
   {
     name: 'ignore-local',
-    ignores: ['dist/']
+    ignores: [
+      '**/packages/components/.stencil/**',
+      '**/packages/components/dist/**',
+      '**/packages/components/loader/**',
+      '**/packages/components/www/**',
+      '**/packages/hydrate/**',
+      '**/packages/react/**',
+      '**/packages/website/.docusaurus/**'
+    ]
   },
   ...eslintConfig({
     config: [ConfigOption.Ts],
