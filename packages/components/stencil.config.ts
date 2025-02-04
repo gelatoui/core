@@ -4,6 +4,7 @@ import { reactOutputTarget } from '@stencil/react-output-target'
 
 export const config: Config = {
   namespace: 'components',
+  globalStyle: 'src/global/global.css',
   outputTargets: [
     {
       type: 'dist',
@@ -15,7 +16,7 @@ export const config: Config = {
     }) as unknown as OutputTarget,
     {
       type: 'dist-hydrate-script',
-      dir: './hydrate'
+      dir: './../hydrate'
     },
     {
       type: 'dist-custom-elements',
