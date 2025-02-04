@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import clsx from 'clsx'
-import type { ReactNode } from 'react'
+import React, { type ReactNode } from 'react'
 
 import styles from './styles.module.css'
 
@@ -48,19 +49,17 @@ const FeatureList: FeatureItem[] = [
   }
 ]
 
-function Feature({ title, Svg, description }: FeatureItem) {
-  return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
+const Feature = ({ title, Svg, description }: FeatureItem) => (
+  <div className={clsx('col col--4')}>
+    <div className="text--center">
+      <Svg className={styles.featureSvg} role="img" />
     </div>
-  )
-}
+    <div className="text--center padding-horiz--md">
+      <Heading as="h3">{title}</Heading>
+      <p>{description}</p>
+    </div>
+  </div>
+)
 
 export default function HomepageFeatures(): ReactNode {
   return (

@@ -14,7 +14,7 @@ defineCustomElements()
 
 import styles from './index.module.css'
 
-function HomepageHeader() {
+const HomepageHeader = () => {
   const { siteConfig } = useDocusaurusContext()
 
   return (
