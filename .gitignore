@@ -24,3 +24,22 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
+
+# Packages
+
+# Components
+packages/components/dist/
+packages/components/www/
+packages/components/loader/
+packages/components/react/
+packages/components/src/components.d.ts
+
+# Hydrate
+packages/hydrate/index.*
+
+# React
+packages/react/src/
+packages/react/dist/
+
+# Website
+packages/website/.docusaurus/
