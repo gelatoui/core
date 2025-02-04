@@ -1,13 +1,15 @@
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import clsx from 'clsx'
+import type { ReactNode } from 'react'
 
-type FeatureItem = {
-  title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: ReactNode;
-};
+import styles from './styles.module.css'
+
+import Heading from '@theme/Heading'
+
+interface FeatureItem {
+  title: string
+  Svg: React.ComponentType<React.ComponentProps<'svg'>>
+  description: ReactNode
+}
 
 const FeatureList: FeatureItem[] = [
   {
@@ -18,7 +20,7 @@ const FeatureList: FeatureItem[] = [
         Docusaurus was designed from the ground up to be easily installed and
         used to get your website up and running quickly.
       </>
-    ),
+    )
   },
   {
     title: 'Focus on What Matters',
@@ -26,9 +28,13 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        ahead and move your docs into the
+        {' '}
+        <code>docs</code>
+        {' '}
+        directory.
       </>
-    ),
+    )
   },
   {
     title: 'Powered by React',
@@ -38,11 +44,11 @@ const FeatureList: FeatureItem[] = [
         Extend or customize your website layout by reusing React. Docusaurus can
         be extended while reusing the same header and footer.
       </>
-    ),
-  },
-];
+    )
+  }
+]
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, Svg, description }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
@@ -53,7 +59,7 @@ function Feature({title, Svg, description}: FeatureItem) {
         <p>{description}</p>
       </div>
     </div>
-  );
+  )
 }
 
 export default function HomepageFeatures(): ReactNode {
@@ -67,5 +73,5 @@ export default function HomepageFeatures(): ReactNode {
         </div>
       </div>
     </section>
-  );
+  )
 }

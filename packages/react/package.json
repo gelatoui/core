@@ -4,6 +4,7 @@
   "author": "Santiago Molina Orozco <santi020k@gmail.com>",
   "homepage": "",
   "license": "ISC",
+  "type": "module",
   "main": "dist/components.js",
   "module": "dist/components.js",
   "types": "dist/types/components.d.ts",
