@@ -4,7 +4,6 @@
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
-  "type": "module",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
@@ -25,7 +24,8 @@
     "./hydrate": {
       "import": "./hydrate/index.mjs",
       "require": "./hydrate/index.js",
-      "types": "./hydrate/index.d.ts"
+      "types": "./hydrate/index.d.ts",
+      "default": "./hydrate/index.js"
     },
     "./loader": {
       "import": "./loader/index.js",
@@ -37,8 +37,9 @@
     "type": "git",
     "url": "https://github.com/ionic-team/stencil-component-starter.git"
   },
-  "files": [
+  "files":[
     "dist/",
+    "hydrate/",
     "loader/"
   ],
   "scripts": {

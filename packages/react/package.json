@@ -4,7 +4,6 @@
   "author": "Santiago Molina Orozco <santi020k@gmail.com>",
   "homepage": "",
   "license": "ISC",
-  "type": "module",
   "main": "dist/components.js",
   "module": "dist/components.js",
   "types": "dist/types/components.d.ts",
@@ -19,7 +18,6 @@
   "description": "",
   "devDependencies": {
     "@gelato-ui/components": "file:../components",
-    "@gelato-ui/hydrate": "file:../hydrate",
     "@types/react": "^19.0.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

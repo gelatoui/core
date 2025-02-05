@@ -55,8 +55,7 @@
   "workspaces": [
     "./packages/components",
     "./packages/website",
-    "./packages/react",
-    "./packages/hydrate"
+    "./packages/react"
   ],
   "publishConfig": {
     "access": "public"

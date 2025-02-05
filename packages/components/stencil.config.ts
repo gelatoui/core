@@ -1,5 +1,4 @@
 import { Config } from '@stencil/core'
-import { OutputTarget } from '@stencil/core/internal'
 import { reactOutputTarget } from '@stencil/react-output-target'
 
 export const config: Config = {
@@ -12,11 +11,10 @@ export const config: Config = {
     },
     reactOutputTarget({
       outDir: '../react/src/components/',
-      hydrateModule: '@gelato-ui/hydrate'
-    }) as unknown as OutputTarget,
+      hydrateModule: '@gelato-ui/components/hydrate'
+    }),
     {
-      type: 'dist-hydrate-script',
-      dir: './../hydrate'
+      type: 'dist-hydrate-script'
     },
     {
       type: 'dist-custom-elements',
@@ -25,6 +23,10 @@ export const config: Config = {
     },
     {
       type: 'docs-readme'
+    },
+    {
+      type: 'docs-vscode',
+      file: 'dist/html.html-data.json'
     },
     {
       type: 'www',
