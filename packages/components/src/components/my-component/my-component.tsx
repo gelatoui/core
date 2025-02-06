@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/lines-around-comment */
 import { format } from '../../utils/utils'
 
 import { Component, h, Prop } from '@stencil/core'
@@ -10,8 +11,19 @@ h('')
   shadow: true
 })
 export class MyComponent {
+  /**
+   * The first name
+   */
   @Prop() first: string
+
+  /**
+   * The middle name
+   */
   @Prop() middle: string
+
+  /**
+   * The last name
+   */
   @Prop() last: string
 
   private getText(): string {

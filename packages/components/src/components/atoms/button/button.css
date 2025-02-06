@@ -1,0 +1,19 @@
+:host {
+  button {
+    background-color: var(--root-gray-100);
+    color: var(--root-gray-700);
+    padding: var(--spacing-050) var(--spacing-100);
+    font-size: var(--body-medium-medium-font-size);
+    font-weight: var(--body-medium-medium-font-weight);
+    line-height: var(--body-medium-medium-line-height);
+    font-family: var(--body-medium-medium-font-family);
+    cursor: pointer;
+    border-radius: var(--border-radius-050);
+    transition: all 0.2s ease-in-out;
+    border: 1px solid;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+}
