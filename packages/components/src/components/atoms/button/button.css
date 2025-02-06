@@ -1,19 +1,103 @@
 :host {
-  button {
-    background-color: var(--root-gray-100);
-    color: var(--root-gray-700);
-    padding: var(--spacing-050) var(--spacing-100);
-    font-size: var(--body-medium-medium-font-size);
-    font-weight: var(--body-medium-medium-font-weight);
-    line-height: var(--body-medium-medium-line-height);
-    font-family: var(--body-medium-medium-font-family);
-    cursor: pointer;
-    border-radius: var(--border-radius-050);
-    transition: all 0.2s ease-in-out;
-    border: 1px solid;
-  }
+  display: inline-block;
+  padding: var(--spacing-050) var(--spacing-100);
+  font-size: var(--body-medium-medium-font-size);
+  font-weight: var(--body-medium-medium-font-weight);
+  line-height: var(--body-medium-medium-line-height);
+  font-family: var(--body-medium-medium-font-family);
+  cursor: pointer;
+  border-radius: var(--border-radius-050);
+  transition: all 0.2s ease-in-out;
+  border: 1px solid;
+  text-decoration: none;
 
-  button:disabled {
-    cursor: not-allowed;
+  button {
+    all: unset;  /* Reset all button default styles */
+    display: inline-block;
+    width: 100%; /* If you want the button to take up available space */
+    text-align: center;
   }
+}
+
+
+/* Disabled state */
+:host(.button--disabled) {
+  cursor: not-allowed;
+}
+
+/* Small, Medium, Large button sizes */
+:host(.button--size-small) {
+  padding: var(--spacing-050) var(--spacing-100);
+}
+
+:host(.button--size-medium) {
+  padding: var(--spacing-050) var(--spacing-150);
+}
+
+:host(.button--size-large) {
+  padding: var(--spacing-100) var(--spacing-250);
+}
+
+/* Filled button styles */
+:host(.button--appearance-filled) {
+  background-color: var(--tokens-primary-default);
+  color: var(--root-base-white);
+  border-color: var(--tokens-primary-default);
+}
+
+:host(.button--appearance-filled:hover) {
+  background-color: var(--tokens-primary-vivid);
+  border-color: var(--tokens-primary-vivid);
+}
+
+:host(.button--appearance-filled:focus) {
+  background-color: var(--tokens-primary-heavy);
+  border-color: var(--tokens-primary-heavy);
+}
+
+:host(.button--appearance-filled:disabled) {
+  background-color: var(--tokens-primary-soft);
+  color: var(--tokens-primary-subdue);
+  border-color: var(--tokens-primary-soft);
+}
+
+/* Outline button styles */
+:host(.button--appearance-outline) {
+  background-color: transparent;
+  color: var(--tokens-primary-default);
+  border-color: var(--tokens-primary-default);
+}
+
+:host(.button--appearance-outline:hover) {
+  color: var(--tokens-primary-vivid);
+  border-color: var(--tokens-primary-vivid);
+}
+
+:host(.button--appearance-outline:focus) {
+  color: var(--tokens-primary-heavy);
+  border-color: var(--tokens-primary-heavy);
+}
+
+:host(.button--appearance-outline:disabled) {
+  color: var(--tokens-primary-subdue);
+  border-color: var(--tokens-primary-subdue);
+}
+
+/* Ghost button styles */
+:host(.button--appearance-ghost) {
+  background-color: transparent;
+  color: var(--tokens-primary-default);
+  border-color: transparent;
+}
+
+:host(.button--appearance-ghost:hover) {
+  color: var(--tokens-primary-vivid);
+}
+
+:host(.button--appearance-ghost:focus) {
+  color: var(--tokens-primary-heavy);
+}
+
+:host(.button--appearance-ghost:disabled) {
+  color: var(--tokens-primary-subdue);
 }
