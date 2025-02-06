@@ -1,0 +1,22 @@
+# This is used with the label workflow which
+# will triage pull requests and apply a label based on the
+# paths that are modified in the pull request.
+#
+# For more information, see:
+# https://github.com/actions/labeler
+
+root:
+- changed-files:
+  - any-glob-to-any-file: '*'
+
+'package: components':
+- changed-files:
+  - any-glob-to-any-file: ['packages/components/**/*']
+
+'package: react':
+- changed-files:
+  - any-glob-to-any-file: ['packages/react/**/*']
+
+'package: website':
+- changed-files:
+  - any-glob-to-any-file: ['packages/website/**/*']

@@ -26,12 +26,16 @@ export const config: Config = {
     },
     {
       type: 'docs-vscode',
-      file: 'dist/html.html-data.json'
+      file: './dist/vscode-data.json'
     },
     {
-      type: 'www',
-      serviceWorker: null // disable service workers
+      type: 'docs-json',
+      file: './dist/docs.json'
     }
+    // {
+    //   type: 'www',
+    //   serviceWorker: null // disable service workers
+    // }
   ],
   testing: {
     browserHeadless: 'shell'
