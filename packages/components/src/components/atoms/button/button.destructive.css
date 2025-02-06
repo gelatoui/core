@@ -1,0 +1,67 @@
+/* ====================== */
+/* Destructive Button Styles */
+/* ====================== */
+
+/* Filled */
+:host(.button--destructive.button--appearance-filled) {
+  background-color: var(--tokens-destructive-default);
+  color: var(--root-base-white);
+  border-color: var(--tokens-destructive-default);
+}
+
+:host(.button--destructive.button--appearance-filled:hover) {
+  background-color: var(--tokens-destructive-vivid);
+  border-color: var(--tokens-destructive-vivid);
+}
+
+:host(.button--destructive.button--appearance-filled:focus) {
+  background-color: var(--tokens-destructive-heavy);
+  border-color: var(--tokens-destructive-heavy);
+}
+
+:host(.button--destructive.button--appearance-filled.button--disabled) {
+  background-color: var(--tokens-destructive-soft);
+  color: var(--tokens-destructive-subdue);
+  border-color: var(--tokens-destructive-soft);
+}
+
+/* Outline */
+:host(.button--destructive.button--appearance-outline) {
+  background-color: transparent;
+  color: var(--tokens-destructive-default);
+  border-color: var(--tokens-destructive-default);
+}
+
+:host(.button--destructive.button--appearance-outline:hover) {
+  color: var(--tokens-destructive-vivid);
+  border-color: var(--tokens-destructive-vivid);
+}
+
+:host(.button--destructive.button--appearance-outline:focus) {
+  color: var(--tokens-destructive-heavy);
+  border-color: var(--tokens-destructive-heavy);
+}
+
+:host(.button--destructive.button--appearance-outline.button--disabled) {
+  color: var(--tokens-destructive-subdue);
+  border-color: var(--tokens-destructive-subdue);
+}
+
+/* Ghost */
+:host(.button--destructive.button--appearance-ghost) {
+  background-color: transparent;
+  color: var(--tokens-destructive-default);
+  border-color: transparent;
+}
+
+:host(.button--destructive.button--appearance-ghost:hover) {
+  color: var(--tokens-destructive-vivid);
+}
+
+:host(.button--destructive.button--appearance-ghost:focus) {
+  color: var(--tokens-destructive-heavy);
+}
+
+:host(.button--destructive.button--appearance-ghost.button--disabled) {
+  color: var(--tokens-destructive-subdue);
+}

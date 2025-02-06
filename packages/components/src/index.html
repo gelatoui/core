@@ -8,11 +8,42 @@
     <script type="module" src="/build/components.esm.js"></script>
     <script nomodule src="/build/components.js"></script>
     <link rel="stylesheet" href="/build/components.css">
+
+    <!-- Recommended FONTS -->
+    <!-- Inter and Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
   </head>
   <body>
-    <glu-button>Button</glu-button>
-    <glu-button appearance="outline">Button</glu-button>
-    <glu-button appearance="ghost">Button</glu-button>
-    <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
+    <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
+      <div>
+        <glu-button>Button</glu-button>
+        <glu-button appearance="outline">Button</glu-button>
+        <glu-button appearance="ghost">Button</glu-button>
+        <glu-button disabled>Button</glu-button>
+        <glu-button disabled appearance="outline">Button</glu-button>
+        <glu-button disabled appearance="ghost">Button</glu-button>
+      </div>
+      <div>
+        <glu-button button-type="secondary">Button</glu-button>
+        <glu-button button-type="secondary" appearance="outline">Button</glu-button>
+        <glu-button button-type="secondary" appearance="ghost">Button</glu-button>
+        <glu-button disabled button-type="secondary">Button</glu-button>
+        <glu-button disabled button-type="secondary" appearance="outline">Button</glu-button>
+        <glu-button disabled button-type="secondary" appearance="ghost">Button</glu-button>
+      </div>
+      <div>
+        <glu-button button-type="destructive">Button</glu-button>
+        <glu-button button-type="destructive" appearance="outline">Button</glu-button>
+        <glu-button button-type="destructive" appearance="ghost">Button</glu-button>
+        <glu-button disabled button-type="destructive">Button</glu-button>
+        <glu-button disabled button-type="destructive" appearance="outline">Button</glu-button>
+        <glu-button disabled button-type="destructive" appearance="ghost">Button</glu-button>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
+      <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
+    </div>
   </body>
 </html>

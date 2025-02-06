@@ -12,7 +12,12 @@ h('')
 @Component({
   tag: 'glu-button',
   shadow: true,
-  styleUrls: ['./button.css']
+  styleUrls: [
+    './button.css',
+    './button.primary.css',
+    './button.secondary.css',
+    './button.destructive.css'
+  ]
 })
 export class ButtonGlu {
   /** Reference to the host element */
