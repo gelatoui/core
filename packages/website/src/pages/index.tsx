@@ -27,9 +27,9 @@ const HomepageHeader = () => {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro"
+            to="/docs/getting-started/about"
           >
-            Docusaurus Tutorial - 5min ⏱️
+            Gelato UI Documentation
           </Link>
         </div>
       </div>

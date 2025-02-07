@@ -1,0 +1,84 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+import { GluButton } from '@gelato-ui/react'
+
+## Slots
+
+This example demonstrates how to use the start, end, and icon-only slots to customize the button's content.
+
+<Tabs >
+  <TabItem value="html" label="Html">
+
+    ```html live
+      <glu-button>
+        <span slot="start">👈</span>
+        Click Me
+        <span slot="end">👉</span>
+        <span slot="icon-only">⭐</span>
+      </glu-button>
+    ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+    ```jsx live
+      <GluButton>
+        <span slot="start">👈</span>
+        Click Me
+        <span slot="end">👉</span>
+        <span slot="icon-only">⭐</span>
+      </GluButton>
+    ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+    ```html
+      <template>
+        <glu-button>
+          <span slot="start">👈</span>
+          Click Me
+          <span slot="end">👉</span>
+          <span slot="icon-only">⭐</span>
+        </glu-button>
+      </template>
+
+      <script lang="ts">
+        import { GluButton } from '@gelato-ui/vue';
+        import { defineComponent } from 'vue';
+
+        export default defineComponent({
+          components: { GluButton },
+        });
+      </script>
+    ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+    ```html
+      <glu-button>
+        <span slot="start">👈</span>
+        Click Me
+        <span slot="end">👉</span>
+        <span slot="icon-only">⭐</span>
+      </glu-button>
+    ```
+
+    ```ts
+      import { GluButton } from '@gelato-ui/angular';
+      import { Component } from '@angular/core';
+
+      @Component({
+        selector: 'app-root',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.css'],
+        imports: [GluButton],
+      })
+      export class AppComponent {
+        title = 'app';
+      }
+    ```
+
+  </TabItem>
+</Tabs>

@@ -1,19 +1,64 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+gelato-ui:
+  label: Gelato UI
+  permalink: /gelato-ui
+  description: Explore resources, components, and best practices for building user interfaces with Gelato UI, a modern design system for seamless web development.
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+react:
+  label: React
+  permalink: /react
+  description: Dive into the world of React, a powerful JavaScript library for building dynamic and interactive user interfaces with reusable components.
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+vue:
+  label: Vue
+  permalink: /vue
+  description: Discover Vue.js, a progressive JavaScript framework for building intuitive and performant single-page applications.
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+angular:
+  label: Angular
+  permalink: /angular
+  description: Learn about Angular, a robust TypeScript-based framework for developing scalable and enterprise-grade web applications.
+
+html:
+  label: HTML
+  permalink: /html
+  description: Master the fundamentals of HTML, the standard markup language for creating structured and accessible web content.
+
+css:
+  label: CSS
+  permalink: /css
+  description: Enhance your web designs with CSS, the styling language used to create visually appealing and responsive user interfaces.
+
+javascript:
+  label: JavaScript
+  permalink: /javascript
+  description: Explore JavaScript, the versatile programming language that powers dynamic behavior and interactivity on the web.
+
+typescript:
+  label: TypeScript
+  permalink: /typescript
+  description: Leverage TypeScript, a typed superset of JavaScript, to build scalable and maintainable web applications with fewer errors.
+
+web-components:
+  label: Web Components
+  permalink: /web-components
+  description: Build reusable and encapsulated UI elements with Web Components, a set of web platform APIs for creating custom HTML elements.
+
+figma:
+  label: Figma
+  permalink: /figma
+  description: Streamline your design workflow with Figma, a collaborative design tool for creating, prototyping, and sharing user interfaces.
+
+design-system:
+  label: Design System
+  permalink: /design-system
+  description: Create consistent and cohesive user experiences with Design Systems, a collection of reusable components and guidelines.
+
+documentation:
+  label: Documentation
+  permalink: /documentation
+  description: Access comprehensive guides, references, and resources to help you understand and implement various technologies and tools.
+
+tutorial:
+  label: Tutorial
+  permalink: /tutorial
+  description: Step-by-step tutorials to help you learn new skills, frameworks, and tools for web development and design.

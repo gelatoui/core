@@ -16,12 +16,26 @@ export default [
   ...fixupConfigRules(flatCompat.plugins('@stencil-community')),
   ...eslintConfig({
     config: [ConfigOption.Ts],
-    optionals: [OptionalOption.Cspell, OptionalOption.Vitest]
+    optionals: [OptionalOption.Cspell, OptionalOption.Vitest, OptionalOption.Mdx]
   }),
   {
     name: 'custom-local',
     rules: {
       'testing-library/no-dom-import': 'off'
+    }
+  },
+  {
+    name: 'custom-markdown',
+    files: ['**/*.{md,mdx}'],
+    rules: {
+      'no-unused-vars': 'off',
+      '@stylistic/indent': 'off',
+      '@stylistic/jsx-closing-bracket-location': 'off',
+      indent: 'off',
+      'no-multi-spaces': 'off',
+      '@stylistic/no-multi-spaces': 'off',
+      'comma-dangle': 'off',
+      '@stylistic/jsx-tag-spacing': 'off'
     }
   }
 ]
