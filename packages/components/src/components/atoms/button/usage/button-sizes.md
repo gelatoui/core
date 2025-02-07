@@ -1,0 +1,54 @@
+The `glu-button` component supports multiple sizes, allowing you to customize the button's dimensions to fit your design needs. The `size` property can be set to `small`, `medium`, or `large`. Below is an example demonstrating how to use the `size` property with the `glu-button` component.
+
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1rem',
+  padding: '1rem'
+}}>
+  <div>
+    <glu-button size="small">Small Button</glu-button>
+    <glu-button size="medium">Medium Button</glu-button>
+    <glu-button size="large">Large Button</glu-button>
+  </div>
+  <div>
+    <glu-button size="small" appearance="outline">Small Outline</glu-button>
+    <glu-button size="medium" appearance="outline">Medium Outline</glu-button>
+    <glu-button size="large" appearance="outline">Large Outline</glu-button>
+  </div>
+  <div>
+    <glu-button size="small" appearance="ghost">Small Ghost</glu-button>
+    <glu-button size="medium" appearance="ghost">Medium Ghost</glu-button>
+    <glu-button size="large" appearance="ghost">Large Ghost</glu-button>
+  </div>
+  <div>
+    <glu-button size="small" disabled>Small Disabled</glu-button>
+    <glu-button size="medium" disabled>Medium Disabled</glu-button>
+    <glu-button size="large" disabled>Large Disabled</glu-button>
+  </div>
+</div>
+
+```html
+<div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
+  <div>
+    <glu-button size="small">Small Button</glu-button>
+    <glu-button size="medium">Medium Button</glu-button>
+    <glu-button size="large">Large Button</glu-button>
+  </div>
+  <div>
+    <glu-button size="small" appearance="outline">Small Outline</glu-button>
+    <glu-button size="medium" appearance="outline">Medium Outline</glu-button>
+    <glu-button size="large" appearance="outline">Large Outline</glu-button>
+  </div>
+  <div>
+    <glu-button size="small" appearance="ghost">Small Ghost</glu-button>
+    <glu-button size="medium" appearance="ghost">Medium Ghost</glu-button>
+    <glu-button size="large" appearance="ghost">Large Ghost</glu-button>
+  </div>
+  <div>
+    <glu-button size="small" disabled>Small Disabled</glu-button>
+    <glu-button size="medium" disabled>Medium Disabled</glu-button>
+    <glu-button size="large" disabled>Large Disabled</glu-button>
+  </div>
+</div>
+```

@@ -17,6 +17,7 @@
   "dependencies": {
     "@docusaurus/core": "3.7.0",
     "@docusaurus/preset-classic": "3.7.0",
+    "@docusaurus/theme-live-codeblock": "^3.7.0",
     "@gelato-ui/components": "file:../components",
     "@gelato-ui/react": "file:../react",
     "@mdx-js/react": "^3.0.0",

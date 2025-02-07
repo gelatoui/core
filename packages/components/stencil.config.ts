@@ -22,7 +22,9 @@ export const config: Config = {
       externalRuntime: false
     },
     {
-      type: 'docs-readme'
+      type: 'docs-readme',
+      strict: true,
+      dir: 'dist/readme'
     },
     {
       type: 'docs-vscode',
