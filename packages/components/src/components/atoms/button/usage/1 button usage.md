@@ -1,7 +1,3 @@
----
-title: How to Use `glu-button`
----
-
 The `glu-button` component is a highly customizable button that supports various appearances, sizes, and types. It can be used as a standard button or as a link (anchor tag) when an `href` is provided. Below are some examples of how to use the `glu-button` component in different configurations.
 
 <div style={{
