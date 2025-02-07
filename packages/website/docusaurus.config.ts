@@ -99,12 +99,15 @@ const config: Config = {
     },
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'Gelato UI',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Gelato UI Logo',
         src: 'img/logo.svg'
       },
       items: [
+        {
+          type: 'docsVersionDropdown'
+        },
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
