@@ -6,50 +6,49 @@ import { GluButton } from '@gelato-ui/react'
 
 This example demonstrates how to use the start, end, and icon-only slots to customize the button's content.
 
-<Tabs >
-  <TabItem value="html" label="Html">
+<Tabs>
+  <TabItem value="html" label="HTML">
 
     ```html live
-      <glu-button>
-        <span slot="start">👈</span>
-        Click Me
-        <span slot="end">👉</span>
-        <span slot="icon-only">⭐</span>
-      </glu-button>
-    ```
-
-  </TabItem>
-  <TabItem value="jsx" label="React">
-
-    ```jsx live
-      <GluButton>
-        <span slot="start">👈</span>
-        Click Me
-        <span slot="end">👉</span>
-        <span slot="icon-only">⭐</span>
-      </GluButton>
-    ```
-
-  </TabItem>
-  <TabItem value="vue" label="Vue">
-
-    ```html
-      <template>
+      <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
         <glu-button>
           <span slot="start">👈</span>
           Click Me
           <span slot="end">👉</span>
           <span slot="icon-only">⭐</span>
         </glu-button>
-      </template>
+      </div>
+    ```
 
-      <script lang="ts">
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+    ```jsx live
+      <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
+        <GluButton>
+          <span slot="start">👈</span>
+          Click Me
+          <span slot="end">👉</span>
+          <span slot="icon-only">⭐</span>
+        </GluButton>
+      </div>
+    ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+    ```html
+      <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
+        <glu-button>
+          <template #start>👈</template>
+          Click Me
+          <template #end>👉</template>
+          <template #icon-only>⭐</template>
+        </glu-button>
+      </div>
+
+      <script setup>
         import { GluButton } from '@gelato-ui/vue';
-        import { defineComponent } from 'vue';
-
-        export default defineComponent({
-          components: { GluButton },
-        });
       </script>
     ```
 
@@ -57,27 +56,26 @@ This example demonstrates how to use the start, end, and icon-only slots to cust
   <TabItem value="angular" label="Angular">
 
     ```html
-      <glu-button>
-        <span slot="start">👈</span>
-        Click Me
-        <span slot="end">👉</span>
-        <span slot="icon-only">⭐</span>
-      </glu-button>
+      <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
+        <glu-button>
+          <span slot="start">👈</span>
+          Click Me
+          <span slot="end">👉</span>
+          <span slot="icon-only">⭐</span>
+        </glu-button>
+      </div>
     ```
 
     ```ts
-      import { GluButton } from '@gelato-ui/angular';
       import { Component } from '@angular/core';
+      import { GluButton } from '@gelato-ui/angular';
 
       @Component({
-        selector: 'app-root',
-        templateUrl: './app.component.html',
-        styleUrls: ['./app.component.css'],
+        standalone: true,
         imports: [GluButton],
+        template: `...` // Template content from above
       })
-      export class AppComponent {
-        title = 'app';
-      }
+      export class MyComponent {}
     ```
 
   </TabItem>
