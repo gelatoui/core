@@ -1,10 +1,10 @@
 import clsx from 'clsx'
 import type { ReactNode } from 'react'
 
+import '@gelato-ui/components/components.css'
+
 import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-// TODO: Working process
-// import '@gelato-ui/components/my-component';
 import { defineCustomElements } from '@gelato-ui/components/loader'
 import HomepageFeatures from '@site/src/components/HomepageFeatures'
 import Heading from '@theme/Heading'

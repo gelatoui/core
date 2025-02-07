@@ -20,16 +20,12 @@ This example demonstrates how to use the start, end, and icon-only slots to cust
 <TabItem value="jsx" label="React">
 
 ```jsx live
-  import { GluButton } from '@gelato-ui/react';
-
-  const Button = () => (
-    <GluButton>
-      {/* <span slot="start">👈</span> */}
-      Click Me
-      {/* <span slot="end">👉</span>
-      <span slot="icon-only">⭐</span> */}
-    </GluButton>
-  )
+  <GluButton>
+    {/* <span slot="start">👈</span> */}
+    Click Me
+    {/* <span slot="end">👉</span>
+    <span slot="icon-only">⭐</span> */}
+  </GluButton>
 ```
 
 </TabItem>

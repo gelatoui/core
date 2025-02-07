@@ -31,6 +31,11 @@
       "import": "./loader/index.js",
       "require": "./loader/index.cjs",
       "types": "./loader/index.d.ts"
+    },
+    "./components.css": {
+      "import": "./dist/components/components.css",
+      "require": "./dist/components/components.css",
+      "types": "./dist/components/components.css"
     }
   },
   "repository": {

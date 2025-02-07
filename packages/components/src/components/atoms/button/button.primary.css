@@ -3,65 +3,65 @@
 /* ====================== */
 
 /* Filled */
-:host(.button--appearance-filled) {
+:host(.glu-button--appearance-filled) {
   background-color: var(--tokens-primary-default);
   color: var(--root-base-white);
   border-color: var(--tokens-primary-default);
 }
 
-:host(.button--appearance-filled:hover) {
+:host(.glu-button--appearance-filled:hover) {
   background-color: var(--tokens-primary-vivid);
   border-color: var(--tokens-primary-vivid);
 }
 
-:host(.button--appearance-filled:focus) {
+:host(.glu-button--appearance-filled:focus) {
   background-color: var(--tokens-primary-heavy);
   border-color: var(--tokens-primary-heavy);
 }
 
-:host(.button--appearance-filled.button--disabled) {
+:host(.glu-button--appearance-filled.glu-button--disabled) {
   background-color: var(--tokens-primary-soft);
   color: var(--tokens-primary-subdue);
   border-color: var(--tokens-primary-soft);
 }
 
 /* Outline */
-:host(.button--appearance-outline) {
+:host(.glu-button--appearance-outline) {
   background-color: transparent;
   color: var(--tokens-primary-default);
   border-color: var(--tokens-primary-default);
 }
 
-:host(.button--appearance-outline:hover) {
+:host(.glu-button--appearance-outline:hover) {
   color: var(--tokens-primary-vivid);
   border-color: var(--tokens-primary-vivid);
 }
 
-:host(.button--appearance-outline:focus) {
+:host(.glu-button--appearance-outline:focus) {
   color: var(--tokens-primary-heavy);
   border-color: var(--tokens-primary-heavy);
 }
 
-:host(.button--appearance-outline.button--disabled) {
+:host(.glu-button--appearance-outline.glu-button--disabled) {
   color: var(--tokens-primary-subdue);
   border-color: var(--tokens-primary-subdue);
 }
 
 /* Ghost */
-:host(.button--appearance-ghost) {
+:host(.glu-button--appearance-ghost) {
   background-color: transparent;
   color: var(--tokens-primary-default);
   border-color: transparent;
 }
 
-:host(.button--appearance-ghost:hover) {
+:host(.glu-button--appearance-ghost:hover) {
   color: var(--tokens-primary-vivid);
 }
 
-:host(.button--appearance-ghost:focus) {
+:host(.glu-button--appearance-ghost:focus) {
   color: var(--tokens-primary-heavy);
 }
 
-:host(.button--appearance-ghost.button--disabled) {
+:host(.glu-button--appearance-ghost.glu-button--disabled) {
   color: var(--tokens-primary-subdue);
 }

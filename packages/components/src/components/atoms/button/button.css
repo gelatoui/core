@@ -25,12 +25,12 @@ button {
 }
 
 /* Disabled state */
-:host(.button--disabled) {
+:host(.glu-button--disabled) {
   cursor: not-allowed;
 }
 
 /* Small, Medium, Large button sizes */
-:host(.button--size-small) {
+:host(.glu-button--size-small) {
   padding: var(--spacing-050) var(--spacing-100);
   font-size: var(--body-small-medium-font-size);
   font-weight: var(--body-small-medium-font-weight);
@@ -38,7 +38,7 @@ button {
   font-family: var(--body-small-medium-font-family);
 }
 
-:host(.button--size-medium) {
+:host(.glu-button--size-medium) {
   padding: var(--spacing-050) var(--spacing-150);
   font-size: var(--body-medium-medium-font-size);
   font-weight: var(--body-medium-medium-font-weight);
@@ -46,7 +46,7 @@ button {
   font-family: var(--body-medium-medium-font-family);
 }
 
-:host(.button--size-large) {
+:host(.glu-button--size-large) {
   padding: var(--spacing-100) var(--spacing-250);
   font-size: var(--body-large-medium-font-size);
   font-weight: var(--body-large-medium-font-weight);

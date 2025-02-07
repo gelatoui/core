@@ -104,11 +104,11 @@ export class ButtonGlu {
     return (
       <Host
         class={{
-          button: true,
-          [`button--${buttonType}`]: !!buttonType,
-          [`button--size-${size}`]: !!size,
-          [`button--appearance-${appearance}`]: !!appearance,
-          'button--disabled': disabled
+          'glu-button': true,
+          [`glu-button--${buttonType}`]: !!buttonType,
+          [`glu-button--size-${size}`]: !!size,
+          [`glu-button--appearance-${appearance}`]: !!appearance,
+          'glu-button--disabled': disabled
         }}
       >
         <TagType {...attrs}>
