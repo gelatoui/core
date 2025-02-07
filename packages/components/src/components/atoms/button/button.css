@@ -19,7 +19,7 @@
 
 button {
   all: unset;  /* Reset all button default styles */
-  display: inline-block;
+  display: flex;
   width: 100%; /* If you want the button to take up available space */
   text-align: center;
 }
@@ -36,6 +36,7 @@ button {
   font-weight: var(--body-small-medium-font-weight);
   line-height: var(--body-small-medium-line-height);
   font-family: var(--body-small-medium-font-family);
+  gap: var(--spacing-50);
 }
 
 :host(.glu-button--size-medium) {
@@ -44,6 +45,7 @@ button {
   font-weight: var(--body-medium-medium-font-weight);
   line-height: var(--body-medium-medium-line-height);
   font-family: var(--body-medium-medium-font-family);
+  gap: var(--spacing-50);
 }
 
 :host(.glu-button--size-large) {
@@ -52,4 +54,5 @@ button {
   font-weight: var(--body-large-medium-font-weight);
   line-height: var(--body-large-medium-line-height);
   font-family: var(--body-large-medium-font-family);
+  gap: var(--spacing-100);
 }

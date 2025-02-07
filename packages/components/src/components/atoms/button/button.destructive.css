@@ -15,6 +15,11 @@
 }
 
 :host(.glu-button--destructive.glu-button--appearance-filled:focus) {
+  background-color: var(--tokens-destructive-vivid);
+  border-color: var(--tokens-destructive-vivid);
+}
+
+:host(.glu-button--destructive.glu-button--appearance-filled:active) {
   background-color: var(--tokens-destructive-heavy);
   border-color: var(--tokens-destructive-heavy);
 }
@@ -38,13 +43,19 @@
 }
 
 :host(.glu-button--destructive.glu-button--appearance-outline:focus) {
-  color: var(--tokens-destructive-heavy);
-  border-color: var(--tokens-destructive-heavy);
+  color: var(--tokens-destructive-vivid);
+  border-color: var(--tokens-destructive-vivid);
+}
+
+:host(.glu-button--destructive.glu-button--appearance-outline:active) {
+  color: var(--tokens-destructive-default);
+  border-color: var(--tokens-destructive-default);
+  background-color: var(--tokens-destructive-soft);
 }
 
 :host(.glu-button--destructive.glu-button--appearance-outline.glu-button--disabled) {
-  color: var(--tokens-destructive-subdue);
-  border-color: var(--tokens-destructive-subdue);
+  color: var(--tokens-destructive-muted);
+  border-color: var(--tokens-destructive-muted);
 }
 
 /* Ghost */
@@ -59,6 +70,10 @@
 }
 
 :host(.glu-button--destructive.glu-button--appearance-ghost:focus) {
+  color: var(--tokens-destructive-vivid);
+}
+
+:host(.glu-button--destructive.glu-button--appearance-ghost:hover) {
   color: var(--tokens-destructive-heavy);
 }
 

@@ -15,6 +15,11 @@
 }
 
 :host(.glu-button--appearance-filled:focus) {
+  background-color: var(--tokens-primary-vivid);
+  border-color: var(--tokens-primary-vivid);
+}
+
+:host(.glu-button--appearance-filled:active) {
   background-color: var(--tokens-primary-heavy);
   border-color: var(--tokens-primary-heavy);
 }
@@ -38,13 +43,19 @@
 }
 
 :host(.glu-button--appearance-outline:focus) {
+  color: var(--tokens-primary-vivid);
+  border-color: var(--tokens-primary-vivid);
+}
+
+:host(.glu-button--appearance-outline:active) {
   color: var(--tokens-primary-heavy);
   border-color: var(--tokens-primary-heavy);
+  background-color: var(--tokens-primary-soft);
 }
 
 :host(.glu-button--appearance-outline.glu-button--disabled) {
-  color: var(--tokens-primary-subdue);
-  border-color: var(--tokens-primary-subdue);
+  color: var(--tokens-primary-muted);
+  border-color: var(--tokens-primary-muted);
 }
 
 /* Ghost */
@@ -59,6 +70,10 @@
 }
 
 :host(.glu-button--appearance-ghost:focus) {
+  color: var(--tokens-primary-vivid);
+}
+
+:host(.glu-button--appearance-ghost:active) {
   color: var(--tokens-primary-heavy);
 }
 

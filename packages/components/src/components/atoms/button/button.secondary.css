@@ -10,13 +10,18 @@
 }
 
 :host(.glu-button--secondary.glu-button--appearance-filled:hover) {
-  background-color: var(--tokens-secondary-vivid);
-  border-color: var(--tokens-secondary-vivid);
+  background-color: var(--tokens-secondary-heavy);
+  border-color: var(--tokens-secondary-heavy);
 }
 
 :host(.glu-button--secondary.glu-button--appearance-filled:focus) {
   background-color: var(--tokens-secondary-heavy);
   border-color: var(--tokens-secondary-heavy);
+}
+
+:host(.glu-button--secondary.glu-button--appearance-filled:active) {
+  background-color: var(--tokens-secondary-vivid);
+  border-color: var(--tokens-secondary-vivid);
 }
 
 :host(.glu-button--secondary.glu-button--appearance-filled.glu-button--disabled) {
@@ -33,8 +38,8 @@
 }
 
 :host(.glu-button--secondary.glu-button--appearance-outline:hover) {
-  color: var(--tokens-secondary-vivid);
-  border-color: var(--tokens-secondary-vivid);
+  color: var(--tokens-secondary-heavy);
+  border-color: var(--tokens-secondary-heavy);
 }
 
 :host(.glu-button--secondary.glu-button--appearance-outline:focus) {
@@ -42,9 +47,15 @@
   border-color: var(--tokens-secondary-heavy);
 }
 
+:host(.glu-button--secondary.glu-button--appearance-outline:active) {
+  color: var(--tokens-secondary-vivid);
+  border-color: var(--tokens-secondary-vivid);
+  background-color: var(--tokens-secondary-soft);
+}
+
 :host(.glu-button--secondary.glu-button--appearance-outline.glu-button--disabled) {
-  color: var(--tokens-secondary-default);
-  border-color: var(--tokens-secondary-default);
+  color: var(--tokens-secondary-muted);
+  border-color: var(--tokens-secondary-muted);
 }
 
 /* Ghost */
@@ -55,11 +66,15 @@
 }
 
 :host(.glu-button--secondary.glu-button--appearance-ghost:hover) {
-  color: var(--tokens-secondary-vivid);
+  color: var(--tokens-secondary-heavy);
 }
 
 :host(.glu-button--secondary.glu-button--appearance-ghost:focus) {
   color: var(--tokens-secondary-heavy);
+}
+
+:host(.glu-button--secondary.glu-button--appearance-ghost:active) {
+  color: var(--tokens-secondary-vivid);
 }
 
 :host(.glu-button--secondary.glu-button--appearance-ghost.glu-button--disabled) {

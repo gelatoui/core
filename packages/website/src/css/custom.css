@@ -28,3 +28,7 @@
   --ifm-color-primary-lightest: #558dfa;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+div.playgroundPreview_wiye {
+  background-color: var(--root-base-white);
+}

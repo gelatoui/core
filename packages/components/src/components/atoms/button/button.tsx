@@ -112,12 +112,10 @@ export class ButtonGlu {
         }}
       >
         <TagType {...attrs}>
-          <span class="button-inner">
-            <slot name="icon-only"></slot>
-            <slot name="start"></slot>
-            <slot></slot>
-            <slot name="end"></slot>
-          </span>
+          <slot name="icon-only"></slot>
+          <slot name="start"></slot>
+          <slot></slot>
+          <slot name="end"></slot>
         </TagType>
       </Host>
     )
