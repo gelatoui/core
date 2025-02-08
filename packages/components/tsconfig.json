@@ -18,7 +18,8 @@
     "jsxFragmentFactory": "h.Fragment"
   },
   "include": [
-    "src"
+    "src",
+    "./stencil.config.ts"
   ],
   "exclude": [
     "node_modules"

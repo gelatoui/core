@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable @stylistic/lines-around-comment */
 import {
   ButtonAppearance,
@@ -33,62 +34,67 @@ h('')
 export class ButtonGlu {
   /**
    * Reference to the host element.
-   * @type {HTMLElement}
+   * @type {HTMLGluButtonElement}
    */
-  @Element() el!: HTMLElement
+  @Element() el!: HTMLGluButtonElement
 
   /**
-   * Determines the visual style of the button.
-   * @type {ButtonAppearance}
+   * Determines the visual style of the button
+   * @prop {ButtonAppearance} appearance - Visual style of the button
    * @default ButtonAppearance.FILLED
+   * @readonly
    */
-  @Prop({ reflect: true }) appearance: ButtonAppearance = ButtonAppearance.FILLED
+  @Prop({ reflect: true }) readonly appearance: ButtonAppearance = ButtonAppearance.FILLED
 
   /**
    * Defines the size of the button.
-   * @type {ButtonSize}
-   * @default ButtonSize.MEDIUM
+   * @prop {ButtonSize} size - The size of the button.
+   * @default medium
+   * @readonly
    */
-  @Prop({ reflect: true }) size: ButtonSize = ButtonSize.MEDIUM
+  @Prop({ reflect: true }) readonly size: ButtonSize = ButtonSize.MEDIUM
 
   /**
    * Specifies the type of button.
-   * @type {ButtonType}
-   * @default ButtonType.PRIMARY
+   * @prop {ButtonType} buttonType - The type of button.
+   * @default primary
+   * @readonly
    */
-  @Prop({ reflect: true }) buttonType: ButtonType = ButtonType.PRIMARY
+  @Prop({ reflect: true }) readonly buttonType: ButtonType = ButtonType.PRIMARY
 
   /**
    * If `true`, the user cannot interact with the button.
-   * @type {boolean}
+   * @prop {boolean} disabled - Disables the button when set to `true`.
    * @default false
+   * @readonly
    */
-  @Prop({ reflect: true }) disabled = false
+  @Prop({ reflect: true }) readonly disabled = false
 
   /**
    * Contains a URL or a URL fragment that the hyperlink points to. If set, an anchor tag will be rendered.
-   * @type {string}
+   * @prop {string} [href] - URL the button should navigate to.
    */
-  @Prop() href?: string
+  @Prop() readonly href?: string
 
   /**
-   * Specifies the relationship of the target object to the link object. The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
-   * @type {string}
+   * Specifies the relationship of the target object to the link object.
+   * @prop {string} [rel] - Space-separated list of link types.
    */
-  @Prop() rel?: string
+  @Prop() readonly rel?: string
 
   /**
-   * Specifies where to display the linked URL. Only applies when an `href` is provided. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
-   * @type {string}
+   * Specifies where to display the linked URL. Only applies when an `href` is provided.
+   * @prop {string} [target] - Specifies where to open the linked document (`_self`, `_blank`, etc.).
    */
-  @Prop() target?: string
+  @Prop() readonly target?: string
 
   /**
    * The type of the button.
-   * @type {'submit' | 'reset' | 'button'}
-   * @default 'button'
+   * @prop {'submit' | 'reset' | 'button'} type - Specifies the native button type.
+   * @default button
+   * @readonly
    */
-  @Prop() type: 'submit' | 'reset' | 'button' = 'button'
+  @Prop() readonly type: 'submit' | 'reset' | 'button' = 'button'
 
   /**
    * Render method to generate the component's HTML.
