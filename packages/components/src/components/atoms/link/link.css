@@ -23,6 +23,10 @@
   color: var(--tokens-primary-heavy);
 }
 
+:host(a:active) {
+  color: var(--tokens-primary-subdue);
+}
+
 :host(.glu-link--size-large) {
   font-size: var(--body-large-medium-font-size);
   font-weight: var(--body-large-medium-font-weight);
