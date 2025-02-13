@@ -33,11 +33,11 @@ export const config: Config = {
     {
       type: 'docs-json',
       file: './dist/docs.json'
+    },
+    {
+      type: 'www',
+      serviceWorker: null // disable service workers
     }
-    // {
-    //   type: 'www',
-    //   serviceWorker: null // disable service workers
-    // }
   ],
   testing: {
     browserHeadless: 'shell'

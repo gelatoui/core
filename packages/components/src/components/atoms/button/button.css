@@ -20,7 +20,7 @@
 button, a {
   all: unset;  /* Reset all button default styles */
   display: flex;
-  width: 100%; /* If you want the button to take up available space */
+  width: 100%;
   text-align: center;
   gap: var(--spacing-050);
 }
