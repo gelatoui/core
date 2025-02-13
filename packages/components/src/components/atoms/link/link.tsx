@@ -46,7 +46,12 @@ export class GluLink {
     const { size, target, rel, href } = this
 
     return (
-      <Host class={{ [`glu-link--${size}`]: !!size }}>
+      <Host
+        class={{
+          'glu-button': true,
+          [`glu-link--size-${size}`]: !!size
+        }}
+      >
         <a href={href} target={target} rel={rel}>
           <slot></slot>
         </a>

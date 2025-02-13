@@ -36,6 +36,6 @@ describe('glu-link', () => {
 
     const element = await page.find('glu-link')
 
-    expect(element).toHaveClass('glu-link--large')
+    expect(element).toHaveClass('glu-link--size-large')
   })
 })

@@ -11,7 +11,7 @@ describe('glu-link', () => {
     })
 
     expect(page.root).toEqualHtml(/* html */ `
-      <glu-link href="https://example.com" class="glu-link--medium">
+      <glu-link href="https://example.com" class="glu-button glu-link--size-medium">
         <mock:shadow-root>
           <a href="https://example.com" target="_self">
             <slot></slot>
@@ -29,7 +29,7 @@ describe('glu-link', () => {
     })
 
     expect(page.root).toEqualHtml(/* html */ `
-      <glu-link href="https://example.com" class="glu-link--large" target="_blank" size="large">
+      <glu-link href="https://example.com" class="glu-button glu-link--size-large" target="_blank" size="large">
         <mock:shadow-root>
           <a href="https://example.com" target="_blank">
             <slot></slot>
@@ -47,7 +47,7 @@ describe('glu-link', () => {
     })
 
     expect(page.root).toEqualHtml(/* html */ `
-      <glu-link href="https://example.com" rel="noopener noreferrer" class="glu-link--medium">
+      <glu-link href="https://example.com" rel="noopener noreferrer" class="glu-button  glu-link--size-medium">
         <mock:shadow-root>
           <a href="https://example.com" target="_self" rel="noopener noreferrer">
             <slot></slot>

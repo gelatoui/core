@@ -1,12 +1,9 @@
-a {
+:host(a) {
   all: unset;  /* Reset all button default styles */
   display: flex;
   width: 100%;
   text-align: center;
   gap: var(--spacing-050);
-}
-
-:host {
   color: var(--tokens-primary-default);
   font-size: var(--body-medium-medium-font-size);
   font-weight: var(--body-medium-medium-font-weight);
@@ -18,29 +15,29 @@ a {
   transition: all 0.2s ease-in-out;
 }
 
-:host(:hover) {
+:host(a:hover) {
   color: var(--tokens-primary-vivid);
 }
 
-:host(:focus) {
+:host(a:focus) {
   color: var(--tokens-primary-heavy);
 }
 
-:host(.size-large) {
+:host(.glu-link--size-large) {
   font-size: var(--body-large-medium-font-size);
   font-weight: var(--body-large-medium-font-weight);
   line-height: var(--body-large-medium-line-height);
   font-family: var(--body-large-medium-font-family);
 }
 
-:host(.size-medium) {
+:host(.glu-link--size-medium) {
   font-size: var(--body-medium-medium-font-size);
   font-weight: var(--body-medium-medium-font-weight);
   line-height: var(--body-medium-medium-line-height);
   font-family: var(--body-medium-medium-font-family);
 }
 
-:host(.size-small) {
+:host(.glu-link--size-small) {
   font-size: var(--body-xsmall-medium-font-size);
   font-weight: var(--body-xsmall-medium-font-weight);
   line-height: var(--body-xsmall-medium-line-height);
