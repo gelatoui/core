@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import academicCapOutline from 'heroicons/24/outline/academic-cap.svg'
+import academicCapSolid from 'heroicons/24/solid/academic-cap.svg'
 
 import { GluIcon } from './icon'
 
@@ -91,5 +92,53 @@ describe('glu-icon', () => {
     })
 
     expect(page.root.shadowRoot.querySelector('img')).toBeNull()
+  })
+
+  it('renders solid variant icons', async () => {
+    const page = await newSpecPage({
+      components: [GluIcon],
+      html: '<glu-icon name="academic-cap" variant="solid"></glu-icon>'
+    })
+
+    expect(page.root).toEqualHtml(/* html */ `
+    <glu-icon name="academic-cap" variant="solid">
+      <mock:shadow-root>
+        <img
+          alt="academic-cap"
+          class="glu-icon"
+          height="24"
+          part="icon"
+          src="${academicCapSolid}"
+          width="24"
+        />
+      </mock:shadow-root>
+    </glu-icon>
+  `)
+  })
+
+  it('uses width without size', async () => {
+    const page = await newSpecPage({
+      components: [GluIcon],
+      html: '<glu-icon name="academic-cap" width="40"></glu-icon>'
+    })
+
+    const img = page.root.shadowRoot.querySelector('img')
+
+    expect(img.width).toBe(40)
+
+    expect(img.height).toBe(24) // Default height
+  })
+
+  it('uses height without size', async () => {
+    const page = await newSpecPage({
+      components: [GluIcon],
+      html: '<glu-icon name="academic-cap" height="30"></glu-icon>'
+    })
+
+    const img = page.root.shadowRoot.querySelector('img')
+
+    expect(img.width).toBe(24) // Default width
+
+    expect(img.height).toBe(30)
   })
 })

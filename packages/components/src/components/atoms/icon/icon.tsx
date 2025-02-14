@@ -45,19 +45,19 @@ export class GluIcon {
 
   /**
    * Custom width of the icon in pixels (takes precedence over size)
-   * @prop {number} width - Specific width in pixels
+   * @prop {number | string} width - Specific width in pixels
    * @default 24
    * @readonly
    */
-  @Prop() readonly width: number = 24
+  @Prop() readonly width: number | string = 24
 
   /**
    * Custom height of the icon in pixels (takes precedence over size)
-   * @prop {number} height - Specific height in pixels
+   * @prop {number | string} height - Specific height in pixels
    * @default 24
    * @readonly
    */
-  @Prop() readonly height: number = 24
+  @Prop() readonly height: number | string = 24
 
   /**
    * Retrieves the SVG content for the configured icon
