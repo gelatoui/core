@@ -40,6 +40,21 @@ export const config: Config = {
     }
   ],
   testing: {
-    browserHeadless: 'shell'
+    browserHeadless: 'shell',
+    transform: {
+      '^.+\\.js$': 'babel-jest',
+      '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$': 'jest-transform-stub'
+    },
+    moduleNameMapper: {
+      '^.+.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$': 'jest-transform-stub'
+    },
+    coverageThreshold: {
+      global: {
+        branches: 80,
+        functions: 80,
+        lines: 80,
+        statements: -10
+      }
+    }
   }
 }

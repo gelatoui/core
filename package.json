@@ -13,7 +13,7 @@
     "dev:components": "npm run start -w packages/components",
     "dev:website": "npm run build:all && npm run start -w packages/website",
     "start:website": "npm run dev:website && npm run service -w packages/website",
-    "test": "npm run test -w packages/components",
+    "test": "npm run test:coverage -w packages/components",
     "lint": "eslint . --report-unused-disable-directives",
     "lint:fix": "npm run lint -- --fix --max-warnings=0",
     "pre-commit": "lint-staged",
