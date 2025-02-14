@@ -20,7 +20,6 @@ describe('glu-icon', () => {
             alt="academic-cap"
             class="glu-icon"
             height="24"
-            part="icon"
             src="${academicCapOutline}"
             width="24"
           />
@@ -107,7 +106,6 @@ describe('glu-icon', () => {
           alt="academic-cap"
           class="glu-icon"
           height="24"
-          part="icon"
           src="${academicCapSolid}"
           width="24"
         />
