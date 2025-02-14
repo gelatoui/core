@@ -1,12 +1,13 @@
 import React from 'react'
 
-import { GluButton, GluLink } from '@gelato-ui/react'
+import { GluButton, GluIcon, GluLink } from '@gelato-ui/react'
 
 const ReactLiveScope: unknown = {
   React,
   ...React,
   GluButton,
-  GluLink
+  GluLink,
+  GluIcon
 }
 
 export default ReactLiveScope

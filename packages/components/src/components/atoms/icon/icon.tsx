@@ -37,14 +37,14 @@ export class GluIcon {
   @Prop() readonly variant: IconVariant = IconVariant.Outline
 
   /**
-   * Uniform size of the icon in pixels (sets both width and height)
+   * Uniform size of the icon in pixels (takes precedence over width and height)
    * @prop {number} size - When set, overrides both width and height
    * @readonly
    */
   @Prop() readonly size: number
 
   /**
-   * Custom width of the icon in pixels (takes precedence over size)
+   * Custom width of the icon in pixels
    * @prop {number | string} width - Specific width in pixels
    * @default 24
    * @readonly
@@ -52,7 +52,7 @@ export class GluIcon {
   @Prop() readonly width: number | string = 24
 
   /**
-   * Custom height of the icon in pixels (takes precedence over size)
+   * Custom height of the icon in pixels
    * @prop {number | string} height - Specific height in pixels
    * @default 24
    * @readonly
@@ -91,7 +91,6 @@ export class GluIcon {
         width={size || width}
         height={size || height}
         src={svgContent}
-        part="icon"
       />
     )
   }

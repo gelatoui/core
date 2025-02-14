@@ -1,0 +1,29 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+### Size Control
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+    ```html live
+      <div style={{ display: 'flex', gap: '1rem', padding: '1rem', alignItems: 'center' }}>
+        <glu-icon name="arrow-up" size="16"></glu-icon>
+        <glu-icon name="arrow-up"></glu-icon>
+        <glu-icon name="arrow-up" width="40" height="32"></glu-icon>
+      </div>
+    ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+    ```jsx live
+      <div style={{ display: 'flex', gap: '1rem', padding: '1rem', alignItems: 'center' }}>
+        <GluIcon name="arrow-up" size={16} />
+        <GluIcon name="arrow-up" />
+        <GluIcon name="arrow-up" width={40} height={32} />
+      </div>
+    ```
+
+  </TabItem>
+</Tabs>
