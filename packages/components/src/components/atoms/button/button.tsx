@@ -8,8 +8,6 @@ import {
 
 import { Component, Element, h, Host, Prop } from '@stencil/core'
 
-h('')
-
 /**
  * A customizable button component with support for different appearances, sizes, and types.
  *
@@ -26,9 +24,9 @@ h('')
   shadow: true,
   styleUrls: [
     './button.css',
-    './button.primary.css',
-    './button.secondary.css',
-    './button.destructive.css'
+    './button-primary.css',
+    './button-secondary.css',
+    './button-destructive.css'
   ]
 })
 export class ButtonGlu {
