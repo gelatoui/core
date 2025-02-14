@@ -16,8 +16,8 @@
     "test": "npm run test -w packages/components",
     "lint": "eslint . --report-unused-disable-directives",
     "lint:fix": "npm run lint -- --fix --max-warnings=0",
-    "pre-commit": "lint-staged && npm run test",
-    "pre-push": "npm run build && npm run lint:fix",
+    "pre-commit": "lint-staged",
+    "pre-push": "npm run build && npm run lint:fix && npm run test",
     "inspector": "npx @eslint/config-inspector@latest",
     "prepare": "husky config/.husky"
   },
