@@ -14,7 +14,7 @@ describe('glu-icon', () => {
     })
 
     expect(page.root).toEqualHtml(/* html */ `
-      <glu-icon name="academic-cap">
+      <glu-icon name="academic-cap" variant="outline">
         <mock:shadow-root>
           <img
             alt="academic-cap"
@@ -22,6 +22,7 @@ describe('glu-icon', () => {
             height="24"
             src="${academicCapOutline}"
             width="24"
+            role="img"
           />
         </mock:shadow-root>
       </glu-icon>
@@ -54,16 +55,16 @@ describe('glu-icon', () => {
     expect(img.height).toBe(32)
   })
 
-  it('shows warning for missing icon', async () => {
-    const consoleWarn = jest.spyOn(console, 'warn')
+  it('shows error for missing icon', async () => {
+    const consoleError = jest.spyOn(console, 'error')
 
     await newSpecPage({
       components: [GluIcon],
       html: '<glu-icon name="missing-icon"></glu-icon>'
     })
 
-    expect(consoleWarn).toHaveBeenCalledWith(
-      'GluIcon: Icon "missing-icon" not found.'
+    expect(consoleError).toHaveBeenCalledWith(
+      '[GluIcon]: Icon "missing-icon" not found.'
     )
   })
 
@@ -108,6 +109,7 @@ describe('glu-icon', () => {
           height="24"
           src="${academicCapSolid}"
           width="24"
+          role="img"
         />
       </mock:shadow-root>
     </glu-icon>

@@ -26,7 +26,7 @@ export class GluIcon {
    * @example "arrow-up"
    * @example "chevron-right"
    */
-  @Prop() readonly name: string
+  @Prop({ reflect: true }) readonly name!: string
 
   /**
    * The visual variant style of the icon
@@ -34,14 +34,14 @@ export class GluIcon {
    * @default IconVariant.Outline
    * @readonly
    */
-  @Prop() readonly variant: IconVariant = IconVariant.Outline
+  @Prop({ reflect: true }) readonly variant: IconVariant = IconVariant.Outline
 
   /**
    * Uniform size of the icon in pixels (takes precedence over width and height)
    * @prop {number} size - When set, overrides both width and height
    * @readonly
    */
-  @Prop() readonly size: number
+  @Prop() readonly size?: number
 
   /**
    * Custom width of the icon in pixels
@@ -79,14 +79,15 @@ export class GluIcon {
     const { size, width, height, name } = this
 
     if (!svgContent) {
-      console.warn(`GluIcon: Icon "${name}" not found.`)
+      console.error(`[GluIcon]: Icon "${name}" not found.`)
 
       return null
     }
 
     return (
       <img
-        class={{ 'glu-icon': true }}
+        class="glu-icon"
+        role="img"
         alt={name}
         width={size || width}
         height={size || height}
