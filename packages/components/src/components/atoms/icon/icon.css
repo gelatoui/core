@@ -1,0 +1,12 @@
+/* ====================== */
+/* Default Icon Styles    */
+/* ====================== */
+:host {
+  --glu-icon-size: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+:host(.glu-icon) {
+  color: currentColor;
+}

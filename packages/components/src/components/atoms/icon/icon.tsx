@@ -7,7 +7,7 @@ import { Component, h, Prop } from '@stencil/core'
 
 @Component({
   tag: 'glu-icon',
-  // styleUrl: 'glu-icon.css',
+  styleUrl: 'icon.css',
   shadow: true
 })
 export class GluIcon {
@@ -17,6 +17,15 @@ export class GluIcon {
   /** Variant of the icon: 'outline' or 'solid' */
   @Prop() readonly variant: IconVariant = IconVariant.Outline
 
+  /** Size of the icon in pixels (sets both width and height) */
+  @Prop() readonly size: number
+
+  /** Custom width of the icon in pixels (overrides size) */
+  @Prop() readonly width: number = 24
+
+  /** Custom height of the icon in pixels (overrides size) */
+  @Prop() readonly height: number = 24
+
   private getIconSvg(): string {
     const icons = this.variant === IconVariant.Solid ? solidIcons : outlineIcons
 
@@ -25,13 +34,23 @@ export class GluIcon {
 
   render() {
     const svgContent = this.getIconSvg()
+    const { size, width, height, name } = this
 
     if (!svgContent) {
-      console.warn(`Icon: Icon "${this.name}" not found.`)
+      console.warn(`GluIcon: Icon "${name}" not found.`)
 
       return null
     }
 
-    return <img src={svgContent} alt={this.name} />
+    return (
+      <img
+        class={{ 'glu-icon': true }}
+        alt={name}
+        width={size || width}
+        height={size || height}
+        src={svgContent}
+        part="icon"
+      />
+    )
   }
 }
