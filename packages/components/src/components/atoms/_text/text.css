@@ -1,0 +1,13 @@
+.glu-text {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  margin: 0;
+}
+
+/* Alignment classes */
+.glu-text--align-left { text-align: left; }
+.glu-text--align-center { text-align: center; }
+.glu-text--align-right { text-align: right; }
+.glu-text--align-justify { text-align: justify; }
