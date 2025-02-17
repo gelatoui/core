@@ -7,6 +7,10 @@ import { GluIcon } from './icon'
 import { newSpecPage } from '@stencil/core/testing'
 
 describe('glu-icon', () => {
+  beforeEach(() => {
+    jest.spyOn(console, 'error').mockImplementation(() => undefined)
+  })
+
   it('renders correctly with default props', async () => {
     const page = await newSpecPage({
       components: [GluIcon],
