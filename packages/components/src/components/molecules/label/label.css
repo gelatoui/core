@@ -1,0 +1,42 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.glu-label {
+  display: flex;
+  align-items: center;
+  gap: var(--Spacing-050, 0.25rem);
+}
+
+.label-text {
+  color: var(--Tokens-Text-On-Light-Heavy, #191B1E);
+  font-family: var(--Body-Small-Medium-fontFamily, Inter);
+  font-size: var(--Body-Small-Medium-fontSize, 0.875rem);
+  font-style: normal;
+  font-weight: 500;
+  line-height: var(--Body-Small-Medium-lineHeight, 1.125rem);
+  letter-spacing: var(--Body-Small-Medium-letterSpacing, 0rem);
+}
+
+.tooltip-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tooltip-component {
+  display: none;
+}
+
+.label-counter {
+  color: var(--Tokens-Text-On-Light-Subdue, #7D8796);
+  font-family: var(--Body-Small-Regular-fontFamily, Inter);
+  font-size: var(--Body-Small-Regular-fontSize, 0.875rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--Body-Small-Regular-lineHeight, 1.125rem);
+  letter-spacing: var(--Body-Small-Regular-letterSpacing, 0rem);
+}
