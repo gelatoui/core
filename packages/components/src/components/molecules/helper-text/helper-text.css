@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  align-items: center;
+  gap: var(--Spacing-050, 0.25rem);
+}
+
+glu-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.text {
+  color: var(--Tokens-Text-On-Light-Subdue, #7D8796);
+  text-align: justify;
+  font-family: var(--Body-Small-Regular-fontFamily, Inter);
+  font-size: var(--Body-Small-Regular-fontSize, 0.875rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--Body-Small-Regular-lineHeight, 1.125rem);
+  letter-spacing: var(--Body-Small-Regular-letterSpacing, 0rem);
+}
