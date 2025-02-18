@@ -1,3 +1,4 @@
+/* eslint-disable @stylistic/max-len */
 /* eslint-disable no-undef */
 import { GluHelperText } from './helper-text'
 
@@ -16,9 +17,9 @@ describe('glu-helper-text', () => {
       <glu-helper-text class="glu-helper-text" icon="information-circle">
         <template shadowrootmode="open">
           <div class="icon">
-            <glu-icon name="information-circle" variant="outline">
+            <glu-icon class="glu-icon" name="information-circle" variant="outline">
               <template shadowrootmode="open">
-                <img alt="information-circle" class="glu-icon" height="14" role="img" src="[object Object]" width="14">
+                <span aria-label="information-circle" role="img" style="width: 14px; height: 14px; color: inherit;"></span>
               </template>
             </glu-icon>
           </div>
@@ -40,9 +41,9 @@ describe('glu-helper-text', () => {
       <glu-helper-text class="glu-helper-text" icon="information-circle" is-solid-icon="">
         <template shadowrootmode="open">
           <div class="icon">
-            <glu-icon name="information-circle" variant="solid">
+            <glu-icon class="glu-icon" name="information-circle" variant="solid">
               <template shadowrootmode="open">
-                <img alt="information-circle" class="glu-icon" height="14" role="img" src="[object Object]" width="14">
+                <span aria-label="information-circle" role="img" style="width: 14px; height: 14px; color: inherit;"></span>
               </template>
             </glu-icon>
           </div>

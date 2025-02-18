@@ -1,7 +1,7 @@
 import { outlineIcons } from './icon-outline'
 import { solidIcons } from './icon-solid'
 
-import { Component, h, Prop } from '@stencil/core'
+import { Component, h, Host, Prop } from '@stencil/core'
 
 /**
  * A customizable icon component that renders Heroicons
@@ -75,12 +75,21 @@ export class GluIcon {
     return icons[this.name] || ''
   }
 
+  private isValidNumber = (value: string | number): boolean => typeof value === 'number' ? Number.isFinite(value) : !isNaN(Number(value.trim()))
+
+  private getSizesValue = ({ width, height }: { width: string | number, height: string | number }):
+  { width: string, height: string } => ({
+    width: this.isValidNumber(width) ? `${Number(width)}px` : `${width}`,
+    height: this.isValidNumber(height) ? `${Number(height)}px` : `${height}`
+  })
+
   /**
    * Renders the icon component inline, allowing CSS color changes
    * @returns {JSX.Element} The rendered icon element
    */
   render() {
     const svgContent = this.getIconSvg()
+    const { width, height } = this.getSizesValue({ width: this.size || this.width, height: this.size || this.height })
 
     if (!svgContent) {
       console.error(`[GluIcon]: Icon "${this.name}" not found.`)
@@ -89,34 +98,21 @@ export class GluIcon {
     }
 
     // If the content is a data URI, decode it to get the inline SVG
-    const svgMarkup = svgContent.startsWith('data:image') ?
+    const svgMarkup = svgContent?.startsWith?.('data:image') ?
       atob(svgContent.split(',')[1]) :
       svgContent
 
-    // Compute final dimensions
-    const finalWidth = this.size || this.width
-    const finalHeight = this.size || this.height
-
-    const finalWidthStr =
-    typeof finalWidth === 'number' ? `${finalWidth}px` : finalWidth
-
-    const finalHeightStr =
-    typeof finalHeight === 'number' ? `${finalHeight}px` : finalHeight
-
-    const style = {
-      width: finalWidthStr,
-      height: finalHeightStr,
-      color: this.color || 'inherit' // Ensure the SVG uses `currentColor`
-    }
+    const style = { width, height, color: this.color || 'inherit' }
 
     return (
-      <span
-        class="glu-icon"
-        style={style}
-        role="img"
-        aria-label={this.name}
-        innerHTML={svgMarkup}
-      />
+      <Host class="glu-icon">
+        <span
+          style={style}
+          role="img"
+          aria-label={this.name}
+          innerHTML={svgMarkup}
+        />
+      </Host>
     )
   }
 }

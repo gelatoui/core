@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { newE2EPage } from '@stencil/core/testing'
 
-const academicCap = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iY3VycmVudENvbG9yIiBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS1zbG90PSJpY29uIj4KICA8cGF0aCBkPSJNMTEuNyAyLjgwNWEuNzUuNzUgMCAwIDEgLjYgMEE2MC42NSA2MC42NSAwIDAgMSAyMi44MyA4LjcyYS43NS43NSAwIDAgMS0uMjMxIDEuMzM3IDQ5Ljk0OCA0OS45NDggMCAwIDAtOS45MDIgMy45MTJsLS4wMDMuMDAyYy0uMTE0LjA2LS4yMjcuMTE5LS4zNC4xOGEuNzUuNzUgMCAwIDEtLjcwNyAwQTUwLjg4IDUwLjg4IDAgMCAwIDcuNSAxMi4xNzN2LS4yMjRjMC0uMTMxLjA2Ny0uMjQ4LjE3Mi0uMzExYTU0LjYxNSA1NC42MTUgMCAwIDEgNC42NTMtMi41Mi43NS43NSAwIDAgMC0uNjUtMS4zNTIgNTYuMTIzIDU2LjEyMyAwIDAgMC00Ljc4IDIuNTg5IDEuODU4IDEuODU4IDAgMCAwLS44NTkgMS4yMjggNDkuODAzIDQ5LjgwMyAwIDAgMC00LjYzNC0xLjUyNy43NS43NSAwIDAgMS0uMjMxLTEuMzM3QTYwLjY1MyA2MC42NTMgMCAwIDEgMTEuNyAyLjgwNVoiLz4KICA8cGF0aCBkPSJNMTMuMDYgMTUuNDczYTQ4LjQ1IDQ4LjQ1IDAgMCAxIDcuNjY2LTMuMjgyYy4xMzQgMS40MTQuMjIgMi44NDMuMjU1IDQuMjg0YS43NS43NSAwIDAgMS0uNDYuNzExIDQ3Ljg3IDQ3Ljg3IDAgMCAwLTguMTA1IDQuMzQyLjc1Ljc1IDAgMCAxLS44MzIgMCA0Ny44NyA0Ny44NyAwIDAgMC04LjEwNC00LjM0Mi43NS43NSAwIDAgMS0uNDYxLS43MWMuMDM1LTEuNDQyLjEyMS0yLjg3LjI1NS00LjI4Ni45MjEuMzA0IDEuODMuNjM0IDIuNzI2Ljk5djEuMjdhMS41IDEuNSAwIDAgMC0uMTQgMi41MDhjLS4wOS4zOC0uMjIyLjc1My0uMzk3IDEuMTEuNDUyLjIxMy45MDEuNDM0IDEuMzQ2LjY2YTYuNzI3IDYuNzI3IDAgMCAwIC41NTEtMS42MDcgMS41IDEuNSAwIDAgMCAuMTQtMi42N3YtLjY0NWE0OC41NDkgNDguNTQ5IDAgMCAxIDMuNDQgMS42NjcgMi4yNSAyLjI1IDAgMCAwIDIuMTIgMFoiLz4KICA8cGF0aCBkPSJNNC40NjIgMTkuNDYyYy40Mi0uNDE5Ljc1My0uODkgMS0xLjM5NS40NTMuMjE0LjkwMi40MzUgMS4zNDcuNjYyYTYuNzQyIDYuNzQyIDAgMCAxLTEuMjg2IDEuNzk0Ljc1Ljc1IDAgMCAxLTEuMDYtMS4wNloiLz4KPC9zdmc+Cg=='
+const academicCapOutline = '<path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z"></path> <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z"></path> <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z"></path>'
 
 describe('glu-icon (E2E)', () => {
   beforeEach(() => {
@@ -23,9 +23,9 @@ describe('glu-icon (E2E)', () => {
 
     await page.setContent('<glu-icon name="academic-cap" variant="solid"></glu-icon>')
 
-    const img = await page.find('glu-icon >>> img')
+    const svg = await page.find('glu-icon >>> svg')
 
-    expect(await img.getProperty('src')).toContain(academicCap)
+    expect(await svg.innerHTML).toContain(academicCapOutline) // Change to match SVG content
   })
 
   it('applies size correctly', async () => {
@@ -33,45 +33,57 @@ describe('glu-icon (E2E)', () => {
 
     await page.setContent('<glu-icon name="academic-cap" size="32"></glu-icon>')
 
-    const img = await page.find('glu-icon >>> img')
+    const span = await page.find('glu-icon >>> span')
 
-    expect(await img.getAttribute('width')).toBe('32')
+    expect((await span.getComputedStyle()).width).toBe('32px')
 
-    expect(await img.getAttribute('height')).toBe('32')
+    expect((await span.getComputedStyle()).height).toBe('32px')
   })
 
   it('prioritizes size over width/height', async () => {
     const page = await newE2EPage()
 
-    await page.setContent('<glu-icon name="academic-cap" size="32" width="40" height="20"></glu-icon>')
+    await page.setContent('<glu-icon name="academic-cap" size="32px" width="40px" height="20px"></glu-icon>')
 
-    const img = await page.find('glu-icon >>> img')
+    const span = await page.find('glu-icon >>> span')
 
-    expect(await img.getAttribute('width')).toBe('32')
+    expect((await span.getComputedStyle()).width).toBe('32px')
 
-    expect(await img.getAttribute('height')).toBe('32')
+    expect((await span.getComputedStyle()).height).toBe('32px')
   })
 
   it('uses width/height when size not provided', async () => {
     const page = await newE2EPage()
 
-    await page.setContent('<glu-icon name="academic-cap" width="40" height="20"></glu-icon>')
+    await page.setContent('<glu-icon name="academic-cap" width="40px" height="20px"></glu-icon>')
 
-    const img = await page.find('glu-icon >>> img')
+    const span = await page.find('glu-icon')
 
-    expect(await img.getAttribute('width')).toBe('40')
+    expect((await span.getComputedStyle()).width).toBe('40px')
 
-    expect(await img.getAttribute('height')).toBe('20')
+    expect((await span.getComputedStyle()).height).toBe('20px')
   })
 
-  it('doesnt render image for missing icon', async () => {
+  it('uses width/height with number values', async () => {
+    const page = await newE2EPage()
+
+    await page.setContent('<glu-icon name="academic-cap" width="40" height="20"></glu-icon>')
+
+    const span = await page.find('glu-icon')
+
+    expect((await span.getComputedStyle()).width).toBe('40px')
+
+    expect((await span.getComputedStyle()).height).toBe('20px')
+  })
+
+  it('doesnt render SVG for missing icon', async () => {
     const page = await newE2EPage()
 
     await page.setContent('<glu-icon name="invalid-icon"></glu-icon>')
 
-    const img = await page.find('glu-icon >>> img')
+    const svg = await page.find('glu-icon >>> svg')
 
-    expect(img).toBeNull()
+    expect(svg).toBeNull()
   })
 
   it('reflects attributes correctly', async () => {
@@ -93,8 +105,8 @@ describe('glu-icon (E2E)', () => {
 
     await page.setContent('<glu-icon name="academic-cap"></glu-icon>')
 
-    const img = await page.find('glu-icon >>> img')
+    const span = await page.find('glu-icon >>> span')
 
-    expect(await img.getAttribute('alt')).toBe('academic-cap')
+    expect(await span.getAttribute('aria-label')).toBe('academic-cap')
   })
 })

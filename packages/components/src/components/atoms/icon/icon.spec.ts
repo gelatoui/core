@@ -1,6 +1,4 @@
 /* eslint-disable no-undef */
-import academicCapOutline from 'heroicons/24/outline/academic-cap.svg'
-import academicCapSolid from 'heroicons/24/solid/academic-cap.svg'
 
 import { GluIcon } from './icon'
 
@@ -18,15 +16,12 @@ describe('glu-icon', () => {
     })
 
     expect(page.root).toEqualHtml(/* html */ `
-      <glu-icon name="academic-cap" variant="outline">
+      <glu-icon class="glu-icon" name="academic-cap" variant="outline">
         <mock:shadow-root>
-          <img
-            alt="academic-cap"
-            class="glu-icon"
-            height="24"
-            src="${academicCapOutline}"
-            width="24"
+          <span
+            aria-label="academic-cap"
             role="img"
+            style="width: 24px; height: 24px; color: inherit;"
           />
         </mock:shadow-root>
       </glu-icon>
@@ -39,11 +34,11 @@ describe('glu-icon', () => {
       html: '<glu-icon name="academic-cap" size="32"></glu-icon>'
     })
 
-    const img = page.root.shadowRoot.querySelector('img')
+    const span = page.root.shadowRoot.querySelector('span')
 
-    expect(img.width).toBe(32)
+    expect(span.style.width).toBe('32px')
 
-    expect(img.height).toBe(32)
+    expect(span.style.height).toBe('32px')
   })
 
   it('prioritizes size over width/height', async () => {
@@ -52,11 +47,11 @@ describe('glu-icon', () => {
       html: '<glu-icon name="academic-cap" size="32" width="40" height="20"></glu-icon>'
     })
 
-    const img = page.root.shadowRoot.querySelector('img')
+    const span = page.root.shadowRoot.querySelector('span')
 
-    expect(img.width).toBe(32)
+    expect(span.style.width).toBe('32px')
 
-    expect(img.height).toBe(32)
+    expect(span.style.height).toBe('32px')
   })
 
   it('shows error for missing icon', async () => {
@@ -95,7 +90,7 @@ describe('glu-icon', () => {
       html: '<glu-icon name="missing-icon"></glu-icon>'
     })
 
-    expect(page.root.shadowRoot.querySelector('img')).toBeNull()
+    expect(page.root.shadowRoot.querySelector('span')).toBeNull()
   })
 
   it('renders solid variant icons', async () => {
@@ -105,15 +100,12 @@ describe('glu-icon', () => {
     })
 
     expect(page.root).toEqualHtml(/* html */ `
-    <glu-icon name="academic-cap" variant="solid">
+    <glu-icon class="glu-icon" name="academic-cap" variant="solid">
       <mock:shadow-root>
-        <img
-          alt="academic-cap"
-          class="glu-icon"
-          height="24"
-          src="${academicCapSolid}"
-          width="24"
+        <span
+          aria-label="academic-cap"
           role="img"
+          style="width: 24px; height: 24px; color: inherit;"
         />
       </mock:shadow-root>
     </glu-icon>
@@ -126,11 +118,11 @@ describe('glu-icon', () => {
       html: '<glu-icon name="academic-cap" width="40"></glu-icon>'
     })
 
-    const img = page.root.shadowRoot.querySelector('img')
+    const span = page.root.shadowRoot.querySelector('span')
 
-    expect(img.width).toBe(40)
+    expect(span.style.width).toBe('40px')
 
-    expect(img.height).toBe(24) // Default height
+    expect(span.style.height).toBe('24px') // Default height
   })
 
   it('uses height without size', async () => {
@@ -139,10 +131,10 @@ describe('glu-icon', () => {
       html: '<glu-icon name="academic-cap" height="30"></glu-icon>'
     })
 
-    const img = page.root.shadowRoot.querySelector('img')
+    const span = page.root.shadowRoot.querySelector('span')
 
-    expect(img.width).toBe(24) // Default width
+    expect(span.style.width).toBe('24px') // Default width
 
-    expect(img.height).toBe(30)
+    expect(span.style.height).toBe('30px')
   })
 })

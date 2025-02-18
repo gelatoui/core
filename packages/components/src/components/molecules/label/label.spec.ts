@@ -41,9 +41,9 @@ describe('glu-label', () => {
               <slot></slot>
             </label>
             <span class="tooltip-icon">
-              <glu-icon class="tooltip-icon" name="information-circle" variant="outline">
+              <glu-icon class="glu-icon tooltip-icon" name="information-circle" variant="outline">
                 <template shadowrootmode="open">
-                  <img alt="information-circle" class="glu-icon" height="16" role="img" src="[object Object]" width="16">
+                  <span aria-label="information-circle" role="img" style="width: 16px; height: 16px; color: inherit;"></span>
                 </template>
               </glu-icon>
               <span class="tooltip-component">
