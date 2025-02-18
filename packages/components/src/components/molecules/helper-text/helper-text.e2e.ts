@@ -5,7 +5,7 @@ describe('glu-helper-text (E2E)', () => {
   it('renders correctly and hydrates', async () => {
     const page = await newE2EPage()
 
-    await page.setContent('<glu-helper-text icon="info">Helper text</glu-helper-text>')
+    await page.setContent('<glu-helper-text icon="information-circle">Helper text</glu-helper-text>')
 
     const element = await page.find('glu-helper-text')
 
@@ -15,7 +15,7 @@ describe('glu-helper-text (E2E)', () => {
   it('renders the correct icon', async () => {
     const page = await newE2EPage()
 
-    await page.setContent('<glu-helper-text icon="info"></glu-helper-text>')
+    await page.setContent('<glu-helper-text icon="information-circle"></glu-helper-text>')
 
     const icon = await page.find('glu-helper-text >>> glu-icon')
 
@@ -27,7 +27,7 @@ describe('glu-helper-text (E2E)', () => {
   it('applies solid variant when isSolidIcon is true', async () => {
     const page = await newE2EPage()
 
-    await page.setContent('<glu-helper-text icon="info" isSolidIcon></glu-helper-text>')
+    await page.setContent('<glu-helper-text icon="information-circle" isSolidIcon></glu-helper-text>')
 
     const icon = await page.find('glu-helper-text >>> glu-icon')
 
@@ -37,7 +37,7 @@ describe('glu-helper-text (E2E)', () => {
   it('applies outline variant when isSolidIcon is false', async () => {
     const page = await newE2EPage()
 
-    await page.setContent('<glu-helper-text icon="info"></glu-helper-text>')
+    await page.setContent('<glu-helper-text icon="information-circle"></glu-helper-text>')
 
     const icon = await page.find('glu-helper-text >>> glu-icon')
 
@@ -47,7 +47,7 @@ describe('glu-helper-text (E2E)', () => {
   it('renders slot content correctly', async () => {
     const page = await newE2EPage()
 
-    await page.setContent('<glu-helper-text icon="info">This is helper text</glu-helper-text>')
+    await page.setContent('<glu-helper-text icon="information-circle">This is helper text</glu-helper-text>')
 
     const text = await page.find('glu-helper-text')
 
