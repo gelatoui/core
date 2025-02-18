@@ -76,7 +76,7 @@ describe('glu-icon (E2E)', () => {
     expect((await span.getComputedStyle()).height).toBe('20px')
   })
 
-  it('doesnt render SVG for missing icon', async () => {
+  it('doesn\'t render SVG for missing icon', async () => {
     const page = await newE2EPage()
 
     await page.setContent('<glu-icon name="invalid-icon"></glu-icon>')
