@@ -1,5 +1,3 @@
-/* eslint-disable @stylistic/lines-around-comment */
-import { IconVariant } from './icon.types'
 import { outlineIcons } from './icon-outline'
 import { solidIcons } from './icon-solid'
 
@@ -34,7 +32,7 @@ export class GluIcon {
    * @default IconVariant.Outline
    * @readonly
    */
-  @Prop({ reflect: true }) readonly variant: IconVariant = IconVariant.Outline
+  @Prop({ reflect: true }) readonly variant: 'solid' | 'outline' = 'outline'
 
   /**
    * Uniform size of the icon in pixels (takes precedence over width and height)
@@ -65,7 +63,7 @@ export class GluIcon {
    * @returns {string} SVG markup or empty string if icon not found
    */
   private getIconSvg(): string {
-    const icons = this.variant === IconVariant.Solid ? solidIcons : outlineIcons
+    const icons = this.variant === 'solid' ? solidIcons : outlineIcons
 
     return icons[this.name] || ''
   }

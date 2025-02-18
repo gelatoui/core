@@ -1,6 +1,3 @@
-/* eslint-disable @stylistic/lines-around-comment */
-import { LinkSize, LinkTarget } from './link.types'
-
 import { Component, h, Host, Prop } from '@stencil/core'
 
 /**
@@ -27,7 +24,7 @@ export class GluLink {
    * @prop {string} target - Where to open the link.
    * @default '_self'
    */
-  @Prop() readonly target: LinkTarget = LinkTarget.SELF
+  @Prop() readonly target: '_self' | '_blank' | '_parent' | '_top' = '_self'
 
   /**
    * Specifies the relationship between the current document and the linked document.
@@ -40,7 +37,7 @@ export class GluLink {
    * @prop {string} size - The size of the link.
    * @default 'medium'
    */
-  @Prop() readonly size?: LinkSize = LinkSize.MEDIUM
+  @Prop() readonly size?: 'large' | 'medium' | 'small' = 'medium'
 
   render() {
     const { size, target, rel, href } = this

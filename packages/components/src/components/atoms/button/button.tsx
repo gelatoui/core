@@ -1,11 +1,4 @@
 /* eslint-disable no-undef */
-/* eslint-disable @stylistic/lines-around-comment */
-import {
-  ButtonAppearance,
-  ButtonSize,
-  ButtonType
-} from './button.types'
-
 import { Component, Element, h, Host, Prop } from '@stencil/core'
 
 /**
@@ -42,7 +35,7 @@ export class ButtonGlu {
    * @default ButtonAppearance.FILLED
    * @readonly
    */
-  @Prop({ reflect: true }) readonly appearance: ButtonAppearance = ButtonAppearance.FILLED
+  @Prop({ reflect: true }) readonly appearance: 'filled' | 'outline' | 'ghost' = 'filled'
 
   /**
    * Defines the size of the button.
@@ -50,7 +43,7 @@ export class ButtonGlu {
    * @default medium
    * @readonly
    */
-  @Prop({ reflect: true }) readonly size: ButtonSize = ButtonSize.MEDIUM
+  @Prop({ reflect: true }) readonly size: 'small' | 'medium' | 'large' = 'medium'
 
   /**
    * Specifies the type of button.
@@ -58,7 +51,7 @@ export class ButtonGlu {
    * @default primary
    * @readonly
    */
-  @Prop({ reflect: true }) readonly buttonType: ButtonType = ButtonType.PRIMARY
+  @Prop({ reflect: true }) readonly buttonType: 'primary' | 'secondary' | 'destructive' = 'primary'
 
   /**
    * If `true`, the user cannot interact with the button.

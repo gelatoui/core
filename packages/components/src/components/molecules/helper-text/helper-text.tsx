@@ -1,6 +1,3 @@
-/* eslint-disable @stylistic/lines-around-comment */
-import { IconVariant } from '../../atoms/icon/icon.types'
-
 import { Component, h, Host, Prop } from '@stencil/core'
 
 /**
@@ -37,7 +34,7 @@ export class GluHelperText {
     return (
       <Host class="glu-helper-text">
         <div class="icon">
-          <glu-icon name={icon} variant={isSolidIcon ? IconVariant.Solid : IconVariant.Outline} size={14}></glu-icon>
+          <glu-icon name={icon} variant={isSolidIcon ? 'solid' : 'outline'} size={14}></glu-icon>
         </div>
         <div class="text">
           <slot></slot>

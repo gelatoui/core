@@ -1,6 +1,3 @@
-/* eslint-disable @stylistic/lines-around-comment */
-import { IconVariant } from '../../atoms/icon/icon.types'
-
 import { Component, h, Host, Prop } from '@stencil/core'
 
 /**
@@ -52,7 +49,7 @@ export class GluLabel {
           </label>
           {showTooltip && (
             <span class="tooltip-icon">
-              <glu-icon class="tooltip-icon" name="information-circle" variant={isSolidIcon ? IconVariant.Solid : IconVariant.Outline} size={16}></glu-icon>
+              <glu-icon class="tooltip-icon" name="information-circle" variant={isSolidIcon ? 'solid' : 'outline'} size={16}></glu-icon>
               <span class="tooltip-component">
                 <slot name="tooltip"></slot>
               </span>

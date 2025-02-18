@@ -13,5 +13,12 @@ export default [
       OptionalOption.Markdown
     ],
     settings: [SettingOption.Gitignore]
-  })
+  }),
+  {
+    name: 'custom rules',
+    files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+    rules: {
+      '@stylistic/lines-around-comment': ['error', { allowClassStart: true, beforeLineComment: false, allowBlockStart: true }]
+    }
+  }
 ]

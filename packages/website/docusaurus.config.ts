@@ -12,6 +12,7 @@ const config: Config = {
 
   // Set the production url of your site here
   url: 'https://gelato-ui.com',
+
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -80,6 +81,7 @@ const config: Config = {
           },
           editUrl:
             'https://github.com/santi020k/gelato-ui/tree/main/packages/website/',
+
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -96,6 +98,7 @@ const config: Config = {
     mermaid: {
       theme: { light: 'neutral', dark: 'forest' }
     },
+
     // Replace with your project's social card
     liveCodeBlock: {
       playgroundPosition: 'top'

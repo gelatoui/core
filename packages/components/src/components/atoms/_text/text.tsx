@@ -1,4 +1,3 @@
-/* eslint-disable @stylistic/lines-around-comment */
 import { Component, h, Prop } from '@stencil/core'
 
 /**
