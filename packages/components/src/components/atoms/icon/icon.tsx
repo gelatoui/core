@@ -29,7 +29,7 @@ export class GluIcon {
   /**
    * The visual variant style of the icon
    * @prop {IconVariant} variant - The styling variant to use
-   * @default IconVariant.Outline
+   * @default "outline"
    * @readonly
    */
   @Prop({ reflect: true }) readonly variant: 'solid' | 'outline' = 'outline'
@@ -58,6 +58,13 @@ export class GluIcon {
   @Prop() readonly height: number | string = 24
 
   /**
+   * Custom color for the SVG icon.
+   * Para que este cambio tenga efecto, asegúrate de que el SVG use `currentColor` en sus atributos.
+   * @prop {string} color - Color en cualquier formato CSS (hex, rgb, etc.)
+   */
+  @Prop() readonly color?: string
+
+  /**
    * Retrieves the SVG content for the configured icon
    * @private
    * @returns {string} SVG markup or empty string if icon not found
@@ -69,27 +76,46 @@ export class GluIcon {
   }
 
   /**
-   * Renders the icon component
+   * Renders the icon component inline, allowing CSS color changes
    * @returns {JSX.Element} The rendered icon element
    */
   render() {
     const svgContent = this.getIconSvg()
-    const { size, width, height, name } = this
 
     if (!svgContent) {
-      console.error(`[GluIcon]: Icon "${name}" not found.`)
+      console.error(`[GluIcon]: Icon "${this.name}" not found.`)
 
       return null
     }
 
+    // If the content is a data URI, decode it to get the inline SVG
+    const svgMarkup = svgContent.startsWith('data:image') ?
+      atob(svgContent.split(',')[1]) :
+      svgContent
+
+    // Compute final dimensions
+    const finalWidth = this.size || this.width
+    const finalHeight = this.size || this.height
+
+    const finalWidthStr =
+    typeof finalWidth === 'number' ? `${finalWidth}px` : finalWidth
+
+    const finalHeightStr =
+    typeof finalHeight === 'number' ? `${finalHeight}px` : finalHeight
+
+    const style = {
+      width: finalWidthStr,
+      height: finalHeightStr,
+      color: this.color || 'inherit' // Ensure the SVG uses `currentColor`
+    }
+
     return (
-      <img
+      <span
         class="glu-icon"
+        style={style}
         role="img"
-        alt={name}
-        width={size || width}
-        height={size || height}
-        src={svgContent}
+        aria-label={this.name}
+        innerHTML={svgMarkup}
       />
     )
   }
