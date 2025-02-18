@@ -20,6 +20,8 @@
   font-weight: 400;
   line-height: var(--Body-Small-Regular-lineHeight, 1.125rem); /* 128.571% */
   letter-spacing: var(--Body-Small-Regular-letterSpacing, 0rem);
+
+  cursor: text
 }
 
 input {
@@ -27,33 +29,8 @@ input {
   width: 100%;
 }
 
-:host(::placeholder) {
+input::placeholder {
   color: var(--tokens-input-content-subdue);
-}
-
-:host(:focus) {
-  background-color: var(--tokens-input-background-focus);
-  border-color: var(--tokens-input-stroke-focus);
-  color: var(--tokens-input-content-focus);
-  outline: none;
-  box-shadow: 0 0 0 2px var(--tokens-input-stroke-focus);
-}
-
-:host(:disabled) {
-  background-color: var(--tokens-input-background-disabled);
-  color: var(--tokens-input-content-disabled);
-  border-color: var(--tokens-input-stroke-disabled);
-  cursor: not-allowed;
-}
-
-:host(.is-error) {
-  border-color: var(--tokens-input-stroke-error);
-  color: var(--tokens-input-content-error);
-  background-color: var(--tokens-input-background-error);
-}
-
-:host(.is-error:focus) {
-  box-shadow: 0 0 0 2px var(--tokens-input-stroke-error);
 }
 
 .prefix-text, .prefix-icon, .suffix-text, .suffix-icon {
@@ -69,4 +46,58 @@ input {
   font-weight: 400;
   line-height: var(--Body-Small-Regular-lineHeight, 1.125rem); /* 128.571% */
   letter-spacing: var(--Body-Small-Regular-letterSpacing, 0rem);
+}
+
+:host(.focused) {
+  background-color: var(--tokens-input-background-focus);
+  border-color: var(--tokens-input-stroke-focus);
+  color: var(--tokens-input-content-focus);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--tokens-input-stroke-focus);
+}
+
+:host(.disabled) {
+  background-color: var(--tokens-input-background-disabled);
+  color: var(--tokens-input-content-disabled);
+  border-color: var(--tokens-input-stroke-disabled);
+  cursor: not-allowed;
+}
+
+:host(.error) {
+  border-color: var(--tokens-input-stroke-error);
+  color: var(--tokens-input-content-error);
+  background-color: var(--tokens-input-background-error);
+  .prefix-text, .prefix-icon, .suffix-text, .suffix-icon {
+    color: var(--tokens-input-content-error);
+  }
+}
+
+:host(.error.focused) {
+  box-shadow: 0 0 0 2px var(--tokens-input-stroke-error);
+  .prefix-text, .prefix-icon, .suffix-text, .suffix-icon {
+    color: var(--tokens-input-stroke-error);
+  }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+input[type="date"]::-moz-calendar-picker-indicator {
+  display: none;
+}
+
+input[type="date"]::-ms-calendar-picker-indicator {
+  display: none;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

@@ -1,6 +1,7 @@
+/* eslint-disable no-undef */
 import { InputType } from './input.types'
 
-import { Component, h, Host, Prop, State } from '@stencil/core'
+import { Component, Element, h, Host, Prop, State } from '@stencil/core'
 
 /**
  * Custom input component supporting different types, prefix/suffix elements, and validation states.
@@ -10,7 +11,7 @@ import { Component, h, Host, Prop, State } from '@stencil/core'
   styleUrl: 'input.css',
   shadow: true
 })
-export class GluInput2 {
+export class GluInput {
   /**
    * The type of input.
    */
@@ -68,6 +69,8 @@ export class GluInput2 {
   /** Internal state for the input value. */
   @State() internalValue = ''
 
+  @Element() el!: HTMLGluInputElement
+
   /**
    * Handles input event and updates the internal value.
    * @param event The input event.
@@ -118,6 +121,28 @@ export class GluInput2 {
     return this.type || 'text'
   }
 
+  // Focus the input when the host is clicked
+  private focusInput = () => {
+    const input = this.el.shadowRoot?.querySelector('input') as HTMLInputElement
+
+    if (input) {
+      input.focus()
+    }
+  }
+
+  private focusDateInput() {
+    const input = this.el.shadowRoot?.querySelector('input[type="date"]') as HTMLInputElement
+
+    if (input) {
+      // Attempt to show the date picker, if available, and fall back to focus
+      if (typeof input.showPicker === 'function') {
+        input.showPicker()
+      } else {
+        input.focus()
+      }
+    }
+  }
+
   /**
    * Renders the prefix icon or text based on the input type and props.
    * @returns JSX for the prefix content.
@@ -131,7 +156,14 @@ export class GluInput2 {
         return <glu-icon name="magnifying-glass" size={18} class="prefix-icon" />
 
       case 'date':
-        return <glu-icon name="calendar" size={18} class="prefix-icon" />
+        return (
+          <glu-icon
+            name="calendar"
+            size={18}
+            class="prefix-icon cursor-pointer"
+            onClick={() => this.focusDateInput()}
+          />
+        )
 
       case 'phone':
         return <glu-icon name="phone" size={18} class="prefix-icon" />
@@ -162,7 +194,7 @@ export class GluInput2 {
           <glu-icon
             name={this.showPassword ? 'eye-slash' : 'eye'}
             size={18}
-            class="suffix-icon"
+            class="suffix-icon cursor-pointer"
             onClick={this.togglePasswordVisibility}
           />
         )
@@ -170,7 +202,7 @@ export class GluInput2 {
       case 'search':
         return this.internalValue && this.showClearIcon ?
           (
-            <glu-icon name="close" class="suffix-icon" size={18} onClick={this.clearInput} />
+            <glu-icon name="x-circle" class="suffix-icon cursor-pointer" size={18} onClick={this.clearInput} />
           ) :
           null
 
@@ -186,6 +218,10 @@ export class GluInput2 {
     }
   }
 
+  componentWillLoad() {
+    this.internalValue = this.value
+  }
+
   /** Renders the component. */
   render() {
     return (
@@ -197,6 +233,7 @@ export class GluInput2 {
           'read-only': this.readOnly,
           focused: this.isFocused
         }}
+        onClick={this.focusInput} // Attach the click event to focus the input
       >
         {this.renderPrefix()}
         <input
