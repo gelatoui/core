@@ -12,9 +12,7 @@ import { Component, Element, h, Host, Prop, State } from '@stencil/core'
   shadow: true
 })
 export class GluInput {
-  /**
-   * The type of input.
-   */
+  /** The type of input. */
   @Prop() readonly type: 'generic' | 'currency' | 'phone' | InputType = 'generic'
 
   /** Whether to show a suffix icon. */
@@ -54,7 +52,7 @@ export class GluInput {
   @Prop() readonly placeholder = ''
 
   /** The input's value. This prop is mutable, allowing it to be updated internally. */
-  // eslint-disable-next-line @stencil-community/strict-mutable
+
   @Prop({ mutable: true }) value = ''
 
   /** Whether to show a clear (✖) icon in the input for clearing its value. */
@@ -66,63 +64,70 @@ export class GluInput {
   /** Controls the visibility of the password input type. */
   @State() showPassword = false
 
-  /** Internal state for the input value. */
-  @State() internalValue = ''
-
   @Element() el!: HTMLGluInputElement
 
   /**
-   * Handles input event and updates the internal value.
+   * Handles input event and updates the internal value and the mutable prop.
    * @param event The input event.
    */
-  private handleInput = (event: Event) => {
+  private handleInput = (event: Event): void => {
     const input = event.target as HTMLInputElement
 
-    this.internalValue = input.value
+    this.value = input.value
   }
 
   /** Handles focus event, setting `isFocused` to `true`. */
-  private handleFocus = () => {
+  private handleFocus = (): void => {
     this.isFocused = true
   }
 
   /** Handles blur event, setting `isFocused` to `false`. */
-  private handleBlur = () => {
+  private handleBlur = (): void => {
     this.isFocused = false
   }
 
   /** Toggles password visibility for password inputs. */
-  private togglePasswordVisibility = () => {
+  private togglePasswordVisibility = (): void => {
     this.showPassword = !this.showPassword
   }
 
-  /** Clears the input field by resetting `internalValue` to an empty string. */
-  private clearInput = () => {
-    this.internalValue = ''
+  /** Clears the input field by resetting `internalValue` and the mutable prop. */
+  private clearInput = (): void => {
+    this.value = ''
   }
 
   /**
    * Determines the appropriate input type.
-   * @returns The correct input type (`text`, `password`, `date`).
+   * @returns The correct input type (`text`, `password`, `date`, etc.).
    */
-  private getInputType(): string {
-    if (this.type === 'password') return this.showPassword ? 'text' : 'password'
+  private getInputType = (): string => {
+    switch (this.type) {
+      case 'password':
+        return this.showPassword ? 'text' : 'password'
 
-    if (this.type === 'date') return 'date'
+      case 'date':
+        return 'date'
 
-    if (this.type === 'phone') return 'tel'
+      case 'phone':
+        return 'tel'
 
-    if (this.type === 'url') return 'url'
+      case 'url':
+        return 'url'
 
-    if (this.type === 'search') return 'search'
+      case 'search':
+        return 'search'
 
-    if (this.type === 'number') return 'number'
+      case 'number':
+        return 'number'
 
-    return this.type || 'text'
+      default:
+        // For generic or currency inputs, we use a standard text input.
+        return 'text'
+    }
   }
 
-  // Focus the input when the host is clicked
-  private focusInput = () => {
+  /** Focus the input when the host is clicked. */
+  private focusInput = (): void => {
     const input = this.el.shadowRoot?.querySelector('input') as HTMLInputElement
 
     if (input) {
@@ -130,11 +135,11 @@ export class GluInput {
     }
   }
 
-  private focusDateInput() {
+  /** Focus the date input and try to open the date picker if available. */
+  private focusDateInput = (): void => {
     const input = this.el.shadowRoot?.querySelector('input[type="date"]') as HTMLInputElement
 
     if (input) {
-      // Attempt to show the date picker, if available, and fall back to focus
       if (typeof input.showPicker === 'function') {
         input.showPicker()
       } else {
@@ -147,7 +152,7 @@ export class GluInput {
    * Renders the prefix icon or text based on the input type and props.
    * @returns JSX for the prefix content.
    */
-  private renderPrefix() {
+  private renderPrefix = () => {
     switch (this.type) {
       case 'currency':
         return <span class="prefix-text">$</span>
@@ -161,7 +166,7 @@ export class GluInput {
             name="calendar"
             size={18}
             class="prefix-icon cursor-pointer"
-            onClick={() => this.focusDateInput()}
+            onClick={this.focusDateInput}
           />
         )
 
@@ -172,14 +177,12 @@ export class GluInput {
         return <span class="prefix-text">https://</span>
 
       default:
-        return this.showPrefixIcon || this.showPrefixText ?
-          (
-            <>
-              {this.showPrefixIcon && <glu-icon name={this.prefixIcon} size={18} class="prefix-icon" />}
-              {this.showPrefixText && <span class="prefix-text">{this.prefixText}</span>}
-            </>
-          ) :
-          null
+        return (this.showPrefixIcon || this.showPrefixText) && (
+          <>
+            {this.showPrefixIcon && <glu-icon name={this.prefixIcon} size={18} class="prefix-icon" />}
+            {this.showPrefixText && <span class="prefix-text">{this.prefixText}</span>}
+          </>
+        )
     }
   }
 
@@ -187,7 +190,7 @@ export class GluInput {
    * Renders the suffix icon or text based on the input type and props.
    * @returns JSX for the suffix content.
    */
-  private renderSuffix() {
+  private renderSuffix = () => {
     switch (this.type) {
       case 'password':
         return (
@@ -200,26 +203,18 @@ export class GluInput {
         )
 
       case 'search':
-        return this.internalValue && this.showClearIcon ?
-          (
-            <glu-icon name="x-circle" class="suffix-icon cursor-pointer" size={18} onClick={this.clearInput} />
-          ) :
-          null
+        return this.value && this.showClearIcon && (
+          <glu-icon name="x-circle" size={18} class="suffix-icon cursor-pointer" onClick={this.clearInput} />
+        )
 
       default:
-        return this.showSuffixIcon || this.showSuffixText ?
-          (
-            <>
-              {this.showSuffixIcon && <glu-icon name={this.suffixIcon} size={18} class="suffix-icon" />}
-              {this.showSuffixText && <span class="suffix-text">{this.suffixText}</span>}
-            </>
-          ) :
-          null
+        return (this.showSuffixIcon || this.showSuffixText) && (
+          <>
+            {this.showSuffixIcon && <glu-icon name={this.suffixIcon} size={18} class="suffix-icon" />}
+            {this.showSuffixText && <span class="suffix-text">{this.suffixText}</span>}
+          </>
+        )
     }
-  }
-
-  componentWillLoad() {
-    this.internalValue = this.value
   }
 
   /** Renders the component. */
@@ -233,14 +228,14 @@ export class GluInput {
           'read-only': this.readOnly,
           focused: this.isFocused
         }}
-        onClick={this.focusInput} // Attach the click event to focus the input
+        onClick={this.focusInput}
       >
         {this.renderPrefix()}
         <input
           type={this.getInputType()}
           class="native-input"
           placeholder={this.placeholder}
-          value={this.internalValue}
+          value={this.value}
           disabled={this.disabled}
           readOnly={this.readOnly}
           onInput={this.handleInput}
