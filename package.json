@@ -79,6 +79,7 @@
     }
   },
   "dependencies": {
+    "@docusaurus/theme-mermaid": "^3.7.0",
     "@santi020k/gelato-ui": "file:.yalc/@santi020k/gelato-ui"
   }
 }
