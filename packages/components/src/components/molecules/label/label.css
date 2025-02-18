@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.glu-label {
+.container {
   display: flex;
   align-items: center;
   gap: var(--Spacing-050, 0.25rem);
@@ -31,7 +31,7 @@
   display: none;
 }
 
-.label-counter {
+.label-right-text {
   color: var(--Tokens-Text-On-Light-Subdue, #7D8796);
   font-family: var(--Body-Small-Regular-fontFamily, Inter);
   font-size: var(--Body-Small-Regular-fontSize, 0.875rem);

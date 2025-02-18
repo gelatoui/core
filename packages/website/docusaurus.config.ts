@@ -57,7 +57,11 @@ const config: Config = {
     }
   ],
 
-  plugins: ['@docusaurus/theme-live-codeblock'],
+  markdown: {
+    mermaid: true
+  },
+
+  plugins: ['@docusaurus/theme-live-codeblock', '@docusaurus/theme-mermaid'],
 
   presets: [
     [
@@ -89,6 +93,9 @@ const config: Config = {
   ],
 
   themeConfig: {
+    mermaid: {
+      theme: { light: 'neutral', dark: 'forest' }
+    },
     // Replace with your project's social card
     liveCodeBlock: {
       playgroundPosition: 'top'

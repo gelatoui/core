@@ -14,12 +14,12 @@ describe('glu-label', () => {
     })
 
     expect(page.root).toEqualHtml(/* html */`
-      <glu-label>
+      <glu-label class="glu-label">
         <mock:shadow-root>
-          <div class="glu-label">
-            <span class="label-text">
+          <div class="container">
+            <label class="label-text">
               <slot></slot>
-            </span>
+            </label>
           </div>
         </mock:shadow-root>
         Label Text
@@ -34,12 +34,12 @@ describe('glu-label', () => {
     })
 
     expect(page.root).toMatchInlineSnapshot(/* html */`
-      <glu-label show-tooltip="">
+      <glu-label class="glu-label" show-tooltip="">
         <template shadowrootmode="open">
-          <div class="glu-label">
-            <span class="label-text">
+          <div class="container">
+            <label class="label-text">
               <slot></slot>
-            </span>
+            </label>
             <span class="tooltip-icon">
               <glu-icon class="tooltip-icon" name="information-circle" variant="outline">
                 <template shadowrootmode="open">
@@ -66,13 +66,13 @@ describe('glu-label', () => {
     expect(page.root.shadowRoot.querySelector('glu-icon')).toHaveAttribute('variant')
   })
 
-  it('renders character counter when showCharacterCount is true', async () => {
+  it('renders right text when showRightText is true', async () => {
     const page = await newSpecPage({
       components: [GluLabel],
-      html: '<glu-label show-character-count>Label with Counter</glu-label>'
+      html: '<glu-label show-right-text>Label with Counter<span slot="right-text">100 / 100</span></glu-label>'
     })
 
-    expect(page.root.shadowRoot.querySelector('.label-counter').textContent).toBe('0 / 100')
+    expect(page.root.shadowRoot.querySelector('slot[name="right-text"]')).toBeTruthy()
   })
 
   it('reflects properties correctly', async () => {
