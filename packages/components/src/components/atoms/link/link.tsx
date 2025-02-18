@@ -48,7 +48,7 @@ export class GluLink {
     return (
       <Host
         class={{
-          'glu-button': true,
+          'glu-link': true,
           [`glu-link--size-${size}`]: !!size
         }}
       >
