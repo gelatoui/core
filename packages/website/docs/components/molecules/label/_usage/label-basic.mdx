@@ -1,0 +1,121 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+### Label
+
+The `glu-label` component is a flexible label element with optional tooltip and character counter (right text) support.
+
+#### Example Usage
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+    ```html live
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
+        <glu-label>Simple Label</glu-label>
+
+        <glu-label show-tooltip>
+          Label with Tooltip
+          <span slot="tooltip">This is a helpful tooltip</span>
+        </glu-label>
+
+        <glu-label show-right-text>
+          Label with Counter
+          <span slot="right-text">100 / 100</span>
+        </glu-label>
+
+        <glu-label show-tooltip show-right-text>
+          Label with Tooltip and Counter
+          <span slot="tooltip">This is a helpful tooltip</span>
+          <span slot="right-text">50 / 100</span>
+        </glu-label>
+      </div>
+    ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+    ```jsx live
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
+        <GluLabel>Simple Label</GluLabel>
+
+        <GluLabel showTooltip>
+          Label with Tooltip
+          <span slot="tooltip">This is a helpful tooltip</span>
+        </GluLabel>
+
+        <GluLabel showRightText>
+          Label with Counter
+          <span slot="right-text">100 / 100</span>
+        </GluLabel>
+
+        <GluLabel showTooltip showRightText>
+          Label with Tooltip and Counter
+          <span slot="tooltip">This is a helpful tooltip</span>
+          <span slot="right-text">50 / 100</span>
+        </GluLabel>
+      </div>
+    ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+    ```html
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
+        <glu-label>Simple Label</glu-label>
+        <glu-label show-tooltip>
+          Label with Tooltip
+          <span slot="tooltip">This is a helpful tooltip</span>
+        </glu-label>
+        <glu-label show-right-text>
+          Label with Counter
+          <span slot="right-text">100 / 100</span>
+        </glu-label>
+        <glu-label show-tooltip show-right-text>
+          Label with Tooltip and Counter
+          <span slot="tooltip">This is a helpful tooltip</span>
+          <span slot="right-text">50 / 100</span>
+        </glu-label>
+      </div>
+
+      <script setup>
+        import { GluLabel } from '@gelato-ui/vue';
+      </script>
+    ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+    ```html
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
+        <glu-label>Simple Label</glu-label>
+        <glu-label show-tooltip>
+          Label with Tooltip
+          <span slot="tooltip">This is a helpful tooltip</span>
+        </glu-label>
+        <glu-label show-right-text>
+          Label with Counter
+          <span slot="right-text">100 / 100</span>
+        </glu-label>
+        <glu-label show-tooltip show-right-text>
+          Label with Tooltip and Counter
+          <span slot="tooltip">This is a helpful tooltip</span>
+          <span slot="right-text">50 / 100</span>
+        </glu-label>
+      </div>
+
+    <script>
+      import { Component } from '@angular/core';
+      import { GluLabel } from '@gelato-ui/angular';
+
+      @Component({
+        standalone: true,
+        imports: [GluLabel],
+        template: `...` // Template content from above
+      })
+      export class MyComponent {}
+    </script>
+    ```
+
+  </TabItem>
+</Tabs>
