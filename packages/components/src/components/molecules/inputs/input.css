@@ -1,0 +1,72 @@
+:host {
+  border-radius: var(--Border-Radius-100, 0.5rem);
+  border: 1px solid var(--Tokens-Input-Stroke-Default, #CBD1D9);
+  background: var(--Tokens-Input-Background-Default, #FFF);
+  color: var(--tokens-input-content-default);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: row;
+  padding: var(--Spacing-150, 0.75rem) var(--Spacing-200, 1rem);
+  align-items: center;
+  align-self: stretch;
+  gap: var(--Spacing-100, 0.5rem);
+  flex-shrink: 0;
+
+  color: var(--Tokens-Text-On-Light-Default, #4B515A);
+
+  font-family: var(--Body-Small-Regular-fontFamily, Inter);
+  font-size: var(--Body-Small-Regular-fontSize, 0.875rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--Body-Small-Regular-lineHeight, 1.125rem); /* 128.571% */
+  letter-spacing: var(--Body-Small-Regular-letterSpacing, 0rem);
+}
+
+input {
+  all: unset;
+  width: 100%;
+}
+
+:host(::placeholder) {
+  color: var(--tokens-input-content-subdue);
+}
+
+:host(:focus) {
+  background-color: var(--tokens-input-background-focus);
+  border-color: var(--tokens-input-stroke-focus);
+  color: var(--tokens-input-content-focus);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--tokens-input-stroke-focus);
+}
+
+:host(:disabled) {
+  background-color: var(--tokens-input-background-disabled);
+  color: var(--tokens-input-content-disabled);
+  border-color: var(--tokens-input-stroke-disabled);
+  cursor: not-allowed;
+}
+
+:host(.is-error) {
+  border-color: var(--tokens-input-stroke-error);
+  color: var(--tokens-input-content-error);
+  background-color: var(--tokens-input-background-error);
+}
+
+:host(.is-error:focus) {
+  box-shadow: 0 0 0 2px var(--tokens-input-stroke-error);
+}
+
+.prefix-text, .prefix-icon, .suffix-text, .suffix-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--Tokens-Text-On-Light-Subdue, #7D8796);
+
+  font-family: var(--Body-Small-Regular-fontFamily, Inter);
+  font-size: var(--Body-Small-Regular-fontSize, 0.875rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--Body-Small-Regular-lineHeight, 1.125rem); /* 128.571% */
+  letter-spacing: var(--Body-Small-Regular-letterSpacing, 0rem);
+}
