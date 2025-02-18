@@ -4,7 +4,12 @@ import { InputType } from './input.types'
 import { Component, Element, h, Host, Prop, State } from '@stencil/core'
 
 /**
- * Custom input component supporting different types, prefix/suffix elements, and validation states.
+ * A custom input component that supports various input types, prefix/suffix elements,
+ * and validation states.
+ *
+ * @component
+ * @tag glu-input
+ * @shadow true
  */
 @Component({
   tag: 'glu-input',
@@ -12,63 +17,107 @@ import { Component, Element, h, Host, Prop, State } from '@stencil/core'
   shadow: true
 })
 export class GluInput {
-  /** The type of input. */
+  /**
+   * Specifies the input type.
+   *
+   * Allowed values: 'generic', 'currency', 'phone' or any valid InputType.
+   * @prop {string} type
+   * @default 'generic'
+   */
   @Prop() readonly type: 'generic' | 'currency' | 'phone' | InputType = 'generic'
 
-  /** Whether to show a suffix icon. */
-  @Prop() readonly showSuffixIcon = false
-
-  /** The name of the suffix icon (if `showSuffixIcon` is true). */
+  /**
+   * Name of the suffix icon to display when `showSuffixIcon` is true.
+   * @prop {string} suffixIcon
+   * @default ''
+   */
   @Prop() readonly suffixIcon = ''
 
-  /** Whether to show a prefix icon. */
-  @Prop() readonly showPrefixIcon = false
-
-  /** The name of the prefix icon (if `showPrefixIcon` is true). */
+  /**
+   * Name of the prefix icon to display when `showPrefixIcon` is true.
+   * @prop {string} prefixIcon
+   * @default ''
+   */
   @Prop() readonly prefixIcon = ''
 
-  /** Whether to show suffix text. */
-  @Prop() readonly showSuffixText = false
-
-  /** Text displayed as a suffix. */
+  /**
+   * Text content to display as a suffix.
+   * @prop {string} suffixText
+   * @default ''
+   */
   @Prop() readonly suffixText = ''
 
-  /** Whether to show prefix text. */
-  @Prop() readonly showPrefixText = false
-
-  /** Text displayed as a prefix. */
+  /**
+   * Text content to display as a prefix.
+   * @prop {string} prefixText
+   * @default ''
+   */
   @Prop() readonly prefixText = ''
 
-  /** Whether the input should be displayed with an error state. */
+  /**
+   * Sets the input to an error state.
+   * @prop {boolean} error
+   * @default false
+   */
   @Prop() readonly error = false
 
-  /** Whether the input is disabled. */
+  /**
+   * Disables the input if true.
+   * @prop {boolean} disabled
+   * @default false
+   */
   @Prop() readonly disabled = false
 
-  /** Whether the input is read-only. */
+  /**
+   * Makes the input read-only.
+   * @prop {boolean} readOnly
+   * @default false
+   */
   @Prop() readonly readOnly = false
 
-  /** Placeholder text for the input. */
+  /**
+   * Placeholder text for the input.
+   * @prop {string} placeholder
+   * @default ''
+   */
   @Prop() readonly placeholder = ''
 
-  /** The input's value. This prop is mutable, allowing it to be updated internally. */
-
+  /**
+   * The input's value. This property is mutable and allows for two-way binding.
+   * @prop {string} value
+   * @default ''
+   */
   @Prop({ mutable: true }) value = ''
 
-  /** Whether to show a clear (✖) icon in the input for clearing its value. */
-  @Prop() readonly showClearIcon = true
+  /**
+   * Shows a clear (✖) icon to reset the input when true (just search input).
+   * @prop {boolean} showClearIcon
+   * @default false
+   */
+  @Prop() readonly showClearIcon = false
 
-  /** Tracks whether the input is currently focused. */
+  /**
+   * Indicates if the input currently has focus.
+   * @state {boolean} isFocused
+   */
   @State() isFocused = false
 
-  /** Controls the visibility of the password input type. */
+  /**
+   * Toggles the visibility of the password text when the input type is 'password'.
+   * @state {boolean} showPassword
+   */
   @State() showPassword = false
 
+  /**
+   * Reference to the host element.
+   * @element {HTMLGluInputElement}
+   */
   @Element() el!: HTMLGluInputElement
 
   /**
-   * Handles input event and updates the internal value and the mutable prop.
-   * @param event The input event.
+   * Handles the input event by updating the component's value.
+   *
+   * @param {Event} event - The input event triggered by user input.
    */
   private handleInput = (event: Event): void => {
     const input = event.target as HTMLInputElement
@@ -76,29 +125,39 @@ export class GluInput {
     this.value = input.value
   }
 
-  /** Handles focus event, setting `isFocused` to `true`. */
+  /**
+   * Sets the focus state to true when the input gains focus.
+   */
   private handleFocus = (): void => {
     this.isFocused = true
   }
 
-  /** Handles blur event, setting `isFocused` to `false`. */
+  /**
+   * Sets the focus state to false when the input loses focus.
+   */
   private handleBlur = (): void => {
     this.isFocused = false
   }
 
-  /** Toggles password visibility for password inputs. */
+  /**
+   * Toggles the password visibility.
+   * Only applicable when the input type is 'password'.
+   */
   private togglePasswordVisibility = (): void => {
     this.showPassword = !this.showPassword
   }
 
-  /** Clears the input field by resetting `internalValue` and the mutable prop. */
+  /**
+   * Clears the input field by resetting its value.
+   */
   private clearInput = (): void => {
     this.value = ''
   }
 
   /**
-   * Determines the appropriate input type.
-   * @returns The correct input type (`text`, `password`, `date`, etc.).
+   * Determines the correct native input type based on the component's type property.
+   *
+   * @returns {string} The native input type (e.g., 'text', 'password', 'date', etc.).
    */
   private getInputType = (): string => {
     switch (this.type) {
@@ -121,12 +180,14 @@ export class GluInput {
         return 'number'
 
       default:
-        // For generic or currency inputs, we use a standard text input.
+        // For 'generic' and 'currency', use a standard text input.
         return 'text'
     }
   }
 
-  /** Focus the input when the host is clicked. */
+  /**
+   * Focuses the native input element when the component's host is clicked.
+   */
   private focusInput = (): void => {
     const input = this.el.shadowRoot?.querySelector('input') as HTMLInputElement
 
@@ -135,11 +196,14 @@ export class GluInput {
     }
   }
 
-  /** Focus the date input and try to open the date picker if available. */
+  /**
+   * Specifically focuses a date input and attempts to open the date picker if supported.
+   */
   private focusDateInput = (): void => {
     const input = this.el.shadowRoot?.querySelector('input[type="date"]') as HTMLInputElement
 
     if (input) {
+      // If the browser supports showPicker(), open the date picker; otherwise, just focus the input.
       if (typeof input.showPicker === 'function') {
         input.showPicker()
       } else {
@@ -149,8 +213,9 @@ export class GluInput {
   }
 
   /**
-   * Renders the prefix icon or text based on the input type and props.
-   * @returns JSX for the prefix content.
+   * Renders the prefix element (icon or text) based on the input type and provided properties.
+   *
+   * @returns {JSX.Element | null} The JSX for the prefix element, or null if none is specified.
    */
   private renderPrefix = () => {
     switch (this.type) {
@@ -177,18 +242,22 @@ export class GluInput {
         return <span class="prefix-text">https://</span>
 
       default:
-        return (this.showPrefixIcon || this.showPrefixText) && (
+        // Render custom prefix icon and/or text if enabled.
+        return (this.prefixIcon || this.prefixText) && (
           <>
-            {this.showPrefixIcon && <glu-icon name={this.prefixIcon} size={18} class="prefix-icon" />}
-            {this.showPrefixText && <span class="prefix-text">{this.prefixText}</span>}
+            {this.prefixIcon && (
+              <glu-icon name={this.prefixIcon} size={18} class="prefix-icon" />
+            )}
+            {this.prefixText && <span class="prefix-text">{this.prefixText}</span>}
           </>
         )
     }
   }
 
   /**
-   * Renders the suffix icon or text based on the input type and props.
-   * @returns JSX for the suffix content.
+   * Renders the suffix element (icon or text) based on the input type and provided properties.
+   *
+   * @returns {JSX.Element | null} The JSX for the suffix element, or null if none is specified.
    */
   private renderSuffix = () => {
     switch (this.type) {
@@ -204,20 +273,32 @@ export class GluInput {
 
       case 'search':
         return this.value && this.showClearIcon && (
-          <glu-icon name="x-circle" size={18} class="suffix-icon cursor-pointer" onClick={this.clearInput} />
+          <glu-icon
+            name="x-circle"
+            size={18}
+            class="suffix-icon cursor-pointer"
+            onClick={this.clearInput}
+          />
         )
 
       default:
-        return (this.showSuffixIcon || this.showSuffixText) && (
+        // Render custom suffix icon and/or text if enabled.
+        return (this.suffixIcon || this.suffixText) && (
           <>
-            {this.showSuffixIcon && <glu-icon name={this.suffixIcon} size={18} class="suffix-icon" />}
-            {this.showSuffixText && <span class="suffix-text">{this.suffixText}</span>}
+            {this.suffixIcon && (
+              <glu-icon name={this.suffixIcon} size={18} class="suffix-icon" />
+            )}
+            {this.suffixText && <span class="suffix-text">{this.suffixText}</span>}
           </>
         )
     }
   }
 
-  /** Renders the component. */
+  /**
+   * Renders the component's HTML structure.
+   *
+   * @returns {JSX.Element} The rendered input component.
+   */
   render() {
     return (
       <Host
