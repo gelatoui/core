@@ -24,7 +24,7 @@ export const config: Config = {
     {
       type: 'docs-readme',
       strict: true,
-      dir: 'dist/readme'
+      dir: './dist/readme'
     },
     {
       type: 'docs-vscode',
@@ -36,6 +36,7 @@ export const config: Config = {
     },
     {
       type: 'www',
+      buildDir: './dist/www',
       serviceWorker: null // disable service workers
     }
   ],

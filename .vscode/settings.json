@@ -50,6 +50,6 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "html.customData": [
-    "./packages/components/dist/vscode-data.json"
+    "../packages/components/dist/vscode-data.json"
   ]
 }
