@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { InputType } from './input.types'
 
-import { Component, Element, h, Host, Prop, State } from '@stencil/core'
+import { Component, Element, Fragment, h, Host, Prop, State } from '@stencil/core'
 
 /**
  * A custom input component that supports various input types, prefix/suffix elements,
@@ -189,26 +189,22 @@ export class GluInput {
    * Focuses the native input element when the component's host is clicked.
    */
   private focusInput = (): void => {
-    const input = this.el.shadowRoot?.querySelector('input') as HTMLInputElement
+    const input = this.el.shadowRoot?.querySelector('input')
 
-    if (input) {
-      input.focus()
-    }
+    input?.focus()
   }
 
   /**
    * Specifically focuses a date input and attempts to open the date picker if supported.
    */
   private focusDateInput = (): void => {
-    const input = this.el.shadowRoot?.querySelector('input[type="date"]') as HTMLInputElement
+    const input: HTMLInputElement = this.el.shadowRoot?.querySelector('input[type="date"]')
 
-    if (input) {
-      // If the browser supports showPicker(), open the date picker; otherwise, just focus the input.
-      if (typeof input.showPicker === 'function') {
-        input.showPicker()
-      } else {
-        input.focus()
-      }
+    // If the browser supports showPicker(), open the date picker; otherwise, just focus the input.
+    if (typeof input.showPicker === 'function') {
+      input?.showPicker()
+    } else {
+      input?.focus()
     }
   }
 
@@ -244,12 +240,12 @@ export class GluInput {
       default:
         // Render custom prefix icon and/or text if enabled.
         return (this.prefixIcon || this.prefixText) && (
-          <>
+          <Fragment>
             {this.prefixIcon && (
               <glu-icon name={this.prefixIcon} size={18} class="prefix-icon" />
             )}
             {this.prefixText && <span class="prefix-text">{this.prefixText}</span>}
-          </>
+          </Fragment>
         )
     }
   }
@@ -284,12 +280,12 @@ export class GluInput {
       default:
         // Render custom suffix icon and/or text if enabled.
         return (this.suffixIcon || this.suffixText) && (
-          <>
+          <Fragment>
             {this.suffixIcon && (
               <glu-icon name={this.suffixIcon} size={18} class="suffix-icon" />
             )}
             {this.suffixText && <span class="suffix-text">{this.suffixText}</span>}
-          </>
+          </Fragment>
         )
     }
   }
