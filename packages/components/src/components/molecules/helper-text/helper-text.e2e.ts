@@ -55,4 +55,14 @@ describe('glu-helper-text (E2E)', () => {
 
     expect(text.innerText).toBe('This is helper text')
   })
+
+  it('applies error styling when isError is true', async () => {
+    const page = await newE2EPage()
+
+    await page.setContent('<glu-helper-text icon="information-circle" is-error>Helper text with error</glu-helper-text>')
+
+    const element = await page.find('glu-helper-text')
+
+    expect(element).toHaveClass('error')
+  })
 })

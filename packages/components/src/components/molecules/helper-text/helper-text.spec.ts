@@ -74,4 +74,13 @@ describe('glu-helper-text', () => {
 
     expect(page.root).toHaveAttribute('is-solid-icon')
   })
+
+  it('applies error styling when isError is true', async () => {
+    const page = await newSpecPage({
+      components: [GluHelperText, GluIcon],
+      html: '<glu-helper-text icon="information-circle" is-error>Helper text with error</glu-helper-text>'
+    })
+
+    expect(page.root).toHaveClass('error')
+  })
 })

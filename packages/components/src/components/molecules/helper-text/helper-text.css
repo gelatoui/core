@@ -25,3 +25,8 @@ glu-icon {
   line-height: var(--Body-Small-Regular-lineHeight, 1.125rem);
   letter-spacing: var(--Body-Small-Regular-letterSpacing, 0rem);
 }
+
+/* Error state styling */
+:host(.error) .text, :host(.error) .icon{
+  color: var(--tokens-input-content-error);
+}
