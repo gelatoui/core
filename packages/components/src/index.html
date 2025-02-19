@@ -70,6 +70,49 @@
         Helper text
       </glu-helper-text>
     </div>
+    <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; align-items: center;">
+      <!-- Basic usage: simple label and input -->
+      <div class="example">
+        <h2>Basic Usage</h2>
+        <glu-input-field
+          label="Username"
+          placeholder="Enter username"
+        ></glu-input-field>
+      </div>
+
+      <!-- With helper text -->
+      <div class="example">
+        <h2>With Helper Text</h2>
+        <glu-input-field
+          label="Email"
+          placeholder="Enter email"
+          helper-text="We'll never share your email."
+        ></glu-input-field>
+      </div>
+
+      <!-- With error state and helper text (error styling applied) -->
+      <div class="example">
+        <h2>Error State</h2>
+        <glu-input-field
+          label="Password"
+          placeholder="Enter password"
+          error
+          helper-text="Password is required."
+          helper-icon="warning"
+          helper-is-error
+        ></glu-input-field>
+      </div>
+
+      <!-- With pre-filled value -->
+      <div class="example">
+        <h2>Pre-filled Value</h2>
+        <glu-input-field
+          label="First Name"
+          placeholder="Enter your first name"
+          value="John"
+        ></glu-input-field>
+      </div>
+    </div>
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
       <glu-input type="default" placeholder="Enter some text" value=""></glu-input>
       <glu-input type="default" placeholder="Enter some text" value="" disabled></glu-input>
