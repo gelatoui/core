@@ -1,8 +1,7 @@
 /* eslint-disable @stylistic/max-len */
 /* eslint-disable no-undef */
-import { GluLabel } from './label'
-
-import { GluIcon } from '../../atoms/icon/icon'
+import { GluIcon } from '@components/icon/icon'
+import { GluLabel } from '@components/label/label'
 
 import { newSpecPage } from '@stencil/core/testing'
 

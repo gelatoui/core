@@ -2,8 +2,9 @@ import { Config } from '@stencil/core'
 import { reactOutputTarget } from '@stencil/react-output-target'
 
 export const config: Config = {
-  namespace: 'components',
+  namespace: 'glu',
   globalStyle: 'src/global/global.css',
+  preamble: 'Built with GelatoUI',
   outputTargets: [
     {
       type: 'dist',

@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { Attributes, inheritAttributes } from '../../../utils/helpers'
+import { Attributes, inheritAttributes } from '@utils/helpers'
 
 import { Component, Element, Event, EventEmitter, h, Host, Prop } from '@stencil/core'
 
@@ -17,6 +17,8 @@ const EXCLUDE_ATTRIBUTES = new Set([
  *
  * Any extra attributes set on `<glu-input-field>` (except those explicitly defined) are forwarded
  * to the inner `<glu-input>` component.
+ *
+ * @see GluInput
  *
  * @component
  * @tag glu-input-field
@@ -104,7 +106,7 @@ export class GluInputField {
   render() {
     return (
       <Host class="glu-input-field">
-        {this.label && <glu-label>{this.label}</glu-label>}
+        {!!this.label && <glu-label>{this.label}</glu-label>}
         <glu-input
           value={this.value}
           error={!!this.error}

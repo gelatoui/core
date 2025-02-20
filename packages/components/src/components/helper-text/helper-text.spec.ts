@@ -1,8 +1,7 @@
 /* eslint-disable @stylistic/max-len */
 /* eslint-disable no-undef */
-import { GluHelperText } from './helper-text'
-
-import { GluIcon } from '../../atoms/icon/icon'
+import { GluHelperText } from '@components/helper-text/helper-text'
+import { GluIcon } from '@components/icon/icon'
 
 import { newSpecPage } from '@stencil/core/testing'
 

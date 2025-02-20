@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
-import { GluInput } from './input'
-
-import { GluIcon } from '../../atoms/icon/icon'
+import { GluInput } from '@components/_input/input'
+import { GluIcon } from '@components/icon/icon'
 
 import { newSpecPage } from '@stencil/core/testing'
 
