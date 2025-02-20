@@ -31,56 +31,70 @@ export class GluInput {
    * @prop {string} suffixIcon
    * @default ''
    */
-  @Prop() readonly suffixIcon = ''
+  @Prop() readonly suffixIcon: string = ''
+
+  /**
+   * The visual variant style of the suffix icon.
+   * @prop {('solid' | 'outline')} suffixIconVariant
+   * @default 'outline'
+   */
+  @Prop() readonly suffixIconVariant: 'solid' | 'outline' = 'outline'
 
   /**
    * Name of the prefix icon to display when `showPrefixIcon` is true.
    * @prop {string} prefixIcon
    * @default ''
    */
-  @Prop() readonly prefixIcon = ''
+  @Prop() readonly prefixIcon: string = ''
+
+  /**
+   * The visual variant style of the prefix icon.
+   * @prop {('solid' | 'outline')} prefixIconVariant
+   * @default 'outline'
+   */
+  @Prop() readonly prefixIconVariant: 'solid' | 'outline' = 'outline'
 
   /**
    * Text content to display as a suffix.
    * @prop {string} suffixText
    * @default ''
    */
-  @Prop() readonly suffixText = ''
+  @Prop() readonly suffixText: string = ''
 
   /**
    * Text content to display as a prefix.
    * @prop {string} prefixText
    * @default ''
    */
-  @Prop() readonly prefixText = ''
+  @Prop() readonly prefixText: string = ''
 
   /**
    * Sets the input to an error state.
    * @prop {boolean} error
    * @default false
    */
-  @Prop() readonly error = false
+  @Prop() readonly error: boolean = false
 
   /**
    * Disables the input if true.
    * @prop {boolean} disabled
    * @default false
    */
-  @Prop() readonly disabled = false
+  @Prop() readonly disabled: boolean = false
 
   /**
    * Makes the input read-only.
    * @prop {boolean} readOnly
    * @default false
    */
-  @Prop() readonly readOnly = false
+  @Prop() readonly readOnly: boolean = false
 
   /**
    * Placeholder text for the input.
    * @prop {string} placeholder
    * @default ''
    */
-  @Prop() readonly placeholder = ''
+  @Prop() readonly placeholder: string = ''
 
   /**
    * The input's value. This property is mutable and allows for two-way binding.
@@ -94,7 +108,7 @@ export class GluInput {
    * @prop {boolean} showClearIcon
    * @default false
    */
-  @Prop() readonly showClearIcon = false
+  @Prop() readonly showClearIcon: boolean = false
 
   /**
    * Indicates if the input currently has focus.
@@ -112,7 +126,7 @@ export class GluInput {
    * Reference to the host element.
    * @element {HTMLGluInputElement}
    */
-  @Element() el!: HTMLGluInputElement
+  @Element() inputElement!: HTMLGluInputElement
 
   /**
    * Handles the input event by updating the component's value.
@@ -189,7 +203,7 @@ export class GluInput {
    * Focuses the native input element when the component's host is clicked.
    */
   private focusInput = (): void => {
-    const input = this.el.shadowRoot?.querySelector('input')
+    const input = this.inputElement.shadowRoot?.querySelector('input')
 
     input?.focus()
   }
@@ -198,7 +212,7 @@ export class GluInput {
    * Specifically focuses a date input and attempts to open the date picker if supported.
    */
   private focusDateInput = (): void => {
-    const input: HTMLInputElement = this.el.shadowRoot?.querySelector('input[type="date"]')
+    const input: HTMLInputElement = this.inputElement.shadowRoot?.querySelector('input[type="date"]')
 
     // If the browser supports showPicker(), open the date picker; otherwise, just focus the input.
     if (typeof input.showPicker === 'function') {
@@ -227,12 +241,13 @@ export class GluInput {
             name="calendar"
             size={18}
             class="prefix-icon cursor-pointer"
+            variant={this.prefixIconVariant}
             onClick={this.focusDateInput}
           />
         )
 
       case 'phone':
-        return <glu-icon name="phone" size={18} class="prefix-icon" />
+        return <glu-icon name="phone" size={18} class="prefix-icon" variant={this.prefixIconVariant} />
 
       case 'url':
         return <span class="prefix-text">https://</span>
@@ -242,7 +257,7 @@ export class GluInput {
         return (this.prefixIcon || this.prefixText) && (
           <Fragment>
             {this.prefixIcon && (
-              <glu-icon name={this.prefixIcon} size={18} class="prefix-icon" />
+              <glu-icon name={this.prefixIcon} size={18} class="prefix-icon" variant={this.prefixIconVariant} />
             )}
             {this.prefixText && <span class="prefix-text">{this.prefixText}</span>}
           </Fragment>
@@ -262,6 +277,7 @@ export class GluInput {
           <glu-icon
             name={this.showPassword ? 'eye-slash' : 'eye'}
             size={18}
+            variant={this.suffixIconVariant}
             class="suffix-icon cursor-pointer"
             onClick={this.togglePasswordVisibility}
           />
@@ -273,6 +289,7 @@ export class GluInput {
             name="x-circle"
             size={18}
             class="suffix-icon cursor-pointer"
+            variant={this.suffixIconVariant}
             onClick={this.clearInput}
           />
         )
@@ -282,7 +299,7 @@ export class GluInput {
         return (this.suffixIcon || this.suffixText) && (
           <Fragment>
             {this.suffixIcon && (
-              <glu-icon name={this.suffixIcon} size={18} class="suffix-icon" />
+              <glu-icon name={this.suffixIcon} size={18} class="suffix-icon" variant={this.suffixIconVariant} />
             )}
             {this.suffixText && <span class="suffix-text">{this.suffixText}</span>}
           </Fragment>

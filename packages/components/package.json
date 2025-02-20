@@ -32,10 +32,13 @@
       "require": "./loader/index.cjs",
       "types": "./loader/index.d.ts"
     },
+    "./vscode-data.json": {
+      "import": "./dist/vscode-data.json",
+      "require": "./dist/vscode-data.json"
+    },
     "./components.css": {
       "import": "./dist/components/components.css",
-      "require": "./dist/components/components.css",
-      "types": "./dist/components/components.css"
+      "require": "./dist/components/components.css"
     }
   },
   "repository": {

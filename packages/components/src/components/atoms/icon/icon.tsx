@@ -28,7 +28,7 @@ export class GluIcon {
 
   /**
    * The visual variant style of the icon
-   * @prop {IconVariant} variant - The styling variant to use
+   * @prop {('solid' | 'outline')} variant - The styling variant to use
    * @default "outline"
    * @readonly
    */
