@@ -109,7 +109,7 @@ export class GluInputField {
         {!!this.label && <glu-label>{this.label}</glu-label>}
         <glu-input
           value={this.value}
-          error={!!this.error}
+          isError={!!this.error}
           onInput={this.onInputChange}
           {...this.inheritedAttributes}
         />

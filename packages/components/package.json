@@ -7,7 +7,7 @@
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/components/components.esm.js",
+  "unpkg": "dist/glu/glu.esm.js",
   "exports": {
     ".": {
       "import": "./dist/stencil-library/stencil-library.esm.js",
@@ -36,9 +36,9 @@
       "import": "./dist/vscode-data.json",
       "require": "./dist/vscode-data.json"
     },
-    "./components.css": {
-      "import": "./dist/components/components.css",
-      "require": "./dist/components/components.css"
+    "./glu.css": {
+      "import": "./dist/glu/glu.css",
+      "require": "./dist/glu/glu.css"
     }
   },
   "repository": {

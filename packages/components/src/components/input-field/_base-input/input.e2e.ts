@@ -15,11 +15,11 @@ describe('glu-input (E2E)', () => {
   it('applies error styling when error prop is true', async () => {
     const page = await newE2EPage()
 
-    await page.setContent('<glu-input error></glu-input>')
+    await page.setContent('<glu-input is-error></glu-input>')
 
     const element = await page.find('glu-input')
 
-    expect(element).toHaveClass('error')
+    expect(element).toHaveClass('is-error')
   })
 
   it('focuses input when host is clicked', async () => {

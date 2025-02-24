@@ -13,7 +13,7 @@ describe('glu-helper-text', () => {
     })
 
     expect(page.root).toMatchInlineSnapshot(/* html */`
-      <glu-helper-text class="glu-helper-text" icon="information-circle">
+      <glu-helper-text class="glu-helper-text" icon="information-circle" icon-variant="outline">
         <template shadowrootmode="open">
           <div class="icon">
             <glu-icon class="glu-icon" name="information-circle" variant="outline">
@@ -30,14 +30,14 @@ describe('glu-helper-text', () => {
     `)
   })
 
-  it('renders a solid icon when is-solid-icon is true', async () => {
+  it('renders a solid icon when icon-variant is "solid"', async () => {
     const page = await newSpecPage({
       components: [GluHelperText, GluIcon],
-      html: '<glu-helper-text icon="information-circle" is-solid-icon></glu-helper-text>'
+      html: '<glu-helper-text icon="information-circle" icon-variant="solid"></glu-helper-text>'
     })
 
     expect(page.root).toMatchInlineSnapshot(/* html */`
-      <glu-helper-text class="glu-helper-text" icon="information-circle" is-solid-icon="">
+      <glu-helper-text class="glu-helper-text" icon="information-circle" icon-variant="solid">
         <template shadowrootmode="open">
           <div class="icon">
             <glu-icon class="glu-icon" name="information-circle" variant="solid">
@@ -66,12 +66,12 @@ describe('glu-helper-text', () => {
   it('reflects properties correctly', async () => {
     const page = await newSpecPage({
       components: [GluHelperText],
-      html: '<glu-helper-text icon="backward" is-solid-icon></glu-helper-text>'
+      html: '<glu-helper-text icon="backward" icon-variant="solid"></glu-helper-text>'
     })
 
     expect(page.root).toHaveAttribute('icon')
 
-    expect(page.root).toHaveAttribute('is-solid-icon')
+    expect(page.root).toHaveAttribute('icon-variant')
   })
 
   it('applies error styling when isError is true', async () => {

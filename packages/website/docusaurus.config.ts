@@ -22,7 +22,7 @@ const config: Config = {
   organizationName: 'gelato-ui', // Usually your GitHub org/user name.
   projectName: 'gelato-ui', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set

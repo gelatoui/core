@@ -16,7 +16,7 @@ import { Component, Element, Fragment, h, Host, Prop, State } from '@stencil/cor
   styleUrl: 'input.css',
   shadow: true
 })
-export class GluInput {
+export class GluBaseInput {
   /**
    * Specifies the input type.
    *
@@ -70,10 +70,10 @@ export class GluInput {
 
   /**
    * Sets the input to an error state.
-   * @prop {boolean} error
+   * @prop {boolean} isError
    * @default false
    */
-  @Prop() readonly error: boolean = false
+  @Prop() readonly isError: boolean = false
 
   /**
    * Disables the input if true.
@@ -317,7 +317,7 @@ export class GluInput {
       <Host
         class={{
           'glu-input': true,
-          error: this.error,
+          'is-error': this.isError,
           disabled: this.disabled,
           'read-only': this.readOnly,
           focused: this.isFocused
