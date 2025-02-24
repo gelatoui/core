@@ -289,9 +289,9 @@ export class GluInput {
   private focusDateInput = (): void => {
     const input = this.inputElement.shadowRoot?.querySelector('input[type="date"]') as HTMLInputElement
 
-    input.showPicker()
+    input?.showPicker?.()
 
-    input?.focus()
+    input?.focus?.()
   }
 
   // ---------------------------

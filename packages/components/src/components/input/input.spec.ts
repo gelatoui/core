@@ -148,6 +148,26 @@ describe('glu-input', () => {
     expect(spyFocus).toHaveBeenCalled()
   })
 
+  it('triggers focus clicking the calendar prefix icon when type is date', async () => {
+    const page = await newSpecPage({
+      components: [GluInput, GluIcon],
+      html: '<glu-input type="date"></glu-input>'
+    })
+
+    const inputEl = page.root.shadowRoot.querySelector('input') as HTMLInputElement
+    const prefixIconEl = page.root.shadowRoot.querySelector('.prefix-icon') as HTMLDivElement
+    const spyFocus = jest.fn()
+
+    // Attach event listeners directly to the input element
+    inputEl.addEventListener('focus', spyFocus)
+
+    prefixIconEl.click()
+
+    await page.waitForChanges()
+
+    expect(spyFocus).toHaveBeenCalled()
+  })
+
   it('disables input when disabled prop is set', async () => {
     const page = await newSpecPage({
       components: [GluInput, GluIcon],
@@ -295,5 +315,22 @@ describe('glu-input prefix and suffix', () => {
     const suffixIcon = page.root.shadowRoot.querySelector('.suffix-icon')
 
     expect(suffixIcon).not.toBeNull()
+  })
+
+  it('renders with different input types', async () => {
+    const types = ['text', 'email', 'password', 'number', 'date', 'tel']
+
+    for (const type of types) {
+      const page = await newSpecPage({
+        components: [GluInput],
+        html: `<glu-input type="${type}"></glu-input>`
+      })
+
+      const input = page.root.shadowRoot.querySelector('input')
+
+      expect(input).not.toBeNull()
+
+      expect(input?.getAttribute('type')).toBe(type) // Check if the type is set correctly
+    }
   })
 })

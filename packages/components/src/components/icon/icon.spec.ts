@@ -28,6 +28,19 @@ describe('glu-icon', () => {
     `)
   })
 
+  it('does not renders any icon without name', async () => {
+    const page = await newSpecPage({
+      components: [GluIcon],
+      html: '<glu-icon></glu-icon>'
+    })
+
+    expect(page.root).toMatchInlineSnapshot(/* html */ `
+      <glu-icon variant="outline">
+        <template shadowrootmode="open"></template>
+      </glu-icon>
+    `)
+  })
+
   it('uses size prop correctly', async () => {
     const page = await newSpecPage({
       components: [GluIcon],
