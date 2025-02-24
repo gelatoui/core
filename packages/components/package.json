@@ -11,15 +11,16 @@
   "exports": {
     ".": {
       "import": "./dist/stencil-library/stencil-library.esm.js",
-      "require": "./dist/stencil-library/stencil-library.cjs.js"
+      "require": "./dist/stencil-library/stencil-library.cjs.js",
+      "types": "./dist/types/index.d.ts"
     },
     "./dist/*": {
       "import": "./dist/*",
-      "types": "./dist/*"
+      "types": "./dist/types/*"
     },
     "./components/*": {
       "import": "./dist/components/*.js",
-      "types": "./dist/components/*.d.ts"
+      "types": "./dist/types/*.d.ts"
     },
     "./hydrate": {
       "import": "./hydrate/index.mjs",
