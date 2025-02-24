@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`glu-input renders correctly with default props 1`] = `
+<glu-input class="glu-input" placeholder="Enter text" value="">
+  <template shadowrootmode="open">
+    <div class="input-wrapper">
+      <input class="native-input" placeholder="Enter text" type="text" value="">
+    </div>
+  </template>
+</glu-input>
+`;

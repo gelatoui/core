@@ -74,11 +74,11 @@ export class GluInput {
    * Determines the type of the input field.
    * Supported types include 'generic', 'currency', 'phone', 'password', 'date', 'url', 'search', 'number'
    * or any valid InputType. This setting affects both the native input type and UI behavior.
-   * @prop {'generic' | 'currency' | 'phone' | 'password' | 'date' | 'url' | 'search' | 'number' | InputType} type - The input type.
-   * @default 'generic'
+   * @prop {'text' | 'currency' | 'phone' | 'password' | 'date' | 'url' | 'search' | 'number' | InputType} type - The input type.
+   * @default 'text'
    * @readonly
    */
-  @Prop() readonly type: 'generic' | 'currency' | 'phone' | 'password' | 'date' | 'url' | 'search' | 'number' | InputType = 'generic'
+  @Prop() readonly type: 'text' | 'currency' | 'phone' | 'password' | 'date' | 'url' | 'search' | 'number' | InputType = 'text'
 
   /**
    * The name of the suffix icon displayed on the right side of the input.
@@ -272,17 +272,8 @@ export class GluInput {
       case 'password':
         return this.showPassword ? 'text' : 'password'
 
-      case 'date':
-        return 'date'
-
       case 'phone':
         return 'tel'
-
-      case 'url':
-        return 'url'
-
-      case 'search':
-        return 'search'
 
       case 'number':
         return 'number'
@@ -290,8 +281,11 @@ export class GluInput {
       case 'currency':
         return 'text'
 
-      default:
+      case 'text':
         return 'text'
+
+      default:
+        return this.type
     }
   }
 
@@ -305,11 +299,9 @@ export class GluInput {
   private focusDateInput = (): void => {
     const input = this.inputElement.shadowRoot?.querySelector('input[type="date"]') as HTMLInputElement
 
-    if (input && typeof input.showPicker === 'function') {
-      input.showPicker()
-    } else {
-      input?.focus()
-    }
+    input.showPicker()
+
+    input?.focus()
   }
 
   // ---------------------------
@@ -396,8 +388,6 @@ export class GluInput {
   // ---------------------------
 
   render() {
-    if (this.label) console.log(this.label)
-
     return (
       <Host
         class={{
