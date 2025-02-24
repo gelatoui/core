@@ -27,36 +27,32 @@ export class GluInput {
   /**
    * Optional label text displayed above the input field.
    * @prop {string} label - The label text.
-   * @default ''
    * @readonly
    */
-  @Prop() readonly label: string = ''
+  @Prop() readonly label: string
 
   /**
    * The error message to display below the input.
    * When non-empty, the component enters an error state and a default error icon is used.
    * @prop {string} error - The error message.
-   * @default ''
    * @readonly
    */
-  @Prop() readonly error: string = ''
+  @Prop() readonly error: string
 
   /**
    * Supplemental helper text displayed below the input.
    * @prop {string} helperText - Additional guidance or context.
-   * @default ''
    * @readonly
    */
-  @Prop() readonly helperText: string = ''
+  @Prop() readonly helperText: string
 
   /**
    * The name of the helper icon displayed alongside the helper text.
    * If an error exists, a default error icon is shown instead.
    * @prop {string} helperIcon - The helper icon identifier.
-   * @default ''
    * @readonly
    */
-  @Prop() readonly helperIcon: string = ''
+  @Prop() readonly helperIcon: string
 
   /**
    * Specifies the visual variant for the helper icon.
@@ -83,10 +79,9 @@ export class GluInput {
   /**
    * The name of the suffix icon displayed on the right side of the input.
    * @prop {string} suffixIcon - The suffix icon identifier.
-   * @default ''
    * @readonly
    */
-  @Prop() readonly suffixIcon: string = ''
+  @Prop() readonly suffixIcon: string
 
   /**
    * Defines the visual variant for the suffix icon.
@@ -100,10 +95,9 @@ export class GluInput {
   /**
    * The name of the prefix icon displayed on the left side of the input.
    * @prop {string} prefixIcon - The prefix icon identifier.
-   * @default ''
    * @readonly
    */
-  @Prop() readonly prefixIcon: string = ''
+  @Prop() readonly prefixIcon: string
 
   /**
    * Defines the visual variant for the prefix icon.
@@ -117,18 +111,16 @@ export class GluInput {
   /**
    * Optional text displayed as a suffix adjacent to the input field.
    * @prop {string} suffixText - The suffix text content.
-   * @default ''
    * @readonly
    */
-  @Prop() readonly suffixText: string = ''
+  @Prop() readonly suffixText: string
 
   /**
    * Optional text displayed as a prefix adjacent to the input field.
    * @prop {string} prefixText - The prefix text content.
-   * @default ''
    * @readonly
    */
-  @Prop() readonly prefixText: string = ''
+  @Prop() readonly prefixText: string
 
   /**
    * Renders the input with error styling when true.
@@ -157,18 +149,16 @@ export class GluInput {
   /**
    * Placeholder text displayed when the input field is empty.
    * @prop {string} placeholder - The placeholder text.
-   * @default ''
    * @readonly
    */
-  @Prop() readonly placeholder: string = ''
+  @Prop() readonly placeholder: string
 
   /**
    * The current value of the input field.
    * This property is mutable to support two-way binding.
    * @prop {string} value - The input's value.
-   * @default ''
    */
-  @Prop({ mutable: true, reflect: true }) value = ''
+  @Prop({ mutable: true, reflect: true }) value
 
   /**
    * When true and the input type is 'search', displays a clear icon to reset the input.
@@ -425,7 +415,7 @@ export class GluInput {
         {/* Optional helper text */}
         {!!(this.error || this.helperText) && (
           <glu-helper-text
-            icon={this.error ? 'exclamation-circle' : this.helperIcon}
+            icon={this.helperIcon ?? undefined}
             iconVariant={this.helperIconVariant}
             is-error={!!this.error}
           >
