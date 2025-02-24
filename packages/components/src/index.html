@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/components.esm.js"></script>
-    <script nomodule src="/build/components.js"></script>
-    <link rel="stylesheet" href="/build/components.css">
+    <script type="module" src="/build/glu.esm.js"></script>
+    <script nomodule src="/build/glu.js"></script>
+    <link rel="stylesheet" href="/build/glu.css">
 
     <!-- Recommended FONTS -->
     <!-- Inter and Plus Jakarta Sans -->
@@ -71,52 +71,49 @@
       </glu-helper-text>
     </div>
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; align-items: center;">
-      <!-- Basic usage: simple label and input -->
-      <div class="example">
-        <h2>Basic Usage</h2>
-        <glu-input
-          label="Username"
-          placeholder="Enter username"
-        ></glu-input>
-      </div>
+      <!-- Basic Input -->
+      <glu-input label="Basic Input" placeholder="Enter text"></glu-input>
 
-      <!-- With helper text -->
-      <div class="example">
-        <h2>With Helper Text</h2>
-        <glu-input
-          label="Email"
-          placeholder="Enter email"
-          helper-text="We'll never share your email."
-        ></glu-input>
-      </div>
+      <!-- Input with Helper Text -->
+      <glu-input label="Username" helperText="Choose a unique username"></glu-input>
 
-      <!-- With error state and helper text (error styling applied) -->
-      <div class="example">
-        <h2>Error State</h2>
-        <glu-input
-          label="Password"
-          placeholder="Enter password"
-          error
-          helper-text="Password is required."
-          helper-icon="warning"
-          helper-is-error
-        ></glu-input>
-      </div>
+      <!-- Input with Error Message -->
+      <glu-input label="Email" error="Invalid email address" placeholder="Enter your email"></glu-input>
 
-      <!-- With pre-filled value -->
-      <div class="example">
-        <h2>Pre-filled Value</h2>
-        <glu-input
-          label="First Name"
-          placeholder="Enter your first name"
-          value="John"
-        ></glu-input>
-      </div>
+      <!-- Password Input with Toggle -->
+      <glu-input label="Password" type="password" placeholder="Enter password"></glu-input>
+
+      <!-- Search Input with Clear Button -->
+      <glu-input label="Search" type="search" placeholder="Search..." show-clear-icon="true"></glu-input>
+
+      <!-- Number Input -->
+      <glu-input label="Age" type="number" placeholder="Enter your age"></glu-input>
+
+      <!-- Date Picker -->
+      <glu-input label="Birthdate" type="date"></glu-input>
+
+      <!-- Phone Number Input -->
+      <glu-input label="Phone Number" type="phone" placeholder="(123) 456-7890"></glu-input>
+
+      <!-- URL Input -->
+      <glu-input label="Website" type="url" placeholder="https://example.com"></glu-input>
+
+      <!-- Currency Input -->
+      <glu-input label="Price" type="currency" prefix-text="$"></glu-input>
+
+      <!-- Input with Prefix and Suffix Icons -->
+      <glu-input label="Username" prefixIcon="user" suffix-icon="check-circle"></glu-input>
+
+      <!-- Disabled Input -->
+      <glu-input label="Disabled" value="Cannot edit" disabled="true"></glu-input>
+
+      <!-- Read-Only Input -->
+      <glu-input label="Read-Only" value="You can select this text" read-only="true"></glu-input>
     </div>
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
       <glu-input type="default" placeholder="Enter some text" value=""></glu-input>
       <glu-input type="default" placeholder="Enter some text" value="" disabled></glu-input>
-      <glu-input type="default" placeholder="Enter some text" value="" error></glu-input>
+      <glu-input type="default" placeholder="Enter some text" value="" is-error></glu-input>
       <glu-input type="default" placeholder="Enter some text" value=""></glu-input>
       <glu-input type="default" placeholder="Enter some text" value="Some value"></glu-input>
       <glu-input></glu-input>
@@ -127,28 +124,28 @@
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
       <glu-input type="password" placeholder="Enter password" value="12345678"></glu-input>
       <glu-input type="password" placeholder="Enter password" value="12345678" disabled></glu-input>
-      <glu-input type="password" placeholder="Enter password" value="12345678" error></glu-input>
+      <glu-input type="password" placeholder="Enter password" value="12345678" is-error></glu-input>
     </div>
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
       <glu-input type="url" placeholder="Enter URL" value="www.example.com"></glu-input>
       <glu-input type="url" placeholder="Enter URL" value="www.example.com" disabled></glu-input>
-      <glu-input type="url" placeholder="Enter URL" value="www.example.com" error></glu-input>
+      <glu-input type="url" placeholder="Enter URL" value="www.example.com" is-error></glu-input>
     </div>
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
       <glu-input type="search" placeholder="Enter search term" value="example"></glu-input>
       <glu-input type="search" placeholder="Enter search term" value="example" disabled></glu-input>
-      <glu-input type="search" placeholder="Enter search term" value="example" error></glu-input>
+      <glu-input type="search" placeholder="Enter search term" value="example" is-error></glu-input>
       <glu-input type="search" placeholder="Enter search term" value="example" show-clear-icon></glu-input>
     </div>
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
       <glu-input type="date" placeholder="Enter date" value="2023-01-01"></glu-input>
       <glu-input type="date" placeholder="Enter date" value="2023-01-01" disabled></glu-input>
-      <glu-input type="date" placeholder="Enter date" value="2023-01-01" error></glu-input>
+      <glu-input type="date" placeholder="Enter date" value="2023-01-01" is-error></glu-input>
     </div>
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
       <glu-input type="phone" placeholder="Enter phone number" value="+1234567890"></glu-input>
       <glu-input type="phone" placeholder="Enter phone number" value="+1234567890" disabled></glu-input>
-      <glu-input type="phone" placeholder="Enter phone number" value="+1234567890" error></glu-input>
+      <glu-input type="phone" placeholder="Enter phone number" value="+1234567890" is-error></glu-input>
     </div>
   </body>
 </html>

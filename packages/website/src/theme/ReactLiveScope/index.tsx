@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { GluButton, GluHelperText, GluIcon, GluLabel, GluLink } from '@gelato-ui/react'
+import { GluButton, GluHelperText, GluIcon, GluInput, GluLabel, GluLink } from '@gelato-ui/react'
 
 const ReactLiveScope: unknown = {
   React,
@@ -9,7 +9,8 @@ const ReactLiveScope: unknown = {
   GluLink,
   GluIcon,
   GluLabel,
-  GluHelperText
+  GluHelperText,
+  GluInput
 }
 
 export default ReactLiveScope

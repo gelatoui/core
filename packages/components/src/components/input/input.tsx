@@ -1,6 +1,6 @@
 import { Attributes, inheritAttributes } from '@utils/helpers'
 
-import { InputType } from './input.types'
+import { InputChangeEventDetail, InputType } from './input.types'
 
 import { Component, Element, Event, EventEmitter, Fragment, h, Host, Prop, State } from '@stencil/core'
 
@@ -21,214 +21,213 @@ import { Component, Element, Event, EventEmitter, Fragment, h, Host, Prop, State
   shadow: true
 })
 export class GluInput {
-// ---------------------------
-// Field (wrapper) properties
-// ---------------------------
-/**
- * Optional label text displayed above the input field.
- * @prop {string} label - The label text.
- * @default ''
- * @readonly
- */
+  // ---------------------------
+  // Field (wrapper) properties
+  // ---------------------------
+  /**
+   * Optional label text displayed above the input field.
+   * @prop {string} label - The label text.
+   * @default ''
+   * @readonly
+   */
   @Prop() readonly label: string = ''
 
   /**
- * The error message to display below the input.
- * When non-empty, the component enters an error state and a default error icon is used.
- * @prop {string} error - The error message.
- * @default ''
- * @readonly
- */
+   * The error message to display below the input.
+   * When non-empty, the component enters an error state and a default error icon is used.
+   * @prop {string} error - The error message.
+   * @default ''
+   * @readonly
+   */
   @Prop() readonly error: string = ''
 
   /**
- * Supplemental helper text displayed below the input.
- * @prop {string} helperText - Additional guidance or context.
- * @default ''
- * @readonly
- */
+   * Supplemental helper text displayed below the input.
+   * @prop {string} helperText - Additional guidance or context.
+   * @default ''
+   * @readonly
+   */
   @Prop() readonly helperText: string = ''
 
   /**
- * The name of the helper icon displayed alongside the helper text.
- * If an error exists, a default error icon is shown instead.
- * @prop {string} helperIcon - The helper icon identifier.
- * @default ''
- * @readonly
- */
+   * The name of the helper icon displayed alongside the helper text.
+   * If an error exists, a default error icon is shown instead.
+   * @prop {string} helperIcon - The helper icon identifier.
+   * @default ''
+   * @readonly
+   */
   @Prop() readonly helperIcon: string = ''
 
   /**
- * Specifies the visual variant for the helper icon.
- * Allowed values: 'solid' or 'outline'.
- * @prop {'solid' | 'outline'} helperIconVariant - The helper icon style.
- * @default 'outline'
- * @readonly
- */
+   * Specifies the visual variant for the helper icon.
+   * Allowed values: 'solid' or 'outline'.
+   * @prop {'solid' | 'outline'} helperIconVariant - The helper icon style.
+   * @default 'outline'
+   * @readonly
+   */
   @Prop() readonly helperIconVariant: 'solid' | 'outline' = 'outline'
 
   // ---------------------------
   // Base input properties
   // ---------------------------
   /**
- * Determines the type of the input field.
- * Supported types include 'generic', 'currency', 'phone', 'password', 'date', 'url', 'search', 'number'
- * or any valid InputType. This setting affects both the native input type and UI behavior.
- * @prop {'generic' | 'currency' | 'phone' | 'password' | 'date' | 'url' | 'search' | 'number' | InputType} type - The input type.
- * @default 'generic'
- * @readonly
- */
+   * Determines the type of the input field.
+   * Supported types include 'generic', 'currency', 'phone', 'password', 'date', 'url', 'search', 'number'
+   * or any valid InputType. This setting affects both the native input type and UI behavior.
+   * @prop {'generic' | 'currency' | 'phone' | 'password' | 'date' | 'url' | 'search' | 'number' | InputType} type - The input type.
+   * @default 'generic'
+   * @readonly
+   */
   @Prop() readonly type: 'generic' | 'currency' | 'phone' | 'password' | 'date' | 'url' | 'search' | 'number' | InputType = 'generic'
 
   /**
- * The name of the suffix icon displayed on the right side of the input.
- * @prop {string} suffixIcon - The suffix icon identifier.
- * @default ''
- * @readonly
- */
+   * The name of the suffix icon displayed on the right side of the input.
+   * @prop {string} suffixIcon - The suffix icon identifier.
+   * @default ''
+   * @readonly
+   */
   @Prop() readonly suffixIcon: string = ''
 
   /**
- * Defines the visual variant for the suffix icon.
- * Allowed values: 'solid' or 'outline'.
- * @prop {'solid' | 'outline'} suffixIconVariant - The suffix icon style.
- * @default 'outline'
- * @readonly
- */
+   * Defines the visual variant for the suffix icon.
+   * Allowed values: 'solid' or 'outline'.
+   * @prop {'solid' | 'outline'} suffixIconVariant - The suffix icon style.
+   * @default 'outline'
+   * @readonly
+   */
   @Prop() readonly suffixIconVariant: 'solid' | 'outline' = 'outline'
 
   /**
- * The name of the prefix icon displayed on the left side of the input.
- * @prop {string} prefixIcon - The prefix icon identifier.
- * @default ''
- * @readonly
- */
+   * The name of the prefix icon displayed on the left side of the input.
+   * @prop {string} prefixIcon - The prefix icon identifier.
+   * @default ''
+   * @readonly
+   */
   @Prop() readonly prefixIcon: string = ''
 
   /**
- * Defines the visual variant for the prefix icon.
- * Allowed values: 'solid' or 'outline'.
- * @prop {'solid' | 'outline'} prefixIconVariant - The prefix icon style.
- * @default 'outline'
- * @readonly
- */
+   * Defines the visual variant for the prefix icon.
+   * Allowed values: 'solid' or 'outline'.
+   * @prop {'solid' | 'outline'} prefixIconVariant - The prefix icon style.
+   * @default 'outline'
+   * @readonly
+   */
   @Prop() readonly prefixIconVariant: 'solid' | 'outline' = 'outline'
 
   /**
- * Optional text displayed as a suffix adjacent to the input field.
- * @prop {string} suffixText - The suffix text content.
- * @default ''
- * @readonly
- */
+   * Optional text displayed as a suffix adjacent to the input field.
+   * @prop {string} suffixText - The suffix text content.
+   * @default ''
+   * @readonly
+   */
   @Prop() readonly suffixText: string = ''
 
   /**
- * Optional text displayed as a prefix adjacent to the input field.
- * @prop {string} prefixText - The prefix text content.
- * @default ''
- * @readonly
- */
+   * Optional text displayed as a prefix adjacent to the input field.
+   * @prop {string} prefixText - The prefix text content.
+   * @default ''
+   * @readonly
+   */
   @Prop() readonly prefixText: string = ''
 
   /**
- * Renders the input with error styling when true.
- * @prop {boolean} isError - True if the input is in an error state.
- * @default false
- * @readonly
- */
+   * Renders the input with error styling when true.
+   * @prop {boolean} isError - True if the input is in an error state.
+   * @default false
+   * @readonly
+   */
   @Prop() readonly isError: boolean = false
 
   /**
- * Disables the input field, preventing user interaction.
- * @prop {boolean} disabled - True if the input is disabled.
- * @default false
- * @readonly
- */
+   * Disables the input field, preventing user interaction.
+   * @prop {boolean} disabled - True if the input is disabled.
+   * @default false
+   * @readonly
+   */
   @Prop() readonly disabled: boolean = false
 
   /**
- * Renders the input field in read-only mode, allowing focus and selection but preventing edits.
- * @prop {boolean} readOnly - True if the input is read-only.
- * @default false
- * @readonly
- */
+   * Renders the input field in read-only mode, allowing focus and selection but preventing edits.
+   * @prop {boolean} readOnly - True if the input is read-only.
+   * @default false
+   * @readonly
+   */
   @Prop() readonly readOnly: boolean = false
 
   /**
- * Placeholder text displayed when the input field is empty.
- * @prop {string} placeholder - The placeholder text.
- * @default ''
- * @readonly
- */
+   * Placeholder text displayed when the input field is empty.
+   * @prop {string} placeholder - The placeholder text.
+   * @default ''
+   * @readonly
+   */
   @Prop() readonly placeholder: string = ''
 
   /**
- * The current value of the input field.
- * This property is mutable to support two-way binding.
- * @prop {string} value - The input's value.
- * @default ''
- */
+   * The current value of the input field.
+   * This property is mutable to support two-way binding.
+   * @prop {string} value - The input's value.
+   * @default ''
+   */
   @Prop({ mutable: true, reflect: true }) value = ''
 
   /**
- * When true and the input type is 'search', displays a clear icon to reset the input.
- * @prop {boolean} showClearIcon - True to display the clear icon.
- * @default false
- * @readonly
- */
+   * When true and the input type is 'search', displays a clear icon to reset the input.
+   * @prop {boolean} showClearIcon - True to display the clear icon.
+   * @default false
+   * @readonly
+   */
   @Prop() readonly showClearIcon: boolean = false
 
   // ---------------------------
   // Component internal states
   // ---------------------------
   /**
- * Indicates whether the input field currently has focus.
- * @state {boolean} isFocused - True if the input is focused.
- */
+   * Indicates whether the input field currently has focus.
+   * @state {boolean} isFocused - True if the input is focused.
+   */
   @State() isFocused = false
 
   /**
- * Toggles the visibility of password text.
- * Only applicable when the input type is 'password'.
- * @state {boolean} showPassword - True if the password is visible.
- */
+   * Toggles the visibility of password text.
+   * Only applicable when the input type is 'password'.
+   * @state {boolean} showPassword - True if the password is visible.
+   */
   @State() showPassword = false
 
   // ---------------------------
   // References and events
   // ---------------------------
   /**
- * A reference to the host element.
- * @element {HTMLGluInputElement} inputElement - The component's host element.
- */
+   * A reference to the host element.
+   * @element {HTMLGluInputElement} inputElement - The component's host element.
+   */
   // eslint-disable-next-line no-undef
   @Element() inputElement!: HTMLGluInputElement
 
   /**
- * Emitted when the input value changes.
- * @event {string} gloChanged - The updated value of the input.
- */
-  @Event() glChange: EventEmitter<string>
+   * Emitted when the input value changes.
+   * @event {string} gloChanged - The updated value of the input.
+   */
+  @Event() glChange!: EventEmitter<InputChangeEventDetail>
+
+  /**
+   * Emitted when the input element gains focus.
+   * @event {string} glFocus
+   */
+  @Event() glFocus!: EventEmitter<FocusEvent>
+
+  /**
+   * Emitted when the input value changes.
+   * @event {string} gloChanged
+   */
+  @Event() glBlur!: EventEmitter<FocusEvent>
 
   /** Container for attributes inherited from the host element */
   private inheritedAttributes: Attributes = {}
 
-  /**
-   * Attributes to exclude when inheriting from the host element.
-   * This avoids clashing with explicitly defined properties.
-   */
-  private EXCLUDE_ATTRIBUTES = new Set([
-    'label',
-    'value',
-    'error',
-    'helper-text',
-    'helper-icon',
-    'helper-is-error'
-  ])
-
   componentWillLoad() {
     // Inherit attributes from the host element to forward to the inner <input>
-    this.inheritedAttributes = { ...inheritAttributes(this.inputElement, [...this.EXCLUDE_ATTRIBUTES]) }
+    this.inheritedAttributes = { ...inheritAttributes(this.inputElement) }
   }
 
   // ---------------------------
@@ -240,15 +239,19 @@ export class GluInput {
 
     this.value = input.value
 
-    this.glChange.emit(this.value)
+    this.glChange.emit({ value: input.value, event })
   }
 
-  private handleFocus = (): void => {
+  private handleFocus = (event: FocusEvent): void => {
     this.isFocused = true
+
+    this.glFocus.emit(event)
   }
 
-  private handleBlur = (): void => {
+  private handleBlur = (event): void => {
     this.isFocused = false
+
+    this.glBlur.emit(event)
   }
 
   private togglePasswordVisibility = (): void => {
@@ -393,6 +396,8 @@ export class GluInput {
   // ---------------------------
 
   render() {
+    if (this.label) console.log(this.label)
+
     return (
       <Host
         class={{
@@ -428,13 +433,13 @@ export class GluInput {
         </div>
 
         {/* Optional helper text */}
-        {!!this.helperText && (
+        {!!(this.error || this.helperText) && (
           <glu-helper-text
             icon={this.error ? 'exclamation-circle' : this.helperIcon}
             iconVariant={this.helperIconVariant}
             is-error={!!this.error}
           >
-            {this.helperText}
+            {this.error || this.helperText}
           </glu-helper-text>
         )}
       </Host>
