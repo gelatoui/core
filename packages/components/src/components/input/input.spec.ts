@@ -128,6 +128,26 @@ describe('glu-input', () => {
     expect(spyBlur).toHaveBeenCalled()
   })
 
+  it('triggers focus clicking the input-wrapper', async () => {
+    const page = await newSpecPage({
+      components: [GluInput, GluIcon],
+      html: '<glu-input></glu-input>'
+    })
+
+    const inputEl = page.root.shadowRoot.querySelector('input') as HTMLInputElement
+    const inputWrapperEl = page.root.shadowRoot.querySelector('.input-wrapper') as HTMLDivElement
+    const spyFocus = jest.fn()
+
+    // Attach event listeners directly to the input element
+    inputEl.addEventListener('focus', spyFocus)
+
+    inputWrapperEl.click()
+
+    await page.waitForChanges()
+
+    expect(spyFocus).toHaveBeenCalled()
+  })
+
   it('disables input when disabled prop is set', async () => {
     const page = await newSpecPage({
       components: [GluInput, GluIcon],

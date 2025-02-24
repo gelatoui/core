@@ -91,6 +91,8 @@ export class GluIcon {
     const svgContent = this.getIconSvg()
     const { width, height } = this.getSizesValue({ width: this.size || this.width, height: this.size || this.height })
 
+    if (!this.name) return null
+
     if (!svgContent) {
       console.error(`[GluIcon]: Icon "${this.name}" not found.`)
 

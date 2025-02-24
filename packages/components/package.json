@@ -57,6 +57,7 @@
     "test": "stencil test --spec --e2e",
     "test:watch": "stencil test --spec --e2e --watchAll",
     "test:coverage": "stencil test --spec --e2e --coverage",
+    "test:clean": "stencil test --spec --e2e --clearCache",
     "generate": "stencil generate"
   },
   "dependencies": {

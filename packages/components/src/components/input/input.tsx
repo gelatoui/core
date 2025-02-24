@@ -389,12 +389,11 @@ export class GluInput {
           'read-only': this.readOnly,
           focused: this.isFocused
         }}
-        onClick={this.focusInput}
       >
         {/* Optional label */}
         {!!this.label && <glu-label>{this.label}</glu-label>}
 
-        <div class="input-wrapper">
+        <div class="input-wrapper" onClick={this.focusInput}>
           {this.renderPrefix()}
           {/* Inherit additional attributes from host onto the native input */}
           <input

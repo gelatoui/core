@@ -53,13 +53,15 @@ export class GluHelperText {
 
     return (
       <Host class={{ 'glu-helper-text': true, error: isError }}>
-        <div class="icon">
-          <glu-icon
-            name={icon}
-            variant={iconVariant}
-            size={14}
-          />
-        </div>
+        {icon && (
+          <div class="icon">
+            <glu-icon
+              name={icon}
+              variant={iconVariant}
+              size={14}
+            />
+          </div>
+        )}
         <div class="text">
           <slot></slot>
         </div>
