@@ -1,13 +1,13 @@
 /* eslint-disable no-undef */
 import { GluIcon } from '@components/icon/icon'
-import { GluBaseInput } from '@components/input-field/_base-input/input'
+import { GluInput } from '@components/input/input'
 
 import { newSpecPage } from '@stencil/core/testing'
 
 describe('glu-input', () => {
   it('renders correctly with default props', async () => {
     const page = await newSpecPage({
-      components: [GluBaseInput, GluIcon],
+      components: [GluInput, GluIcon],
       html: '<glu-input placeholder="Enter text"></glu-input>'
     })
 
@@ -16,7 +16,7 @@ describe('glu-input', () => {
 
   it('updates value on input event', async () => {
     const page = await newSpecPage({
-      components: [GluBaseInput, GluIcon],
+      components: [GluInput, GluIcon],
       html: '<glu-input></glu-input>'
     })
 
@@ -34,7 +34,7 @@ describe('glu-input', () => {
 
   it('applies error styling when error prop is true', async () => {
     const page = await newSpecPage({
-      components: [GluBaseInput, GluIcon],
+      components: [GluInput, GluIcon],
       html: '<glu-input is-error></glu-input>'
     })
 
@@ -43,7 +43,7 @@ describe('glu-input', () => {
 
   it('renders prefix element when prefixIcon is provided', async () => {
     const page = await newSpecPage({
-      components: [GluBaseInput, GluIcon],
+      components: [GluInput, GluIcon],
       html: '<glu-input prefix-icon="user"></glu-input>'
     })
 
@@ -56,7 +56,7 @@ describe('glu-input', () => {
 
   it('renders suffix element when suffixText is provided', async () => {
     const page = await newSpecPage({
-      components: [GluBaseInput, GluIcon],
+      components: [GluInput, GluIcon],
       html: '<glu-input suffix-text="USD"></glu-input>'
     })
 
@@ -69,7 +69,7 @@ describe('glu-input', () => {
 
   it('renders clear icon for search input when showClearIcon is true and value is present', async () => {
     const page = await newSpecPage({
-      components: [GluBaseInput, GluIcon],
+      components: [GluInput, GluIcon],
       html: '<glu-input type="search" show-clear-icon value="search term"></glu-input>'
     })
 
@@ -83,7 +83,7 @@ describe('glu-input', () => {
 
   it('toggles password visibility when password toggle icon is clicked', async () => {
     const page = await newSpecPage({
-      components: [GluBaseInput, GluIcon],
+      components: [GluInput, GluIcon],
       html: '<glu-input type="password" value="secret"></glu-input>'
     })
 

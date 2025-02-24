@@ -1,7 +1,7 @@
 /* ====================== */
 /* Helper Text Styles     */
 /* ====================== */
-:host {
+.input-wrapper {
   border-radius: var(--Border-Radius-100, 0.5rem);
   border: 1px solid var(--Tokens-Input-Stroke-Default, #CBD1D9);
   background: var(--Tokens-Input-Background-Default, #FFF);
@@ -51,7 +51,7 @@ input::placeholder {
   letter-spacing: var(--Body-Small-Regular-letterSpacing, 0rem);
 }
 
-:host(.focused) {
+:host(.focused .input-wrapper) {
   background-color: var(--tokens-input-background-focus);
   border-color: var(--tokens-input-stroke-focus);
   color: var(--tokens-input-content-focus);
@@ -59,14 +59,14 @@ input::placeholder {
   box-shadow: 0 0 0 2px var(--tokens-input-stroke-focus);
 }
 
-:host(.disabled) {
+:host(.disabled .input-wrapper) {
   border-radius: var(--Border-Radius-100, 0.5rem);
   border: 1px solid var(--Tokens-Input-Stroke-Disabled, #DCE0E6);
   background: var(--Tokens-Input-Background-Disabled, #F4F5F6);
   cursor: not-allowed;
 }
 
-:host(.error) {
+:host(.error .input-wrapper) {
   border-color: var(--tokens-input-stroke-error);
   color: var(--tokens-input-content-error);
   background-color: var(--tokens-input-background-error);
@@ -75,7 +75,7 @@ input::placeholder {
   }
 }
 
-:host(.error.focused) {
+:host(.error.focused .input-wrapper) {
   box-shadow: 0 0 0 2px var(--tokens-input-stroke-error);
   .prefix-text, .prefix-icon, .suffix-text, .suffix-icon {
     color: var(--tokens-input-stroke-error);
