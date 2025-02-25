@@ -50,7 +50,7 @@ export class GluHelperText {
 
   render() {
     return (
-      <Host class={{ 'glu-helper-text': true, error: this.isError }}>
+      <Host class={{ 'glu-helper-text': true, 'is-error': this.isError }}>
         {!!this.icon && (
           <div class="icon">
             <glu-icon

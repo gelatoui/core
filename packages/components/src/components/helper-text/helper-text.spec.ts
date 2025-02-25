@@ -80,6 +80,6 @@ describe('glu-helper-text', () => {
       html: '<glu-helper-text icon="information-circle" is-error>Helper text with error</glu-helper-text>'
     })
 
-    expect(page.root).toHaveClass('error')
+    expect(page.root).toHaveClass('is-error')
   })
 })

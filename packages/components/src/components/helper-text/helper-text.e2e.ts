@@ -63,6 +63,6 @@ describe('glu-helper-text (E2E)', () => {
 
     const element = await page.find('glu-helper-text')
 
-    expect(element).toHaveClass('error')
+    expect(element).toHaveClass('is-error')
   })
 })
