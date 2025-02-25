@@ -1,14 +1,15 @@
-:host {
-  display: block;
-  /* Base font settings for the component */
-  font-family: var(--body-medium-regular-font-family, sans-serif);
-  font-size: var(--body-medium-regular-font-size, 1rem);
-  color: var(--tokens-text-on-light-default, var(--root-gray-700));
-}
-
-/* Main component container */
-.glu-checkbox {
+:host() {
   display: inline-block;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: 0;
+  gap: var(--Spacing-100, 0.5rem);
+  display: flex;
+  flex-direction: column;
 }
 
 /* Wrapper that aligns the checkbox and labels */
@@ -16,10 +17,11 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  gap: var(--Spacing-150, 0.75rem);
 }
 
 /* Disabled state */
-.glu-checkbox.is-disabled .checkbox-wrapper {
+:host(.is-disabled) .checkbox-wrapper {
   cursor: not-allowed;
   opacity: 0.6;
 }
@@ -30,48 +32,55 @@
   flex-shrink: 0;
 }
 
-.left-label {
-  margin-right: var(--spacing-150);
-}
-
-.right-label {
-  margin-left: var(--spacing-150);
-}
-
-/* The clickable checkbox container */
 .checkbox-container {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.25rem;  /* Approximate size; adjust as needed */
+  display: flex;
+  width: 1.25rem;
   height: 1.25rem;
-  border: 2px solid var(--tokens-input-stroke-default);
-  background-color: var(--tokens-input-background-default);
-  border-radius: var(--border-radius-050);
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: var(--Border-Radius-050, 0.25rem);
+  border: 1px solid var(--Tokens-Stroke-On-Light-Heavy, #CBD1D9);
+  background: var(--Tokens-Background-Base-Surface-1, #FFF);
   transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 /* Error state styling */
-.glu-checkbox.is-error .checkbox-container {
+:host(.is-error) .checkbox-container {
   border-color: var(--tokens-status-error-default);
 }
 
 /* Focus state styling */
-.glu-checkbox.is-focused .checkbox-container {
+:host(.is-focused) .checkbox-container {
   border-color: var(--tokens-primary-default);
 }
 
 /* When the checkbox is checked or indeterminate */
-.glu-checkbox.is-checked .checkbox-container,
-.glu-checkbox.is-indeterminate .checkbox-container {
+:host(.is-checked) .checkbox-container,
+:host(.is-indeterminate) .checkbox-container {
   background-color: var(--tokens-primary-default);
   border-color: var(--tokens-primary-default);
+  color: var(--root-base-white);
+}
+
+:host(.is-focused.is-error) .checkbox-container {
+  border-color: var(--tokens-status-error-default);
+}
+
+/* When the checkbox is checked or indeterminate */
+:host(.is-checked.is-error) .checkbox-container,
+:host(.is-indeterminate.is-error) .checkbox-container {
+  border-color: var(--tokens-status-error-default);
+  background: var(--tokens-status-error-default, #DA4747);
+  color: var(--root-base-white);
 }
 
 /* Disabled state for the checkbox container */
-.glu-checkbox.is-disabled .checkbox-container {
-  background-color: var(--tokens-input-background-disabled);
-  border-color: var(--tokens-input-stroke-disabled);
+:host(.is-disabled) .checkbox-container {
+  border-radius: var(--Border-Radius-050, 0.25rem);
+  border: 1px solid var(--Tokens-Stroke-On-Light-Heavy, #CBD1D9);
+  background: var(--Tokens-Background-Base-Surface-2, #F4F5F6);
+  color: var(--tokens-input-content-disabled, #DCE0E6);
 }
 
 /* The inner box that holds the icon */
@@ -86,11 +95,4 @@
 /* Ensure the icon (check or minus) appears in white */
 .checkbox-container glu-icon {
   fill: var(--root-base-white);
-}
-
-/* Error message styling (assuming glu-helper-text is used) */
-glu-helper-text {
-  margin-top: var(--spacing-100);
-  font-size: var(--body-xsmall-regular-font-size);
-  color: var(--tokens-status-error-default);
 }

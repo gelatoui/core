@@ -71,25 +71,26 @@
       </glu-helper-text>
     </div>
 
-    <!-- Basic Unchecked Checkbox -->
-    <h2>Basic Unchecked Checkbox</h2>
-    <glu-checkbox leftLabel="Agree to" rightLabel="Terms and Conditions"></glu-checkbox>
+    <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
+      <glu-checkbox></glu-checkbox>
 
-    <!-- Checked Checkbox -->
-    <h2>Checked Checkbox</h2>
-    <glu-checkbox leftLabel="Receive" rightLabel="Newsletters" value="checked"></glu-checkbox>
+      <!-- Basic Unchecked Checkbox -->
+      <glu-checkbox left-label="Agree to" right-label="Terms and Conditions"></glu-checkbox>
 
-    <!-- Indeterminate Checkbox -->
-    <h2>Indeterminate Checkbox</h2>
-    <glu-checkbox leftLabel="Subscribe to" rightLabel="Updates" value="indeterminate"></glu-checkbox>
+      <!-- Checked Checkbox -->
+      <glu-checkbox left-label="Receive" right-label="Newsletters" value="checked"></glu-checkbox>
 
-    <!-- Checkbox with Error -->
-    <h2>Checkbox with Error</h2>
-    <glu-checkbox leftLabel="Select" rightLabel="Options" error="Selection required"></glu-checkbox>
+      <!-- Indeterminate Checkbox -->
+      <glu-checkbox left-label="Subscribe to" right-label="Updates" value="indeterminate"></glu-checkbox>
 
-    <!-- Disabled Checkbox -->
-    <h2>Disabled Checkbox</h2>
-    <glu-checkbox leftLabel="Agree" rightLabel="Privacy Policy" disabled></glu-checkbox>
+      <!-- Checkbox with Error -->
+      <glu-checkbox left-label="Select" right-label="Options" error="Selection required"></glu-checkbox>
+
+      <!-- Disabled Checkbox -->
+      <glu-checkbox left-label="Agree" right-label="Privacy Policy" disabled></glu-checkbox>
+      <glu-checkbox disabled value="checked"></glu-checkbox>
+      <glu-checkbox disabled value="indeterminate"></glu-checkbox>
+    </div>
 
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; align-items: center;">
       <!-- Basic Input -->

@@ -61,6 +61,38 @@ export class GluCheckbox {
    */
   @Prop({ mutable: true, reflect: true }) value: 'unchecked' | 'checked' | 'indeterminate' = 'unchecked'
 
+  /**
+   * Supplemental helper text displayed below the input.
+   * @prop {string} helperText - Additional guidance or context.
+   * @readonly
+   */
+  @Prop() readonly helperText: string
+
+  /**
+   * The name of the helper icon displayed alongside the helper text.
+   * If an error exists, a default error icon is shown instead.
+   * @prop {string} helperIcon - The helper icon identifier.
+   * @readonly
+   */
+  @Prop() readonly helperIcon: string
+
+  /**
+   * Specifies the visual variant for the helper icon.
+   * Allowed values: 'solid' or 'outline'.
+   * @prop {'solid' | 'outline'} helperIconVariant - The helper icon style.
+   * @default 'outline'
+   * @readonly
+   */
+  @Prop() readonly helperIconVariant: 'solid' | 'outline' = 'outline'
+
+  /**
+   * Specifies whether the checkbox has an indeterminate state.
+   * @prop {boolean} hasIndeterminate - Whether the checkbox has an indeterminate state.
+   * @default false
+   * @readonly
+  **/
+  @Prop() readonly hasIndeterminate: boolean = false
+
   // ---------------------------
   // Component internal state
   // ---------------------------
@@ -94,21 +126,16 @@ export class GluCheckbox {
   private toggleValue(): void {
     let newValue: 'unchecked' | 'checked' | 'indeterminate'
 
-    switch (this.value) {
-      case 'unchecked':
-        newValue = 'checked'
+    if (this.value === 'unchecked') {
+      newValue = 'checked'
+    }
 
-        break
+    if (this.value === 'checked') {
+      newValue = 'indeterminate'
+    }
 
-      case 'checked':
-        newValue = 'indeterminate'
-
-        break
-
-      case 'indeterminate':
-        newValue = 'unchecked'
-
-        break
+    if (this.value === 'indeterminate') {
+      newValue = 'unchecked'
     }
 
     this.value = newValue
@@ -193,8 +220,16 @@ export class GluCheckbox {
           {this.rightLabel && <glu-label class="right-label">{this.rightLabel}</glu-label>}
         </div>
 
-        {/* Error message */}
-        {this.error && <glu-helper-text is-error>{this.error}</glu-helper-text>}
+        {/* Optional helper text */}
+        {!!(this.error || this.helperText) && (
+          <glu-helper-text
+            icon={this.helperIcon ?? undefined}
+            iconVariant={this.helperIconVariant}
+            is-error={!!this.error}
+          >
+            {this.error || this.helperText}
+          </glu-helper-text>
+        )}
       </Host>
     )
   }
