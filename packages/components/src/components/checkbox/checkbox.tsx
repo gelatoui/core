@@ -1,4 +1,6 @@
-import { Component, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core'
+import { Attributes, inheritAttributes } from '@utils/helpers'
+
+import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core'
 
 /**
  * A composite checkbox component that supports left and right labels, error messaging,
@@ -19,14 +21,14 @@ export class GluCheckbox {
   // ---------------------------
   /**
    * Optional left label text displayed adjacent to the checkbox.
-   * Rendered using the `glu-label` component.
+   * Rendered using the glu-label component.
    * @prop {string} leftLabel
    */
   @Prop() readonly leftLabel: string
 
   /**
    * Optional right label text displayed adjacent to the checkbox.
-   * Rendered using the `glu-label` component.
+   * Rendered using the glu-label component.
    * @prop {string} rightLabel
    */
   @Prop() readonly rightLabel: string
@@ -87,11 +89,19 @@ export class GluCheckbox {
 
   /**
    * Specifies whether the checkbox has an indeterminate state.
-   * @prop {boolean} hasIndeterminate - Whether the checkbox has an indeterminate state.
+   * If false (default), the checkbox toggles only between "unchecked" and "checked".
+   * @prop {boolean} hasIndeterminate - Whether the checkbox supports an indeterminate state.
    * @default false
    * @readonly
-  **/
+   */
   @Prop() readonly hasIndeterminate: boolean = false
+
+  /**
+   * A reference to the host element.
+   * @element {HTMLGluCheckboxElement} inputElement - The component's host element.
+   */
+  // eslint-disable-next-line no-undef
+  @Element() inputElement!: HTMLGluCheckboxElement
 
   // ---------------------------
   // Component internal state
@@ -111,6 +121,14 @@ export class GluCheckbox {
    */
   @Event() glChange!: EventEmitter<{ value: 'unchecked' | 'checked' | 'indeterminate', event: Event }>
 
+  /** Container for attributes inherited from the host element */
+  private inheritedAttributes: Attributes = {}
+
+  componentWillLoad() {
+    // Inherit attributes from the host element to forward to the inner <input>
+    this.inheritedAttributes = { ...inheritAttributes(this.inputElement) }
+  }
+
   // ---------------------------
   // Event handlers
   // ---------------------------
@@ -120,21 +138,17 @@ export class GluCheckbox {
     // Prevent event bubbling to avoid duplicate events from nested elements.
     event.stopPropagation()
 
-    this.toggleValue()
+    this.toggleValue(event)
   }
 
-  private toggleValue(): void {
+  private toggleValue(event: Event): void {
     let newValue: 'unchecked' | 'checked' | 'indeterminate'
 
     if (this.value === 'unchecked') {
       newValue = 'checked'
-    }
-
-    if (this.value === 'checked') {
-      newValue = 'indeterminate'
-    }
-
-    if (this.value === 'indeterminate') {
+    } else if (this.value === 'checked') {
+      newValue = this.hasIndeterminate ? 'indeterminate' : 'unchecked'
+    } else if (this.value === 'indeterminate') {
       newValue = 'unchecked'
     }
 
@@ -149,7 +163,7 @@ export class GluCheckbox {
     if (event.key === ' ' || event.key === 'Enter') {
       event.preventDefault()
 
-      this.toggleValue()
+      this.toggleValue(event)
     }
   }
 
@@ -206,11 +220,9 @@ export class GluCheckbox {
           >
             <div class="checkbox-box">
               {this.value === 'checked' && (
-                // Display a check icon for the checked state.
                 <glu-icon name="check" size={16} />
               )}
               {this.value === 'indeterminate' && (
-                // Display a minus icon for the indeterminate state.
                 <glu-icon name="minus" size={16} />
               )}
             </div>
@@ -230,6 +242,9 @@ export class GluCheckbox {
             {this.error || this.helperText}
           </glu-helper-text>
         )}
+
+        {/* Hidden input for HTML form compatibility */}
+        <input type="hidden" name="checkbox" value={this.value} {...this.inheritedAttributes} />
       </Host>
     )
   }
