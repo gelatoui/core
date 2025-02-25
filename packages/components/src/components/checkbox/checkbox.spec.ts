@@ -265,8 +265,6 @@ describe('glu-checkbox', () => {
     // If error is provided, it takes precedence over helperText.
     expect(helperTextEl.textContent).toBe('Error occurred')
 
-    console.log('🚀 ~ it ~ helperTextEl.classList:', helperTextEl.attributes.getNamedItem('is-error'))
-
     // is-error should be truthy (Stencil typically renders booleans as strings "true")
     expect(helperTextEl.attributes.getNamedItem('is-error')).toBeTruthy()
 
