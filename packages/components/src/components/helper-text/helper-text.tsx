@@ -27,7 +27,7 @@ export class GluHelperText {
    *
    * @prop {string} icon
    */
-  @Prop({ reflect: true }) readonly icon!: string
+  @Prop({ reflect: true }) readonly icon: string
 
   /**
    * Specifies the visual style variant of the icon.
@@ -49,15 +49,13 @@ export class GluHelperText {
   @Prop({ reflect: true }) readonly isError = false
 
   render() {
-    const { icon, iconVariant, isError } = this
-
     return (
-      <Host class={{ 'glu-helper-text': true, error: isError }}>
-        {icon && (
+      <Host class={{ 'glu-helper-text': true, error: this.isError }}>
+        {!!this.icon && (
           <div class="icon">
             <glu-icon
-              name={icon}
-              variant={iconVariant}
+              name={this.icon}
+              variant={this.iconVariant}
               size={14}
             />
           </div>

@@ -1,0 +1,96 @@
+:host {
+  display: block;
+  /* Base font settings for the component */
+  font-family: var(--body-medium-regular-font-family, sans-serif);
+  font-size: var(--body-medium-regular-font-size, 1rem);
+  color: var(--tokens-text-on-light-default, var(--root-gray-700));
+}
+
+/* Main component container */
+.glu-checkbox {
+  display: inline-block;
+}
+
+/* Wrapper that aligns the checkbox and labels */
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Disabled state */
+.glu-checkbox.is-disabled .checkbox-wrapper {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Left and right labels */
+.left-label,
+.right-label {
+  flex-shrink: 0;
+}
+
+.left-label {
+  margin-right: var(--spacing-150);
+}
+
+.right-label {
+  margin-left: var(--spacing-150);
+}
+
+/* The clickable checkbox container */
+.checkbox-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;  /* Approximate size; adjust as needed */
+  height: 1.25rem;
+  border: 2px solid var(--tokens-input-stroke-default);
+  background-color: var(--tokens-input-background-default);
+  border-radius: var(--border-radius-050);
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+/* Error state styling */
+.glu-checkbox.is-error .checkbox-container {
+  border-color: var(--tokens-status-error-default);
+}
+
+/* Focus state styling */
+.glu-checkbox.is-focused .checkbox-container {
+  border-color: var(--tokens-primary-default);
+}
+
+/* When the checkbox is checked or indeterminate */
+.glu-checkbox.is-checked .checkbox-container,
+.glu-checkbox.is-indeterminate .checkbox-container {
+  background-color: var(--tokens-primary-default);
+  border-color: var(--tokens-primary-default);
+}
+
+/* Disabled state for the checkbox container */
+.glu-checkbox.is-disabled .checkbox-container {
+  background-color: var(--tokens-input-background-disabled);
+  border-color: var(--tokens-input-stroke-disabled);
+}
+
+/* The inner box that holds the icon */
+.checkbox-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ensure the icon (check or minus) appears in white */
+.checkbox-container glu-icon {
+  fill: var(--root-base-white);
+}
+
+/* Error message styling (assuming glu-helper-text is used) */
+glu-helper-text {
+  margin-top: var(--spacing-100);
+  font-size: var(--body-xsmall-regular-font-size);
+  color: var(--tokens-status-error-default);
+}
