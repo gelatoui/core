@@ -1,0 +1,103 @@
+/* radio.css */
+:host {
+  display: inline-block;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: 0;
+  gap: var(--Spacing-100, 0.5rem);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Radio wrapper */
+.radio-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: var(--Spacing-150, 0.75rem);
+}
+
+/* Disabled state */
+:host(.is-disabled) .radio-wrapper {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Labels */
+.left-label,
+.right-label {
+  flex-shrink: 0;
+}
+
+/* Radio container */
+.radio-container {
+  display: flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: var(--border-radius-full);
+  border: 1px solid var(--Tokens-Stroke-On-Light-Heavy, #CBD1D9);
+  background: var(--Tokens-Background-Base-Surface-1, #FFF);
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  position: relative;
+}
+
+/* Radio dot */
+.radio-dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: var(--border-radius-full);
+  background: var(--root-base-white);
+  transform: scale(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Checked state */
+:host(.is-checked) .radio-container {
+  border-color: var(--tokens-primary-default);
+  background-color: var(--tokens-primary-default);
+}
+
+:host(.is-checked) .radio-dot {
+  transform: scale(1);
+}
+
+/* Error states */
+:host(.is-error) .radio-container {
+  border-color: var(--tokens-status-error-default);
+}
+
+:host(.is-error.is-checked) .radio-container {
+  border-color: var(--tokens-status-error-default);
+  background: var(--tokens-status-error-default);
+}
+
+/* Focus state */
+:host(.is-focused) .radio-container {
+  border-color: var(--tokens-primary-default);
+}
+
+:host(.is-focused.is-error) .radio-container {
+  border-color: var(--tokens-status-error-default);
+}
+
+/* Disabled state */
+:host(.is-disabled) .radio-container {
+  border-color: var(--Tokens-Stroke-On-Light-Heavy, #CBD1D9);
+  background: var(--Tokens-Background-Base-Surface-2, #F4F5F6);
+}
+
+:host(.is-disabled.is-checked) .radio-container {
+  background: var(--tokens-input-content-disabled, #DCE0E6);
+  border-color: var(--tokens-input-content-disabled, #DCE0E6);
+}
+
+:host(.is-disabled) .radio-dot {
+  background: var(--Tokens-Background-Base-Surface-1, #FFF);
+}

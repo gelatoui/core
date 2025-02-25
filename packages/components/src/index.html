@@ -94,6 +94,149 @@
       <glu-checkbox disabled value="indeterminate" has-indeterminate></glu-checkbox>
     </div>
 
+    <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; align-items: center; width: 100%;">
+      <glu-radio
+        name="basic-radio"
+        value="option1"
+        right-label="Option 1"
+      >
+      </glu-radio>
+      <glu-radio
+        name="left-label-radio"
+        value="option2"
+        left-label="Option 2"
+      >
+      </glu-radio>
+      <glu-radio
+        name="helper-text-radio"
+        value="option3"
+        right-label="Option 3"
+        helper-text="This is a helpful description."
+      >
+      </glu-radio>
+      <glu-radio
+        name="error-radio"
+        value="option4"
+        right-label="Option 4"
+        error="This field is required."
+      >
+      </glu-radio>
+      <glu-radio
+        name="disabled-radio"
+        value="option5"
+        right-label="Option 5"
+        disabled
+      >
+      </glu-radio>
+      <glu-radio
+        name="group-radio"
+        value="group1"
+        right-label="Group Option 1"
+      >
+      </glu-radio>
+      <glu-radio
+        name="group-radio"
+        value="group2"
+        right-label="Group Option 2"
+      >
+      </glu-radio>
+      <glu-radio
+        name="group-radio"
+        value="group3"
+        right-label="Group Option 3"
+      >
+      </glu-radio>
+      <div>
+        <glu-radio
+          name="group-radio"
+          value="group1"
+          right-label="Group Option 1"
+        >
+        </glu-radio>
+        <glu-radio
+          name="group-radio"
+          value="group2"
+          right-label="Group Option 2"
+        >
+        </glu-radio>
+        <glu-radio
+          name="group-radio"
+          value="group3"
+          right-label="Group Option 3"
+        >
+        </glu-radio>
+      </div>
+      <glu-radio
+        name="custom-icon-radio"
+        value="option6"
+        right-label="Option 6"
+        helper-text="This has a custom icon."
+        helper-icon="information-circle"
+        helper-icon-variant="solid"
+      >
+      </glu-radio>
+      <glu-radio
+        id="focus-radio"
+        name="focus-radio"
+        value="option7"
+        right-label="Option 7"
+      >
+      </glu-radio>
+
+      <script>
+        const radio = document.getElementById('focus-radio');
+        radio.focus();
+      </script>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; align-items: center; width: 100%;">
+      <glu-radio
+        name="all-features-radio"
+        value="option9"
+        left-label="Left Label"
+        right-label="Right Label"
+        helper-text="This radio has all features enabled."
+        helper-icon="information-circle"
+        helper-icon-variant="outline"
+        error="This is an error message."
+        disabled
+        checked
+      >
+      </glu-radio>
+      <div>
+        <glu-radio
+          name="advanced-group"
+          value="advanced1"
+          right-label="Advanced Option 1"
+          helper-text="Choose this for feature X."
+        >
+        </glu-radio>
+        <glu-radio
+          name="advanced-group"
+          value="advanced2"
+          right-label="Advanced Option 2"
+          error="This option is unavailable."
+          disabled
+        >
+        </glu-radio>
+        <glu-radio
+          name="advanced-group"
+          value="advanced3"
+          right-label="Advanced Option 3"
+          helper-text="This option includes feature Y."
+        >
+        </glu-radio>
+      </div>
+      <glu-radio
+        name="custom-style-radio"
+        value="option10"
+        right-label="Custom Style Option"
+        style="
+          --tokens-primary-default: var(--root-purple-500);
+          --tokens-status-error-default: var(--root-pink-600);
+        "
+      >
+      </glu-radio>
+    </div>
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; align-items: center;">
       <!-- Basic Input -->
       <glu-input label="Basic Input" placeholder="Enter text"></glu-input>
