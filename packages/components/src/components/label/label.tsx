@@ -1,4 +1,6 @@
-import { Component, h, Host, Prop } from '@stencil/core'
+import { Attributes, inheritAttributes } from '../../utils/helpers'
+
+import { Component, Element, h, Host, Prop } from '@stencil/core'
 
 /**
  * A label component with an optional tooltip icon and character counter.
@@ -38,12 +40,27 @@ export class GluLabel {
    */
   @Prop({ reflect: true }) readonly isSolidIcon = false
 
+  /**
+   * A reference to the host element.
+   * @element {HTMLGluLabelElement} labelElement - The component's host element.
+   */
+  // eslint-disable-next-line no-undef
+  @Element() labelElement!: HTMLGluLabelElement
+
+  /** Container for attributes inherited from the host element */
+  private inheritedAttributes: Attributes = {}
+
+  componentWillLoad() {
+    // Inherit attributes from the host element to forward to the inner <input>
+    this.inheritedAttributes = { ...inheritAttributes(this.labelElement) }
+  }
+
   render() {
     const { showTooltip, showRightText, isSolidIcon } = this
 
     return (
       <Host class="glu-label">
-        <div class="container">
+        <div class="container" {...this.inheritedAttributes}>
           <label class="label-text">
             <slot></slot>
           </label>

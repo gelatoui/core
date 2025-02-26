@@ -1,8 +1,8 @@
-import { Component, h, Host, Prop } from '@stencil/core'
+import { Attributes, inheritAttributes } from '@utils/helpers'
+
+import { Component, Element, h, Host, Prop } from '@stencil/core'
 
 /**
- * A flexible link component supporting different appearances and behaviors.
- *
  * @component
  * @tag glu-link
  * @shadow true
@@ -39,6 +39,21 @@ export class GluLink {
    */
   @Prop() readonly size?: 'large' | 'medium' | 'small' = 'medium'
 
+  /**
+   * A reference to the host element.
+   * @element {HTMLGluLinkElement} linkElement - The component's host element.
+   */
+  // eslint-disable-next-line no-undef
+  @Element() linkElement!: HTMLGluLinkElement
+
+  /** Container for attributes inherited from the host element */
+  private inheritedAttributes: Attributes = {}
+
+  componentWillLoad() {
+    // Inherit attributes from the host element to forward to the inner <input>
+    this.inheritedAttributes = { ...inheritAttributes(this.linkElement) }
+  }
+
   render() {
     const { size, target, rel, href } = this
 
@@ -49,7 +64,7 @@ export class GluLink {
           [`glu-link--size-${size}`]: !!size
         }}
       >
-        <a href={href} target={target} rel={rel}>
+        <a {...this.inheritedAttributes} href={href} target={target} rel={rel}>
           <slot></slot>
         </a>
       </Host>

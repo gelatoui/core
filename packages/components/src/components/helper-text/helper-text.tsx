@@ -1,4 +1,6 @@
-import { Component, h, Host, Prop } from '@stencil/core'
+import { Attributes, inheritAttributes } from '@utils/helpers'
+
+import { Component, Element, h, Host, Prop } from '@stencil/core'
 
 /**
  * A helper text component that displays an icon on the left and text on the right.
@@ -48,6 +50,21 @@ export class GluHelperText {
    */
   @Prop({ reflect: true }) readonly isError = false
 
+  /**
+   * A reference to the host element.
+   * @element {HTMLGluHelperTextElement} helperTextElement - The component's host element.
+   */
+  // eslint-disable-next-line no-undef
+  @Element() helperTextElement!: HTMLGluHelperTextElement
+
+  /** Container for attributes inherited from the host element */
+  private inheritedAttributes: Attributes = {}
+
+  componentWillLoad() {
+    // Inherit attributes from the host element to forward to the inner <input>
+    this.inheritedAttributes = { ...inheritAttributes(this.helperTextElement) }
+  }
+
   render() {
     return (
       <Host class={{ 'glu-helper-text': true, 'is-error': this.isError }}>
@@ -60,7 +77,7 @@ export class GluHelperText {
             />
           </div>
         )}
-        <div class="text">
+        <div class="text" {...this.inheritedAttributes}>
           <slot></slot>
         </div>
       </Host>

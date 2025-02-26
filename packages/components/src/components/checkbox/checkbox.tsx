@@ -96,13 +96,6 @@ export class GluCheckbox {
    */
   @Prop() readonly hasIndeterminate: boolean = false
 
-  /**
-   * A reference to the host element.
-   * @element {HTMLGluCheckboxElement} inputElement - The component's host element.
-   */
-  // eslint-disable-next-line no-undef
-  @Element() inputElement!: HTMLGluCheckboxElement
-
   // ---------------------------
   // Component internal state
   // ---------------------------
@@ -121,12 +114,19 @@ export class GluCheckbox {
    */
   @Event() glChange!: EventEmitter<{ value: 'unchecked' | 'checked' | 'indeterminate', event: Event }>
 
+  /**
+   * A reference to the host element.
+   * @element {HTMLGluCheckboxElement} checkboxElement - The component's host element.
+   */
+  // eslint-disable-next-line no-undef
+  @Element() checkboxElement!: HTMLGluCheckboxElement
+
   /** Container for attributes inherited from the host element */
   private inheritedAttributes: Attributes = {}
 
   componentWillLoad() {
     // Inherit attributes from the host element to forward to the inner <input>
-    this.inheritedAttributes = { ...inheritAttributes(this.inputElement) }
+    this.inheritedAttributes = { ...inheritAttributes(this.checkboxElement) }
   }
 
   // ---------------------------

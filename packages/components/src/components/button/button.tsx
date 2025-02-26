@@ -1,4 +1,6 @@
 /* eslint-disable no-undef */
+import { Attributes, inheritAttributes } from '@utils/helpers'
+
 import { Component, Element, h, Host, Prop } from '@stencil/core'
 
 /**
@@ -86,6 +88,21 @@ export class ButtonGlu {
   @Prop() readonly type: 'submit' | 'reset' | 'button' = 'button'
 
   /**
+   * A reference to the host element.
+   * @element {HTMLGluButtonElement} buttonElement - The component's host element.
+   */
+
+  @Element() buttonElement!: HTMLGluButtonElement
+
+  /** Container for attributes inherited from the host element */
+  private inheritedAttributes: Attributes = {}
+
+  componentWillLoad() {
+    // Inherit attributes from the host element to forward to the inner <input>
+    this.inheritedAttributes = { ...inheritAttributes(this.buttonElement) }
+  }
+
+  /**
    * Render method to generate the component's HTML.
    * @returns {JSX.Element} The rendered HTML of the button.
    */
@@ -106,7 +123,7 @@ export class ButtonGlu {
           'glu-button--disabled': disabled
         }}
       >
-        <TagType {...attrs}>
+        <TagType {...this.inheritedAttributes} {...attrs}>
           <slot name="icon-only"></slot>
           <slot name="start"></slot>
           <slot></slot>

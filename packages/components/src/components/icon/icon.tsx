@@ -1,7 +1,9 @@
+import { Attributes, inheritAttributes } from '@utils/helpers'
+
 import { outlineIcons } from './icon-outline'
 import { solidIcons } from './icon-solid'
 
-import { Component, h, Host, Prop } from '@stencil/core'
+import { Component, Element, h, Host, Prop } from '@stencil/core'
 
 /**
  * @component
@@ -63,6 +65,21 @@ export class GluIcon {
   @Prop() readonly color?: string
 
   /**
+   * A reference to the host element.
+   * @element {HTMLGluIconElement} linkElement - The component's host element.
+   */
+  // eslint-disable-next-line no-undef
+  @Element() iconElement!: HTMLGluIconElement
+
+  /** Container for attributes inherited from the host element */
+  private inheritedAttributes: Attributes = {}
+
+  componentWillLoad() {
+    // Inherit attributes from the host element to forward to the inner <input>
+    this.inheritedAttributes = { ...inheritAttributes(this.iconElement) }
+  }
+
+  /**
    * Retrieves the SVG content for the configured icon
    * @private
    * @returns {string} SVG markup or empty string if icon not found
@@ -107,6 +124,7 @@ export class GluIcon {
     return (
       <Host class="glu-icon">
         <span
+          {...this.inheritedAttributes}
           style={style}
           role="img"
           aria-label={this.name}
