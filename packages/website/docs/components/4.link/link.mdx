@@ -6,7 +6,8 @@ title: glu-link
 # Link
 
 import LinkReadme from '@gelato-ui/components/dist/readme/components/link/readme.md'
-import LinkSizes from './_usage/link-sizes.mdx'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 <p>
   <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/design/jSs4mJxj7dJbXsCE1IHtqt/GelatoUI-Design-System-(V-0.1.0)?node-id=239-4600&t=Atc4eInbyG3YDBW0-0">Figma</glu-button>
@@ -16,6 +17,72 @@ Links are interactive elements that navigate users to different locations, eithe
 
 ## Usage
 
-<LinkSizes />
+### Link sizes
+
+The `glu-link` component provides a flexible way to create hyperlinks with customizable sizes and targets.
+
+#### Example Usage
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+    ```html live
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
+        <glu-link href="#" size="small">Small Link</glu-link>
+        <glu-link href="#" size="medium">Medium Link</glu-link>
+        <glu-link href="#" size="large">Large Link</glu-link>
+      </div>
+    ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+    ```jsx live
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
+        <GluLink href="#" size="small">Small Link</GluLink>
+        <GluLink href="#" size="medium">Medium Link</GluLink>
+        <GluLink href="#" size="large">Large Link</GluLink>
+      </div>
+    ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+    ```html
+      <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
+        <glu-link href="#" size="small">Small Link</glu-link>
+        <glu-link href="#" size="medium">Medium Link</glu-link>
+        <glu-link href="#" size="large">Large Link</glu-link>
+      </div>
+
+      <script setup>
+        import { GluLink } from '@gelato-ui/vue';
+      </script>
+    ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+    ```html
+      <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
+        <glu-link href="#" size="small">Small Link</glu-link>
+        <glu-link href="#" size="medium">Medium Link</glu-link>
+        <glu-link href="#" size="large">Large Link</glu-link>
+      </div>
+    ```
+
+    ```ts
+      import { Component } from '@angular/core';
+      import { GluLink } from '@gelato-ui/angular';
+
+      @Component({
+        standalone: true,
+        imports: [GluLink],
+        template: `...` // Template content from above
+      })
+      export class MyComponent {}
+    ```
+  </TabItem>
+</Tabs>
 
 <LinkReadme />
