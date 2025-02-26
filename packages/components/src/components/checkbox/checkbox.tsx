@@ -3,9 +3,6 @@ import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
 import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core'
 
 /**
- * A composite checkbox component that supports left and right labels, error messaging,
- * and advanced checkbox states such as checked, unchecked, and indeterminate.
- *
  * @component
  * @tag glu-checkbox
  * @shadow true

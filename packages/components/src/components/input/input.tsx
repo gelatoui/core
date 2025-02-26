@@ -5,12 +5,6 @@ import { InputChangeEventDetail, InputType } from './input.types'
 import { Component, Element, Event, EventEmitter, Fragment, h, Host, Prop, State } from '@stencil/core'
 
 /**
- * A composite input component that supports a label, helper text and advanced input features
- * such as prefix/suffix elements, custom input types, and error states.
- *
- * Any extra attributes (except those explicitly defined) set on `<glu-input>` are forwarded
- * to the inner native `<input>` element.
- *
  * @component
  * @tag glu-input
  * @shadow true

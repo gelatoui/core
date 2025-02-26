@@ -59,9 +59,9 @@ describe('glu-icon (E2E)', () => {
 
     const span = await page.find('glu-icon')
 
-    expect((await span.getComputedStyle()).width).toBe('40px')
-
     expect((await span.getComputedStyle()).height).toBe('20px')
+
+    expect((await span.getComputedStyle()).width).toBe('40px')
   })
 
   it('uses width/height with number values', async () => {
@@ -71,9 +71,11 @@ describe('glu-icon (E2E)', () => {
 
     const span = await page.find('glu-icon')
 
-    expect((await span.getComputedStyle()).width).toBe('40px')
+    console.log('🚀 ~ it ~ span:', await span.getComputedStyle())
 
     expect((await span.getComputedStyle()).height).toBe('20px')
+
+    expect((await span.getComputedStyle()).width).toBe('40px')
   })
 
   it('doesn\'t render SVG for missing icon', async () => {

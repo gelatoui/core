@@ -4,8 +4,6 @@ import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
 import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core'
 
 /**
- * A toggle switch component that supports labels, error messaging, and on/off states.
- *
  * @component
  * @tag glu-toggle
  * @shadow true
