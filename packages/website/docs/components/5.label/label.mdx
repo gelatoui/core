@@ -3,19 +3,293 @@ sidebar_position: 1
 title: glu-label
 ---
 
-# Label
+# Label Component
 
 import LabelReadme from '@gelato-ui/components/dist/readme/components/label/readme.md'
-import LabelBasicUsage from './_usage/label-basic.mdx'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+import { GluLabel } from '@gelato-ui/react'
 
 <p style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
   <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/design/jSs4mJxj7dJbXsCE1IHtqt/GelatoUI-Design-System-(V-0.1.0)?node-id=258-3312&t=G3knoTAyO51IvQay-0">Figma</glu-button>
 </p>
 
-The `glu-label` component provides a label with optional tooltip icons and right-aligned text (like character counters). It is highly customizable and suitable for form labels, notifications, or any labeled content.
+The `glu-label` component provides a styled label with support for an optional tooltip icon and a right-aligned text (for example, a character counter). The label text is provided via the default slot, while additional information can be inserted into the tooltip and right text slots.
 
-## Usage
+## Basic Usage
 
-<LabelBasicUsage />
+### Example 1: Basic Label
+
+Display a simple label without additional elements.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-label>
+    Nombre
+  </glu-label>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluLabel>Nombre</GluLabel>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-label>
+    Nombre
+  </glu-label>
+
+  <script setup>
+  import { GluLabel } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-label>
+    Nombre
+  </glu-label>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluLabel } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluLabel],
+    template: `<glu-label>Nombre</glu-label>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Label with Tooltip
+
+Enable the tooltip by setting the `showTooltip` property. Use the `tooltip` slot to provide additional help text. Optionally, set `isSolidIcon` to display the icon in its solid variant.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-label showTooltip isSolidIcon>
+    Nombre
+    <span slot="tooltip">Este campo es obligatorio</span>
+  </glu-label>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluLabel showTooltip isSolidIcon>
+    Nombre
+    <span slot="tooltip">Este campo es obligatorio</span>
+  </GluLabel>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-label showTooltip isSolidIcon>
+    Nombre
+    <span slot="tooltip">Este campo es obligatorio</span>
+  </glu-label>
+
+  <script setup>
+  import { GluLabel } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-label showTooltip isSolidIcon>
+    Nombre
+    <span slot="tooltip">Este campo es obligatorio</span>
+  </glu-label>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluLabel } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluLabel],
+    template: `
+      <glu-label showTooltip isSolidIcon>
+        Nombre
+        <span slot="tooltip">Este campo es obligatorio</span>
+      </glu-label>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Label with Right Text
+
+Display right-aligned text such as a character counter by enabling the `showRightText` property and using the `right-text` slot.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-label showRightText>
+    Nombre
+    <span slot="right-text">0 / 100</span>
+  </glu-label>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluLabel showRightText>
+    Nombre
+    <span slot="right-text">0 / 100</span>
+  </GluLabel>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-label showRightText>
+    Nombre
+    <span slot="right-text">0 / 100</span>
+  </glu-label>
+
+  <script setup>
+  import { GluLabel } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-label showRightText>
+    Nombre
+    <span slot="right-text">0 / 100</span>
+  </glu-label>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluLabel } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluLabel],
+    template: `
+      <glu-label showRightText>
+        Nombre
+        <span slot="right-text">0 / 100</span>
+      </glu-label>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Combined Example
+
+Combine both tooltip and right text in a single label.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-label showTooltip showRightText isSolidIcon>
+    Nombre
+    <span slot="tooltip">Proporcione su nombre completo</span>
+    <span slot="right-text">0 / 100</span>
+  </glu-label>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluLabel showTooltip showRightText isSolidIcon>
+    Nombre
+    <span slot="tooltip">Proporcione su nombre completo</span>
+    <span slot="right-text">0 / 100</span>
+  </GluLabel>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-label showTooltip showRightText isSolidIcon>
+    Nombre
+    <span slot="tooltip">Proporcione su nombre completo</span>
+    <span slot="right-text">0 / 100</span>
+  </glu-label>
+
+  <script setup>
+  import { GluLabel } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-label showTooltip showRightText isSolidIcon>
+    Nombre
+    <span slot="tooltip">Proporcione su nombre completo</span>
+    <span slot="right-text">0 / 100</span>
+  </glu-label>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluLabel } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluLabel],
+    template: `
+      <glu-label showTooltip showRightText isSolidIcon>
+        Nombre
+        <span slot="tooltip">Proporcione su nombre completo</span>
+        <span slot="right-text">0 / 100</span>
+      </glu-label>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
 
 <LabelReadme />
