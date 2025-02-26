@@ -14,13 +14,13 @@ import { GluLabel } from '@gelato-ui/react'
   <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/design/jSs4mJxj7dJbXsCE1IHtqt/GelatoUI-Design-System-(V-0.1.0)?node-id=258-3312&t=G3knoTAyO51IvQay-0">Figma</glu-button>
 </p>
 
-The `glu-label` component provides a styled label with support for an optional tooltip icon and a right-aligned text (for example, a character counter). The label text is provided via the default slot, while additional information can be inserted into the tooltip and right text slots.
+The `glu-label` component provides a styled label with support for an optional tooltip icon and an optional right-aligned text (for example, a character counter). The label text is provided via the default slot, while additional information can be supplied via the `tooltip` and `right-text` slots.
 
 ## Basic Usage
 
-### Example 1: Basic Label
+### Example 1: Simple Label
 
-Display a simple label without additional elements.
+Display a simple label without any additional elements.
 
 <Tabs>
   <TabItem value="html" label="HTML">
@@ -79,13 +79,13 @@ Display a simple label without additional elements.
 
 ## Label with Tooltip
 
-Enable the tooltip by setting the `showTooltip` property. Use the `tooltip` slot to provide additional help text. Optionally, set `isSolidIcon` to display the icon in its solid variant.
+Enable the tooltip by setting the `showTooltip` property. Use the `tooltip` slot to provide additional help text. You can also customize the tooltip icon by specifying the `tooltipIcon` and its variant via the `iconVariation` property.
 
 <Tabs>
   <TabItem value="html" label="HTML">
 
   ```html live
-  <glu-label showTooltip isSolidIcon>
+  <glu-label showTooltip>
     Nombre
     <span slot="tooltip">Este campo es obligatorio</span>
   </glu-label>
@@ -95,7 +95,7 @@ Enable the tooltip by setting the `showTooltip` property. Use the `tooltip` slot
   <TabItem value="jsx" label="React">
 
   ```jsx live
-  <GluLabel showTooltip isSolidIcon>
+  <GluLabel showTooltip>
     Nombre
     <span slot="tooltip">Este campo es obligatorio</span>
   </GluLabel>
@@ -105,7 +105,7 @@ Enable the tooltip by setting the `showTooltip` property. Use the `tooltip` slot
   <TabItem value="vue" label="Vue">
 
   ```html
-  <glu-label showTooltip isSolidIcon>
+  <glu-label showTooltip>
     Nombre
     <span slot="tooltip">Este campo es obligatorio</span>
   </glu-label>
@@ -119,7 +119,7 @@ Enable the tooltip by setting the `showTooltip` property. Use the `tooltip` slot
   <TabItem value="angular" label="Angular">
 
   ```html
-  <glu-label showTooltip isSolidIcon>
+  <glu-label showTooltip>
     Nombre
     <span slot="tooltip">Este campo es obligatorio</span>
   </glu-label>
@@ -133,7 +133,7 @@ Enable the tooltip by setting the `showTooltip` property. Use the `tooltip` slot
     standalone: true,
     imports: [GluLabel],
     template: `
-      <glu-label showTooltip isSolidIcon>
+      <glu-label showTooltip>
         Nombre
         <span slot="tooltip">Este campo es obligatorio</span>
       </glu-label>
@@ -219,13 +219,13 @@ Display right-aligned text such as a character counter by enabling the `showRigh
 
 ## Combined Example
 
-Combine both tooltip and right text in a single label.
+Use both tooltip and right text in a single label. Customize the tooltip icon and its variant as needed.
 
 <Tabs>
   <TabItem value="html" label="HTML">
 
   ```html live
-  <glu-label showTooltip showRightText isSolidIcon>
+  <glu-label showTooltip showRightText tooltipIcon="information-circle" iconVariation="solid">
     Nombre
     <span slot="tooltip">Proporcione su nombre completo</span>
     <span slot="right-text">0 / 100</span>
@@ -236,7 +236,7 @@ Combine both tooltip and right text in a single label.
   <TabItem value="jsx" label="React">
 
   ```jsx live
-  <GluLabel showTooltip showRightText isSolidIcon>
+  <GluLabel showTooltip showRightText tooltipIcon="information-circle" iconVariation="solid">
     Nombre
     <span slot="tooltip">Proporcione su nombre completo</span>
     <span slot="right-text">0 / 100</span>
@@ -247,7 +247,7 @@ Combine both tooltip and right text in a single label.
   <TabItem value="vue" label="Vue">
 
   ```html
-  <glu-label showTooltip showRightText isSolidIcon>
+  <glu-label showTooltip showRightText tooltipIcon="information-circle" iconVariation="solid">
     Nombre
     <span slot="tooltip">Proporcione su nombre completo</span>
     <span slot="right-text">0 / 100</span>
@@ -262,7 +262,7 @@ Combine both tooltip and right text in a single label.
   <TabItem value="angular" label="Angular">
 
   ```html
-  <glu-label showTooltip showRightText isSolidIcon>
+  <glu-label showTooltip showRightText tooltipIcon="information-circle" iconVariation="solid">
     Nombre
     <span slot="tooltip">Proporcione su nombre completo</span>
     <span slot="right-text">0 / 100</span>
@@ -277,7 +277,7 @@ Combine both tooltip and right text in a single label.
     standalone: true,
     imports: [GluLabel],
     template: `
-      <glu-label showTooltip showRightText isSolidIcon>
+      <glu-label showTooltip showRightText tooltipIcon="information-circle" iconVariation="solid">
         Nombre
         <span slot="tooltip">Proporcione su nombre completo</span>
         <span slot="right-text">0 / 100</span>
