@@ -167,7 +167,7 @@ export class GluRadio {
 
         {!!(this.error || this.helperText) && (
           <glu-helper-text
-            icon={this.helperIcon ?? undefined}
+            icon={this.helperIcon}
             iconVariant={this.helperIconVariant}
             is-error={!!this.error}
           >
