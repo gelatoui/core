@@ -4,9 +4,6 @@ import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
 import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core'
 
 /**
- * A radio button component that supports left and right labels, error messaging,
- * and integrates with radio groups for single selection behavior.
- *
  * @component
  * @tag glu-radio
  * @shadow true
@@ -59,7 +56,7 @@ export class GluRadio {
    * Name attribute for radio group association
    * @prop {string} name
    */
-  @Prop() readonly name: string
+  @Prop({ reflect: true }) readonly name: string
 
   /**
    * Supplemental helper text
@@ -110,9 +107,24 @@ export class GluRadio {
 
     event.stopPropagation()
 
-    this.checked = !this.checked
+    const newChecked = !this.checked
 
-    this.glChange.emit({ value: !this.checked, event })
+    if (newChecked) {
+      // Uncheck other radios in the same group
+      const radios = document.querySelectorAll<HTMLGluRadioElement>(
+        `glu-radio[name="${this.name}"]`
+      )
+
+      radios.forEach(radio => {
+        if (radio !== this.radioElement) {
+          radio.checked = false
+        }
+      })
+    }
+
+    this.checked = newChecked
+
+    this.glChange.emit({ value: newChecked, event })
   }
 
   private handleKeyDown = (event: KeyboardEvent): void => {
