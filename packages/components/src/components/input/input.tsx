@@ -1,4 +1,4 @@
-import { Attributes, inheritAttributes } from '@utils/helpers'
+import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
 
 import { InputChangeEventDetail, InputType } from './input.types'
 

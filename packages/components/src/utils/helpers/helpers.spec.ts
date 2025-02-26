@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { inheritAttributes } from './helpers' // Adjust the import path accordingly
+import { inheritAttributes } from '@utils/helpers/helpers' // Adjust the import path accordingly
 
 describe('inheritAttributes', () => {
   let hostElement: HTMLElement

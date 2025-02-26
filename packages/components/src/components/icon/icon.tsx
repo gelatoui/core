@@ -1,4 +1,5 @@
-import { Attributes, inheritAttributes } from '@utils/helpers'
+import { getSizesValue } from '@utils/get-size-value/get-size-value'
+import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
 
 import { outlineIcons } from './icon-outline'
 import { solidIcons } from './icon-solid'
@@ -90,21 +91,13 @@ export class GluIcon {
     return icons[this.name] || ''
   }
 
-  private isValidNumber = (value: string | number): boolean => typeof value === 'number' ? Number.isFinite(value) : !isNaN(Number(value.trim()))
-
-  private getSizesValue = ({ width, height }: { width: string | number, height: string | number }):
-  { width: string, height: string } => ({
-    width: this.isValidNumber(width) ? `${Number(width)}px` : `${width}`,
-    height: this.isValidNumber(height) ? `${Number(height)}px` : `${height}`
-  })
-
   /**
    * Renders the icon component inline, allowing CSS color changes
    * @returns {JSX.Element} The rendered icon element
    */
   render() {
     const svgContent = this.getIconSvg()
-    const { width, height } = this.getSizesValue({ width: this.size || this.width, height: this.size || this.height })
+    const { width, height } = getSizesValue({ width: this.size || this.width, height: this.size || this.height })
 
     if (!this.name) return null
 

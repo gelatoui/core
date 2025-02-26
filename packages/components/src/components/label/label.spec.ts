@@ -13,7 +13,7 @@ describe('glu-label', () => {
     })
 
     expect(page.root).toEqualHtml(/* html */`
-      <glu-label class="glu-label">
+      <glu-label class="glu-label" icon-variation="outline" tooltip-icon="question-mark-circle">
         <mock:shadow-root>
           <div class="container">
             <label class="label-text">
@@ -33,16 +33,16 @@ describe('glu-label', () => {
     })
 
     expect(page.root).toMatchInlineSnapshot(/* html */`
-      <glu-label class="glu-label" show-tooltip="">
+      <glu-label class="glu-label" icon-variation="outline" show-tooltip="" tooltip-icon="question-mark-circle">
         <template shadowrootmode="open">
           <div class="container">
             <label class="label-text">
               <slot></slot>
             </label>
             <span class="tooltip-icon">
-              <glu-icon class="glu-icon tooltip-icon" name="information-circle" variant="outline">
+              <glu-icon class="glu-icon tooltip-icon" name="question-mark-circle" variant="outline">
                 <template shadowrootmode="open">
-                  <span aria-label="information-circle" role="img" style="width: 16px; height: 16px; color: inherit;"></span>
+                  <span aria-label="question-mark-circle" role="img" style="width: 16px; height: 16px; color: inherit;"></span>
                 </template>
               </glu-icon>
               <span class="tooltip-component">

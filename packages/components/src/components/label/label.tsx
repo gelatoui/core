@@ -1,4 +1,4 @@
-import { Attributes, inheritAttributes } from '../../utils/helpers'
+import { Attributes, inheritAttributes } from '../../utils/helpers/helpers'
 
 import { Component, Element, h, Host, Prop } from '@stencil/core'
 
