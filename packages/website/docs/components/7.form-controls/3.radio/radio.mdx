@@ -3,16 +3,454 @@ sidebar_position: 1
 title: glu-radio
 ---
 
-# Radio
+# Radio Button Component
 
 import RadioReadme from '@gelato-ui/components/dist/readme/components/radio/readme.md'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+import { GluRadio } from '@gelato-ui/react'
 
 <p style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
   <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/design/jSs4mJxj7dJbXsCE1IHtqt/GelatoUI-Design-System-(V-0.1.0)?node-id=320-1143&t=tlu1jBy1HSvkPZNA-0">Figma</glu-button>
 </p>
 
-The `glu-radio` component provides a customizable radio button input with support for selection states (checked, disabled) and integration with radio groups.
+The `glu-radio` component is an accessible radio button that supports both left and right labels, error messaging, and helper text. It is designed to integrate with radio groups for single selection behavior and provides proper ARIA attributes and keyboard interactions. The component emits a `glChange` event when its state changes.
 
-## Usage
+## Basic Radio Button
+
+A simple radio button with a left label and default unchecked state.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-radio leftLabel="Option 1" name="example"></glu-radio>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluRadio leftLabel="Option 1" name="example" />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-radio leftLabel="Option 1" name="example"></glu-radio>
+
+  <script setup>
+  import { GluRadio } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-radio leftLabel="Option 1" name="example"></glu-radio>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluRadio } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluRadio],
+    template: `<glu-radio leftLabel="Option 1" name="example"></glu-radio>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Radio with Right Label
+
+Display a radio button with a right-aligned label.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-radio rightLabel="Option A" name="example"></glu-radio>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluRadio rightLabel="Option A" name="example" />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-radio rightLabel="Option A" name="example"></glu-radio>
+
+  <script setup>
+  import { GluRadio } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-radio rightLabel="Option A" name="example"></glu-radio>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluRadio } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluRadio],
+    template: `<glu-radio rightLabel="Option A" name="example"></glu-radio>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Radio with Both Left and Right Labels
+
+Combine both left and right labels to provide additional context.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-radio leftLabel="Select" rightLabel="Option B" name="example"></glu-radio>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluRadio leftLabel="Select" rightLabel="Option B" name="example" />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-radio leftLabel="Select" rightLabel="Option B" name="example"></glu-radio>
+
+  <script setup>
+  import { GluRadio } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-radio leftLabel="Select" rightLabel="Option B" name="example"></glu-radio>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluRadio } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluRadio],
+    template: `<glu-radio leftLabel="Select" rightLabel="Option B" name="example"></glu-radio>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Radio with Error and Helper Text
+
+Display error messaging and supplemental helper text when validation fails.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-radio
+    leftLabel="Option 2"
+    error="Selection required"
+    helperText="Please select an option"
+    helperIcon="error-icon"
+    name="example"
+  ></glu-radio>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluRadio
+    leftLabel="Option 2"
+    error="Selection required"
+    helperText="Please select an option"
+    helperIcon="error-icon"
+    name="example"
+  />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-radio
+    leftLabel="Option 2"
+    error="Selection required"
+    helperText="Please select an option"
+    helperIcon="error-icon"
+    name="example"
+  ></glu-radio>
+
+  <script setup>
+  import { GluRadio } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-radio
+    leftLabel="Option 2"
+    error="Selection required"
+    helperText="Please select an option"
+    helperIcon="error-icon"
+    name="example"
+  ></glu-radio>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluRadio } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluRadio],
+    template: `
+      <glu-radio
+        leftLabel="Option 2"
+        error="Selection required"
+        helperText="Please select an option"
+        helperIcon="error-icon"
+        name="example"
+      ></glu-radio>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Disabled Radio Button
+
+Prevent user interaction by disabling the radio button.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-radio leftLabel="Option 3" disabled name="example"></glu-radio>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluRadio leftLabel="Option 3" disabled name="example" />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-radio leftLabel="Option 3" disabled name="example"></glu-radio>
+
+  <script setup>
+  import { GluRadio } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-radio leftLabel="Option 3" disabled name="example"></glu-radio>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluRadio } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluRadio],
+    template: `<glu-radio leftLabel="Option 3" disabled name="example"></glu-radio>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Example: Multiple Options Radio Buttons
+
+Below is an example of a radio button group for selecting a favorite color. All radio buttons share the same `name` attribute so they behave as a group. Only one option can be selected at a time.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <glu-radio leftLabel="Red" name="favoriteColor"></glu-radio>
+    <glu-radio leftLabel="Green" name="favoriteColor" checked></glu-radio>
+    <glu-radio leftLabel="Blue" name="favoriteColor"></glu-radio>
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <GluRadio
+      leftLabel="Red"
+      name="favoriteColor"
+    />
+    <GluRadio
+      leftLabel="Green"
+      name="favoriteColor"
+      checked
+    />
+    <GluRadio
+      leftLabel="Blue"
+      name="favoriteColor"
+    />
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <template>
+    <div>
+      <glu-radio
+        leftLabel="Red"
+        name="favoriteColor"
+        :checked="selected === 'Red'"
+        @glChange="select('Red')"
+      ></glu-radio>
+      <glu-radio
+        leftLabel="Green"
+        name="favoriteColor"
+        :checked="selected === 'Green'"
+        @glChange="select('Green')"
+      ></glu-radio>
+      <glu-radio
+        leftLabel="Blue"
+        name="favoriteColor"
+        :checked="selected === 'Blue'"
+        @glChange="select('Blue')"
+      ></glu-radio>
+    </div>
+  </template>
+
+  <script setup>
+  import { ref } from 'vue';
+  import { GluRadio } from '@gelato-ui/vue';
+
+  const selected = ref('Red');
+  const select = (color) => {
+    selected.value = color;
+  };
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-radio
+    leftLabel="Red"
+    name="favoriteColor"
+    [checked]="selected === 'Red'"
+    (glChange)="select('Red')"
+  ></glu-radio>
+  <glu-radio
+    leftLabel="Green"
+    name="favoriteColor"
+    [checked]="selected === 'Green'"
+    (glChange)="select('Green')"
+  ></glu-radio>
+  <glu-radio
+    leftLabel="Blue"
+    name="favoriteColor"
+    [checked]="selected === 'Blue'"
+    (glChange)="select('Blue')"
+  ></glu-radio>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluRadio } from '@gelato-ui/angular';
+
+  @Component({
+    selector: 'app-favorite-color',
+    standalone: true,
+    imports: [GluRadio],
+    template: `
+      <glu-radio
+        leftLabel="Red"
+        name="favoriteColor"
+        [checked]="selected === 'Red'"
+        (glChange)="select('Red')"
+      ></glu-radio>
+      <glu-radio
+        leftLabel="Green"
+        name="favoriteColor"
+        [checked]="selected === 'Green'"
+        (glChange)="select('Green')"
+      ></glu-radio>
+      <glu-radio
+        leftLabel="Blue"
+        name="favoriteColor"
+        [checked]="selected === 'Blue'"
+        (glChange)="select('Blue')"
+      ></glu-radio>
+    `
+  })
+  export class FavoriteColorComponent {
+    selected = 'Red';
+    select(color: string) {
+      this.selected = color;
+    }
+  }
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
 
 <RadioReadme />

@@ -3,22 +3,236 @@ sidebar_position: 1
 title: glu-radio
 ---
 
-# Toggle
+# Toggle Component
 
 import ToggleReadme from '@gelato-ui/components/dist/readme/components/toggle/readme.md'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+import { GluToggle } from '@gelato-ui/react'
 
 <p style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
   <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/design/jSs4mJxj7dJbXsCE1IHtqt/GelatoUI-Design-System-(V-0.1.0)?node-id=321-1860&t=tlu1jBy1HSvkPZNA-0">Figma</glu-button>
 </p>
 
-The `glu-toggle` component provides a customizable toggle switch for on/off states, with support for labels, error messaging, and helper text.
+The `glu-toggle` component is a switch-style input that allows users to toggle between on and off states. It supports optional left and right labels, error messaging, and supplemental helper text. The component is fully accessible, with proper ARIA attributes and keyboard interactions (using the space or Enter key), and it emits a `glChange` event whenever its state changes.
 
-## Usage
+## Basic Usage
+
+### Example 1: Simple Toggle
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-toggle
+    leftLabel="Off"
+    rightLabel="On"
+  ></glu-toggle>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluToggle
+    leftLabel="Off"
+    rightLabel="On"
+  />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-toggle
+    leftLabel="Off"
+    rightLabel="On"
+  ></glu-toggle>
+
+  <script setup>
+  import { GluToggle } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-toggle
+    leftLabel="Off"
+    rightLabel="On"
+  ></glu-toggle>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluToggle } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluToggle],
+    template: `<glu-toggle leftLabel="Off" rightLabel="On"></glu-toggle>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Toggle with Error and Helper Text
+
+When an error occurs, you can display an error message along with supplemental helper text. In this example, the toggle shows an error state and includes an error icon next to the helper text.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-toggle
+    leftLabel="Off"
+    rightLabel="On"
+    error="Invalid selection"
+    helperText="Please toggle the switch appropriately"
+    helperIcon="error-icon"
+  ></glu-toggle>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluToggle
+    leftLabel="Off"
+    rightLabel="On"
+    error="Invalid selection"
+    helperText="Please toggle the switch appropriately"
+    helperIcon="error-icon"
+  />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-toggle
+    leftLabel="Off"
+    rightLabel="On"
+    error="Invalid selection"
+    helperText="Please toggle the switch appropriately"
+    helperIcon="error-icon"
+  ></glu-toggle>
+
+  <script setup>
+  import { GluToggle } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-toggle
+    leftLabel="Off"
+    rightLabel="On"
+    error="Invalid selection"
+    helperText="Please toggle the switch appropriately"
+    helperIcon="error-icon"
+  ></glu-toggle>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluToggle } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluToggle],
+    template: `
+      <glu-toggle
+        leftLabel="Off"
+        rightLabel="On"
+        error="Invalid selection"
+        helperText="Please toggle the switch appropriately"
+        helperIcon="error-icon"
+      ></glu-toggle>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Disabled Toggle
+
+Disable the toggle to prevent user interaction.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-toggle
+    leftLabel="Off"
+    rightLabel="On"
+    disabled
+  ></glu-toggle>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluToggle
+    leftLabel="Off"
+    rightLabel="On"
+    disabled
+  />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-toggle
+    leftLabel="Off"
+    rightLabel="On"
+    disabled
+  ></glu-toggle>
+
+  <script setup>
+  import { GluToggle } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-toggle
+    leftLabel="Off"
+    rightLabel="On"
+    disabled
+  ></glu-toggle>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluToggle } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluToggle],
+    template: `<glu-toggle leftLabel="Off" rightLabel="On" disabled></glu-toggle>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
 
 <ToggleReadme />
-
-## Examples
-
-### Basic Toggle
-```html
-<glu-toggle></glu-toggle>

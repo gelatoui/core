@@ -3,16 +3,403 @@ sidebar_position: 1
 title: glu-checkbox
 ---
 
-# Checkbox
+# Checkbox Component
 
 import CheckboxReadme from '@gelato-ui/components/dist/readme/components/checkbox/readme.md'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+import { GluCheckbox } from '@gelato-ui/react'
 
 <p style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
   <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/design/jSs4mJxj7dJbXsCE1IHtqt/GelatoUI-Design-System-(V-0.1.0)?node-id=314-5967&t=tlu1jBy1HSvkPZNA-0">Figma</glu-button>
 </p>
 
-The `glu-checkbox` component provides a customizable checkbox input with support for various states (checked, indeterminate, disabled).
+The `glu-checkbox` component is a composite checkbox that supports advanced states—`unchecked`, `checked`, and optionally `indeterminate`—and provides flexible labeling. You can display a label on the left and/or right of the checkbox, and include helper text or error messages below the checkbox. The component is designed to be fully accessible with proper ARIA attributes and keyboard interactions, and it emits a `glChange` event when the checkbox state is toggled.
 
-## Usage
+Below are several examples that demonstrate the versatility of the checkbox component.
+
+---
+
+## Basic Usage
+
+### Example 1: Basic Unchecked Checkbox
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-checkbox leftLabel="Accept Terms" value="unchecked"></glu-checkbox>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluCheckbox leftLabel="Accept Terms" value="unchecked" />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-checkbox leftLabel="Accept Terms" value="unchecked"></glu-checkbox>
+
+  <script setup>
+  import { GluCheckbox } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-checkbox leftLabel="Accept Terms" value="unchecked"></glu-checkbox>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluCheckbox } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluCheckbox],
+    template: `<glu-checkbox leftLabel="Accept Terms" value="unchecked"></glu-checkbox>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Checkbox with Right Label
+
+Display a checkbox with a right-aligned label.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-checkbox rightLabel="I Agree" value="unchecked"></glu-checkbox>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluCheckbox rightLabel="I Agree" value="unchecked" />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-checkbox rightLabel="I Agree" value="unchecked"></glu-checkbox>
+
+  <script setup>
+  import { GluCheckbox } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-checkbox rightLabel="I Agree" value="unchecked"></glu-checkbox>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluCheckbox } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluCheckbox],
+    template: `<glu-checkbox rightLabel="I Agree" value="unchecked"></glu-checkbox>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Checkbox with Both Left and Right Labels
+
+Combine left and right labels for additional context.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-checkbox leftLabel="Accept" rightLabel="Terms & Conditions" value="unchecked"></glu-checkbox>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluCheckbox leftLabel="Accept" rightLabel="Terms & Conditions" value="unchecked" />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-checkbox leftLabel="Accept" rightLabel="Terms & Conditions" value="unchecked"></glu-checkbox>
+
+  <script setup>
+  import { GluCheckbox } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-checkbox leftLabel="Accept" rightLabel="Terms & Conditions" value="unchecked"></glu-checkbox>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluCheckbox } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluCheckbox],
+    template: `<glu-checkbox leftLabel="Accept" rightLabel="Terms & Conditions" value="unchecked"></glu-checkbox>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Checkbox with Error and Helper Text
+
+Display an error message with helper text when validation fails.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-checkbox
+    leftLabel="Subscribe"
+    error="This field is required"
+    helperText="Please check the box to subscribe"
+    helperIcon="error-icon"
+    value="unchecked"
+  ></glu-checkbox>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluCheckbox
+    leftLabel="Subscribe"
+    error="This field is required"
+    helperText="Please check the box to subscribe"
+    helperIcon="error-icon"
+    value="unchecked"
+  />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-checkbox
+    leftLabel="Subscribe"
+    error="This field is required"
+    helperText="Please check the box to subscribe"
+    helperIcon="error-icon"
+    value="unchecked"
+  ></glu-checkbox>
+
+  <script setup>
+  import { GluCheckbox } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-checkbox
+    leftLabel="Subscribe"
+    error="This field is required"
+    helperText="Please check the box to subscribe"
+    helperIcon="error-icon"
+    value="unchecked"
+  ></glu-checkbox>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluCheckbox } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluCheckbox],
+    template: `
+      <glu-checkbox
+        leftLabel="Subscribe"
+        error="This field is required"
+        helperText="Please check the box to subscribe"
+        helperIcon="error-icon"
+        value="unchecked"
+      ></glu-checkbox>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Checkbox with Indeterminate State
+
+When the `hasIndeterminate` property is enabled, the checkbox can toggle through an indeterminate state.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-checkbox
+    leftLabel="Select All"
+    hasIndeterminate
+    value="indeterminate"
+  ></glu-checkbox>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluCheckbox
+    leftLabel="Select All"
+    hasIndeterminate
+    value="indeterminate"
+  />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-checkbox
+    leftLabel="Select All"
+    hasIndeterminate
+    value="indeterminate"
+  ></glu-checkbox>
+
+  <script setup>
+  import { GluCheckbox } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-checkbox
+    leftLabel="Select All"
+    hasIndeterminate
+    value="indeterminate"
+  ></glu-checkbox>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluCheckbox } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluCheckbox],
+    template: `<glu-checkbox leftLabel="Select All" hasIndeterminate value="indeterminate"></glu-checkbox>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Disabled Checkbox
+
+Prevent user interaction by disabling the checkbox.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-checkbox
+    leftLabel="I Agree"
+    disabled
+    value="unchecked"
+  ></glu-checkbox>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluCheckbox
+    leftLabel="I Agree"
+    disabled
+    value="unchecked"
+  />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-checkbox
+    leftLabel="I Agree"
+    disabled
+    value="unchecked"
+  ></glu-checkbox>
+
+  <script setup>
+  import { GluCheckbox } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-checkbox
+    leftLabel="I Agree"
+    disabled
+    value="unchecked"
+  ></glu-checkbox>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluCheckbox } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluCheckbox],
+    template: `<glu-checkbox leftLabel="I Agree" disabled value="unchecked"></glu-checkbox>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
 
 <CheckboxReadme />

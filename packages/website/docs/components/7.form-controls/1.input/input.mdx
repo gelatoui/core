@@ -126,7 +126,6 @@ The component supports prefix and suffix elements that adapt based on the input 
       placeholder="0.00"
     />
     <GluInput
-      label="Search"
       type="search"
       placeholder="Search..."
       showClearIcon
@@ -145,7 +144,6 @@ The component supports prefix and suffix elements that adapt based on the input 
   ></glu-input>
 
   <glu-input
-    label="Search"
     type="search"
     placeholder="Search..."
     showClearIcon
@@ -167,7 +165,6 @@ The component supports prefix and suffix elements that adapt based on the input 
   ></glu-input>
 
   <glu-input
-    label="Search"
     type="search"
     placeholder="Search..."
     showClearIcon
@@ -188,7 +185,6 @@ The component supports prefix and suffix elements that adapt based on the input 
         placeholder="0.00"
       ></glu-input>
       <glu-input
-        label="Search"
         type="search"
         placeholder="Search..."
         showClearIcon
@@ -349,6 +345,420 @@ For password fields, clicking the suffix icon toggles the visibility of the pass
         label="Password"
         type="password"
         placeholder="Enter your password"
+      ></glu-input>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Advanced Examples
+
+### Example 5: Disabled and Read-Only Inputs
+
+Demonstrate inputs in disabled and read-only states.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <glu-input
+      label="Disabled Input"
+      placeholder="Cannot type here"
+      disabled
+    ></glu-input>
+
+    <glu-input
+      label="Read-Only Input"
+      placeholder="Read-only text"
+      readOnly
+      value="This is fixed"
+    ></glu-input>
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <GluInput
+      label="Disabled Input"
+      placeholder="Cannot type here"
+      disabled
+    />
+    <GluInput
+      label="Read-Only Input"
+      placeholder="Read-only text"
+      readOnly
+      value="This is fixed"
+    />
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-input
+    label="Disabled Input"
+    placeholder="Cannot type here"
+    disabled
+  ></glu-input>
+
+  <glu-input
+    label="Read-Only Input"
+    placeholder="Read-only text"
+    readOnly
+    value="This is fixed"
+  ></glu-input>
+
+  <script setup>
+  import { GluInput } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-input
+    label="Disabled Input"
+    placeholder="Cannot type here"
+    disabled
+  ></glu-input>
+
+  <glu-input
+    label="Read-Only Input"
+    placeholder="Read-only text"
+    readOnly
+    value="This is fixed"
+  ></glu-input>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluInput } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluInput],
+    template: `
+      <glu-input
+        label="Disabled Input"
+        placeholder="Cannot type here"
+        disabled
+      ></glu-input>
+      <glu-input
+        label="Read-Only Input"
+        placeholder="Read-only text"
+        readOnly
+        value="This is fixed"
+      ></glu-input>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Example 6: Input with Both Prefix and Suffix Text
+
+Combine prefix and suffix text to create inputs with additional context.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-input
+    label="Website"
+    type="url"
+    placeholder="your-site"
+  ></glu-input>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluInput
+    label="Website"
+    placeholder="your-site"
+    type="url"
+  />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-input
+    label="Website"
+    placeholder="your-site"
+    type="url"
+  ></glu-input>
+
+  <script setup>
+  import { GluInput } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-input
+    label="Website"
+    placeholder="your-site"
+    type="url"
+  ></glu-input>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluInput } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluInput],
+    template: `
+      <glu-input
+        label="Website"
+        placeholder="your-site"
+        type="url"
+      ></glu-input>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Example 7: Phone Input
+
+Showcase a phone input field with an appropriate prefix icon.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-input
+    label="Phone"
+    type="phone"
+    placeholder="(123) 456-7890"
+  ></glu-input>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluInput
+    label="Phone"
+    type="phone"
+    placeholder="(123) 456-7890"
+  />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-input
+    label="Phone"
+    type="phone"
+    placeholder="(123) 456-7890"
+  ></glu-input>
+
+  <script setup>
+  import { GluInput } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-input
+    label="Phone"
+    type="phone"
+    placeholder="(123) 456-7890"
+  ></glu-input>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluInput } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluInput],
+    template: `
+      <glu-input
+        label="Phone"
+        type="phone"
+        placeholder="(123) 456-7890"
+      ></glu-input>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Example 8: Date Input with Picker
+
+Utilize the date input type to trigger a date picker.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-input
+    label="Date of Birth"
+    type="date"
+    placeholder="YYYY-MM-DD"
+  ></glu-input>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluInput
+    label="Date of Birth"
+    type="date"
+    placeholder="YYYY-MM-DD"
+  />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-input
+    label="Date of Birth"
+    type="date"
+    placeholder="YYYY-MM-DD"
+  ></glu-input>
+
+  <script setup>
+  import { GluInput } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-input
+    label="Date of Birth"
+    type="date"
+    placeholder="YYYY-MM-DD"
+  ></glu-input>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluInput } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluInput],
+    template: `
+      <glu-input
+        label="Date of Birth"
+        type="date"
+        placeholder="YYYY-MM-DD"
+      ></glu-input>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Example 9: Search Input with Clear Icon
+
+A dedicated search input that displays a clear icon when text is entered.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-input
+    type="search"
+    placeholder="Search for items..."
+    showClearIcon
+  ></glu-input>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluInput
+    type="search"
+    placeholder="Search for items..."
+    showClearIcon
+  />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-input
+    type="search"
+    placeholder="Search for items..."
+    showClearIcon
+  ></glu-input>
+
+  <script setup>
+  import { GluInput } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-input
+    type="search"
+    placeholder="Search for items..."
+    showClearIcon
+  ></glu-input>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluInput } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluInput],
+    template: `
+      <glu-input
+        type="search"
+        placeholder="Search for items..."
+        showClearIcon
       ></glu-input>
     `
   })
