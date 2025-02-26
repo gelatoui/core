@@ -4,8 +4,6 @@ import { solidIcons } from './icon-solid'
 import { Component, h, Host, Prop } from '@stencil/core'
 
 /**
- * A customizable icon component that renders Heroicons
- *
  * @component
  * @tag glu-icon
  * @shadow true

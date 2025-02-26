@@ -2,8 +2,6 @@
 import { Component, Element, h, Host, Prop } from '@stencil/core'
 
 /**
- * A customizable button component with support for different appearances, sizes, and types.
- *
  * @component
  * @tag glu-button
  * @shadow true

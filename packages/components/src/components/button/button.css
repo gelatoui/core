@@ -22,7 +22,7 @@ button, a {
   display: flex;
   width: 100%;
   text-align: center;
-  gap: var(--spacing-050);
+  gap: var(--spacing-100);
 }
 
 /* Disabled state */

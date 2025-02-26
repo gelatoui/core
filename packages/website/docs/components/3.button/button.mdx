@@ -1,9 +1,10 @@
 ---
 sidebar_position: 1
 title: glu-button
+slug: /components/button
 ---
 
-# Button
+# Button Component
 
 import ButtonReadme from '@gelato-ui/components/dist/readme/components/button/readme.md'
 import Tabs from '@theme/Tabs'
@@ -13,377 +14,432 @@ import { GluButton } from '@gelato-ui/react'
 <p>
   <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/design/jSs4mJxj7dJbXsCE1IHtqt/GelatoUI-Design-System-(V-0.1.0)?node-id=239-4021&t=MItYcxbVFzFdt8Oz-0">Figma</glu-button>
 </p>
-Buttons are interactive elements used in forms and various interfaces to trigger actions. They can display text, icons, or a combination of both. With multiple styling options available, buttons can be customized to match specific design needs and enhance user experience.
 
-## Usage
+The `glu-button` component is a highly customizable button element that supports various appearances, sizes, and types. It functions either as a standard button or as a link when an `href` is provided.
 
-### Button Types
+## Basic Usage
 
-The `glu-button` component is a highly customizable button that supports various appearances, sizes, and types. It can be used as a standard button or as a link (anchor tag) when an `href` is provided. Below are some examples of how to use the `glu-button` component in different configurations.
+### Example 1: Simple Button
 
-#### Example Usage
-
-<Tabs>
-  <TabItem value="html" label="HTML">
-
-    ```html live
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button>Default</glu-button>
-          <glu-button appearance="outline">Outline</glu-button>
-          <glu-button appearance="ghost">Ghost</glu-button>
-          <glu-button disabled>Default</glu-button>
-          <glu-button disabled appearance="outline">Outline</glu-button>
-          <glu-button disabled appearance="ghost">Ghost</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button button-type="secondary">Default</glu-button>
-          <glu-button button-type="secondary" appearance="outline">Outline</glu-button>
-          <glu-button button-type="secondary" appearance="ghost">Ghost</glu-button>
-          <glu-button disabled button-type="secondary">Default</glu-button>
-          <glu-button disabled button-type="secondary" appearance="outline">Outline</glu-button>
-          <glu-button disabled button-type="secondary" appearance="ghost">Ghost</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button button-type="destructive">Default</glu-button>
-          <glu-button button-type="destructive" appearance="outline">Outline</glu-button>
-          <glu-button button-type="destructive" appearance="ghost">Ghost</glu-button>
-          <glu-button disabled button-type="destructive">Default</glu-button>
-          <glu-button disabled button-type="destructive" appearance="outline">Outline</glu-button>
-          <glu-button disabled button-type="destructive" appearance="ghost">Ghost</glu-button>
-        </div>
-      </div>
-    ```
-
-  </TabItem>
-  <TabItem value="jsx" label="React">
-
-    ```jsx live
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <GluButton>Default</GluButton>
-          <GluButton appearance="outline">Outline</GluButton>
-          <GluButton appearance="ghost">Ghost</GluButton>
-          <GluButton disabled>Default</GluButton>
-          <GluButton disabled appearance="outline">Outline</GluButton>
-          <GluButton disabled appearance="ghost">Ghost</GluButton>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <GluButton buttonType="secondary">Default</GluButton>
-          <GluButton buttonType="secondary" appearance="outline">Outline</GluButton>
-          <GluButton buttonType="secondary" appearance="ghost">Ghost</GluButton>
-          <GluButton disabled buttonType="secondary">Default</GluButton>
-          <GluButton disabled buttonType="secondary" appearance="outline">Outline</GluButton>
-          <GluButton disabled buttonType="secondary" appearance="ghost">Ghost</GluButton>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <GluButton buttonType="destructive">Default</GluButton>
-          <GluButton buttonType="destructive" appearance="outline">Outline</GluButton>
-          <GluButton buttonType="destructive" appearance="ghost">Ghost</GluButton>
-          <GluButton disabled buttonType="destructive">Default</GluButton>
-          <GluButton disabled buttonType="destructive" appearance="outline">Outline</GluButton>
-          <GluButton disabled buttonType="destructive" appearance="ghost">Ghost</GluButton>
-        </div>
-      </div>
-    ```
-
-  </TabItem>
-  <TabItem value="vue" label="Vue">
-
-    ```html
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button>Default</glu-button>
-          <glu-button appearance="outline">Outline</glu-button>
-          <glu-button appearance="ghost">Ghost</glu-button>
-          <glu-button disabled>Default</glu-button>
-          <glu-button disabled appearance="outline">Outline</glu-button>
-          <glu-button disabled appearance="ghost">Ghost</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button button-type="secondary">Default</glu-button>
-          <glu-button button-type="secondary" appearance="outline">Outline</glu-button>
-          <glu-button button-type="secondary" appearance="ghost">Ghost</glu-button>
-          <glu-button disabled button-type="secondary">Default</glu-button>
-          <glu-button disabled button-type="secondary" appearance="outline">Outline</glu-button>
-          <glu-button disabled button-type="secondary" appearance="ghost">Ghost</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button button-type="destructive">Default</glu-button>
-          <glu-button button-type="destructive" appearance="outline">Outline</glu-button>
-          <glu-button button-type="destructive" appearance="ghost">Ghost</glu-button>
-          <glu-button disabled button-type="destructive">Default</glu-button>
-          <glu-button disabled button-type="destructive" appearance="outline">Outline</glu-button>
-          <glu-button disabled button-type="destructive" appearance="ghost">Ghost</glu-button>
-        </div>
-      </div>
-
-      <script setup>
-      import { GluButton } from '@gelato-ui/vue';
-      </script>
-    ```
-
-  </TabItem>
-  <TabItem value="angular" label="Angular">
-
-    ```html
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button>Default</glu-button>
-          <glu-button appearance="outline">Outline</glu-button>
-          <glu-button appearance="ghost">Ghost</glu-button>
-          <glu-button disabled>Default</glu-button>
-          <glu-button disabled appearance="outline">Outline</glu-button>
-          <glu-button disabled appearance="ghost">Ghost</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button button-type="secondary">Default</glu-button>
-          <glu-button button-type="secondary" appearance="outline">Outline</glu-button>
-          <glu-button button-type="secondary" appearance="ghost">Ghost</glu-button>
-          <glu-button disabled button-type="secondary">Default</glu-button>
-          <glu-button disabled button-type="secondary" appearance="outline">Outline</glu-button>
-          <glu-button disabled button-type="secondary" appearance="ghost">Ghost</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button button-type="destructive">Default</glu-button>
-          <glu-button button-type="destructive" appearance="outline">Outline</glu-button>
-          <glu-button button-type="destructive" appearance="ghost">Ghost</glu-button>
-          <glu-button disabled button-type="destructive">Default</glu-button>
-          <glu-button disabled button-type="destructive" appearance="outline">Outline</glu-button>
-          <glu-button disabled button-type="destructive" appearance="ghost">Ghost</glu-button>
-        </div>
-      </div>
-    ```
-
-    ```ts
-      import { Component } from '@angular/core';
-      import { GluButton } from '@gelato-ui/angular';
-
-      @Component({
-        standalone: true,
-        imports: [GluButton],
-        template: `...` // Template content from above
-      })
-      export class MyComponent {}
-    ```
-  </TabItem>
-</Tabs>
-
-### Button Sizes
-
-The `glu-button` component supports multiple sizes, allowing you to customize the button's dimensions to fit your design needs. The `size` property can be set to `small`, `medium`, or `large`. Below is an example demonstrating how to use the `size` property with the `glu-button` component.
-
-#### Example Usage
+Use the button as a clickable element.
 
 <Tabs>
   <TabItem value="html" label="HTML">
 
-    ```html live
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button size="small">Small Button</glu-button>
-          <glu-button size="medium">Medium Button</glu-button>
-          <glu-button size="large">Large Button</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button size="small" appearance="outline">Small Outline</glu-button>
-          <glu-button size="medium" appearance="outline">Medium Outline</glu-button>
-          <glu-button size="large" appearance="outline">Large Outline</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button size="small" appearance="ghost">Small Ghost</glu-button>
-          <glu-button size="medium" appearance="ghost">Medium Ghost</glu-button>
-          <glu-button size="large" appearance="ghost">Large Ghost</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button size="small"disabled>Small Disabled</glu-button>
-          <glu-button size="medium"disabled>Medium Disabled</glu-button>
-          <glu-button size="large"disabled>Large Disabled</glu-button>
-        </div>
-      </div>
-    ```
+  ```html live
+  <glu-button>Click Me</glu-button>
+  ```
 
   </TabItem>
   <TabItem value="jsx" label="React">
 
-    ```jsx live
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <GluButton size="small">Small Button</GluButton>
-          <GluButton size="medium">Medium Button</GluButton>
-          <GluButton size="large">Large Button</GluButton>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <GluButton size="small" appearance="outline">Small Outline</GluButton>
-          <GluButton size="medium" appearance="outline">Medium Outline</GluButton>
-          <GluButton size="large" appearance="outline">Large Outline</GluButton>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <GluButton size="small" appearance="ghost">Small Ghost</GluButton>
-          <GluButton size="medium" appearance="ghost">Medium Ghost</GluButton>
-          <GluButton size="large" appearance="ghost">Large Ghost</GluButton>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <GluButton size="small"disabled>Small Disabled</GluButton>
-          <GluButton size="medium"disabled>Medium Disabled</GluButton>
-          <GluButton size="large"disabled>Large Disabled</GluButton>
-        </div>
-      </div>
-    ```
+  ```jsx live
+  <GluButton>Click Me</GluButton>
+  ```
 
   </TabItem>
   <TabItem value="vue" label="Vue">
 
-    ```html
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button size="small">Small Button</glu-button>
-          <glu-button size="medium">Medium Button</glu-button>
-          <glu-button size="large">Large Button</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button size="small" appearance="outline">Small Outline</glu-button>
-          <glu-button size="medium" appearance="outline">Medium Outline</glu-button>
-          <glu-button size="large" appearance="outline">Large Outline</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button size="small" appearance="ghost">Small Ghost</glu-button>
-          <glu-button size="medium" appearance="ghost">Medium Ghost</glu-button>
-          <glu-button size="large" appearance="ghost">Large Ghost</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button size="small"disabled>Small Disabled</glu-button>
-          <glu-button size="medium"disabled>Medium Disabled</glu-button>
-          <glu-button size="large"disabled>Large Disabled</glu-button>
-        </div>
-      </div>
+  ```html
+  <glu-button>Click Me</glu-button>
 
-      <script setup>
-      import { GluButton } from '@gelato-ui/vue';
-      </script>
-    ```
+  <script setup>
+  import { GluButton } from '@gelato-ui/vue';
+  </script>
+  ```
 
   </TabItem>
   <TabItem value="angular" label="Angular">
 
-    ```html
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button size="small">Small Button</glu-button>
-          <glu-button size="medium">Medium Button</glu-button>
-          <glu-button size="large">Large Button</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button size="small" appearance="outline">Small Outline</glu-button>
-          <glu-button size="medium" appearance="outline">Medium Outline</glu-button>
-          <glu-button size="large" appearance="outline">Large Outline</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button size="small" appearance="ghost">Small Ghost</glu-button>
-          <glu-button size="medium" appearance="ghost">Medium Ghost</glu-button>
-          <glu-button size="large" appearance="ghost">Large Ghost</glu-button>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-          <glu-button size="small"disabled>Small Disabled</glu-button>
-          <glu-button size="medium"disabled>Medium Disabled</glu-button>
-          <glu-button size="large"disabled>Large Disabled</glu-button>
-        </div>
-      </div>
-    ```
+  ```html
+  <glu-button>Click Me</glu-button>
+  ```
 
-    ```ts
-      import { Component } from '@angular/core';
-      import { GluButton } from '@gelato-ui/angular';
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluButton } from '@gelato-ui/angular';
 
-      @Component({
-        standalone: true,
-        imports: [GluButton],
-        template: `...` // Template content from above
-      })
-      export class MyComponent {}
-    ```
+  @Component({
+    standalone: true,
+    imports: [GluButton],
+    template: `<glu-button>Click Me</glu-button>`
+  })
+  export class MyComponent {}
+  ```
+
   </TabItem>
 </Tabs>
 
-### Button Slots
+---
 
-This example demonstrates how to use the start, end, and icon-only slots to customize the button's content.
+## Button as a Link
 
-#### Example Usage
+When an `href` is provided, the component renders as an anchor tag.
 
 <Tabs>
   <TabItem value="html" label="HTML">
 
-    ```html live
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-        <glu-button>
-          <span slot="start">👈</span>
-          Click Me
-          <span slot="end">👉</span>
-          <span slot="icon-only">⭐</span>
-        </glu-button>
-      </div>
-    ```
+  ```html live
+  <glu-button href="https://example.com" target="_blank" rel="noopener noreferrer">
+    Visit Example
+  </glu-button>
+  ```
 
   </TabItem>
   <TabItem value="jsx" label="React">
 
-    ```jsx live
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-        <GluButton>
-          <span slot="start">👈</span>
-          Click Me
-          <span slot="end">👉</span>
-          <span slot="icon-only">⭐</span>
-        </GluButton>
-      </div>
-    ```
+  ```jsx live
+  <GluButton href="https://example.com" target="_blank" rel="noopener noreferrer">
+    Visit Example
+  </GluButton>
+  ```
 
   </TabItem>
   <TabItem value="vue" label="Vue">
 
-    ```html
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-        <glu-button>
-          <template #start>👈</template>
-          Click Me
-          <template #end>👉</template>
-          <template #icon-only>⭐</template>
-        </glu-button>
-      </div>
+  ```html
+  <glu-button href="https://example.com" target="_blank" rel="noopener noreferrer">
+    Visit Example
+  </glu-button>
 
-      <script setup>
-        import { GluButton } from '@gelato-ui/vue';
-      </script>
-    ```
+  <script setup>
+  import { GluButton } from '@gelato-ui/vue';
+  </script>
+  ```
 
   </TabItem>
   <TabItem value="angular" label="Angular">
 
-    ```html
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', justifyContent: 'center', alignItems: 'center' }}>
-        <glu-button>
-          <span slot="start">👈</span>
-          Click Me
-          <span slot="end">👉</span>
-          <span slot="icon-only">⭐</span>
-        </glu-button>
-      </div>
-    ```
+  ```html
+  <glu-button href="https://example.com" target="_blank" rel="noopener noreferrer">
+    Visit Example
+  </glu-button>
+  ```
 
-    ```ts
-      import { Component } from '@angular/core';
-      import { GluButton } from '@gelato-ui/angular';
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluButton } from '@gelato-ui/angular';
 
-      @Component({
-        standalone: true,
-        imports: [GluButton],
-        template: `...` // Template content from above
-      })
-      export class MyComponent {}
-    ```
+  @Component({
+    standalone: true,
+    imports: [GluButton],
+    template: `<glu-button href="https://example.com" target="_blank" rel="noopener noreferrer">
+                 Visit Example
+               </glu-button>`
+  })
+  export class MyComponent {}
+  ```
 
   </TabItem>
 </Tabs>
+
+---
+
+## Different Appearances
+
+Customize the visual style using the `appearance` property.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <div style={{ display: 'flex', gap: '1rem' }}>
+    <glu-button>Filled</glu-button>
+    <glu-button appearance="outline">Outline</glu-button>
+    <glu-button appearance="ghost">Ghost</glu-button>
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <div style={{ display: 'flex', gap: '1rem' }}>
+    <GluButton>Filled</GluButton>
+    <GluButton appearance="outline">Outline</GluButton>
+    <GluButton appearance="ghost">Ghost</GluButton>
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <div style="display: flex; gap: 1rem;">
+    <glu-button>Filled</glu-button>
+    <glu-button appearance="outline">Outline</glu-button>
+    <glu-button appearance="ghost">Ghost</glu-button>
+  </div>
+
+  <script setup>
+  import { GluButton } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <div style="display: flex; gap: 1rem;">
+    <glu-button>Filled</glu-button>
+    <glu-button appearance="outline">Outline</glu-button>
+    <glu-button appearance="ghost">Ghost</glu-button>
+  </div>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluButton } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluButton],
+    template: `<div style="display: flex; gap: 1rem;">
+                 <glu-button>Filled</glu-button>
+                 <glu-button appearance="outline">Outline</glu-button>
+                 <glu-button appearance="ghost">Ghost</glu-button>
+               </div>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Button Sizes
+
+Showcase the component in different sizes.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <glu-button size="small">Small</glu-button>
+    <glu-button size="medium">Medium</glu-button>
+    <glu-button size="large">Large</glu-button>
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <GluButton size="small">Small</GluButton>
+    <GluButton size="medium">Medium</GluButton>
+    <GluButton size="large">Large</GluButton>
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <div style="display: flex; gap: 1rem; align-items: center;">
+    <glu-button size="small">Small</glu-button>
+    <glu-button size="medium">Medium</glu-button>
+    <glu-button size="large">Large</glu-button>
+  </div>
+
+  <script setup>
+  import { GluButton } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <div style="display: flex; gap: 1rem; align-items: center;">
+    <glu-button size="small">Small</glu-button>
+    <glu-button size="medium">Medium</glu-button>
+    <glu-button size="large">Large</glu-button>
+  </div>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluButton } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluButton],
+    template: `<div style="display: flex; gap: 1rem; align-items: center;">
+                 <glu-button size="small">Small</glu-button>
+                 <glu-button size="medium">Medium</glu-button>
+                 <glu-button size="large">Large</glu-button>
+               </div>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Advanced Slot Usage
+
+Customize the button content using slots for icons or additional text.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <glu-button>
+      <span slot="start">🔥</span>
+      Submit
+      <span slot="end">🚀</span>
+    </glu-button>
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <GluButton>
+      <span slot="start">🔥</span>
+      Submit
+      <span slot="end">🚀</span>
+    </GluButton>
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <div style="display: flex; gap: 1rem; align-items: center;">
+    <glu-button>
+      <template #start>🔥</template>
+      Submit
+      <template #end>🚀</template>
+    </glu-button>
+  </div>
+
+  <script setup>
+  import { GluButton } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <div style="display: flex; gap: 1rem; align-items: center;">
+    <glu-button>
+      <span slot="start">🔥</span>
+      Submit
+      <span slot="end">🚀</span>
+    </glu-button>
+  </div>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluButton } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluButton],
+    template: `<div style="display: flex; gap: 1rem; align-items: center;">
+                 <glu-button>
+                   <span slot="start">🔥</span>
+                   Submit
+                   <span slot="end">🚀</span>
+                 </glu-button>
+               </div>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Button in a Form
+
+Use the button as a submission control within a form.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <form onsubmit="alert('Form submitted'); return false;">
+    <glu-button type="submit">Submit Form</glu-button>
+  </form>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  function FormExample() {
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      alert('Form submitted');
+    }
+
+    return (
+      <form onSubmit={handleSubmit}>
+        <GluButton type="submit">Submit Form</GluButton>
+      </form>
+    );
+  }
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <form @submit.prevent="() => alert('Form submitted')">
+    <glu-button type="submit">Submit Form</glu-button>
+  </form>
+
+  <script setup>
+  import { GluButton } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <form (ngSubmit)="onSubmit()">
+    <glu-button type="submit">Submit Form</glu-button>
+  </form>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluButton } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluButton],
+    template: `
+      <form (ngSubmit)="onSubmit()">
+        <glu-button type="submit">Submit Form</glu-button>
+      </form>
+    `
+  })
+  export class MyComponent {
+    onSubmit() {
+      alert('Form submitted');
+    }
+  }
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
 
 <ButtonReadme />

@@ -1,115 +1,274 @@
 ---
 sidebar_position: 4
 title: glu-icon
+slug: /components/icon
 ---
 
-# Icon
+# Icon Component
 
 import IconReadme from '@gelato-ui/components/dist/readme/components/icon/readme.md'
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
+import { GluIcon } from '@gelato-ui/react'
 
 <p style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
   <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/design/jSs4mJxj7dJbXsCE1IHtqt/GelatoUI-Design-System-(V-0.1.0)?node-id=161-6434&t=BXYhGjvxr3AQeYvd-0">Figma</glu-button>
   <glu-button target="_blank" rel="noopener noreferrer" href="https://heroicons.com/">Heroicons</glu-button>
 </p>
 
-Our icon component comes with the complete set of [Heroicons v2.0](https://heroicons.com/) in both outline and solid variants. Simply use the kebab-case name of any Heroicon:
+The `glu-icon` component is a versatile element that renders SVG icons from [Heroicons v2.0](https://heroicons.com/). It supports multiple visual variants, customizable sizes, and color adjustments. This makes it easy to integrate scalable icons into your projects with a consistent style.
 
-## Usage
+## Basic Usage
 
-### Icon Variants
+### Example 1: Simple Icon
+
+Display a basic icon by specifying the `name` property.
 
 <Tabs>
   <TabItem value="html" label="HTML">
 
-    ```html live
-      <div style={{ display: 'flex', gap: '1rem', padding: '1rem', alignItems: 'center' }}>
-        <glu-icon name="academic-cap"></glu-icon>
-        <glu-icon name="academic-cap" variant="solid"></glu-icon>
-      </div>
-    ```
+  ```html live
+  <glu-icon name="arrow-up"></glu-icon>
+  ```
 
   </TabItem>
   <TabItem value="jsx" label="React">
 
-    ```jsx live
-      <div style={{ display: 'flex', gap: '1rem', padding: '1rem', alignItems: 'center' }}>
-        <GluIcon name="academic-cap" />
-        <GluIcon name="academic-cap" variant="solid" />
-      </div>
-    ```
+  ```jsx live
+  <GluIcon name="arrow-up" />
+  ```
+
   </TabItem>
   <TabItem value="vue" label="Vue">
 
-    ```html
-      <div style="display: flex; gap: 1rem; padding: 1rem; align-items: center;">
-        <glu-icon name="academic-cap" />
-        <glu-icon name="academic-cap" variant="solid" />
-      </div>
+  ```html
+  <glu-icon name="arrow-up"></glu-icon>
 
-      <script setup>
-        import { GluIcon } from '@gelato-ui/vue';
-      </script>
-    ```
+  <script setup>
+  import { GluIcon } from '@gelato-ui/vue';
+  </script>
+  ```
 
   </TabItem>
   <TabItem value="angular" label="Angular">
 
-    ```html
-      <div style="display: flex; gap: 1rem; padding: 1rem; align-items: center;">
-        <glu-icon name="academic-cap"></glu-icon>
-        <glu-icon name="academic-cap" variant="solid"></glu-icon>
-      </div>
-    ```
+  ```html
+  <glu-icon name="arrow-up"></glu-icon>
+  ```
 
-    ```ts
-      import { Component } from '@angular/core';
-      import { GluIcon } from '@gelato-ui/angular';
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluIcon } from '@gelato-ui/angular';
 
-      @Component({
-        standalone: true,
-        imports: [GluIcon],
-        template: `...` // Template content from above
-      })
-      export class MyComponent {}
-    ```
+  @Component({
+    standalone: true,
+    imports: [GluIcon],
+    template: `<glu-icon name="arrow-up"></glu-icon>`
+  })
+  export class MyComponent {}
+  ```
+
   </TabItem>
 </Tabs>
 
-### Size Control
+---
+
+## Icon Variants
+
+Customize the icon appearance using the `variant` property. Choose between `outline` (default) and `solid` to suit your design.
 
 <Tabs>
   <TabItem value="html" label="HTML">
 
-    ```html live
-      <div style={{ display: 'flex', gap: '1rem', padding: '1rem', alignItems: 'center' }}>
-        <glu-icon name="arrow-up" size="16"></glu-icon>
-        <glu-icon name="arrow-up"></glu-icon>
-        <glu-icon name="arrow-up" width="40" height="32"></glu-icon>
-      </div>
-    ```
+  ```html live
+  <div style={{ display: 'flex', gap: '1rem' }}>
+    <glu-icon name="arrow-up" variant="outline"></glu-icon>
+    <glu-icon name="arrow-up" variant="solid"></glu-icon>
+  </div>
+  ```
 
   </TabItem>
   <TabItem value="jsx" label="React">
 
-    ```jsx live
-      <div style={{ display: 'flex', gap: '1rem', padding: '1rem', alignItems: 'center' }}>
-        <GluIcon name="arrow-up" size={16} />
-        <GluIcon name="arrow-up" />
-        <GluIcon name="arrow-up" width={40} height={32} />
+  ```jsx live
+  <div style={{ display: 'flex', gap: '1rem' }}>
+    <GluIcon name="arrow-up" variant="outline" />
+    <GluIcon name="arrow-up" variant="solid" />
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <div style="display: flex; gap: 1rem;">
+    <glu-icon name="arrow-up" variant="outline"></glu-icon>
+    <glu-icon name="arrow-up" variant="solid"></glu-icon>
+  </div>
+
+  <script setup>
+  import { GluIcon } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <div style="display: flex; gap: 1rem;">
+    <glu-icon name="arrow-up" variant="outline"></glu-icon>
+    <glu-icon name="arrow-up" variant="solid"></glu-icon>
+  </div>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluIcon } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluIcon],
+    template: `
+      <div style="display: flex; gap: 1rem;">
+        <glu-icon name="arrow-up" variant="outline"></glu-icon>
+        <glu-icon name="arrow-up" variant="solid"></glu-icon>
       </div>
-    ```
+    `
+  })
+  export class MyComponent {}
+  ```
 
   </TabItem>
 </Tabs>
 
-### Customization
+---
 
-We provide all **Heroicons** by default, including both **outline** and **solid** variants. However, you're free to use any **SVG icons** or an **icon library** of your choice.
+## Icon Sizes
 
-:::note
-We're actively working on a feature that will allow you to add custom SVG icons. Stay tuned for updates!
-:::
+Adjust the dimensions of the icon using the `size` property, which overrides both the `width` and `height`. Alternatively, you can set custom values for `width` and `height`.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <glu-icon name="arrow-up" size="16"></glu-icon>
+    <glu-icon name="arrow-up" size="24"></glu-icon>
+    <glu-icon name="arrow-up" size="32"></glu-icon>
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <GluIcon name="arrow-up" size={16} />
+    <GluIcon name="arrow-up" size={24} />
+    <GluIcon name="arrow-up" size={32} />
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <div style="display: flex; gap: 1rem; align-items: center;">
+    <glu-icon name="arrow-up" size="16"></glu-icon>
+    <glu-icon name="arrow-up" size="24"></glu-icon>
+    <glu-icon name="arrow-up" size="32"></glu-icon>
+  </div>
+
+  <script setup>
+  import { GluIcon } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <div style="display: flex; gap: 1rem; align-items: center;">
+    <glu-icon name="arrow-up" size="16"></glu-icon>
+    <glu-icon name="arrow-up" size="24"></glu-icon>
+    <glu-icon name="arrow-up" size="32"></glu-icon>
+  </div>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluIcon } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluIcon],
+    template: `
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <glu-icon name="arrow-up" size="16"></glu-icon>
+        <glu-icon name="arrow-up" size="24"></glu-icon>
+        <glu-icon name="arrow-up" size="32"></glu-icon>
+      </div>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Customizing Icon Color
+
+Apply a custom color using the `color` property. Ensure that your SVG uses `currentColor` so that the color change is effective.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-icon name="arrow-up" color="#ff0000"></glu-icon>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluIcon name="arrow-up" color="#ff0000" />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-icon name="arrow-up" color="#ff0000"></glu-icon>
+
+  <script setup>
+  import { GluIcon } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-icon name="arrow-up" color="#ff0000"></glu-icon>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluIcon } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluIcon],
+    template: `<glu-icon name="arrow-up" color="#ff0000"></glu-icon>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
 
 <IconReadme />
