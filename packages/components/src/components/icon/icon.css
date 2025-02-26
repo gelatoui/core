@@ -2,10 +2,13 @@
 /* Default Icon Styles    */
 /* ====================== */
 :host {
-  display: inline-block;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 span {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
