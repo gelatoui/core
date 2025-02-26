@@ -24,12 +24,6 @@ import { Component, Element, h, Host, Prop } from '@stencil/core'
 })
 export class ButtonGlu {
   /**
-   * Reference to the host element.
-   * @type {HTMLGluButtonElement}
-   */
-  @Element() el!: HTMLGluButtonElement
-
-  /**
    * Determines the visual style of the button
    * @prop {ButtonAppearance} appearance - Visual style of the button
    * @default ButtonAppearance.FILLED

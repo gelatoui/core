@@ -70,6 +70,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          sidebarCollapsed: false,
           editUrl:
             'https://github.com/santi020k/gelato-ui/tree/main/packages/website/'
         },
