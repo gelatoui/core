@@ -3,11 +3,6 @@ import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
 import { Component, Element, h, Host, Prop } from '@stencil/core'
 
 /**
- * A helper text component that displays an icon on the left and text on the right.
- *
- * The icon is rendered using the `glu-icon` component, and the text content is provided via the default slot.
- * The component also supports error styling via the `isError` property.
- *
  * @component
  * @tag glu-helper-text
  * @shadow true

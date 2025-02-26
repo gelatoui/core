@@ -59,8 +59,6 @@ describe('glu-icon (E2E)', () => {
 
     const span = await page.find('glu-icon')
 
-    console.log('🚀 ~ it ~ span.getComputedStyle():', await span.getComputedStyle())
-
     expect((await span.getComputedStyle()).width).toBe('40px')
 
     expect((await span.getComputedStyle()).height).toBe('20px')

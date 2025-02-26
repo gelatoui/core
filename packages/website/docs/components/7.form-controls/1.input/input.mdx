@@ -3,16 +3,361 @@ sidebar_position: 1
 title: glu-input
 ---
 
-# Input Filed
+# Input Component
 
 import InputReadme from '@gelato-ui/components/dist/readme/components/input/readme.md'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+import { GluInput } from '@gelato-ui/react'
 
 <p style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
   <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/design/jSs4mJxj7dJbXsCE1IHtqt/GelatoUI-Design-System-(V-0.1.0)?node-id=248-3439&t=G3knoTAyO51IvQay-0">Figma</glu-button>
 </p>
 
-The `glu-input` component provides a input
+The `glu-input` component is a composite input field that supports a wide range of features, including an optional label, error messages, helper text, and prefix/suffix elements. It handles various input types such as text, currency, phone, password, date, url, search, and number. In addition, the component can be set to error, disabled, or read-only states, and it forwards any extra attributes to the underlying native `<input>` element. It also emits events like `glChange`, `glFocus`, and `glBlur` based on user interactions.
 
-## Usage
+## Basic Usage
+
+### Example 1: Simple Input
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-input
+    label="Name"
+    placeholder="Enter your name"
+    helperText="This is your full name"
+  ></glu-input>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluInput
+    label="Name"
+    placeholder="Enter your name"
+    helperText="This is your full name"
+  />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-input
+    label="Name"
+    placeholder="Enter your name"
+    helperText="This is your full name"
+  ></glu-input>
+
+  <script setup>
+  import { GluInput } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-input
+    label="Name"
+    placeholder="Enter your name"
+    helperText="This is your full name"
+  ></glu-input>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluInput } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluInput],
+    template: `
+      <glu-input
+        label="Name"
+        placeholder="Enter your name"
+        helperText="This is your full name"
+      ></glu-input>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Input with Prefix and Suffix
+
+The component supports prefix and suffix elements that adapt based on the input type or custom properties. For example, a currency input displays a "$" prefix, a search input shows a magnifying glass icon and, if text is entered, a clear icon appears; while password inputs offer a toggle icon for visibility.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <glu-input
+      label="Amount"
+      type="currency"
+      placeholder="0.00"
+    ></glu-input>
+
+    <glu-input
+      label="Search"
+      type="search"
+      placeholder="Search..."
+      showClearIcon
+    ></glu-input>
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <GluInput
+      label="Amount"
+      type="currency"
+      placeholder="0.00"
+    />
+    <GluInput
+      label="Search"
+      type="search"
+      placeholder="Search..."
+      showClearIcon
+    />
+  </div>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-input
+    label="Amount"
+    type="currency"
+    placeholder="0.00"
+  ></glu-input>
+
+  <glu-input
+    label="Search"
+    type="search"
+    placeholder="Search..."
+    showClearIcon
+  ></glu-input>
+
+  <script setup>
+  import { GluInput } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-input
+    label="Amount"
+    type="currency"
+    placeholder="0.00"
+  ></glu-input>
+
+  <glu-input
+    label="Search"
+    type="search"
+    placeholder="Search..."
+    showClearIcon
+  ></glu-input>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluInput } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluInput],
+    template: `
+      <glu-input
+        label="Amount"
+        type="currency"
+        placeholder="0.00"
+      ></glu-input>
+      <glu-input
+        label="Search"
+        type="search"
+        placeholder="Search..."
+        showClearIcon
+      ></glu-input>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Error and Helper Text
+
+If an error message is provided, the component enters an error state and displays a default error icon alongside the error text. Alternatively, you can display additional helper text below the input.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-input
+    label="Email"
+    error="Invalid email address"
+    helperIcon="error-icon"
+    placeholder="Enter your email"
+  ></glu-input>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluInput
+    label="Email"
+    error="Invalid email address"
+    helperIcon="error-icon"
+    placeholder="Enter your email"
+  />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-input
+    label="Email"
+    error="Invalid email address"
+    helperIcon="error-icon"
+    placeholder="Enter your email"
+  ></glu-input>
+
+  <script setup>
+  import { GluInput } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-input
+    label="Email"
+    error="Invalid email address"
+    helperIcon="error-icon"
+    placeholder="Enter your email"
+  ></glu-input>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluInput } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluInput],
+    template: `
+      <glu-input
+        label="Email"
+        error="Invalid email address"
+        helperIcon="error-icon"
+        placeholder="Enter your email"
+      ></glu-input>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Special Input Types
+
+### Password Input with Toggle
+
+For password fields, clicking the suffix icon toggles the visibility of the password.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-input
+    label="Password"
+    type="password"
+    placeholder="Enter your password"
+  ></glu-input>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluInput
+    label="Password"
+    type="password"
+    placeholder="Enter your password"
+  />
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-input
+    label="Password"
+    type="password"
+    placeholder="Enter your password"
+  ></glu-input>
+
+  <script setup>
+  import { GluInput } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-input
+    label="Password"
+    type="password"
+    placeholder="Enter your password"
+  ></glu-input>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluInput } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluInput],
+    template: `
+      <glu-input
+        label="Password"
+        type="password"
+        placeholder="Enter your password"
+      ></glu-input>
+    `
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
 
 <InputReadme />

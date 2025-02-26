@@ -151,10 +151,17 @@ Adjust the dimensions of the icon using the `size` property, which overrides bot
   <TabItem value="html" label="HTML">
 
   ```html live
-  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-    <glu-icon name="arrow-up" size="16"></glu-icon>
-    <glu-icon name="arrow-up" size="24"></glu-icon>
-    <glu-icon name="arrow-up" size="32"></glu-icon>
+  <div style={{ display: 'flex', gap: '1rem' }}>
+    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+      <glu-icon name="arrow-up" size="16"></glu-icon>
+      <glu-icon name="arrow-up" size="24"></glu-icon>
+      <glu-icon name="arrow-up" size="32"></glu-icon>
+    </div>
+    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+      <glu-icon name="arrow-up" width="16" height="16"></glu-icon>
+      <glu-icon name="arrow-up" width="24" height="24"></glu-icon>
+      <glu-icon name="arrow-up" width="32" height="32"></glu-icon>
+    </div>
   </div>
   ```
 

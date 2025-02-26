@@ -3,19 +3,143 @@ sidebar_position: 1
 title: glu-helper-text
 ---
 
-# Helper Text
+# Helper Text Component
 
 import HelperTextReadme from '@gelato-ui/components/dist/readme/components/helper-text/readme.md'
-import HelperTextBasicUsage from './_usage/helper-text-basic.mdx'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+import { GluHelperText } from '@gelato-ui/react'
 
 <p style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
   <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/design/jSs4mJxj7dJbXsCE1IHtqt/GelatoUI-Design-System-(V-0.1.0)?node-id=258-3312&t=G3knoTAyO51IvQay-0">Figma</glu-button>
 </p>
 
-The `glu-helper-text` component provides contextual guidance by displaying an **icon** alongside **text**. It is useful for form validation messages, tooltips, and inline notifications.
+The `glu-helper-text` component displays a helper message with an optional icon on the left and text content on the right. The icon is rendered via the `glu-icon` component, and the text is provided through the default slot. Additionally, the component supports error styling by setting the `isError` property.
 
-## Usage
+## Basic Usage
 
-<HelperTextBasicUsage />
+### Example 1: Standard Helper Text
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-helper-text icon="information-circle" icon-variant="outline">
+    This is a helper message.
+  </glu-helper-text>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluHelperText icon="information-circle" iconVariant="outline">
+    This is a helper message.
+  </GluHelperText>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-helper-text icon="information-circle" icon-variant="outline">
+    This is a helper message.
+  </glu-helper-text>
+
+  <script setup>
+  import { GluHelperText } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-helper-text icon="information-circle" icon-variant="outline">
+    This is a helper message.
+  </glu-helper-text>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluHelperText } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluHelperText],
+    template: `<glu-helper-text icon="information-circle" icon-variant="outline">
+                 This is a helper message.
+               </glu-helper-text>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Error State
+
+Enable error styling by setting the `isError` property. This is useful for displaying error messages with appropriate visual cues.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-helper-text icon="information-circle" icon-variant="outline" is-error>
+    This is an error message.
+  </glu-helper-text>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluHelperText icon="information-circle" iconVariant="outline" isError>
+    This is an error message.
+  </GluHelperText>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html
+  <glu-helper-text icon="information-circle" icon-variant="outline" is-error>
+    This is an error message.
+  </glu-helper-text>
+
+  <script setup>
+  import { GluHelperText } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html
+  <glu-helper-text icon="information-circle" icon-variant="outline" is-error>
+    This is an error message.
+  </glu-helper-text>
+  ```
+
+  ```ts
+  import { Component } from '@angular/core';
+  import { GluHelperText } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluHelperText],
+    template: `<glu-helper-text icon="information-circle" icon-variant="outline" is-error>
+                 This is an error message.
+               </glu-helper-text>`
+  })
+  export class MyComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
 
 <HelperTextReadme />
