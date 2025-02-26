@@ -1,0 +1,70 @@
+:host {
+  display: inline-block;
+  -webkit-touch-callout: none;
+  user-select: none;
+  outline: 0;
+  gap: var(--Spacing-100, 0.5rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: var(--Spacing-150, 0.75rem);
+}
+
+.toggle-track {
+  position: relative;
+  width: 2.1875rem;
+  height: 1.25rem;
+  border-radius: var(--border-radius-full);
+  background: var(--Tokens-Background-Base-Surface-2, #F4F5F6);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.toggle-thumb {
+  position: absolute;
+  left: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--border-radius-full);
+  background: var(--root-base-white);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+:host(.is-checked) .toggle-track {
+  background: var(--tokens-primary-default);
+}
+
+:host(.is-checked) .toggle-thumb {
+  transform: translate(0.8rem, -50%);
+}
+
+/* Focus state */
+:host(.is-focused) .toggle-track {
+  box-shadow: 0 0 0 2px var(--tokens-primary-muted);
+}
+
+/* Error state */
+:host(.is-error) .toggle-track {
+  background: var(--tokens-status-error-subdue);
+}
+
+:host(.is-error.is-checked) .toggle-track {
+  background: var(--tokens-status-error-default);
+}
+
+/* Disabled state */
+:host(.is-disabled) .toggle-track {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+:host(.is-disabled) .toggle-thumb {
+  background: var(--Tokens-Background-Base-Surface-1, #FFF);
+}
