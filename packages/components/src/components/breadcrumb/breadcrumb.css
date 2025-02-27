@@ -1,0 +1,28 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Hide the separator on the last breadcrumb */
+:host(:last-child) .separator {
+  display: none;
+}
+
+.separator {
+  margin: 0 8px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Label styling */
+glu-label.clickable {
+  color: var(--Tokens-Text-On-Light-Heavy, #191B1E);
+  cursor: pointer;
+}
+
+glu-label.disabled {
+  color: var(--Tokens-Text-On-Light-Subdue, #7D8796);
+  cursor: default;
+}
