@@ -33,6 +33,32 @@
         <glu-breadcrumb href="#film">Film</glu-breadcrumb>
       </glu-breadcrumbs>
     </div>
+    <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; align-items: center;">
+      <glu-button id="trigger-1">Dropdown Button</glu-button>
+      <glu-dropdown trigger="trigger-1">
+        <div>
+          <glu-button>Button 1</glu-button>
+          <glu-button>Button 2</glu-button>
+          <glu-button>Button 3</glu-button>
+        </div>
+      </glu-dropdown>
+
+      <glu-dropdown>
+        <div>
+          <glu-button>Button 1</glu-button>
+          <glu-button>Button 2</glu-button>
+          <glu-button>Button 3</glu-button>
+        </div>
+      </glu-dropdown>
+
+      <glu-dropdown text="Dropdown">
+        <div>
+          <glu-button>Button 1</glu-button>
+          <glu-button>Button 2</glu-button>
+          <glu-button>Button 3</glu-button>
+        </div>
+      </glu-dropdown>
+    </div>
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
       <div>
         <glu-button>Button</glu-button>
