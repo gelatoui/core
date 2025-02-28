@@ -22,6 +22,10 @@
   font-weight: 500;
   line-height: var(--Body-Small-Medium-lineHeight, 1.125rem);
   letter-spacing: var(--Body-Small-Medium-letterSpacing, 0rem);
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .tooltip-icon {

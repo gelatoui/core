@@ -4,6 +4,9 @@ import { Component, Element, Event, EventEmitter, h, Host, Prop, Watch } from '@
  * @component
  * @tag glu-dropdown
  * @shadow true
+ *
+ * @slot dropdown-trigger - The default slot for the dropdown trigger.
+ * @slot - The default slot for the dropdown content.
  */
 @Component({
   tag: 'glu-dropdown',

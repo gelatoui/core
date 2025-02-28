@@ -33,6 +33,42 @@
         <glu-breadcrumb href="#film">Film</glu-breadcrumb>
       </glu-breadcrumbs>
     </div>
+    <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; align-items: center; width: 100%;">
+      <glu-menu-item type="label">
+        Menu Item Label
+        <span slot="right-text">Shortcut ⌘K</span>
+      </glu-menu-item>
+
+      <glu-menu-item type="dropdown">
+        Dropdown Menu
+        <span slot="right-text">More</span>
+        <div slot="dropdown-content">
+          <glu-menu-item type="label">Option 1</glu-menu-item>
+          <glu-menu-item type="label">Option 2</glu-menu-item>
+          <glu-menu-item type="label">Option 3</glu-menu-item>
+        </div>
+      </glu-menu-item>
+
+      <glu-menu-item type="button">
+        Click Me
+      </glu-menu-item>
+
+      <glu-menu-item type="dropdown">
+        Main Menu
+        <div slot="dropdown-content">
+          <glu-menu-item type="label">Home</glu-menu-item>
+          <glu-menu-item type="dropdown">
+            Settings
+            <div slot="dropdown-content">
+              <glu-menu-item type="label">Profile</glu-menu-item>
+              <glu-menu-item type="label">Account</glu-menu-item>
+            </div>
+          </glu-menu-item>
+          <glu-menu-item type="label">Logout</glu-menu-item>
+        </div>
+      </glu-menu-item>
+
+    </div>
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; align-items: center;">
       <div>
         <glu-dropdown has-arrow side="left" is-backdrop-dismiss>
