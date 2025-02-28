@@ -98,4 +98,129 @@ The `glu-breadcrumbs` component serves as a container for breadcrumb items, prov
   </TabItem>
 </Tabs>
 
+---
+
+## Custom Separators
+
+You can customize the separator between breadcrumb items by using the `separator` slot in the `<glu-breadcrumb>` component. In the examples below, a custom separator (a forward slash `/`) is used in place of the default arrow icon.
+
+### Example 2: Breadcrumb Navigation with Custom Separators
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-breadcrumbs>
+    <glu-breadcrumb href="/home">
+      Home
+      <span slot="separator">/</span>
+    </glu-breadcrumb>
+    <glu-breadcrumb href="/library">
+      Library
+      <span slot="separator">/</span>
+    </glu-breadcrumb>
+    <glu-breadcrumb>
+      Data
+    </glu-breadcrumb>
+  </glu-breadcrumbs>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  import { GluBreadcrumbs, GluBreadcrumb } from '@gelato-ui/react'
+
+  function CustomSeparatorBreadcrumbs() {
+    return (
+      <GluBreadcrumbs>
+        <GluBreadcrumb href="/home">
+          Home
+          <span slot="separator">/</span>
+        </GluBreadcrumb>
+        <GluBreadcrumb href="/library">
+          Library
+          <span slot="separator">/</span>
+        </GluBreadcrumb>
+        <GluBreadcrumb>
+          Data
+        </GluBreadcrumb>
+      </GluBreadcrumbs>
+    );
+  }
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html live
+  <glu-breadcrumbs>
+    <glu-breadcrumb href="/home">
+      Home
+      <template #separator>/</template>
+    </glu-breadcrumb>
+    <glu-breadcrumb href="/library">
+      Library
+      <template #separator>/</template>
+    </glu-breadcrumb>
+    <glu-breadcrumb>
+      Data
+    </glu-breadcrumb>
+  </glu-breadcrumbs>
+
+  <script setup>
+  import { GluBreadcrumbs, GluBreadcrumb } from '@gelato-ui/vue'
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html live
+  <glu-breadcrumbs>
+    <glu-breadcrumb href="/home">
+      Home
+      <span slot="separator">/</span>
+    </glu-breadcrumb>
+    <glu-breadcrumb href="/library">
+      Library
+      <span slot="separator">/</span>
+    </glu-breadcrumb>
+    <glu-breadcrumb>
+      Data
+    </glu-breadcrumb>
+  </glu-breadcrumbs>
+  ```
+
+  ```ts live
+  import { Component } from '@angular/core';
+  import { GluBreadcrumbs } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluBreadcrumbs],
+    template: `
+      <glu-breadcrumbs>
+        <glu-breadcrumb href="/home">
+          Home
+          <span slot="separator">/</span>
+        </glu-breadcrumb>
+        <glu-breadcrumb href="/library">
+          Library
+          <span slot="separator">/</span>
+        </glu-breadcrumb>
+        <glu-breadcrumb>
+          Data
+        </glu-breadcrumb>
+      </glu-breadcrumbs>
+    `
+  })
+  export class CustomSeparatorBreadcrumbsComponent {}
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
 <BreadcrumbsReadme />
