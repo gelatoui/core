@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from '@stencil/core'
+import { Component, h, Host, Prop } from '@stencil/core'
 
 /**
  * @component
@@ -17,16 +17,6 @@ export class GluBreadcrumb {
    */
   @Prop() readonly href?: string
 
-  /**
-   * Emitted when the breadcrumb is clicked.
-   * @event {CustomEvent<void>} gluBreadcrumbClick
-   */
-  @Event() gluBreadcrumbClick: EventEmitter<Event>
-
-  private handleClick = (event: Event) => {
-    this.gluBreadcrumbClick.emit(event)
-  }
-
   render() {
     const clickable = !!this.href
 
@@ -34,7 +24,7 @@ export class GluBreadcrumb {
       <Host>
         {clickable ?
           (
-            <a href={this.href} onClick={this.handleClick} class={clickable ? 'clickable' : 'disabled'}>
+            <a href={this.href} class={clickable ? 'clickable' : 'disabled'}>
               <slot></slot>
             </a>
           ) :
