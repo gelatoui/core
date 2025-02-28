@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Prop } from '@stencil/core'
+import { Component, Element, Event, EventEmitter, h, Host, Prop, Watch } from '@stencil/core'
 
 /**
  * @component
@@ -12,28 +12,19 @@ import { Component, Element, Event, EventEmitter, h, Prop } from '@stencil/core'
 })
 export class GluDropdown {
   /**
-   * The id of the element(s) that will trigger this dropdown.
-   * If provided, any element with this id will open/close the dropdown.
-   * @prop {string} trigger
-   */
-  @Prop() readonly trigger?: string
-
-  /**
-   * Optional default trigger text. Only shown if no external trigger is provided.
+   * Optional default trigger text. Only shown if no trigger content is provided.
    * @prop {string} text
    */
   @Prop() readonly text: string = 'Toggle Dropdown'
 
   /**
    * Controls whether the dropdown is open.
-   * If true, the dropdown will open. If false, it will close.
-   * Use this for finer grained control over presentation.
    * @prop {boolean} isOpen
    */
   @Prop({ mutable: true, reflect: true }) isOpen = false
 
   /**
-   * If true, an arrow will be displayed that points at the reference element.
+   * If true, an arrow will be displayed that points at the trigger.
    * @prop {boolean} hasArrow
    */
   @Prop() readonly hasArrow: boolean = false
@@ -46,36 +37,33 @@ export class GluDropdown {
 
   /**
    * If true, a backdrop will be displayed behind the dropdown.
-   * This backdrop darkens the screen when the dropdown is open.
    * @prop {boolean} showBackdrop
    */
   @Prop() readonly showBackdrop: boolean = false
 
   /**
-   * Describes which side of the reference point to position the dropdown.
-   * Can be 'start', 'end', 'left', or 'right'.
+   * Describes which side of the trigger to position the dropdown.
    * @prop {string} side
    */
-  @Prop() readonly side: 'start' | 'end' | 'left' | 'right' = 'start'
+  @Prop() readonly side: 'top' | 'bottom' | 'left' | 'right' = 'bottom'
 
   /**
    * Describes how to calculate the dropdown width.
    * If "cover", the width matches the trigger element.
-   * If "auto", width is calculated based on content.
+   * If "auto", the width is based solely on the content.
    * @prop {string} size
    */
   @Prop() readonly size: 'cover' | 'auto' = 'auto'
 
   /**
-   * Describes what kind of interaction with the trigger should cause the dropdown to open.
-   * If "click", the dropdown is toggled on left-click.
-   * If "hover", it opens on mouse enter and closes on mouse leave.
-   * If "context-menu", it opens on right-click (and prevents the default context menu).
+   * Defines the type of interaction that triggers the dropdown.
+   * 'click' toggles on left-click.
+   * 'hover' opens on mouse enter and closes on mouse leave.
+   * 'context-menu' toggles on right-click (preventing the default context menu).
    * @prop {string} triggerAction
    */
   @Prop() readonly triggerAction: 'click' | 'hover' | 'context-menu' = 'click'
 
-  // Reference to the host element.
   // eslint-disable-next-line no-undef
   @Element() el!: HTMLGluDropdownElement
 
@@ -84,6 +72,35 @@ export class GluDropdown {
    * @event dropdownToggle
    */
   @Event() dropdownToggle!: EventEmitter<boolean>
+
+  // Reference to the trigger element provided in the slot.
+  private triggerRef?: HTMLElement
+
+  @Watch('isOpen')
+  onOpenChange(isOpen: boolean) {
+    if (isOpen) {
+      // Ensure the dropdown content is rendered before positioning.
+      requestAnimationFrame(() => this.positionDropdown())
+    }
+  }
+
+  /**
+   * Position the dropdown based on the trigger element.
+   */
+  private positionDropdown(): void {
+    if (!this.isOpen) return
+
+    const content = this.el.shadowRoot?.querySelector('.dropdown-content') as HTMLElement
+
+    if (!content) return
+
+    // In "cover" mode, adjust the dropdown width to match the trigger.
+    if (this.triggerRef && this.size === 'cover') {
+      content.style.width = `${this.triggerRef.getBoundingClientRect().width}px`
+    } else {
+      content.style.width = ''
+    }
+  }
 
   /**
    * Toggles the dropdown open/closed.
@@ -117,8 +134,7 @@ export class GluDropdown {
   }
 
   /**
-   * Handles a context menu trigger by preventing the default
-   * and toggling the dropdown.
+   * Handles a context menu trigger by preventing the default and toggling the dropdown.
    */
   private handleContextMenu = (event: MouseEvent): void => {
     event.preventDefault()
@@ -131,84 +147,56 @@ export class GluDropdown {
    */
   private onBackdropClick = (): void => {
     if (this.isBackdropDismiss) {
-      this.closeDropdown()
+      this.isOpen = false
+
+      this.dropdownToggle.emit(this.isOpen)
     }
   }
 
-  componentDidLoad() {
-    // If a trigger id is provided, attach the appropriate event listener(s) to all matching elements.
-    if (this.trigger) {
-      const triggerEls = document.querySelectorAll(`#${this.trigger}`)
+  private getTriggerEvents = (triggerAction: string) => {
+    switch (triggerAction) {
+      case 'click':
+        return { onClick: this.toggleDropdown }
 
-      triggerEls.forEach(triggerEl => {
-        switch (this.triggerAction) {
-          case 'click':
-            triggerEl.addEventListener('click', this.toggleDropdown)
+      case 'hover':
+        return { onMouseEnter: this.openDropdown, onMouseLeave: this.closeDropdown }
 
-            break
+      case 'context-menu':
+        return { onContextMenu: this.handleContextMenu }
 
-          case 'hover':
-            triggerEl.addEventListener('mouseenter', this.openDropdown)
-
-            triggerEl.addEventListener('mouseleave', this.closeDropdown)
-
-            break
-
-          case 'context-menu':
-            triggerEl.addEventListener('contextmenu', this.handleContextMenu)
-
-            break
-        }
-      })
-    }
-  }
-
-  disconnectedCallback() {
-    // Clean up the event listeners on disconnect.
-    if (this.trigger) {
-      const triggerEls = document.querySelectorAll(`#${this.trigger}`)
-
-      triggerEls.forEach(triggerEl => {
-        switch (this.triggerAction) {
-          case 'click':
-            triggerEl.removeEventListener('click', this.toggleDropdown)
-
-            break
-
-          case 'hover':
-            triggerEl.removeEventListener('mouseenter', this.openDropdown)
-
-            triggerEl.removeEventListener('mouseleave', this.closeDropdown)
-
-            break
-
-          case 'context-menu':
-            triggerEl.removeEventListener('contextmenu', this.handleContextMenu)
-
-            break
-        }
-      })
+      default:
+        return {}
     }
   }
 
   render() {
+    // Render backdrop if dropdown is open and either backdrop is shown or dismissal is enabled.
+    const shouldRenderBackdrop = this.isOpen && (this.showBackdrop || this.isBackdropDismiss)
+
     return (
-      <div class="dropdown-container">
-        {/* Render a backdrop if enabled and dropdown is open */}
-        {this.showBackdrop && this.isOpen && (
-          <div class="dropdown-backdrop" onClick={this.onBackdropClick}></div>
+      <Host class={{ 'is-open': this.isOpen, 'dropdown-container': true, 'glu-dropdown': true }}>
+        {shouldRenderBackdrop && (
+          <div
+            class={{
+              'dropdown-backdrop': true,
+              'invisible-backdrop': !this.showBackdrop
+            }}
+            onClick={this.onBackdropClick}
+          >
+          </div>
         )}
-        {/* If no external trigger is provided, render a default trigger button */}
-        {!this.trigger && (
-          <glu-button class="dropdown-trigger" onClick={this.toggleDropdown}>
-            {this.text}
-          </glu-button>
-        )}
+        {/* Dropdown trigger: uses a named slot with a default fallback */}
+        <div class="dropdown-trigger" {...this.getTriggerEvents(this.triggerAction)} ref={el => (this.triggerRef = el)}>
+          <slot name="dropdown-trigger">
+            <glu-button>{this.text}</glu-button>
+          </slot>
+        </div>
+        {/* Dropdown content */}
         <div class={`dropdown-content ${this.isOpen ? 'open' : 'closed'} ${this.side} ${this.size}`}>
           {this.hasArrow && <div class="dropdown-arrow"></div>}
           <slot></slot>
         </div>
-      </div>
+      </Host>
     )
   }
 }

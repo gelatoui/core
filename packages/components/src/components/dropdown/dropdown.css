@@ -1,7 +1,5 @@
-/* Dropdown container positioning */
-.dropdown-container {
+:host(.dropdown-container) {
   position: relative;
-  display: inline-block; /* Ensures container takes content width */
 }
 
 .dropdown-backdrop {
@@ -14,7 +12,11 @@
   z-index: 999;
 }
 
-/* The dropdown content is hidden when closed to avoid taking up space */
+.invisible-backdrop {
+  background: transparent;
+}
+
+/* The dropdown content styling */
 .dropdown-content {
   position: absolute;
   z-index: 1000;
@@ -25,41 +27,61 @@
   padding: var(--spacing-150);
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 0;
-  transform: translateY(-10px);
   pointer-events: none;
   display: none;
   flex-direction: column;
-  min-width: max-content; /* Ensures content is not cut off */
 }
 
-/* When open, show the dropdown with a smooth fade/slide */
+/* When open, show the dropdown */
 .dropdown-content.open {
   opacity: 1;
-  transform: translateY(0);
   pointer-events: auto;
-  display: flex; /* Changed to flex for better content handling */
+  display: flex;
 }
 
-/* Side positioning adjustments */
-.dropdown-content.start {
-  left: 0;
+/* Side positioning - completely revamped for all sides */
+/* Bottom positioning */
+.dropdown-content.bottom {
   top: calc(100% + var(--spacing-100));
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
 }
 
-.dropdown-content.end {
-  right: 0;
-  top: calc(100% + var(--spacing-100));
+.dropdown-content.bottom.open {
+  transform: translateX(-50%) translateY(0);
 }
 
-/* Added left and right positioning */
+/* Top positioning */
+.dropdown-content.top {
+  bottom: calc(100% + var(--spacing-100));
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+}
+
+.dropdown-content.top.open {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Left positioning - fixed */
 .dropdown-content.left {
   right: calc(100% + var(--spacing-100));
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
 }
 
+.dropdown-content.left.open {
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Right positioning - fixed */
 .dropdown-content.right {
   left: calc(100% + var(--spacing-100));
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(-10px);
+}
+
+.dropdown-content.right.open {
+  transform: translateY(-50%) translateX(0);
 }
 
 /* Size adjustments */
@@ -67,11 +89,24 @@
   width: 100%;
 }
 
-.dropdown-content.auto {
-  width: auto; /* Auto width based on content */
+.dropdown-content.cover.bottom,
+.dropdown-content.cover.top {
+  left: 0;
+  transform: translateY(-10px);
 }
 
-/* Arrow styling - positioned correctly for each side */
+.dropdown-content.cover.bottom.open,
+.dropdown-content.cover.top.open {
+  transform: translateY(0);
+}
+
+.dropdown-content.auto {
+  width: fit-content;
+  min-width: max-content;
+  max-width: 90vw; /* Prevent overflow on small screens */
+}
+
+/* Arrow styling */
 .dropdown-arrow {
   position: absolute;
   width: 10px;
@@ -82,46 +117,41 @@
   z-index: -1;
 }
 
-/* Position arrow based on side */
-.dropdown-content.start .dropdown-arrow {
-  top: -6px; /* Half of arrow height */
-  left: 20px;
+/* Position arrow for each side */
+.dropdown-content.bottom .dropdown-arrow {
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
   border-right: none;
   border-bottom: none;
 }
 
-.dropdown-content.end .dropdown-arrow {
-  top: -6px; /* Half of arrow height */
-  right: 20px;
-  border-right: none;
-  border-bottom: none;
+.dropdown-content.top .dropdown-arrow {
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  border-left: none;
+  border-top: none;
 }
 
 .dropdown-content.left .dropdown-arrow {
-  top: 15px;
-  right: -6px; /* Half of arrow width */
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
   border-left: none;
   border-bottom: none;
 }
 
 .dropdown-content.right .dropdown-arrow {
-  top: 15px;
-  left: -6px; /* Half of arrow width */
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
   border-top: none;
   border-right: none;
 }
 
-/* Gap between items in the dropdown */
-.dropdown-content ::slotted(*) {
-  margin: var(--spacing-50) 0;
-  width: 100%;
-}
-
-/* Make first and last items have no margin */
-.dropdown-content ::slotted(:first-child) {
-  margin-top: 0;
-}
-
-.dropdown-content ::slotted(:last-child) {
-  margin-bottom: 0;
+.dropdown-content slot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
 }

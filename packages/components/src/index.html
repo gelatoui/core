@@ -35,11 +35,13 @@
     </div>
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; align-items: center;">
       <div>
-        <glu-button id="trigger-1">Dropdown Button</glu-button>
-        <glu-dropdown has-arrow side="left" trigger="trigger-1">
-          <glu-button>Button 1</glu-button>
-          <glu-button>Button 2</glu-button>
-          <glu-button>Button 3</glu-button>
+        <glu-dropdown has-arrow side="left" trigger="trigger-1" is-backdrop-dismiss>
+          <span slot="dropdown-trigger">
+            <glu-button id="trigger-1">Dropdown Button</glu-button>
+          </span>
+          <glu-button>Button long text</glu-button>
+          <glu-button>Button long text 2</glu-button>
+          <glu-button>Button long text 3</glu-button>
         </glu-dropdown>
       </div>
 
@@ -49,13 +51,13 @@
         <glu-button>Button 3</glu-button>
       </glu-dropdown>
 
-      <glu-dropdown has-arrow side="end" text="Dropdown">
-        <glu-button>Button 1</glu-button>
-        <glu-button>Button 2</glu-button>
-        <glu-button>Button 3</glu-button>
+      <glu-dropdown has-arrow side="top" text="Dropdown">
+        <glu-button>Button long text 1</glu-button>
+        <glu-button>Button long text 2</glu-button>
+        <glu-button>Button long text 3</glu-button>
       </glu-dropdown>
 
-      <glu-dropdown has-arrow text="Click to Open" has-arrow side="start" size="auto">
+      <glu-dropdown has-arrow text="Click to Open" has-arrow side="bottom" size="auto">
         <ul>
           <li>Option 1</li>
           <li>Option 2</li>
@@ -64,8 +66,8 @@
       </glu-dropdown>
 
       <div>
-        <glu-button id="my-trigger">Toggle Dropdown</glu-button>
-        <glu-dropdown trigger="my-trigger" is-backdrop-dismiss show-backdrop side="end" size="cover">
+        <glu-dropdown trigger="my-trigger" is-backdrop-dismiss show-backdrop size="cover">
+          <glu-button id="my-trigger" slot="dropdown-trigger">Toggle Dropdown</glu-button>
           <ul>
             <li>Item A</li>
             <li>Item B</li>
@@ -75,8 +77,8 @@
       </div>
 
       <div>
-        <glu-button id="my-trigger-2">background dismiss Dropdown</glu-button>
-        <glu-dropdown trigger="my-trigger-2" is-backdrop-dismiss side="end" size="cover">
+        <glu-dropdown trigger="my-trigger-2" is-backdrop-dismiss side="bottom" size="cover">
+          <glu-button id="my-trigger-2" slot="dropdown-trigger">background dismiss Dropdown</glu-button>
           <ul>
             <li>Item A</li>
             <li>Item B</li>
@@ -86,8 +88,8 @@
       </div>
 
       <div>
-        <glu-button id="hover-trigger">Hover over me</glu-button>
         <glu-dropdown trigger="hover-trigger" trigger-action="hover" has-arrow>
+          <glu-button id="hover-trigger" slot="dropdown-trigger">Hover over me</glu-button>
           <ul>
             <li>Hover Item 1</li>
             <li>Hover Item 2</li>
@@ -97,10 +99,10 @@
       </div>
 
       <div>
-        <div id="context-trigger" style="padding: 10px; border: 1px solid #ccc;">
-          Right-click inside this box
-        </div>
         <glu-dropdown trigger="context-trigger" trigger-action="context-menu" is-backdrop-dismiss show-backdrop>
+          <div id="context-trigger" slot="dropdown-trigger" style="padding: 10px; border: 1px solid #ccc;">
+            Right-click inside this box
+          </div>
           <ul>
             <li>Context Option 1</li>
             <li>Context Option 2</li>
