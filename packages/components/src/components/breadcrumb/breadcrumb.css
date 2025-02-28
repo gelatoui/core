@@ -1,28 +1,35 @@
 :host {
   display: inline-flex;
   align-items: center;
+  gap: 0.75rem;
+  color: var(--tokens-text-on-light-subdue, #7d8796);
+
+  font-family: var(--body-large-medium-font-family, Inter);
+  font-size: var(--body-large-medium-font-size, 1.125rem);
+  font-style: normal;
+  font-weight: 500;
+  line-height: var(--body-large-medium-line-height, 1.5rem);
+  letter-spacing: var(--body-large-medium-letter-spacing, 0rem);
 }
 
-/* Hide the separator on the last breadcrumb */
 :host(:last-child) .separator {
   display: none;
 }
 
+:host(:nth-last-child(2)) .separator,
+:host(:last-child) {
+  color: var(--tokens-text-on-light-heavy, #191b1e);
+}
+
 .separator {
-  margin: 0 8px;
+  gap: 0.75rem;
+  color: var(--tokens-text-on-light-subdue, #7d8796);
 }
 
 a {
-  text-decoration: none;
+  all: unset;
 }
 
-/* Label styling */
-glu-label.clickable {
-  color: var(--Tokens-Text-On-Light-Heavy, #191B1E);
+a.clickable {
   cursor: pointer;
-}
-
-glu-label.disabled {
-  color: var(--Tokens-Text-On-Light-Subdue, #7D8796);
-  cursor: default;
 }

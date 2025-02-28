@@ -43,7 +43,7 @@ export class GluHelperText {
    * @prop {boolean} isError
    * @default false
    */
-  @Prop({ reflect: true }) readonly isError = false
+  @Prop({ reflect: true }) readonly isError: boolean = false
 
   /**
    * A reference to the host element.

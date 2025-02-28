@@ -30,22 +30,16 @@ export class GluBreadcrumb {
   render() {
     const clickable = !!this.href
 
-    const content = (
-      <glu-label class={clickable ? 'clickable' : 'disabled'}>
-        <slot></slot>
-      </glu-label>
-    )
-
     return (
       <Host>
         {clickable ?
           (
-            <a href={this.href} onClick={this.handleClick}>
-              {content}
+            <a href={this.href} onClick={this.handleClick} class={clickable ? 'clickable' : 'disabled'}>
+              <slot></slot>
             </a>
           ) :
           (
-            content
+            <slot></slot>
           )}
         <span class="separator">
           <slot name="separator">
