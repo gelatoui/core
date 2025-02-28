@@ -4,6 +4,9 @@ import { Component, h, Host, Prop } from '@stencil/core'
  * @component
  * @tag glu-breadcrumb
  * @shadow true
+ *
+ * @slot - The default slot for the breadcrumb label or content.
+ * @slot separator - An optional slot for customizing the separator between breadcrumb items. Defaults to an `glu-icon` with `name="arrow-right"`.
  */
 @Component({
   tag: 'glu-breadcrumb',
