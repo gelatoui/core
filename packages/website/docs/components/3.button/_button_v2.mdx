@@ -1,0 +1,536 @@
+---
+sidebar_position: 1
+title: glu-button
+slug: /components/button
+---
+
+# Button Component
+
+import ButtonReadme from '@gelato-ui/components/dist/readme/components/button/readme.md'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+import { GluButton } from '@gelato-ui/react'
+import { Sandpack } from '@codesandbox/sandpack-react'
+
+<p>
+  <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/design/jSs4mJxj7dJbXsCE1IHtqt/GelatoUI-Design-System-(V-0.1.0)?node-id=239-4021&t=MItYcxbVFzFdt8Oz-0">Figma</glu-button>
+</p>
+
+The `glu-button` component is a highly customizable button element that supports various appearances, sizes, and types. It functions either as a standard button or as a link when an `href` is provided.
+
+## Basic Usage
+
+### Example 1: Simple Button
+
+Use the button as a clickable element.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+    <Sandpack
+      template="vanilla"
+      files={{
+        '/index.html': `<html>
+          <body>
+            <glu-button>Click Me</glu-button>
+          </body>
+        </html>`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="jsx" label="React">
+    <Sandpack
+      template="react"
+      files={{
+        '/App.js': `import { GluButton } from '@gelato-ui/react';
+
+        function App() {
+          return (
+            <GluButton>Click Me</GluButton>
+          );
+        }
+
+        export default App;`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+    <Sandpack
+      template="vue"
+      files={{
+        '/App.vue': `<template>
+          <glu-button>Click Me</glu-button>
+        </template>
+
+        <script setup>
+        import { GluButton } from '@gelato-ui/vue';
+        </script>`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+    <Sandpack
+      template="angular"
+      files={{
+        '/src/app/app.component.html': '<glu-button>Click Me</glu-button>',
+        '/src/app/app.component.ts': `import { Component } from '@angular/core';
+        import { GluButton } from '@gelato-ui/angular';
+
+        @Component({
+          standalone: true,
+          imports: [GluButton],
+          templateUrl: './app.component.html'
+        })
+        export class AppComponent {}`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+</Tabs>
+
+---
+
+## Button as a Link
+
+When an `href` is provided, the component renders as an anchor tag.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+    <Sandpack
+      template="vanilla"
+      files={{
+        '/index.html': `<html>
+  <body>
+    <glu-button href="https://example.com" target="_blank" rel="noopener noreferrer">
+      Visit Example
+    </glu-button>
+  </body>
+</html>`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="jsx" label="React">
+    <Sandpack
+      template="react"
+      files={{
+        '/App.js': `import { GluButton } from '@gelato-ui/react';
+
+function App() {
+  return (
+    <GluButton href="https://example.com" target="_blank" rel="noopener noreferrer">
+      Visit Example
+    </GluButton>
+  );
+}
+
+export default App;`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+    <Sandpack
+      template="vue"
+      files={{
+        '/App.vue': `<template>
+  <glu-button href="https://example.com" target="_blank" rel="noopener noreferrer">
+    Visit Example
+  </glu-button>
+</template>
+
+<script setup>
+import { GluButton } from '@gelato-ui/vue';
+</script>`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+    <Sandpack
+      template="angular"
+      files={{
+        '/src/app/app.component.html': `<glu-button href="https://example.com" target="_blank" rel="noopener noreferrer">
+  Visit Example
+</glu-button>`,
+        '/src/app/app.component.ts': `import { Component } from '@angular/core';
+import { GluButton } from '@gelato-ui/angular';
+
+@Component({
+  standalone: true,
+  imports: [GluButton],
+  templateUrl: './app.component.html'
+})
+export class AppComponent {}`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+</Tabs>
+
+---
+
+## Different Appearances
+
+Customize the visual style using the `appearance` property.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+    <Sandpack
+      template="vanilla"
+      files={{
+        '/index.html': `<html>
+  <body>
+    <div style="display: flex; gap: 1rem;">
+      <glu-button>Filled</glu-button>
+      <glu-button appearance="outline">Outline</glu-button>
+      <glu-button appearance="ghost">Ghost</glu-button>
+    </div>
+  </body>
+</html>`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="jsx" label="React">
+    <Sandpack
+      template="react"
+      files={{
+        '/App.js': `import { GluButton } from '@gelato-ui/react';
+
+function App() {
+  return (
+    <div style={{ display: 'flex', gap: '1rem' }}>
+      <GluButton>Filled</GluButton>
+      <GluButton appearance="outline">Outline</GluButton>
+      <GluButton appearance="ghost">Ghost</GluButton>
+    </div>
+  );
+}
+
+export default App;`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+    <Sandpack
+      template="vue"
+      files={{
+        '/App.vue': `<template>
+  <div style="display: flex; gap: 1rem;">
+    <glu-button>Filled</glu-button>
+    <glu-button appearance="outline">Outline</glu-button>
+    <glu-button appearance="ghost">Ghost</glu-button>
+  </div>
+</template>
+
+<script setup>
+import { GluButton } from '@gelato-ui/vue';
+</script>`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+    <Sandpack
+      template="angular"
+      files={{
+        '/src/app/app.component.html': `<div style="display: flex; gap: 1rem;">
+  <glu-button>Filled</glu-button>
+  <glu-button appearance="outline">Outline</glu-button>
+  <glu-button appearance="ghost">Ghost</glu-button>
+</div>`,
+        '/src/app/app.component.ts': `import { Component } from '@angular/core';
+import { GluButton } from '@gelato-ui/angular';
+
+@Component({
+  standalone: true,
+  imports: [GluButton],
+  templateUrl: './app.component.html'
+})
+export class AppComponent {}`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+</Tabs>
+
+---
+
+## Button Sizes
+
+Showcase the component in different sizes.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+    <Sandpack
+      template="vanilla"
+      files={{
+        '/index.html': `<html>
+  <body>
+    <div style="display: flex; gap: 1rem; align-items: center;">
+      <glu-button size="small">Small</glu-button>
+      <glu-button size="medium">Medium</glu-button>
+      <glu-button size="large">Large</glu-button>
+    </div>
+  </body>
+</html>`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="jsx" label="React">
+    <Sandpack
+      template="react"
+      files={{
+        '/App.js': `import { GluButton } from '@gelato-ui/react';
+
+function App() {
+  return (
+    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+      <GluButton size="small">Small</GluButton>
+      <GluButton size="medium">Medium</GluButton>
+      <GluButton size="large">Large</GluButton>
+    </div>
+  );
+}
+
+export default App;`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+    <Sandpack
+      template="vue"
+      files={{
+        '/App.vue': `<template>
+  <div style="display: flex; gap: 1rem; align-items: center;">
+    <glu-button size="small">Small</glu-button>
+    <glu-button size="medium">Medium</glu-button>
+    <glu-button size="large">Large</glu-button>
+  </div>
+</template>
+
+<script setup>
+import { GluButton } from '@gelato-ui/vue';
+</script>`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+    <Sandpack
+      template="angular"
+      files={{
+        '/src/app/app.component.html': `<div style="display: flex; gap: 1rem; align-items: center;">
+  <glu-button size="small">Small</glu-button>
+  <glu-button size="medium">Medium</glu-button>
+  <glu-button size="large">Large</glu-button>
+</div>`,
+        '/src/app/app.component.ts': `import { Component } from '@angular/core';
+import { GluButton } from '@gelato-ui/angular';
+
+@Component({
+  standalone: true,
+  imports: [GluButton],
+  templateUrl: './app.component.html'
+})
+export class AppComponent {}`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+</Tabs>
+
+---
+
+## Advanced Slot Usage
+
+Customize the button content using slots for icons or additional text.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+    <Sandpack
+      template="vanilla"
+      files={{
+        '/index.html': `<html>
+  <body>
+    <div style="display: flex; gap: 1rem; align-items: center;">
+      <glu-button>
+        <span slot="start">🔥</span>
+        Submit
+        <span slot="end">🚀</span>
+      </glu-button>
+    </div>
+  </body>
+</html>`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="jsx" label="React">
+    <Sandpack
+      template="react"
+      files={{
+        '/App.js': `import { GluButton } from '@gelato-ui/react';
+
+function App() {
+  return (
+    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+      <GluButton>
+        <span slot="start">🔥</span>
+        Submit
+        <span slot="end">🚀</span>
+      </GluButton>
+    </div>
+  );
+}
+
+export default App;`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+    <Sandpack
+      template="vue"
+      files={{
+        '/App.vue': `<template>
+  <div style="display: flex; gap: 1rem; align-items: center;">
+    <glu-button>
+      <template #start>🔥</template>
+      Submit
+      <template #end>🚀</template>
+    </glu-button>
+  </div>
+</template>
+
+<script setup>
+import { GluButton } from '@gelato-ui/vue';
+</script>`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+    <Sandpack
+      template="angular"
+      files={{
+        '/src/app/app.component.html': `<div style="display: flex; gap: 1rem; align-items: center;">
+  <glu-button>
+    <span slot="start">🔥</span>
+    Submit
+    <span slot="end">🚀</span>
+  </glu-button>
+</div>`,
+        '/src/app/app.component.ts': `import { Component } from '@angular/core';
+import { GluButton } from '@gelato-ui/angular';
+
+@Component({
+  standalone: true,
+  imports: [GluButton],
+  templateUrl: './app.component.html'
+})
+export class AppComponent {}`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+</Tabs>
+
+---
+
+## Button in a Form
+
+Use the button as a submission control within a form.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+    <Sandpack
+      template="vanilla"
+      files={{
+        '/index.html': `<html>
+  <body>
+    <form onsubmit="alert('Form submitted'); return false;">
+      <glu-button type="submit">Submit Form</glu-button>
+    </form>
+  </body>
+</html>`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="jsx" label="React">
+    <Sandpack
+      template="react"
+      files={{
+        '/App.js': `import { GluButton } from '@gelato-ui/react';
+
+function FormExample() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert('Form submitted');
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <GluButton type="submit">Submit Form</GluButton>
+    </form>
+  );
+}
+
+export default FormExample;`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+    <Sandpack
+      template="vue"
+      files={{
+        '/App.vue': `<template>
+  <form @submit.prevent="() => alert('Form submitted')">
+    <glu-button type="submit">Submit Form</glu-button>
+  </form>
+</template>
+
+<script setup>
+import { GluButton } from '@gelato-ui/vue';
+</script>`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+    <Sandpack
+      template="angular"
+      files={{
+        '/src/app/app.component.html': `<form (ngSubmit)="onSubmit()">
+  <glu-button type="submit">Submit Form</glu-button>
+</form>`,
+        '/src/app/app.component.ts': `import { Component } from '@angular/core';
+import { GluButton } from '@gelato-ui/angular';
+
+@Component({
+  standalone: true,
+  imports: [GluButton],
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+  onSubmit() {
+    alert('Form submitted');
+  }
+}`,
+      }}
+      options={{ showNavigator: true }}
+    />
+  </TabItem>
+</Tabs>
+
+---
+
+<ButtonReadme />
