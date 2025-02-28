@@ -4,6 +4,8 @@ import { Component, h, Host } from '@stencil/core'
  * @component
  * @tag glu-breadcrumbs
  * @shadow true
+ *
+ * @slot - The default slot for breadcrumb items. Typically, this should contain one or more `<glu-breadcrumb>` components.
  */
 @Component({
   tag: 'glu-breadcrumbs',
