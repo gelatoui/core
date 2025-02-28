@@ -18,7 +18,7 @@
   "description": "",
   "devDependencies": {
     "@gelato-ui/components": "file:../components",
-    "@types/react": "^19.0.8",
+    "@types/react": "^19.0.10",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "typescript": "^5.7.3"
