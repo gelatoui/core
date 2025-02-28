@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`glu-menu-item renders correctly as a button 1`] = `
+<glu-menu-item class="button glu-menu-item" type="button">
+  <template shadowrootmode="open">
+    <glu-button>
+      <slot></slot>
+    </glu-button>
+  </template>
+  Click Me
+</glu-menu-item>
+`;
+
+exports[`glu-menu-item renders correctly as a label 1`] = `
+<glu-menu-item class="glu-menu-item label" type="label">
+  <template shadowrootmode="open">
+    <glu-label class="label-container">
+      <slot></slot>
+    </glu-label>
+  </template>
+  Label Item
+</glu-menu-item>
+`;
