@@ -1,20 +1,90 @@
+/* Updated CSS for glu-dropdown using project design system variables */
+
 .dropdown-container {
   position: relative;
   display: inline-block;
 }
 
-.dropdown-trigger {
-  cursor: pointer;
+.dropdown-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--tokens-background-overlay-on-light);
+  z-index: 999;
 }
 
+/* .dropdown-trigger {
+  cursor: pointer;
+  font-family: var(--body-medium-regular-font-family);
+  font-size: var(--body-medium-regular-font-size);
+  padding: var(--spacing-150) var(--spacing-200);
+  background: var(--tokens-background-base-surface-1);
+  border: 1px solid var(--tokens-input-stroke-default);
+  border-radius: var(--border-radius-100);
+} */
+
+/* The dropdown content is always rendered so that CSS transitions can work. */
 .dropdown-content {
   position: absolute;
+  z-index: 1000;
+  background: var(--tokens-background-base-surface-1);
+  border: 1px solid var(--tokens-input-stroke-default);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius-100);
+  padding: var(--spacing-150);
+  transition: opacity 0.3s ease, transform 0.3s ease;
   top: 100%;
   left: 0;
-  z-index: 1000;
-  background: white;
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-  margin-top: 0.25rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+/* When open, show the dropdown with a smooth fade/slide */
+.dropdown-content.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Side positioning adjustments */
+.dropdown-content.start {
+  left: 0;
+}
+
+.dropdown-content.end {
+  right: 0;
+}
+
+/* Size adjustments */
+.dropdown-content.cover {
+  width: 100%;
+}
+
+.dropdown-content.auto {
+  width: 200px; /* Default static width */
+}
+
+/* Arrow styling */
+.dropdown-arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  top: calc(-1 * var(--spacing-150)); /* positions arrow above the dropdown */
+}
+
+/* Position arrow based on side */
+.dropdown-content.start .dropdown-arrow {
+  left: var(--spacing-150);
+  border-width: 0 var(--spacing-150) var(--spacing-150) var(--spacing-150);
+  border-color: transparent transparent var(--tokens-input-stroke-default) transparent;
+}
+
+.dropdown-content.end .dropdown-arrow {
+  right: var(--spacing-150);
+  border-width: 0 var(--spacing-150) var(--spacing-150) var(--spacing-150);
+  border-color: transparent transparent var(--tokens-input-stroke-default) transparent;
 }
