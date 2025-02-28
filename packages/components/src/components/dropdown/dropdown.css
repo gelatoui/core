@@ -1,8 +1,7 @@
-/* Updated CSS for glu-dropdown using project design system variables */
-
+/* Dropdown container positioning */
 .dropdown-container {
   position: relative;
-  display: inline-block;
+  display: inline-block; /* Ensures container takes content width */
 }
 
 .dropdown-backdrop {
@@ -15,17 +14,7 @@
   z-index: 999;
 }
 
-/* .dropdown-trigger {
-  cursor: pointer;
-  font-family: var(--body-medium-regular-font-family);
-  font-size: var(--body-medium-regular-font-size);
-  padding: var(--spacing-150) var(--spacing-200);
-  background: var(--tokens-background-base-surface-1);
-  border: 1px solid var(--tokens-input-stroke-default);
-  border-radius: var(--border-radius-100);
-} */
-
-/* The dropdown content is always rendered so that CSS transitions can work. */
+/* The dropdown content is hidden when closed to avoid taking up space */
 .dropdown-content {
   position: absolute;
   z-index: 1000;
@@ -35,11 +24,12 @@
   border-radius: var(--border-radius-100);
   padding: var(--spacing-150);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  top: 100%;
-  left: 0;
   opacity: 0;
   transform: translateY(-10px);
   pointer-events: none;
+  display: none;
+  flex-direction: column;
+  min-width: max-content; /* Ensures content is not cut off */
 }
 
 /* When open, show the dropdown with a smooth fade/slide */
@@ -47,15 +37,29 @@
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+  display: flex; /* Changed to flex for better content handling */
 }
 
 /* Side positioning adjustments */
 .dropdown-content.start {
   left: 0;
+  top: calc(100% + var(--spacing-100));
 }
 
 .dropdown-content.end {
   right: 0;
+  top: calc(100% + var(--spacing-100));
+}
+
+/* Added left and right positioning */
+.dropdown-content.left {
+  right: calc(100% + var(--spacing-100));
+  top: 0;
+}
+
+.dropdown-content.right {
+  left: calc(100% + var(--spacing-100));
+  top: 0;
 }
 
 /* Size adjustments */
@@ -64,27 +68,60 @@
 }
 
 .dropdown-content.auto {
-  width: 200px; /* Default static width */
+  width: auto; /* Auto width based on content */
 }
 
-/* Arrow styling */
+/* Arrow styling - positioned correctly for each side */
 .dropdown-arrow {
-  width: 0;
-  height: 0;
-  border-style: solid;
   position: absolute;
-  top: calc(-1 * var(--spacing-150)); /* positions arrow above the dropdown */
+  width: 10px;
+  height: 10px;
+  background: var(--tokens-background-base-surface-1);
+  border: 1px solid var(--tokens-input-stroke-default);
+  transform: rotate(45deg);
+  z-index: -1;
 }
 
 /* Position arrow based on side */
 .dropdown-content.start .dropdown-arrow {
-  left: var(--spacing-150);
-  border-width: 0 var(--spacing-150) var(--spacing-150) var(--spacing-150);
-  border-color: transparent transparent var(--tokens-input-stroke-default) transparent;
+  top: -6px; /* Half of arrow height */
+  left: 20px;
+  border-right: none;
+  border-bottom: none;
 }
 
 .dropdown-content.end .dropdown-arrow {
-  right: var(--spacing-150);
-  border-width: 0 var(--spacing-150) var(--spacing-150) var(--spacing-150);
-  border-color: transparent transparent var(--tokens-input-stroke-default) transparent;
+  top: -6px; /* Half of arrow height */
+  right: 20px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.dropdown-content.left .dropdown-arrow {
+  top: 15px;
+  right: -6px; /* Half of arrow width */
+  border-left: none;
+  border-bottom: none;
+}
+
+.dropdown-content.right .dropdown-arrow {
+  top: 15px;
+  left: -6px; /* Half of arrow width */
+  border-top: none;
+  border-right: none;
+}
+
+/* Gap between items in the dropdown */
+.dropdown-content ::slotted(*) {
+  margin: var(--spacing-50) 0;
+  width: 100%;
+}
+
+/* Make first and last items have no margin */
+.dropdown-content ::slotted(:first-child) {
+  margin-top: 0;
+}
+
+.dropdown-content ::slotted(:last-child) {
+  margin-bottom: 0;
 }

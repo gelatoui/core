@@ -34,32 +34,28 @@
       </glu-breadcrumbs>
     </div>
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; align-items: center;">
-      <glu-button id="trigger-1">Dropdown Button</glu-button>
-      <glu-dropdown trigger="trigger-1">
-        <div>
+      <div>
+        <glu-button id="trigger-1">Dropdown Button</glu-button>
+        <glu-dropdown has-arrow side="left" trigger="trigger-1">
           <glu-button>Button 1</glu-button>
           <glu-button>Button 2</glu-button>
           <glu-button>Button 3</glu-button>
-        </div>
+        </glu-dropdown>
+      </div>
+
+      <glu-dropdown has-arrow side="right">
+        <glu-button>Button 1</glu-button>
+        <glu-button>Button 2</glu-button>
+        <glu-button>Button 3</glu-button>
       </glu-dropdown>
 
-      <glu-dropdown>
-        <div>
-          <glu-button>Button 1</glu-button>
-          <glu-button>Button 2</glu-button>
-          <glu-button>Button 3</glu-button>
-        </div>
+      <glu-dropdown has-arrow side="end" text="Dropdown">
+        <glu-button>Button 1</glu-button>
+        <glu-button>Button 2</glu-button>
+        <glu-button>Button 3</glu-button>
       </glu-dropdown>
 
-      <glu-dropdown text="Dropdown">
-        <div>
-          <glu-button>Button 1</glu-button>
-          <glu-button>Button 2</glu-button>
-          <glu-button>Button 3</glu-button>
-        </div>
-      </glu-dropdown>
-
-      <glu-dropdown text="Click to Open" hasArrow side="start" size="auto">
+      <glu-dropdown has-arrow text="Click to Open" has-arrow side="start" size="auto">
         <ul>
           <li>Option 1</li>
           <li>Option 2</li>
@@ -67,35 +63,52 @@
         </ul>
       </glu-dropdown>
 
-      <button id="my-trigger">Toggle Dropdown</button>
-      <glu-dropdown trigger="my-trigger" isBackdropDismiss showBackdrop side="end" size="cover">
-        <ul>
-          <li>Item A</li>
-          <li>Item B</li>
-          <li>Item C</li>
-        </ul>
-      </glu-dropdown>
-
-      <button id="hover-trigger">Hover over me</button>
-      <glu-dropdown trigger="hover-trigger" triggerAction="hover" hasArrow>
-        <ul>
-          <li>Hover Item 1</li>
-          <li>Hover Item 2</li>
-          <li>Hover Item 3</li>
-        </ul>
-      </glu-dropdown>
-
-      <div id="context-trigger" style="padding: 10px; border: 1px solid #ccc;">
-        Right-click inside this box
+      <div>
+        <glu-button id="my-trigger">Toggle Dropdown</glu-button>
+        <glu-dropdown trigger="my-trigger" is-backdrop-dismiss show-backdrop side="end" size="cover">
+          <ul>
+            <li>Item A</li>
+            <li>Item B</li>
+            <li>Item C</li>
+          </ul>
+        </glu-dropdown>
       </div>
-      <glu-dropdown trigger="context-trigger" triggerAction="context-menu" isBackdropDismiss showBackdrop>
-        <ul>
-          <li>Context Option 1</li>
-          <li>Context Option 2</li>
-        </ul>
-      </glu-dropdown>
 
-      <glu-dropdown isOpen hasArrow text="Open Dropdown">
+      <div>
+        <glu-button id="my-trigger-2">background dismiss Dropdown</glu-button>
+        <glu-dropdown trigger="my-trigger-2" is-backdrop-dismiss side="end" size="cover">
+          <ul>
+            <li>Item A</li>
+            <li>Item B</li>
+            <li>Item C</li>
+          </ul>
+        </glu-dropdown>
+      </div>
+
+      <div>
+        <glu-button id="hover-trigger">Hover over me</glu-button>
+        <glu-dropdown trigger="hover-trigger" trigger-action="hover" has-arrow>
+          <ul>
+            <li>Hover Item 1</li>
+            <li>Hover Item 2</li>
+            <li>Hover Item 3</li>
+          </ul>
+        </glu-dropdown>
+      </div>
+
+      <div>
+        <div id="context-trigger" style="padding: 10px; border: 1px solid #ccc;">
+          Right-click inside this box
+        </div>
+        <glu-dropdown trigger="context-trigger" trigger-action="context-menu" is-backdrop-dismiss show-backdrop>
+          <ul>
+            <li>Context Option 1</li>
+            <li>Context Option 2</li>
+          </ul>
+        </glu-dropdown>
+      </div>
+
+      <glu-dropdown is-open has-arrow text="Open Dropdown">
         <ul>
           <li>Always Open 1</li>
           <li>Always Open 2</li>

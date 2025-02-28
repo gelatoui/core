@@ -53,15 +53,15 @@ export class GluDropdown {
 
   /**
    * Describes which side of the reference point to position the dropdown.
-   * Can be either 'start' or 'end'.
+   * Can be 'start', 'end', 'left', or 'right'.
    * @prop {string} side
    */
-  @Prop() readonly side: 'start' | 'end' = 'start'
+  @Prop() readonly side: 'start' | 'end' | 'left' | 'right' = 'start'
 
   /**
    * Describes how to calculate the dropdown width.
    * If "cover", the width matches the trigger element.
-   * If "auto", a static default width is used.
+   * If "auto", width is calculated based on content.
    * @prop {string} size
    */
   @Prop() readonly size: 'cover' | 'auto' = 'auto'
