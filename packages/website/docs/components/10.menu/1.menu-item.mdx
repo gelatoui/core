@@ -1,0 +1,128 @@
+---
+sidebar_position: 1
+title: glu-menu-item
+slug: /components/menu-item
+---
+
+# Menu Item Component
+
+import MenuItemReadme from '@gelato-ui/components/dist/readme/components/menu-item/readme.md'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+import { GluMenuItem } from '@gelato-ui/react'
+
+{/* TODO: Design is not ready yet */}
+{/* <p>
+  <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/file/your-figma-link">Figma</glu-button>
+</p> */}
+
+The `glu-menu-item` component represents an item in a menu, supporting different types such as labels, dropdowns, and buttons. It allows flexible content placement using slots.
+
+---
+
+## Basic Usage
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <glu-menu-item type="label">
+      Label Item
+    </glu-menu-item>
+
+    <glu-menu-item type="dropdown">
+      <div>Dropdown Item</div>
+      <div slot="dropdown-content">Dropdown Content</div>
+    </glu-menu-item>
+
+    <glu-menu-item type="button">
+      <glu-button>Button Item</glu-button>
+    </glu-menu-item>
+  </div>
+  ```
+  </TabItem>
+
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  import { GluMenuItem, GluButton } from '@gelato-ui/react';
+
+  function App() {
+    return (
+      <>
+        <GluMenuItem type="label">Label Item</GluMenuItem>
+        <GluMenuItem type="dropdown">
+          <div slot="dropdown-trigger">Dropdown Item</div>
+          <div slot="dropdown-content">Dropdown Content</div>
+        </GluMenuItem>
+        <GluMenuItem type="button">
+          <GluButton>Button Item</GluButton>
+        </GluMenuItem>
+      </>
+    );
+  }
+  ```
+  </TabItem>
+
+  <TabItem value="vue" label="Vue">
+
+  ```html live
+  <glu-menu-item type="label">Label Item</glu-menu-item>
+
+  <glu-menu-item type="dropdown">
+    <template #dropdown-trigger>Dropdown Item</template>
+    <template #dropdown-content>Dropdown Content</template>
+  </glu-menu-item>
+
+  <glu-menu-item type="button">
+    <glu-button>Button Item</glu-button>
+  </glu-menu-item>
+
+  <script setup>
+  import { GluMenuItem } from '@gelato-ui/vue';
+  </script>
+  ```
+  </TabItem>
+
+  <TabItem value="angular" label="Angular">
+
+  ```html live
+  <glu-menu-item type="label">Label Item</glu-menu-item>
+
+  <glu-menu-item type="dropdown">
+    <div slot="dropdown-trigger">Dropdown Item</div>
+    <div slot="dropdown-content">Dropdown Content</div>
+  </glu-menu-item>
+
+  <glu-menu-item type="button">
+    <glu-button>Button Item</glu-button>
+  </glu-menu-item>
+  ```
+
+  ```ts live
+  import { Component } from '@angular/core';
+  import { GluMenuItem } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluMenuItem],
+    template: `
+      <glu-menu-item type="label">Label Item</glu-menu-item>
+      <glu-menu-item type="dropdown">
+        <div slot="dropdown-trigger">Dropdown Item</div>
+        <div slot="dropdown-content">Dropdown Content</div>
+      </glu-menu-item>
+      <glu-menu-item type="button">
+        <glu-button>Button Item</glu-button>
+      </glu-menu-item>
+    `
+  })
+  export class MyComponent {}
+  ```
+  </TabItem>
+</Tabs>
+
+---
+
+<MenuItemReadme />
