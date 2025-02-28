@@ -1,0 +1,163 @@
+---
+sidebar_position: 1
+title: glu-dropdown
+slug: /components/dropdown
+---
+
+# Dropdown Component
+
+import DropdownReadme from '@gelato-ui/components/dist/readme/components/dropdown/readme.md'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+import { GluDropdown } from '@gelato-ui/react'
+
+{/* TODO: Design is not ready yet */}
+{/* <p>
+  <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/file/your-figma-link">Figma</glu-button>
+</p> */}
+
+The `glu-dropdown` component displays a dropdown menu that can be toggled using different interaction types. It supports custom trigger content, an optional arrow indicator, and backdrop dismissal. You can control its width by setting the `size` to either `"cover"` (match trigger width) or `"auto"` (based on content).
+
+---
+
+## Basic Usage
+
+### Example 1: Simple Dropdown
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-dropdown>
+    <div slot="dropdown-trigger">
+      <glu-button>Open Dropdown</glu-button>
+    </div>
+    <div>
+      Dropdown content goes here.
+    </div>
+  </glu-dropdown>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  import { GluDropdown, GluButton } from '@gelato-ui/react';
+
+  function App() {
+    return (
+      <GluDropdown>
+        <>
+          <div slot="dropdown-trigger">
+            <GluButton>Open Dropdown</GluButton>
+          </div>
+          <div>
+            Dropdown content goes here.
+          </div>
+        </>
+      </GluDropdown>
+    );
+  }
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html live
+  <glu-dropdown>
+    <template #dropdown-trigger>
+      <glu-button>Open Dropdown</glu-button>
+    </template>
+    <div>
+      Dropdown content goes here.
+    </div>
+  </glu-dropdown>
+
+  <script setup>
+  import { GluDropdown } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html live
+  <glu-dropdown>
+    <div slot="dropdown-trigger">
+      <glu-button>Open Dropdown</glu-button>
+    </div>
+    <div>
+      Dropdown content goes here.
+    </div>
+  </glu-dropdown>
+  ```
+
+  ```ts live
+  import { Component } from '@angular/core';
+  import { GluDropdown } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluDropdown],
+    template: `
+      <glu-dropdown>
+        <div slot="dropdown-trigger">
+          <glu-button>Open Dropdown</glu-button>
+        </div>
+        <div>
+          Dropdown content goes here.
+        </div>
+      </glu-dropdown>
+    `
+  })
+  export class MyComponent {}
+  ```
+  </TabItem>
+</Tabs>
+
+---
+
+## Trigger Actions
+
+The `triggerAction` prop determines how the dropdown is toggled. It supports the following options:
+
+- **click:** Toggles the dropdown on left-click.
+- **hover:** Opens on mouse enter and closes on mouse leave.
+- **context-menu:** Toggles on right-click (preventing the default context menu).
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-dropdown triggerAction="hover">
+    <div slot="dropdown-trigger">
+      <glu-button>Hover to Open</glu-button>
+    </div>
+    <div>
+      Dropdown content activated by hover.
+    </div>
+  </glu-dropdown>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluDropdown triggerAction="context-menu">
+    <>
+      <div slot="dropdown-trigger">
+        <GluButton>Right-Click to Open</GluButton>
+      </div>
+      <div>
+        Dropdown content activated by context menu.
+      </div>
+    </>
+  </GluDropdown>
+  ```
+
+  </TabItem>
+</Tabs>
+
+---
+
+<DropdownReadme />

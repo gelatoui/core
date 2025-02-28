@@ -1,5 +1,6 @@
 :host(.dropdown-container) {
   position: relative;
+  display: inline-block;
 }
 
 .dropdown-backdrop {

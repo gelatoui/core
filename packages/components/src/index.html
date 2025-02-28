@@ -35,9 +35,9 @@
     </div>
     <div style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem; align-items: center;">
       <div>
-        <glu-dropdown has-arrow side="left" trigger="trigger-1" is-backdrop-dismiss>
+        <glu-dropdown has-arrow side="left" is-backdrop-dismiss>
           <span slot="dropdown-trigger">
-            <glu-button id="trigger-1">Dropdown Button</glu-button>
+            <glu-button>Dropdown Button</glu-button>
           </span>
           <glu-button>Button long text</glu-button>
           <glu-button>Button long text 2</glu-button>
@@ -66,8 +66,8 @@
       </glu-dropdown>
 
       <div>
-        <glu-dropdown trigger="my-trigger" is-backdrop-dismiss show-backdrop size="cover">
-          <glu-button id="my-trigger" slot="dropdown-trigger">Toggle Dropdown</glu-button>
+        <glu-dropdown is-backdrop-dismiss show-backdrop size="cover">
+          <glu-button slot="dropdown-trigger">Toggle Dropdown</glu-button>
           <ul>
             <li>Item A</li>
             <li>Item B</li>
@@ -77,8 +77,8 @@
       </div>
 
       <div>
-        <glu-dropdown trigger="my-trigger-2" is-backdrop-dismiss side="bottom" size="cover">
-          <glu-button id="my-trigger-2" slot="dropdown-trigger">background dismiss Dropdown</glu-button>
+        <glu-dropdown is-backdrop-dismiss side="bottom" size="cover">
+          <glu-button slot="dropdown-trigger">background dismiss Dropdown</glu-button>
           <ul>
             <li>Item A</li>
             <li>Item B</li>
@@ -88,8 +88,8 @@
       </div>
 
       <div>
-        <glu-dropdown trigger="hover-trigger" trigger-action="hover" has-arrow>
-          <glu-button id="hover-trigger" slot="dropdown-trigger">Hover over me</glu-button>
+        <glu-dropdown trigger-action="hover" has-arrow>
+          <glu-button slot="dropdown-trigger">Hover over me</glu-button>
           <ul>
             <li>Hover Item 1</li>
             <li>Hover Item 2</li>
@@ -99,8 +99,8 @@
       </div>
 
       <div>
-        <glu-dropdown trigger="context-trigger" trigger-action="context-menu" is-backdrop-dismiss show-backdrop>
-          <div id="context-trigger" slot="dropdown-trigger" style="padding: 10px; border: 1px solid #ccc;">
+        <glu-dropdown trigger-action="context-menu" is-backdrop-dismiss show-backdrop>
+          <div slot="dropdown-trigger" style="padding: 10px; border: 1px solid #ccc;">
             Right-click inside this box
           </div>
           <ul>
