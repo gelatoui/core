@@ -1,0 +1,295 @@
+---
+sidebar_position: 2
+title: glu-breadcrumb
+slug: /components/breadcrumb
+---
+
+# Breadcrumb Component
+
+import BreadcrumbReadme from '@gelato-ui/components/dist/readme/components/breadcrumb/readme.md'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+import { GluBreadcrumb } from '@gelato-ui/react'
+
+<p>
+  <glu-breadcrumb target="_blank" rel="noopener noreferrer" href="https://www.figma.com/design/jSs4mJxj7dJbXsCE1IHtqt/GelatoUI-Design-System-(V-0.1.0)?node-id=325-6919&p=f&t=QsMKFgYzFn6Cdpu3-0">
+    Figma
+  </glu-breadcrumb>
+</p>
+
+The `glu-breadcrumb` component is a navigation element used to display the current page's location within a hierarchy. When an `href` is provided, the breadcrumb becomes a clickable link. It also supports customization of the separator via a named slot.
+
+---
+
+## Basic Usage
+
+### Example 1: Simple Breadcrumb
+
+Use the breadcrumb as a non-clickable label.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-breadcrumb>
+    Home
+  </glu-breadcrumb>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluBreadcrumb>
+    Home
+  </GluBreadcrumb>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html live
+  <glu-breadcrumb>
+    Home
+  </glu-breadcrumb>
+
+  <script setup>
+  import { GluBreadcrumb } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html live
+  <glu-breadcrumb>
+    Home
+  </glu-breadcrumb>
+  ```
+
+  ```ts live
+  import { Component } from '@angular/core';
+  import { GluBreadcrumb } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluBreadcrumb],
+    template: `<glu-breadcrumb>Home</glu-breadcrumb>`
+  })
+  export class MyComponent {}
+  ```
+  </TabItem>
+</Tabs>
+
+---
+
+## Breadcrumb as a Link
+
+When an `href` is provided, the component renders as an anchor tag, making it clickable.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-breadcrumb href="https://example.com">
+    Home
+  </glu-breadcrumb>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluBreadcrumb href="https://example.com">
+    Home
+  </GluBreadcrumb>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html live
+  <glu-breadcrumb href="https://example.com">
+    Home
+  </glu-breadcrumb>
+
+  <script setup>
+  import { GluBreadcrumb } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html live
+  <glu-breadcrumb href="https://example.com">
+    Home
+  </glu-breadcrumb>
+  ```
+
+  ```ts live
+  import { Component } from '@angular/core';
+  import { GluBreadcrumb } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluBreadcrumb],
+    template: `<glu-breadcrumb href="https://example.com">Home</glu-breadcrumb>`
+  })
+  export class MyComponent {}
+  ```
+  </TabItem>
+</Tabs>
+
+---
+
+## Custom Separator
+
+By default, the breadcrumb displays an arrow icon as a separator. You can customize this by providing your own content for the `separator` slot.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <glu-breadcrumb>
+    Home
+    <span slot="separator">/</span>
+  </glu-breadcrumb>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  <GluBreadcrumb>
+    <>
+      Home
+      <span slot="separator">/</span>
+    </>
+  </GluBreadcrumb>
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html live
+  <glu-breadcrumb>
+    Home
+    <template #separator>/</template>
+  </glu-breadcrumb>
+
+  <script setup>
+  import { GluBreadcrumb } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html live
+  <glu-breadcrumb>
+    Home
+    <span slot="separator">/</span>
+  </glu-breadcrumb>
+  ```
+
+  ```ts live
+  import { Component } from '@angular/core';
+  import { GluBreadcrumb } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluBreadcrumb],
+    template: `
+      <glu-breadcrumb>
+        Home
+        <span slot="separator">/</span>
+      </glu-breadcrumb>
+    `
+  })
+  export class MyComponent {}
+  ```
+  </TabItem>
+</Tabs>
+
+---
+
+## Full Breadcrumb Navigation
+
+To build a complete breadcrumb navigation, combine multiple `glu-breadcrumb` components within a navigation container.
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+  ```html live
+  <nav aria-label="breadcrumb" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+    <glu-breadcrumb href="/home">Home</glu-breadcrumb>
+    <glu-breadcrumb href="/library">Library</glu-breadcrumb>
+    <glu-breadcrumb>Data</glu-breadcrumb>
+  </nav>
+  ```
+
+  </TabItem>
+  <TabItem value="jsx" label="React">
+
+  ```jsx live
+  function BreadcrumbNav() {
+    return (
+      <nav aria-label="breadcrumb" style={{ display: 'flex', alignItems: 'center' }}>
+        <GluBreadcrumb href="/home">Home</GluBreadcrumb>
+        <GluBreadcrumb href="/library">Library</GluBreadcrumb>
+        <GluBreadcrumb>Data</GluBreadcrumb>
+      </nav>
+    );
+  }
+  ```
+
+  </TabItem>
+  <TabItem value="vue" label="Vue">
+
+  ```html live
+  <nav aria-label="breadcrumb" style="display: flex; align-items: center;">
+    <glu-breadcrumb href="/home">Home</glu-breadcrumb>
+    <glu-breadcrumb href="/library">Library</glu-breadcrumb>
+    <glu-breadcrumb>Data</glu-breadcrumb>
+  </nav>
+
+  <script setup>
+  import { GluBreadcrumb } from '@gelato-ui/vue';
+  </script>
+  ```
+
+  </TabItem>
+  <TabItem value="angular" label="Angular">
+
+  ```html live
+  <nav aria-label="breadcrumb" style="display: flex; align-items: center;">
+    <glu-breadcrumb href="/home">Home</glu-breadcrumb>
+    <glu-breadcrumb href="/library">Library</glu-breadcrumb>
+    <glu-breadcrumb>Data</glu-breadcrumb>
+  </nav>
+  ```
+
+  ```ts live
+  import { Component } from '@angular/core';
+  import { GluBreadcrumb } from '@gelato-ui/angular';
+
+  @Component({
+    standalone: true,
+    imports: [GluBreadcrumb],
+    template: `
+      <nav aria-label="breadcrumb" style="display: flex; align-items: center;">
+        <glu-breadcrumb href="/home">Home</glu-breadcrumb>
+        <glu-breadcrumb href="/library">Library</glu-breadcrumb>
+        <glu-breadcrumb>Data</glu-breadcrumb>
+      </nav>
+    `
+  })
+  export class MyComponent {}
+  ```
+  </TabItem>
+</Tabs>
+
+---
+
+<BreadcrumbReadme />
