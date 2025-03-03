@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`glu-menu renders correctly with default props 1`] = `
+<glu-menu class="glu-menu glu-menu--logo-left" type="logo-left">
+  <template shadowrootmode="open">
+    <nav class="glu-menu__nav" role="navigation">
+      <div class="glu-menu__container glu-menu__container--logo-left">
+        <div class="glu-menu__logo-wrapper">
+          <slot name="logo"></slot>
+        </div>
+        <div class="glu-menu__items-wrapper">
+          <slot name="menu-items"></slot>
+        </div>
+        <div class="glu-menu__actions-wrapper">
+          <slot name="right-actions"></slot>
+        </div>
+      </div>
+    </nav>
+  </template>
+</glu-menu>
+`;
+
+exports[`glu-menu renders correctly with logo prop 1`] = `
+<glu-menu class="glu-menu glu-menu--logo-left" logo="logo.png" type="logo-left">
+  <template shadowrootmode="open">
+    <nav class="glu-menu__nav" role="navigation">
+      <div class="glu-menu__container glu-menu__container--logo-left">
+        <div class="glu-menu__logo-wrapper">
+          <img alt="Logo" class="glu-menu__logo-img" src="logo.png">
+        </div>
+        <div class="glu-menu__items-wrapper">
+          <slot name="menu-items"></slot>
+        </div>
+        <div class="glu-menu__actions-wrapper">
+          <slot name="right-actions"></slot>
+        </div>
+      </div>
+    </nav>
+  </template>
+</glu-menu>
+`;
+
+exports[`glu-menu renders slots correctly 1`] = `
+<glu-menu class="glu-menu glu-menu--logo-left" type="logo-left">
+  <template shadowrootmode="open">
+    <nav class="glu-menu__nav" role="navigation">
+      <div class="glu-menu__container glu-menu__container--logo-left">
+        <div class="glu-menu__logo-wrapper">
+          <slot name="logo"></slot>
+        </div>
+        <div class="glu-menu__items-wrapper">
+          <slot name="menu-items"></slot>
+        </div>
+        <div class="glu-menu__actions-wrapper">
+          <slot name="right-actions"></slot>
+        </div>
+      </div>
+    </nav>
+  </template>
+  <span slot="logo">
+    Logo Slot
+  </span>
+  <span slot="menu-items">
+    Menu Items
+  </span>
+  <span slot="right-actions">
+    Right Actions
+  </span>
+</glu-menu>
+`;

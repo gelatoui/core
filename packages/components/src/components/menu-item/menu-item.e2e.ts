@@ -11,7 +11,9 @@ describe('glu-menu-item (E2E)', () => {
 
     expect(element).toHaveClass('hydrated')
 
-    expect(element).toHaveClass('label')
+    const label = element.shadowRoot.querySelector('glu-label')
+
+    expect(label).toBeTruthy()
   })
 
   it('renders button type correctly', async () => {
@@ -20,7 +22,8 @@ describe('glu-menu-item (E2E)', () => {
     await page.setContent('<glu-menu-item type="button">Click Me</glu-menu-item>')
 
     const element = await page.find('glu-menu-item')
+    const button = element.shadowRoot.querySelector('glu-button')
 
-    expect(element).toHaveClass('button')
+    expect(button).toBeTruthy()
   })
 })

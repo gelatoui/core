@@ -5,11 +5,9 @@ import { Component, Element, Fragment, h, Host, Prop, State, Watch } from '@sten
  * @tag glu-menu
  * @shadow true
  *
- * Responsive menu component with multiple layout options.
- *
- * @slot logo - The logo content (when not using the logo prop)
- * @slot menu-items - The menu items to be displayed
- * @slot right-actions - The right actions (optional)
+ * @slot logo - Slot for custom logo content (used when `logo` prop is not set).
+ * @slot menu-items - Slot for the menu items to be displayed.
+ * @slot right-actions - Slot for additional actions or buttons aligned to the right.
  */
 @Component({
   tag: 'glu-menu',
@@ -18,56 +16,55 @@ import { Component, Element, Fragment, h, Host, Prop, State, Watch } from '@sten
 })
 export class GluMenu {
   /**
-   * Defines the menu layout type
-   * - logo-left: Logo on left, menu items in center, right actions on right
-   * - logo-center: Menu items on left, logo in center, right actions on right
-   * - menu-center: Logo on left, menu items in center, right actions on right
+   * Defines the menu layout type.
+   * - `logo-left`: Logo on the left, menu items in the center, right actions on the right.
+   * - `logo-center`: Menu items on the left, logo in the center, right actions on the right.
+   * - `menu-center`: Logo on the left, menu items in the center, right actions on the right.
    */
   @Prop({ reflect: true }) readonly type: 'logo-left' | 'logo-center' | 'menu-center' = 'logo-left'
 
   /**
-   * URL for the logo image (alternative to using the logo slot)
+   * URL for the logo image. If set, it takes precedence over the `logo` slot.
    */
-  @Prop() readonly logo: string
+  @Prop() readonly logo?: string
 
   /**
-   * Whether to make the menu isSticky at the top of the viewport
+   * If `true`, the menu will be fixed at the top of the viewport.
    */
-  @Prop() readonly isSticky = false
+  @Prop() readonly isSticky: boolean = false
 
   /**
-   * Whether to collapse the menu on small screens
+   * If `true`, the menu adapts for smaller screens by enabling mobile-friendly behavior.
    */
-  @Prop() readonly isResponsive = false
+  @Prop() readonly isResponsive: boolean = false
 
   /**
-   * Reference to host element
+   * Reference to the host element.
    */
-  // eslint-disable-next-line no-undef
-  @Element() hostElement: HTMLGluMenuElement
+  @Element() hostElement!: HTMLGluMenuElement
 
   /**
-   * Track if logo slot has content
+   * Tracks whether the `logo` slot has content.
    */
   @State() hasLogoSlot = false
 
   /**
-   * Track if menu is in mobile mode
+   * Tracks whether the menu is currently in mobile view.
    */
   @State() isMobileView = false
 
   /**
-   * Track if mobile menu is open
+   * Tracks whether the mobile menu is open.
    */
   @State() isMobileMenuOpen = false
 
   /**
-   * Observe screen size changes
+   * Observer for detecting screen size changes.
    */
-  private resizeObserver: ResizeObserver
+  private resizeObserver!: ResizeObserver
 
   connectedCallback() {
-    if (this.isResponsive) {
+    if (this.isResponsive && ResizeObserver) {
       this.resizeObserver = new ResizeObserver(() => this.checkViewportSize())
 
       this.resizeObserver.observe(document.body)
@@ -75,9 +72,7 @@ export class GluMenu {
   }
 
   disconnectedCallback() {
-    if (this.resizeObserver) {
-      this.resizeObserver.disconnect()
-    }
+    this.resizeObserver?.disconnect()
   }
 
   componentWillLoad() {
@@ -88,44 +83,38 @@ export class GluMenu {
 
   @Watch('isResponsive')
   responsiveChanged() {
-    if (this.isResponsive) {
-      this.checkViewportSize()
-    } else {
-      this.isMobileView = false
-    }
+    this.isResponsive ? this.checkViewportSize() : (this.isMobileView = false)
   }
 
   /**
-   * Check if viewport is mobile size
+   * Checks whether the viewport width falls within the mobile threshold.
    */
   private checkViewportSize() {
     this.isMobileView = this.isResponsive && window.innerWidth < 768
   }
 
   /**
-   * Toggle mobile menu state
+   * Toggles the mobile menu open/close state.
    */
   private toggleMobileMenu = () => {
     this.isMobileMenuOpen = !this.isMobileMenuOpen
   }
 
   /**
-   * Render the logo based on prop or slot
+   * Renders the logo either from the `logo` prop or the `logo` slot.
    */
   private renderLogo() {
-    if (this.logo) {
-      return <img src={this.logo} alt="Logo" class="glu-menu__logo-img" />
-    }
-
-    return (
-      <div part="logo-wrapper">
+    return this.logo ?
+      (
+        <img src={this.logo} alt="Logo" class="glu-menu__logo-img" />
+      ) :
+      (
         <slot name="logo"></slot>
-      </div>
-    )
+      )
   }
 
   /**
-   * Render mobile menu toggle button
+   * Renders the mobile menu toggle button.
    */
   private renderMobileToggle() {
     return (
@@ -141,7 +130,7 @@ export class GluMenu {
   }
 
   /**
-   * Render logo-left layout
+   * Renders the `logo-left` layout.
    */
   private renderLogoLeft() {
     return (
@@ -154,7 +143,7 @@ export class GluMenu {
   }
 
   /**
-   * Render logo-center layout
+   * Renders the `logo-center` layout.
    */
   private renderLogoCenter() {
     return (
@@ -167,7 +156,7 @@ export class GluMenu {
   }
 
   /**
-   * Render menu-center layout
+   * Renders the `menu-center` layout.
    */
   private renderMenuCenter() {
     return (
@@ -180,7 +169,7 @@ export class GluMenu {
   }
 
   /**
-   * Render mobile menu
+   * Renders the mobile menu panel.
    */
   private renderMobileMenu() {
     return (
@@ -226,7 +215,6 @@ export class GluMenu {
                 {this.type === 'menu-center' && this.renderMenuCenter()}
               </Fragment>
             )}
-
           {this.isMobileView && this.renderMobileMenu()}
         </nav>
       </Host>

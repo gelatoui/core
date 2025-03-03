@@ -14,7 +14,9 @@ describe('glu-menu-item', () => {
 
     expect(page.root).toHaveClass('glu-menu-item')
 
-    expect(page.root).toHaveClass('label')
+    const label = page.root.ShadowRoot.querySelector('glu-label')
+
+    expect(label).toBeTruthy()
   })
 
   it('renders correctly as a button', async () => {
@@ -27,6 +29,8 @@ describe('glu-menu-item', () => {
 
     expect(page.root).toHaveClass('glu-menu-item')
 
-    expect(page.root).toHaveClass('button')
+    const button = page.root.ShadowRoot.querySelector('glu-button')
+
+    expect(button).toBeTruthy()
   })
 })
