@@ -28,17 +28,17 @@ export class GluMenu {
   /**
    * URL for the logo image (alternative to using the logo slot)
    */
-  @Prop() readonly logo = ''
+  @Prop() readonly logo: string
 
   /**
-   * Whether to make the menu sticky at the top of the viewport
+   * Whether to make the menu isSticky at the top of the viewport
    */
-  @Prop() readonly sticky = false
+  @Prop() readonly isSticky = false
 
   /**
    * Whether to collapse the menu on small screens
    */
-  @Prop() readonly responsive = true
+  @Prop() readonly isResponsive = false
 
   /**
    * Reference to host element
@@ -67,7 +67,7 @@ export class GluMenu {
   private resizeObserver: ResizeObserver
 
   connectedCallback() {
-    if (this.responsive) {
+    if (this.isResponsive) {
       this.resizeObserver = new ResizeObserver(() => this.checkViewportSize())
 
       this.resizeObserver.observe(document.body)
@@ -86,9 +86,9 @@ export class GluMenu {
     this.checkViewportSize()
   }
 
-  @Watch('responsive')
+  @Watch('isResponsive')
   responsiveChanged() {
-    if (this.responsive) {
+    if (this.isResponsive) {
       this.checkViewportSize()
     } else {
       this.isMobileView = false
@@ -99,7 +99,7 @@ export class GluMenu {
    * Check if viewport is mobile size
    */
   private checkViewportSize() {
-    this.isMobileView = this.responsive && window.innerWidth < 768
+    this.isMobileView = this.isResponsive && window.innerWidth < 768
   }
 
   /**
@@ -117,7 +117,11 @@ export class GluMenu {
       return <img src={this.logo} alt="Logo" class="glu-menu__logo-img" />
     }
 
-    return <slot name="logo"></slot>
+    return (
+      <div part="logo-wrapper">
+        <slot name="logo"></slot>
+      </div>
+    )
   }
 
   /**
@@ -202,7 +206,7 @@ export class GluMenu {
         class={{
           'glu-menu': true,
           [`glu-menu--${this.type}`]: true,
-          'glu-menu--sticky': this.sticky,
+          'glu-menu--sticky': this.isSticky,
           'glu-menu--mobile': this.isMobileView,
           'glu-menu--mobile-open': this.isMobileView && this.isMobileMenuOpen
         }}

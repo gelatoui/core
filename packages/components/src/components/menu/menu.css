@@ -1,7 +1,7 @@
-/* Base Styles */
 :host {
   display: block;
   box-sizing: border-box;
+  position: relative;
   --glu-menu-height: 64px;
   --glu-menu-mobile-height: 56px;
   --glu-menu-background: var(--tokens-background-base-surface-1);
@@ -13,23 +13,23 @@
   --glu-menu-mobile-breakpoint: 768px;
   --glu-menu-mobile-menu-bg: var(--tokens-background-base-surface-1);
   --glu-menu-toggle-color: var(--tokens-text-on-light-default);
-  --glu-menu-z-index: 100;
+  --glu-menu-z-index: 999;
+  --glu-menu-logo-max-width: 200px;
 }
 
-/* Host Modifiers */
 :host(.glu-menu--sticky) {
   position: sticky;
   top: 0;
   z-index: var(--glu-menu-z-index);
 }
 
-/* Main Navigation Container */
 .glu-menu__nav {
+  box-sizing: border-box;
+  overflow: hidden;
   width: 100%;
   height: var(--glu-menu-height);
   background-color: var(--glu-menu-background);
-  border-bottom: 1px solid var(--glu-menu-border-color);
-  box-shadow: var(--glu-menu-shadow);
+  border-bottom: 1px solid var(--tokens-stroke-on-light-default, #DCE0E6);
 }
 
 /* Menu Container */
@@ -64,24 +64,24 @@
   gap: var(--spacing-150)
 }
 
-/* Logo specific styles */
 .glu-menu__logo-wrapper {
   flex-shrink: 0;
-}
-
-.glu-menu__logo-wrapper {
-  max-height: var(--glu-menu-logo-max-height);
-}
-
-.glu-menu__logo-wrapper ::slotted(div) {
-  display: flex; /* Ensures the child respects sizing */
+  display: flex;
   align-items: center;
-  max-height: inherit;
+  max-width: var(--glu-menu-logo-max-width);
+  height: 100%;
 }
 
-.glu-menu__logo-wrapper ::slotted(div) img {
-  max-height: inherit;
+.glu-menu__logo-wrapper img,
+.glu-menu__logo-wrapper ::slotted(*)
+{
+  max-width: 100%;
   width: auto;
+  height: auto;
+  max-height: 100%;
+  max-height: var(--glu-menu-logo-max-height);
+  object-fit: contain;
+  padding: var(--spacing-050) 0;
 }
 
 /* Menu items wrapper */
@@ -228,6 +228,13 @@
 .glu-menu__mobile-items {
   display: flex;
   flex-direction: column;
+  padding-bottom: var(--spacing-200);
+}
+
+.glu-menu__mobile-items ::slotted(*) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
 }
 
 .glu-menu__mobile-actions {
@@ -238,7 +245,7 @@
 }
 
 /* Media Queries */
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   :host(:not(.glu-menu--mobile)) .glu-menu__container {
     flex-wrap: wrap;
   }
@@ -249,17 +256,8 @@
     margin: 0;
     padding: var(--spacing-100) 0;
   }
-}
+} */
 
-/* CSS Custom Properties for theming */
-:host(.glu-menu--dark) {
-  --glu-menu-background: var(--tokens-background-base-surface-8);
-  --glu-menu-border-color: var(--tokens-stroke-on-dark-default);
-  --glu-menu-toggle-color: var(--tokens-text-on-dark-heavy);
-  --glu-menu-mobile-menu-bg: var(--tokens-background-base-surface-8);
-}
-
-/* Typography styles for menu items */
 .glu-menu__item {
   font-family: var(--body-medium-medium-font-family);
   font-size: var(--body-medium-medium-font-size);
@@ -272,7 +270,6 @@
   color: var(--tokens-primary-default);
 }
 
-/* Small/mobile item typography */
 .glu-menu__mobile-items .glu-menu__item {
   font-family: var(--body-medium-regular-font-family);
   font-size: var(--body-medium-regular-font-size);
