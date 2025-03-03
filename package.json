@@ -45,7 +45,6 @@
     "svelte",
     "angular"
   ],
-  "license": "Apache License 2.0",
   "private": false,
   "workspaces": [
     "./packages/components",

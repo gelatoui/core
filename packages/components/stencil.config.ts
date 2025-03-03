@@ -3,7 +3,7 @@ import { reactOutputTarget } from '@stencil/react-output-target'
 
 export const config: Config = {
   namespace: 'glu',
-  globalStyle: 'src/global/global.css',
+  globalStyle: 'src/styles/index.css',
   preamble: 'Built with GelatoUI',
   outputTargets: [
     {

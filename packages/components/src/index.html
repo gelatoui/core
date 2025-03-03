@@ -16,13 +16,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="example">
+    <div class="example-1">
       <h2>Type: logo-left</h2>
-      <glu-menu type="logo-left" sticky responsive>
+      <glu-menu type="logo-left" is-sticky>
         <!-- Logo Slot -->
-        <div slot="logo">
-          <img src="https://placehold.jp/350x150.png" alt="Company Logo" width="120">
-        </div>
+        <img src="https://placehold.jp/350x150.png" slot="logo" alt="Company Logo" width="120">
 
         <!-- Menu Items Slot -->
         <div slot="menu-items">
@@ -49,13 +47,11 @@
     </div>
 
     <!-- Example 2: Logo-Center Layout -->
-    <div class="example">
+    <div class="example-2">
       <h2>Type: logo-center</h2>
-      <glu-menu type="logo-center" responsive>
+      <glu-menu type="logo-center" is-responsive>
         <!-- Logo Slot -->
-        <div slot="logo">
-          <img src="https://placehold.jp/350x150.png" alt="Company Logo" width="150">
-        </div>
+        <img src="https://placehold.jp/350x150.png" alt="Company Logo" slot="logo" width="150">
 
         <!-- Menu Items Slot -->
         <div slot="menu-items">
@@ -80,9 +76,9 @@
     </div>
 
     <!-- Example 3: Menu-Center Layout -->
-    <div class="example">
+    <div class="example-3">
       <h2>Type: menu-center</h2>
-      <glu-menu type="menu-center" sticky>
+      <glu-menu type="menu-center" is-sticky>
         <!-- Using logo prop instead of slot -->
         <img slot="logo" src="https://placehold.jp/350x150.png" alt="Company Logo" width="100">
 
@@ -111,12 +107,32 @@
     </div>
 
     <!-- Example 4: Simple Example with logo prop instead of slot -->
-    <div class="example">
+    <div class="example-4">
       <h2>Using logo prop instead of slot</h2>
       <glu-menu
         type="logo-left"
         logo="https://placehold.jp/350x150.png"
-        responsive>
+        is-responsive
+      >
+
+        <!-- Menu Items Slot -->
+        <div slot="menu-items">
+          <glu-menu-item type="label">Home</glu-menu-item>
+          <glu-menu-item type="label">About</glu-menu-item>
+          <glu-menu-item type="label">Contact</glu-menu-item>
+        </div>
+
+        <!-- Right Actions Slot -->
+        <div slot="right-actions">
+          <glu-menu-item type="button">Sign In</glu-menu-item>
+        </div>
+      </glu-menu>
+
+      <glu-menu
+        type="logo-left"
+        logo="https://placehold.jp/350x150.png"
+        is-responsive
+      >
 
         <!-- Menu Items Slot -->
         <div slot="menu-items">
