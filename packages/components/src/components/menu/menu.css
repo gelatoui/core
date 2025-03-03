@@ -1,0 +1,282 @@
+/* Base Styles */
+:host {
+  display: block;
+  box-sizing: border-box;
+  --glu-menu-height: 64px;
+  --glu-menu-mobile-height: 56px;
+  --glu-menu-background: var(--tokens-background-base-surface-1);
+  --glu-menu-border-color: var(--tokens-stroke-on-light-default);
+  --glu-menu-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --glu-menu-padding: 0 var(--spacing-300);
+  --glu-menu-logo-max-height: 40px;
+  --glu-menu-transition: all 0.3s ease;
+  --glu-menu-mobile-breakpoint: 768px;
+  --glu-menu-mobile-menu-bg: var(--tokens-background-base-surface-1);
+  --glu-menu-toggle-color: var(--tokens-text-on-light-default);
+  --glu-menu-z-index: 100;
+}
+
+/* Host Modifiers */
+:host(.glu-menu--sticky) {
+  position: sticky;
+  top: 0;
+  z-index: var(--glu-menu-z-index);
+}
+
+/* Main Navigation Container */
+.glu-menu__nav {
+  width: 100%;
+  height: var(--glu-menu-height);
+  background-color: var(--glu-menu-background);
+  border-bottom: 1px solid var(--glu-menu-border-color);
+  box-shadow: var(--glu-menu-shadow);
+}
+
+/* Menu Container */
+.glu-menu__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: var(--glu-menu-padding);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Base layout for sections */
+.glu-menu__logo-wrapper,
+.glu-menu__items-wrapper,
+.glu-menu__actions-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.glu-menu__logo-wrapper ::slotted(*),
+.glu-menu__items-wrapper ::slotted(*) {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-100)
+}
+
+.glu-menu__actions-wrapper ::slotted(*) {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-150)
+}
+
+/* Logo specific styles */
+.glu-menu__logo-wrapper {
+  flex-shrink: 0;
+}
+
+.glu-menu__logo-wrapper {
+  max-height: var(--glu-menu-logo-max-height);
+}
+
+.glu-menu__logo-wrapper ::slotted(div) {
+  display: flex; /* Ensures the child respects sizing */
+  align-items: center;
+  max-height: inherit;
+}
+
+.glu-menu__logo-wrapper ::slotted(div) img {
+  max-height: inherit;
+  width: auto;
+}
+
+/* Menu items wrapper */
+.glu-menu__items-wrapper {
+  flex: 1;
+  justify-content: center;
+}
+
+/* Right actions wrapper */
+.glu-menu__actions-wrapper {
+  flex-shrink: 0;
+}
+
+/* Logo Left Layout */
+.glu-menu__container--logo-left {
+  justify-content: flex-start;
+  gap: var(--spacing-300);
+}
+
+.glu-menu__container--logo-left .glu-menu__items-wrapper {
+  justify-content: flex-start;
+}
+
+.glu-menu__container--logo-left .glu-menu__actions-wrapper {
+  margin-left: auto;
+}
+
+/* Logo Center Layout */
+.glu-menu__container--logo-center {
+  justify-content: space-between;
+}
+
+.glu-menu__container--logo-center .glu-menu__logo-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.glu-menu__container--logo-center .glu-menu__items-wrapper {
+  justify-content: flex-start;
+  margin-right: auto;
+}
+
+/* Menu Center Layout */
+.glu-menu__container--menu-center {
+  justify-content: space-between;
+}
+
+.glu-menu__container--menu-center .glu-menu__items-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Mobile styles */
+:host(.glu-menu--mobile) .glu-menu__nav {
+  height: var(--glu-menu-mobile-height);
+  padding: 0 var(--spacing-200);
+}
+
+.glu-menu__mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.glu-menu__mobile-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.glu-menu__mobile-toggle-icon,
+.glu-menu__mobile-toggle-icon::before,
+.glu-menu__mobile-toggle-icon::after {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--glu-menu-toggle-color);
+  position: relative;
+  transition: var(--glu-menu-transition);
+}
+
+.glu-menu__mobile-toggle-icon::before,
+.glu-menu__mobile-toggle-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.glu-menu__mobile-toggle-icon::before {
+  top: -8px;
+}
+
+.glu-menu__mobile-toggle-icon::after {
+  bottom: -8px;
+}
+
+:host(.glu-menu--mobile-open) .glu-menu__mobile-toggle-icon {
+  background-color: transparent;
+}
+
+:host(.glu-menu--mobile-open) .glu-menu__mobile-toggle-icon::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+:host(.glu-menu--mobile-open) .glu-menu__mobile-toggle-icon::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.glu-menu__mobile-menu {
+  display: none;
+  position: absolute;
+  top: var(--glu-menu-mobile-height);
+  left: 0;
+  width: 100%;
+  background-color: var(--glu-menu-mobile-menu-bg);
+  box-shadow: var(--glu-menu-shadow);
+  z-index: var(--glu-menu-z-index);
+  padding: var(--spacing-200);
+  box-sizing: border-box;
+  border-top: 1px solid var(--glu-menu-border-color);
+  max-height: 0;
+  overflow: hidden;
+  transition: var(--glu-menu-transition);
+}
+
+:host(.glu-menu--mobile-open) .glu-menu__mobile-menu {
+  display: block;
+  max-height: calc(100vh - var(--glu-menu-mobile-height));
+  overflow-y: auto;
+}
+
+.glu-menu__mobile-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.glu-menu__mobile-actions {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--glu-menu-border-color);
+  padding-top: var(--spacing-200);
+}
+
+/* Media Queries */
+@media (max-width: 767px) {
+  :host(:not(.glu-menu--mobile)) .glu-menu__container {
+    flex-wrap: wrap;
+  }
+
+  :host(:not(.glu-menu--mobile)) .glu-menu__items-wrapper {
+    order: 3;
+    width: 100%;
+    margin: 0;
+    padding: var(--spacing-100) 0;
+  }
+}
+
+/* CSS Custom Properties for theming */
+:host(.glu-menu--dark) {
+  --glu-menu-background: var(--tokens-background-base-surface-8);
+  --glu-menu-border-color: var(--tokens-stroke-on-dark-default);
+  --glu-menu-toggle-color: var(--tokens-text-on-dark-heavy);
+  --glu-menu-mobile-menu-bg: var(--tokens-background-base-surface-8);
+}
+
+/* Typography styles for menu items */
+.glu-menu__item {
+  font-family: var(--body-medium-medium-font-family);
+  font-size: var(--body-medium-medium-font-size);
+  font-weight: var(--body-medium-medium-font-weight);
+  line-height: var(--body-medium-medium-line-height);
+}
+
+.glu-menu__item--active {
+  font-weight: var(--body-medium-bold-font-weight);
+  color: var(--tokens-primary-default);
+}
+
+/* Small/mobile item typography */
+.glu-menu__mobile-items .glu-menu__item {
+  font-family: var(--body-medium-regular-font-family);
+  font-size: var(--body-medium-regular-font-size);
+  font-weight: var(--body-medium-regular-font-weight);
+  line-height: var(--body-medium-regular-line-height);
+  padding: var(--spacing-100) 0;
+}
