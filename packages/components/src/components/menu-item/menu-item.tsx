@@ -1,4 +1,3 @@
-// TODO: this component is not ready yet, its just a initial version
 import { Component, Element, h, Host, Prop, State } from '@stencil/core'
 
 /**
@@ -24,6 +23,21 @@ export class GluMenuItem {
   @Prop({ reflect: true }) readonly type: 'label' | 'dropdown' | 'button' = 'label'
 
   /**
+   * URL to navigate to when clicking the menu item (used for 'label' and 'button' types).
+   */
+  @Prop() readonly href?: string
+
+  /**
+   * Specifies where to open the linked document. Only applicable if `href` is set.
+   */
+  @Prop() readonly target?: '_self' | '_blank' | '_parent' | '_top'
+
+  /**
+   * Specifies the relationship between the current document and the linked document. Only applicable if `href` is set.
+   */
+  @Prop() readonly rel?: string
+
+  /**
    * A reference to the host element.
    */
   // eslint-disable-next-line no-undef
@@ -43,7 +57,15 @@ export class GluMenuItem {
       <Host class={`glu-menu-item glu-menu-item--${this.type}`} part="menu-item">
         {this.type === 'label' && (
           <glu-label class="label-container" onClick={this.toggleDropdown}>
-            <slot></slot>
+            {this.href ?
+              (
+                <a href={this.href} target={this.target} rel={this.rel} class="label-container">
+                  <slot></slot>
+                </a>
+              ) :
+              (
+                <slot></slot>
+              )}
           </glu-label>
         )}
 
@@ -60,7 +82,7 @@ export class GluMenuItem {
         )}
 
         {this.type === 'button' && (
-          <glu-button>
+          <glu-button href={this.href} target={this.target} rel={this.rel}>
             <slot></slot>
           </glu-button>
         )}

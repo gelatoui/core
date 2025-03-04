@@ -24,18 +24,20 @@
 
         <!-- Menu Items Slot -->
         <div slot="menu-items">
-          <glu-menu-item type="label">Home</glu-menu-item>
-          <glu-menu-item type="label">About</glu-menu-item>
-          <glu-menu-item type="dropdown">
+          <glu-menu-item href="#" type="label">
+            Home
+          </glu-menu-item>
+          <glu-menu-item href="#" type="label">About</glu-menu-item>
+          <glu-menu-item href="#" type="dropdown">
             Products
             <div slot="dropdown-content">
-              <glu-menu-item type="label">Product A</glu-menu-item>
-              <glu-menu-item type="label">Product B</glu-menu-item>
-              <glu-menu-item type="label">Product C</glu-menu-item>
+              <glu-menu-item href="#" type="label">Product A</glu-menu-item>
+              <glu-menu-item href="#" type="label">Product B</glu-menu-item>
+              <glu-menu-item href="#" type="label">Product C</glu-menu-item>
             </div>
           </glu-menu-item>
-          <glu-menu-item type="label">Services</glu-menu-item>
-          <glu-menu-item type="label">Contact</glu-menu-item>
+          <glu-menu-item href="#" type="label">Services</glu-menu-item>
+          <glu-menu-item href="#" type="label">Contact</glu-menu-item>
         </div>
 
         <!-- Right Actions Slot -->
@@ -369,7 +371,7 @@
       <glu-toggle disabled></glu-toggle>
       <glu-toggle helper-text="This enables advanced features."></glu-toggle>
       <glu-toggle error="This field is required."></glu-toggle>
-      <glu-toggle helper-text="This has a custom icon." helper-icon="info" helper-icon-variant="solid"></glu-toggle>
+      <glu-toggle helper-text="This has a custom icon." helper-icon="information-circle" helper-icon-variant="solid"></glu-toggle>
       <glu-toggle
         left-label="Enable Notifications"
         right-label="On/Off"
