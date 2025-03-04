@@ -2,12 +2,12 @@
   display: block;
   box-sizing: border-box;
   position: relative;
-  --glu-menu-height: 64px;
+  --glu-menu-min-height: 64px;
   --glu-menu-mobile-height: 56px;
   --glu-menu-background: var(--tokens-background-base-surface-1);
   --glu-menu-border-color: var(--tokens-stroke-on-light-default);
   --glu-menu-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --glu-menu-padding: 0 var(--spacing-300);
+  --glu-menu-padding: var(--spacing-100) var(--spacing-300);
   --glu-menu-logo-max-height: 40px;
   --glu-menu-transition: all 0.3s ease;
   --glu-menu-mobile-breakpoint: 768px;
@@ -25,11 +25,12 @@
 
 .glu-menu__nav {
   box-sizing: border-box;
-  overflow: hidden;
   width: 100%;
-  height: var(--glu-menu-height);
+  min-height: var(--glu-menu-min-height);
   background-color: var(--glu-menu-background);
   border-bottom: 1px solid var(--tokens-stroke-on-light-default, #DCE0E6);
+  display: flex;
+  align-items: center;
 }
 
 /* Menu Container */
@@ -39,8 +40,10 @@
   justify-content: space-between;
   height: 100%;
   padding: var(--glu-menu-padding);
+  width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 /* Base layout for sections */
@@ -55,7 +58,13 @@
 .glu-menu__items-wrapper ::slotted(*) {
   display: flex;
   align-items: center;
-  gap: var(--spacing-100)
+  gap: var(--spacing-100);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.glu-menu__items-wrapper glu-menu-item::part(menu-item) {
+  padding: var(--spacing-100, 0.5rem) var(--spacing-200, 1rem);
 }
 
 .glu-menu__actions-wrapper ::slotted(*) {
@@ -86,7 +95,7 @@
 
 /* Menu items wrapper */
 .glu-menu__items-wrapper {
-  flex: 1;
+  /* flex: 1; */
   justify-content: center;
 }
 
@@ -114,26 +123,14 @@
   justify-content: space-between;
 }
 
-.glu-menu__container--logo-center .glu-menu__logo-wrapper {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
 .glu-menu__container--logo-center .glu-menu__items-wrapper {
   justify-content: flex-start;
-  margin-right: auto;
 }
 
 /* Menu Center Layout */
 .glu-menu__container--menu-center {
   justify-content: space-between;
-}
-
-.glu-menu__container--menu-center .glu-menu__items-wrapper {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  gap: var(--spacing-300);
 }
 
 /* Mobile styles */

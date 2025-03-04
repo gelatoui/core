@@ -40,7 +40,7 @@ export class GluMenuItem {
 
   render() {
     return (
-      <Host class={`glu-menu-item glu-menu-item--${this.type}`}>
+      <Host class={`glu-menu-item glu-menu-item--${this.type}`} part="menu-item">
         {this.type === 'label' && (
           <glu-label class="label-container" onClick={this.toggleDropdown}>
             <slot></slot>
