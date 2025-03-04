@@ -1,0 +1,208 @@
+---
+sidebar_position: 2
+title: glu-menu
+slug: /components/menu
+---
+
+# Menu Component
+
+import MenuReadme from '@gelato-ui/components/dist/readme/components/menu/readme.md'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+import { GluMenu, GluMenuItem } from '@gelato-ui/react'
+
+:::warning
+
+Components is not ready yet.
+
+:::
+
+<p>
+  <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/design/jSs4mJxj7dJbXsCE1IHtqt/GelatoUI-Design-System-(V-0.1.0)?node-id=368-4011&t=1BZpcyYj8pnbh5uM-0">Figma</glu-button>
+</p>
+
+The `glu-menu` component is a flexible navigation component that supports multiple layouts and responsive behavior. It provides three main layout types and adapts to mobile views automatically when `is-responsive` is enabled.
+
+---
+
+## Basic Usage
+
+### Example 1: Logo-Left Layout
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+```html live
+<glu-menu type="logo-left" is-sticky>
+  <img src="https://placehold.jp/120x40.png" slot="logo" alt="Logo" width="120" />
+
+  <div slot="menu-items">
+    <glu-menu-item type="label">Home</glu-menu-item>
+    <glu-menu-item type="label">About</glu-menu-item>
+    <glu-menu-item type="label">Contact</glu-menu-item>
+  </div>
+
+  <div slot="right-actions">
+    <glu-menu-item type="button">Login</glu-menu-item>
+  </div>
+</glu-menu>
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Layout Types
+
+### Logo-Center Layout
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+```html live
+<glu-menu type="logo-center">
+  <img src="https://placehold.jp/150x50.png" slot="logo" alt="Logo" width="150" />
+
+  <div slot="menu-items">
+    <glu-menu-item type="label">Products</glu-menu-item>
+    <glu-menu-item type="label">Solutions</glu-menu-item>
+  </div>
+
+  <div slot="right-actions">
+    <glu-menu-item type="button">Contact</glu-menu-item>
+  </div>
+</glu-menu>
+```
+
+  </TabItem>
+</Tabs>
+
+### Menu-Center Layout
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+```html live
+<glu-menu type="menu-center" is-sticky>
+  <img src="https://placehold.jp/100x40.png" slot="logo" alt="Logo" width="100" />
+
+  <div slot="menu-items">
+    <glu-menu-item type="label">Home</glu-menu-item>
+    <glu-menu-item type="label">Resources</glu-menu-item>
+  </div>
+
+  <div slot="right-actions">
+    <glu-menu-item type="button">Search</glu-menu-item>
+  </div>
+</glu-menu>
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Responsive Behavior
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+```html live
+<glu-menu type="logo-left" is-responsive>
+  <img src="https://placehold.jp/120x40.png" slot="logo" alt="Logo" width="120" />
+
+  <div slot="menu-items">
+    <glu-menu-item type="label">Home</glu-menu-item>
+    <glu-menu-item type="label">About</glu-menu-item>
+    <glu-menu-item type="label">Contact</glu-menu-item>
+  </div>
+
+  <div slot="right-actions">
+    <glu-menu-item type="button">Login</glu-menu-item>
+  </div>
+</glu-menu>
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+## Props
+
+| Prop           | Type                              | Default       | Description                                                                 |
+|----------------|-----------------------------------|---------------|-----------------------------------------------------------------------------|
+| `type`         | `'logo-left'|'logo-center'|'menu-center'` | `'logo-left'` | Defines the layout type of the menu                                        |
+| `logo`         | `string`                          | -             | URL for the logo image (overrides logo slot)                                |
+| `is-sticky`    | `boolean`                         | `false`       | Makes the menu stick to the top of the viewport                             |
+| `is-responsive`| `boolean`                         | `false`       | Enables mobile-responsive behavior                                         |
+
+---
+
+## Slots
+
+| Name            | Description                                                                 |
+|-----------------|-----------------------------------------------------------------------------|
+| `logo`          | Content for the logo section (overridden by `logo` prop if set)             |
+| `menu-items`    | Main navigation items for the menu                                         |
+| `right-actions` | Additional actions or buttons displayed on the right side                  |
+
+---
+
+## Examples
+
+### Using Logo Prop
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+```html live
+<glu-menu type="logo-left" logo="https://placehold.jp/120x40.png" is-responsive>
+  <div slot="menu-items">
+    <glu-menu-item type="label">Home</glu-menu-item>
+    <glu-menu-item type="label">About</glu-menu-item>
+  </div>
+
+  <div slot="right-actions">
+    <glu-menu-item type="button">Sign In</glu-menu-item>
+  </div>
+</glu-menu>
+```
+
+  </TabItem>
+</Tabs>
+
+### Complex Navigation
+
+<Tabs>
+  <TabItem value="html" label="HTML">
+
+```html live
+<glu-menu type="logo-center" is-sticky is-responsive>
+  <img src="https://placehold.jp/150x50.png" slot="logo" alt="Logo" width="150" />
+
+  <div slot="menu-items">
+    <glu-menu-item type="dropdown">
+      Products
+      <div slot="dropdown-content">
+        <glu-menu-item type="label">Hardware</glu-menu-item>
+        <glu-menu-item type="label">Software</glu-menu-item>
+      </div>
+    </glu-menu-item>
+    <glu-menu-item type="label">Solutions</glu-menu-item>
+  </div>
+
+  <div slot="right-actions">
+    <glu-menu-item type="button">Contact Sales</glu-menu-item>
+    <glu-menu-item type="button">Support</glu-menu-item>
+  </div>
+</glu-menu>
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+<MenuReadme />
