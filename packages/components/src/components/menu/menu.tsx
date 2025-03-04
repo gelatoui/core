@@ -64,7 +64,7 @@ export class GluMenu {
   private resizeObserver!: ResizeObserver
 
   connectedCallback() {
-    if (this.isResponsive && ResizeObserver) {
+    if (this.isResponsive) {
       this.resizeObserver = new ResizeObserver(() => this.checkViewportSize())
 
       this.resizeObserver.observe(document.body)
@@ -148,9 +148,9 @@ export class GluMenu {
   private renderLogoCenter() {
     return (
       <div class="glu-menu__container glu-menu__container--logo-center">
-        <div class="glu-menu__items-wrapper"><slot name="menu-items"></slot></div>
+        <div class="glu-menu__items-wrapper left"><slot name="menu-items"></slot></div>
         <div class="glu-menu__logo-wrapper">{this.renderLogo()}</div>
-        <div class="glu-menu__actions-wrapper"><slot name="right-actions"></slot></div>
+        <div class="glu-menu__actions-wrapper right"><slot name="right-actions"></slot></div>
       </div>
     )
   }
@@ -161,9 +161,9 @@ export class GluMenu {
   private renderMenuCenter() {
     return (
       <div class="glu-menu__container glu-menu__container--menu-center">
-        <div class="glu-menu__logo-wrapper">{this.renderLogo()}</div>
+        <div class="glu-menu__logo-wrapper left">{this.renderLogo()}</div>
         <div class="glu-menu__items-wrapper"><slot name="menu-items"></slot></div>
-        <div class="glu-menu__actions-wrapper"><slot name="right-actions"></slot></div>
+        <div class="glu-menu__actions-wrapper right"><slot name="right-actions"></slot></div>
       </div>
     )
   }

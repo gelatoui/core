@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
-import { ButtonGlu } from './button'
+import { GluButton } from './button'
 
 import { newSpecPage } from '@stencil/core/testing'
 
 describe('glu-button', () => {
   it('renders correctly with default props', async () => {
     const page = await newSpecPage({
-      components: [ButtonGlu],
+      components: [GluButton],
       html: '<glu-button></glu-button>'
     })
 
@@ -31,7 +31,7 @@ describe('glu-button', () => {
 
   it('renders an anchor when href is provided', async () => {
     const page = await newSpecPage({
-      components: [ButtonGlu],
+      components: [GluButton],
       html: '<glu-button href="https://example.com"></glu-button>'
     })
 
@@ -57,7 +57,7 @@ describe('glu-button', () => {
 
   it('reflects properties correctly', async () => {
     const page = await newSpecPage({
-      components: [ButtonGlu],
+      components: [GluButton],
       html: '<glu-button appearance="outline" size="small" button-type="secondary"></glu-button>'
     })
 
@@ -70,7 +70,7 @@ describe('glu-button', () => {
 
   it('applies disabled attribute correctly', async () => {
     const page = await newSpecPage({
-      components: [ButtonGlu],
+      components: [GluButton],
       html: '<glu-button disabled="true"></glu-button>'
     })
 
@@ -79,7 +79,7 @@ describe('glu-button', () => {
 
   it('renders slot content', async () => {
     const page = await newSpecPage({
-      components: [ButtonGlu],
+      components: [GluButton],
       html: '<glu-button><span>Click me</span></glu-button>'
     })
 

@@ -123,8 +123,8 @@ const config: Config = {
         },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
-          href: 'https://github.com/santi020k/gelato-ui',
-          label: 'GitHub',
+          href: '#',
+          label: 'Get Started',
           position: 'right'
         }
       ]

@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
-import { GluMenuItem } from './menu-item'
+import { GluMenuLabel } from './menu-label'
 
 import { newSpecPage } from '@stencil/core/testing'
 
 describe('glu-menu-item', () => {
   it('renders correctly as a label', async () => {
     const page = await newSpecPage({
-      components: [GluMenuItem],
+      components: [GluMenuLabel],
       html: '<glu-menu-item type="label">Label Item</glu-menu-item>'
     })
 
@@ -21,7 +21,7 @@ describe('glu-menu-item', () => {
 
   it('renders correctly as a button', async () => {
     const page = await newSpecPage({
-      components: [GluMenuItem],
+      components: [GluMenuLabel],
       html: '<glu-menu-item type="button">Click Me</glu-menu-item>'
     })
 

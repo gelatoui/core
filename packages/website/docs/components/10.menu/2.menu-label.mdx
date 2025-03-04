@@ -1,12 +1,12 @@
 ---
 sidebar_position: 1
-title: glu-menu-item
+title: glu-menu-label
 slug: /components/menu-item
 ---
 
 # Menu Item Component
 
-import MenuItemReadme from '@gelato-ui/components/dist/readme/components/menu-item/readme.md'
+import MenuLabelReadme from '@gelato-ui/components/dist/readme/components/menu-label/readme.md'
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 import { GluMenuItem } from '@gelato-ui/react'
@@ -21,7 +21,7 @@ Components is not ready yet.
   <glu-button target="_blank" rel="noopener noreferrer" href="https://www.figma.com/design/jSs4mJxj7dJbXsCE1IHtqt/GelatoUI-Design-System-(V-0.1.0)?node-id=368-4011&t=Qzpck0vvncjI3DT7-0">Figma</glu-button>
 </p>
 
-The `glu-menu-item` component represents an item in a menu, supporting different types such as labels, dropdowns, and buttons. It allows flexible content placement using slots.
+The `glu-menu-label` component represents an item in a menu, supporting different types such as labels, dropdowns, and buttons. It allows flexible content placement using slots.
 
 ---
 
@@ -32,18 +32,18 @@ The `glu-menu-item` component represents an item in a menu, supporting different
 
   ```html live
   <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-    <glu-menu-item type="label">
+    <glu-menu-label type="label">
       Label Item
-    </glu-menu-item>
+    </glu-menu-label>
 
-    <glu-menu-item type="dropdown">
+    <glu-menu-label type="dropdown">
       <div>Dropdown Item</div>
       <div slot="dropdown-content">Dropdown Content</div>
-    </glu-menu-item>
+    </glu-menu-label>
 
-    <glu-menu-item type="button">
+    <glu-menu-label type="button">
       <glu-button>Button Item</glu-button>
-    </glu-menu-item>
+    </glu-menu-label>
   </div>
   ```
   </TabItem>
@@ -73,16 +73,16 @@ The `glu-menu-item` component represents an item in a menu, supporting different
   <TabItem value="vue" label="Vue">
 
   ```html live
-  <glu-menu-item type="label">Label Item</glu-menu-item>
+  <glu-menu-label type="label">Label Item</glu-menu-label>
 
-  <glu-menu-item type="dropdown">
+  <glu-menu-label type="dropdown">
     <template #dropdown-trigger>Dropdown Item</template>
     <template #dropdown-content>Dropdown Content</template>
-  </glu-menu-item>
+  </glu-menu-label>
 
-  <glu-menu-item type="button">
+  <glu-menu-label type="button">
     <glu-button>Button Item</glu-button>
-  </glu-menu-item>
+  </glu-menu-label>
 
   <script setup>
   import { GluMenuItem } from '@gelato-ui/vue';
@@ -93,16 +93,16 @@ The `glu-menu-item` component represents an item in a menu, supporting different
   <TabItem value="angular" label="Angular">
 
   ```html live
-  <glu-menu-item type="label">Label Item</glu-menu-item>
+  <glu-menu-label type="label">Label Item</glu-menu-label>
 
-  <glu-menu-item type="dropdown">
+  <glu-menu-label type="dropdown">
     <div slot="dropdown-trigger">Dropdown Item</div>
     <div slot="dropdown-content">Dropdown Content</div>
-  </glu-menu-item>
+  </glu-menu-label>
 
-  <glu-menu-item type="button">
+  <glu-menu-label type="button">
     <glu-button>Button Item</glu-button>
-  </glu-menu-item>
+  </glu-menu-label>
   ```
 
   ```ts live
@@ -113,14 +113,14 @@ The `glu-menu-item` component represents an item in a menu, supporting different
     standalone: true,
     imports: [GluMenuItem],
     template: `
-      <glu-menu-item type="label">Label Item</glu-menu-item>
-      <glu-menu-item type="dropdown">
+      <glu-menu-label type="label">Label Item</glu-menu-label>
+      <glu-menu-label type="dropdown">
         <div slot="dropdown-trigger">Dropdown Item</div>
         <div slot="dropdown-content">Dropdown Content</div>
-      </glu-menu-item>
-      <glu-menu-item type="button">
+      </glu-menu-label>
+      <glu-menu-label type="button">
         <glu-button>Button Item</glu-button>
-      </glu-menu-item>
+      </glu-menu-label>
     `
   })
   export class MyComponent {}
@@ -130,4 +130,4 @@ The `glu-menu-item` component represents an item in a menu, supporting different
 
 ---
 
-<MenuItemReadme />
+<MenuLabelReadme />

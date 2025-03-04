@@ -22,7 +22,7 @@ import { Component, Element, h, Host, Prop } from '@stencil/core'
     './button-destructive.css'
   ]
 })
-export class ButtonGlu {
+export class GluButton {
   /**
    * Determines the visual style of the button
    * @prop {ButtonAppearance} appearance - Visual style of the button

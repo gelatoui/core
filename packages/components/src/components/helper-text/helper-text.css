@@ -28,6 +28,6 @@ glu-icon {
 }
 
 /* Error state styling */
-:host(.is-error) .text, :host(.is-error) .icon{
+:host(.is-error) .text, :host(.is-error) glu-icon {
   color: var(--tokens-input-content-error);
 }

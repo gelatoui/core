@@ -32,3 +32,9 @@
 div.playgroundPreview_wiye {
   background-color: var(--root-base-white);
 }
+
+/* Custom Styles */
+
+.navbar.navbar--fixed-top{
+  padding: 0
+}

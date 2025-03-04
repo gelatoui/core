@@ -2,6 +2,7 @@
   display: block;
   box-sizing: border-box;
   position: relative;
+  width: 100%;
 
   /**
    * @prop --glu-menu-min-height: Minimum height of the menu (desktop).
@@ -350,4 +351,17 @@
   font-weight: var(--body-medium-regular-font-weight);
   line-height: var(--body-medium-regular-line-height);
   padding: var(--spacing-100) 0;
+}
+
+.left, .right {
+   /* flex-grow: 1;
+   flex-basis: 0; */
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.left {
+  justify-content: flex-start;
 }
