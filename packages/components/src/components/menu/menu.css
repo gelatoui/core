@@ -2,12 +2,28 @@
   display: block;
   box-sizing: border-box;
   position: relative;
+
+  /**
+   * @prop --glu-menu-min-height: Minimum height of the menu (desktop).
+   * @prop --glu-menu-mobile-height: Height of the menu on mobile devices.
+   * @prop --glu-menu-background: Background color of the menu.
+   * @prop --glu-menu-border-color: Border color for the menu.
+   * @prop --glu-menu-shadow: Shadow effect for the menu.
+   * @prop --glu-menu-padding: Padding inside the menu.
+   * @prop --glu-menu-logo-max-height: Maximum height for the logo.
+   * @prop --glu-menu-transition: Transition timing for animations.
+   * @prop --glu-menu-mobile-breakpoint: Breakpoint for mobile view.
+   * @prop --glu-menu-mobile-menu-bg: Background color for the mobile menu.
+   * @prop --glu-menu-toggle-color: Color for the mobile menu toggle icon.
+   * @prop --glu-menu-z-index: Z-index for the menu to ensure it stays on top.
+   * @prop --glu-menu-logo-max-width: Maximum width for the logo.
+   */
   --glu-menu-min-height: 64px;
   --glu-menu-mobile-height: 56px;
   --glu-menu-background: var(--tokens-background-base-surface-1);
   --glu-menu-border-color: var(--tokens-stroke-on-light-default);
   --glu-menu-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  --glu-menu-padding: var(--spacing-100) var(--spacing-300);
+  --glu-menu-padding: var(--spacing-150) var(--spacing-300);
   --glu-menu-logo-max-height: 40px;
   --glu-menu-transition: all 0.3s ease;
   --glu-menu-mobile-breakpoint: 768px;
@@ -17,12 +33,20 @@
   --glu-menu-logo-max-width: 200px;
 }
 
+/**
+ * Sticky menu styling.
+ * Applies sticky positioning to the menu when the `.glu-menu--sticky` class is added.
+ */
 :host(.glu-menu--sticky) {
   position: sticky;
   top: 0;
   z-index: var(--glu-menu-z-index);
 }
 
+/**
+ * Navigation bar styling.
+ * Defines the base layout and styling for the menu navigation bar.
+ */
 .glu-menu__nav {
   box-sizing: border-box;
   width: 100%;
@@ -33,7 +57,10 @@
   align-items: center;
 }
 
-/* Menu Container */
+/**
+ * Menu container styling.
+ * Wraps the logo, menu items, and actions sections.
+ */
 .glu-menu__container {
   display: flex;
   align-items: center;
@@ -46,7 +73,9 @@
   flex-wrap: wrap;
 }
 
-/* Base layout for sections */
+/**
+ * Base layout for logo, items, and actions sections.
+ */
 .glu-menu__logo-wrapper,
 .glu-menu__items-wrapper,
 .glu-menu__actions-wrapper {
@@ -54,25 +83,36 @@
   align-items: center;
 }
 
+/**
+ * Styling for slotted elements in logo and items wrappers.
+ */
 .glu-menu__logo-wrapper ::slotted(*),
 .glu-menu__items-wrapper ::slotted(*) {
   display: flex;
   align-items: center;
   gap: var(--spacing-100);
-  display: flex;
   flex-wrap: wrap;
 }
 
+/**
+ * Styling for menu items.
+ */
 .glu-menu__items-wrapper glu-menu-item::part(menu-item) {
   padding: var(--spacing-100, 0.5rem) var(--spacing-200, 1rem);
 }
 
+/**
+ * Styling for slotted elements in actions wrapper.
+ */
 .glu-menu__actions-wrapper ::slotted(*) {
   display: flex;
   align-items: center;
-  gap: var(--spacing-150)
+  gap: var(--spacing-150);
 }
 
+/**
+ * Logo wrapper styling.
+ */
 .glu-menu__logo-wrapper {
   flex-shrink: 0;
   display: flex;
@@ -81,30 +121,36 @@
   height: 100%;
 }
 
+/**
+ * Logo image and slotted elements styling.
+ */
 .glu-menu__logo-wrapper img,
-.glu-menu__logo-wrapper ::slotted(*)
-{
+.glu-menu__logo-wrapper ::slotted(*) {
   max-width: 100%;
   width: auto;
   height: auto;
-  max-height: 100%;
   max-height: var(--glu-menu-logo-max-height);
   object-fit: contain;
   padding: var(--spacing-050) 0;
 }
 
-/* Menu items wrapper */
+/**
+ * Menu items wrapper styling.
+ */
 .glu-menu__items-wrapper {
-  /* flex: 1; */
   justify-content: center;
 }
 
-/* Right actions wrapper */
+/**
+ * Right actions wrapper styling.
+ */
 .glu-menu__actions-wrapper {
   flex-shrink: 0;
 }
 
-/* Logo Left Layout */
+/**
+ * Logo left layout styling.
+ */
 .glu-menu__container--logo-left {
   justify-content: flex-start;
   gap: var(--spacing-300);
@@ -118,7 +164,9 @@
   margin-left: auto;
 }
 
-/* Logo Center Layout */
+/**
+ * Logo center layout styling.
+ */
 .glu-menu__container--logo-center {
   justify-content: space-between;
 }
@@ -127,18 +175,25 @@
   justify-content: flex-start;
 }
 
-/* Menu Center Layout */
+/**
+ * Menu center layout styling.
+ */
 .glu-menu__container--menu-center {
   justify-content: space-between;
   gap: var(--spacing-300);
 }
 
-/* Mobile styles */
+/**
+ * Mobile styles.
+ */
 :host(.glu-menu--mobile) .glu-menu__nav {
   height: var(--glu-menu-mobile-height);
   padding: 0 var(--spacing-200);
 }
 
+/**
+ * Mobile header styling.
+ */
 .glu-menu__mobile-header {
   display: flex;
   align-items: center;
@@ -147,6 +202,9 @@
   height: 100%;
 }
 
+/**
+ * Mobile toggle button styling.
+ */
 .glu-menu__mobile-toggle {
   display: flex;
   align-items: center;
@@ -159,6 +217,9 @@
   padding: 0;
 }
 
+/**
+ * Mobile toggle icon styling.
+ */
 .glu-menu__mobile-toggle-icon,
 .glu-menu__mobile-toggle-icon::before,
 .glu-menu__mobile-toggle-icon::after {
@@ -170,6 +231,9 @@
   transition: var(--glu-menu-transition);
 }
 
+/**
+ * Mobile toggle icon pseudo-elements.
+ */
 .glu-menu__mobile-toggle-icon::before,
 .glu-menu__mobile-toggle-icon::after {
   content: '';
@@ -185,6 +249,9 @@
   bottom: -8px;
 }
 
+/**
+ * Mobile toggle icon open state.
+ */
 :host(.glu-menu--mobile-open) .glu-menu__mobile-toggle-icon {
   background-color: transparent;
 }
@@ -199,6 +266,9 @@
   transform: rotate(-45deg);
 }
 
+/**
+ * Mobile menu styling.
+ */
 .glu-menu__mobile-menu {
   display: none;
   position: absolute;
@@ -216,24 +286,36 @@
   transition: var(--glu-menu-transition);
 }
 
+/**
+ * Mobile menu open state.
+ */
 :host(.glu-menu--mobile-open) .glu-menu__mobile-menu {
   display: block;
   max-height: calc(100vh - var(--glu-menu-mobile-height));
   overflow-y: auto;
 }
 
+/**
+ * Mobile items styling.
+ */
 .glu-menu__mobile-items {
   display: flex;
   flex-direction: column;
   padding-bottom: var(--spacing-200);
 }
 
+/**
+ * Slotted elements in mobile items.
+ */
 .glu-menu__mobile-items ::slotted(*) {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-100);
 }
 
+/**
+ * Mobile actions styling.
+ */
 .glu-menu__mobile-actions {
   display: flex;
   flex-direction: column;
@@ -241,20 +323,9 @@
   padding-top: var(--spacing-200);
 }
 
-/* Media Queries */
-/* @media (max-width: 767px) {
-  :host(:not(.glu-menu--mobile)) .glu-menu__container {
-    flex-wrap: wrap;
-  }
-
-  :host(:not(.glu-menu--mobile)) .glu-menu__items-wrapper {
-    order: 3;
-    width: 100%;
-    margin: 0;
-    padding: var(--spacing-100) 0;
-  }
-} */
-
+/**
+ * Menu item styling.
+ */
 .glu-menu__item {
   font-family: var(--body-medium-medium-font-family);
   font-size: var(--body-medium-medium-font-size);
@@ -262,11 +333,17 @@
   line-height: var(--body-medium-medium-line-height);
 }
 
+/**
+ * Active menu item styling.
+ */
 .glu-menu__item--active {
   font-weight: var(--body-medium-bold-font-weight);
   color: var(--tokens-primary-default);
 }
 
+/**
+ * Mobile menu item styling.
+ */
 .glu-menu__mobile-items .glu-menu__item {
   font-family: var(--body-medium-regular-font-family);
   font-size: var(--body-medium-regular-font-size);
