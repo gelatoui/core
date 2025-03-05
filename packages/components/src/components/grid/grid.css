@@ -1,0 +1,11 @@
+:host {
+  display: grid;
+  width: 100%;
+  box-sizing: border-box;
+  /*
+    Grid System Component Defaults
+    These CSS variables can be overridden globally or by the component's consumers.
+
+    --spacing-200: Defines the default spacing (gap) between grid items.
+  */
+}
