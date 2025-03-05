@@ -26,14 +26,14 @@ export class GluMenuDropdown {
   render() {
     return (
       <Host class="glu-menu-dropdown" part="menu-dropdown">
-        <glu-dropdown isOpen={this.isOpen} trigger-action="hover" is-backdrop-dismiss>
+        <glu-dropdown isOpen={this.isOpen} isBackdropDismiss>
           <div
             slot="dropdown-trigger"
             onClick={this.toggleDropdown}
             aria-expanded={this.isOpen.toString()}
             class="dropdown-trigger"
           >
-            <div class="label-container">
+            <div class="glu-label-container">
               <slot></slot>
               <glu-icon name={this.isOpen ? 'chevron-up' : 'chevron-down'} size={16}></glu-icon>
             </div>

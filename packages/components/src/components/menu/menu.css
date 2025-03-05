@@ -98,7 +98,7 @@
 /**
  * Styling for menu items.
  */
-.glu-menu__items-wrapper glu-menu-item::part(menu-item) {
+.glu-menu__items-wrapper ::slotted(*) {
   padding: var(--spacing-100, 0.5rem) var(--spacing-200, 1rem);
 }
 
@@ -351,11 +351,6 @@
   font-weight: var(--body-medium-regular-font-weight);
   line-height: var(--body-medium-regular-line-height);
   padding: var(--spacing-100) 0;
-}
-
-.left, .right {
-   /* flex-grow: 1;
-   flex-basis: 0; */
 }
 
 .right {

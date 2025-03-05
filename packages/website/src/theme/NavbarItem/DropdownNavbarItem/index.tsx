@@ -6,6 +6,7 @@ import type {
   DesktopOrMobileNavBarItemProps,
   Props
 } from '@theme/NavbarItem/DropdownNavbarItem'
+import NavbarNavLink from '@theme/NavbarItem/NavbarNavLink'
 
 const DropdownNavbarItemDesktop = ({
   items,
@@ -18,13 +19,14 @@ const DropdownNavbarItemDesktop = ({
     <GluMenuLabel>{props.children ?? props.label}</GluMenuLabel>
     <div slot="dropdown-content">
       {items.map((childItemProps, i) => (
-        <GluMenuLabel
+        <NavbarNavLink
           key={i}
-          href={childItemProps.to}
+          href={childItemProps.to ? undefined : '#'}
           target={childItemProps.target as Components.GluMenuLabel['target']}
+          {...childItemProps}
         >
           {childItemProps.label}
-        </GluMenuLabel>
+        </NavbarNavLink>
       ))}
     </div>
   </GluMenuDropdown>

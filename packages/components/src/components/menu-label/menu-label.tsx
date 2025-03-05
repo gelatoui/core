@@ -30,18 +30,12 @@ export class GluMenuLabel {
 
   render() {
     return (
-      <Host class="glu-menu-label" part="menu-label">
+      <Host class="glu-menu-label" part="glu-menu-label">
         {this.href ?
           (
-            <a href={this.href} target={this.target} rel={this.rel} class="label-container">
-              <slot></slot>
-            </a>
+            <a href={this.href} target={this.target} rel={this.rel}><slot></slot></a>
           ) :
-          (
-            <span class="label-container">
-              <slot></slot>
-            </span>
-          )}
+          <slot></slot>}
       </Host>
     )
   }

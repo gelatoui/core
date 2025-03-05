@@ -1,4 +1,4 @@
-.label-container {
+:host ::slotted(*) {
   display: flex;
   padding: var(--spacing-100, 0.5rem) var(--spacing-200, 1rem);
   justify-content: center;
@@ -15,6 +15,6 @@
   transition: color 0.2s ease;
 }
 
-a.label-container:hover {
+:host ::slotted(a):hover {
   color: var(--tokens-text-on-light-hover, #0a5bf8);
 }

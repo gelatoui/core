@@ -1,0 +1,23 @@
+.glu-label-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+glu-dropdown {
+  display: flex;
+  padding: var(--spacing-100, 0.5rem) var(--spacing-200, 1rem);
+  justify-content: center;
+  align-items: center;
+  color: var(--tokens-text-on-light-default, #4b515a);
+
+  font-family: var(--body-medium-regular-font-family, 'Inter');
+  font-size: var(--body-medium-regular-font-size, 1rem);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--body-medium-regular-line-height, 1.25rem);
+  letter-spacing: var(--body-medium-regular-letter-spacing, 0);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}

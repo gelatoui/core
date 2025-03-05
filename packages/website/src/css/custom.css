@@ -38,3 +38,12 @@ div.playgroundPreview_wiye {
 .navbar.navbar--fixed-top{
   padding: 0
 }
+
+a {
+  color: var(--tokens-text-on-light-default, #4b515a);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}

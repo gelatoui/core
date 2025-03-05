@@ -5,8 +5,8 @@ import { Component, Element, Event, EventEmitter, h, Host, Prop, Watch } from '@
  * @tag glu-dropdown
  * @shadow true
  *
- * @slot dropdown-trigger - The default slot for the dropdown trigger.
  * @slot - The default slot for the dropdown content.
+ * @slot dropdown-trigger - The default slot for the dropdown trigger.
  */
 @Component({
   tag: 'glu-dropdown',
@@ -18,7 +18,7 @@ export class GluDropdown {
    * Optional default trigger text. Only shown if no trigger content is provided.
    * @prop {string} text
    */
-  @Prop() readonly text: string = 'Toggle Dropdown'
+  @Prop() readonly text: string = 'Dropdown'
 
   /**
    * Controls whether the dropdown is open.

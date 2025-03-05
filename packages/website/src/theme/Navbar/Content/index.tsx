@@ -55,6 +55,7 @@ const NavbarContent = () => {
         <NavbarItems items={leftItems} />
       </div>
 
+      {/* TODO: This can be improved using NavbarItems */}
       {/* Right Actions */}
       <div slot="right-actions">
         {rightItems.map((item, index) => (
