@@ -11,6 +11,7 @@ import { Component, h, Host, Prop } from '@stencil/core'
  * @prop {string} align - Alignment along the cross axis (e.g., 'center', 'flex-start', 'flex-end'). Default is 'center'.
  * @prop {string} justify - Alignment along the main axis (e.g., 'flex-start', 'center', 'space-between'). Default is 'flex-start'.
  * @prop {string} gap - The gap between flex items. Default is 'var(--spacing-200, 1rem)'.
+ * @prop {boolean} isCenter - If true, both align and justify will be set to 'center'. Optional. Default is false.
  */
 @Component({
   tag: 'glu-flex',
@@ -38,12 +39,17 @@ export class GluFlex {
    */
   @Prop() readonly gap = 'var(--spacing-200, 1rem)'
 
+  /**
+   * If true, both align and justify are set to center.
+   */
+  @Prop() readonly isCenter = false
+
   render() {
     const flexStyle = {
       display: 'flex',
       flexDirection: this.direction,
-      alignItems: this.align,
-      justifyContent: this.justify,
+      alignItems: this.isCenter ? 'center' : this.align,
+      justifyContent: this.isCenter ? 'center' : this.justify,
       gap: this.gap
     }
 
