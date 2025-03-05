@@ -119,9 +119,15 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'documentationSidebar',
           position: 'left',
-          label: 'Documentation'
+          label: 'Components'
         },
-        { to: '/blog', label: 'Blog', position: 'left' },
+        {
+          type: 'docSidebar',
+          sidebarId: 'documentationSidebar',
+          position: 'left',
+          label: 'Docs'
+        },
+        { to: '/templates', label: 'templates', position: 'left' },
         {
           href: '#',
           label: 'Get Started',

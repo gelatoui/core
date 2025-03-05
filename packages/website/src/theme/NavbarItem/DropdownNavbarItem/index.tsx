@@ -34,7 +34,8 @@ const DropdownNavbarItemDesktop = ({
 
 export default function DropdownNavbarItem({
   // TODO: Mobile will be useful in the future
-  // mobile = false,
+  // eslint-disable-next-line unused-imports/no-unused-vars, @typescript-eslint/no-unused-vars
+  mobile = false,
   ...props
 }: Props): ReactNode {
   const Comp = DropdownNavbarItemDesktop

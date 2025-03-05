@@ -7,6 +7,8 @@ import type {
 import NavbarNavLink from '@theme/NavbarItem/NavbarNavLink'
 
 export default function DefaultNavbarItem({
+  // eslint-disable-next-line unused-imports/no-unused-vars, @typescript-eslint/no-unused-vars
+  mobile = false,
   ...props
 }: Props): ReactNode {
   return (

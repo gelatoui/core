@@ -1,0 +1,28 @@
+.navbar.navbar--fixed-top{
+  padding: 0;
+  height: auto;
+  box-shadow: none;
+}
+
+glu-menu {
+  --glu-menu-border-color: transparent;
+  --glu-menu-shadow: none;
+}
+
+.glu-menu__container {
+  border: none;
+}
+
+.glu-menu__nav {
+  border: none;
+}
+
+/* TODO: Temporal link styles */
+a {
+  color: var(--tokens-text-on-light-default, #4b515a);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}

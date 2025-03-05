@@ -41,6 +41,7 @@ export class GluMenu {
   /**
    * Reference to the host element.
    */
+  // eslint-disable-next-line no-undef
   @Element() hostElement!: HTMLGluMenuElement
 
   /**
@@ -58,21 +59,20 @@ export class GluMenu {
    */
   @State() isMobileMenuOpen = false
 
-  /**
-   * Observer for detecting screen size changes.
-   */
-  private resizeObserver!: ResizeObserver
+  // --- Local component variable for the resize listener ---
+  // The window resize listener is used to update the mobile view state.
+  private boundCheckViewportSize = this.checkViewportSize.bind(this)
 
-  connectedCallback() {
-    if (this.isResponsive) {
-      this.resizeObserver = new ResizeObserver(() => this.checkViewportSize())
+  componentDidLoad() {
+    if (this.isResponsive && typeof window !== 'undefined') {
+      window.addEventListener('resize', this.boundCheckViewportSize)
 
-      this.resizeObserver.observe(document.body)
+      this.checkViewportSize()
     }
   }
 
   disconnectedCallback() {
-    this.resizeObserver?.disconnect()
+    window.removeEventListener('resize', this.boundCheckViewportSize)
   }
 
   componentWillLoad() {
@@ -83,14 +83,29 @@ export class GluMenu {
 
   @Watch('isResponsive')
   responsiveChanged() {
-    this.isResponsive ? this.checkViewportSize() : (this.isMobileView = false)
+    if (this.isResponsive) {
+      this.checkViewportSize()
+
+      window.addEventListener('resize', this.boundCheckViewportSize)
+    } else {
+      this.isMobileView = false
+
+      window.removeEventListener('resize', this.boundCheckViewportSize)
+    }
   }
 
   /**
    * Checks whether the viewport width falls within the mobile threshold.
+   * @local This function sets `isMobileView` to true if the window width is less than 768px and if the menu is responsive.
    */
   private checkViewportSize() {
-    this.isMobileView = this.isResponsive && window.innerWidth < 768
+    const width = window.innerWidth
+
+    console.log('[glu-menu] checkViewportSize called, window.innerWidth:', width)
+
+    this.isMobileView = this.isResponsive && width < 768
+
+    console.log('[glu-menu] isMobileView:', this.isMobileView)
   }
 
   /**

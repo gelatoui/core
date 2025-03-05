@@ -53,7 +53,7 @@
   width: 100%;
   min-height: var(--glu-menu-min-height);
   background-color: var(--glu-menu-background);
-  border-bottom: 1px solid var(--tokens-stroke-on-light-default, #DCE0E6);
+  border-bottom: 1px solid var(--glu-menu-border-color, #DCE0E6);
   display: flex;
   align-items: center;
 }
@@ -281,7 +281,7 @@
   z-index: var(--glu-menu-z-index);
   padding: var(--spacing-200);
   box-sizing: border-box;
-  border-top: 1px solid var(--glu-menu-border-color);
+  border-top: 1px solid var(--tokens-stroke-on-light-default);
   max-height: 0;
   overflow: hidden;
   transition: var(--glu-menu-transition);
@@ -320,7 +320,7 @@
 .glu-menu__mobile-actions {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--glu-menu-border-color);
+  border-top: 1px solid var(--tokens-stroke-on-light-default);
   padding-top: var(--spacing-200);
 }
 
