@@ -7,7 +7,7 @@ import type { Config } from '@docusaurus/types'
 
 const config: Config = {
   title: 'Gelato UI',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Design System that fits every tech stack',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here

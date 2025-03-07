@@ -1,17 +1,14 @@
-import { Component, h, Host, Prop } from '@stencil/core'
+import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
+
+import { Component, Element, h, Host, Prop } from '@stencil/core'
 
 /**
+ * A flexible container component built using CSS Flexbox.
+ *
  * @component
  * @tag glu-flex
  * @shadow true
- *
  * @slot - Default slot for flex items.
- *
- * @prop {string} direction - The flex direction (e.g., 'row', 'column'). Default is 'row'.
- * @prop {string} align - Alignment along the cross axis (e.g., 'center', 'flex-start', 'flex-end'). Default is 'center'.
- * @prop {string} justify - Alignment along the main axis (e.g., 'flex-start', 'center', 'space-between'). Default is 'flex-start'.
- * @prop {string} gap - The gap between flex items. Default is 'var(--spacing-200, 1rem)'.
- * @prop {boolean} isCenter - If true, both align and justify will be set to 'center'. Optional. Default is false.
  */
 @Component({
   tag: 'glu-flex',
@@ -20,30 +17,81 @@ import { Component, h, Host, Prop } from '@stencil/core'
 })
 export class GluFlex {
   /**
-   * Defines the flex direction.
+   * Determines the flex direction.
+   *
+   * @prop {('row' | 'column' | 'row-reverse' | 'column-reverse')} direction - The flex direction.
+   * @default 'row'
+   * @readonly
    */
-  @Prop() readonly direction = 'row'
+  @Prop({ reflect: true }) readonly direction: 'row' | 'column' | 'row-reverse' | 'column-reverse' = 'row'
 
   /**
-   * Defines the alignment along the cross axis.
+   * Specifies the alignment along the cross axis.
+   *
+   * @prop {('flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch')} align - The alignment along the cross axis.
+   * @default 'center'
+   * @readonly
    */
-  @Prop() readonly align = 'center'
+  @Prop({ reflect: true }) readonly align: 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch' = 'center'
 
   /**
-   * Defines the alignment along the main axis.
+   * Specifies the alignment along the main axis.
+   *
+   * @prop {('flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly')} justify - The alignment along the main axis.
+   * @default 'flex-start'
+   * @readonly
    */
-  @Prop() readonly justify = 'flex-start'
+  @Prop({ reflect: true }) readonly justify: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly' = 'flex-start'
 
   /**
-   * Defines the gap between flex items.
+   * Sets the gap between flex items.
+   *
+   * @prop {string} gap - The gap between flex items. Accepts any valid CSS gap value.
+   * @default 'var(--spacing-200, 1rem)'
+   * @readonly
    */
-  @Prop() readonly gap = 'var(--spacing-200, 1rem)'
+  @Prop({ reflect: true }) readonly gap: string = 'var(--spacing-200, 1rem)'
 
   /**
-   * If true, both align and justify are set to center.
+   * Centers the flex items along both axes if set to true.
+   *
+   * @prop {boolean} isCenter - If true, both `align` and `justify` will be forced to `center`,
+   * overriding any individual values provided.
+   * @default false
+   * @readonly
    */
-  @Prop() readonly isCenter = false
+  @Prop({ reflect: true }) readonly isCenter: boolean = false
 
+  /**
+   * Specifies the HTML tag to render the container element.
+   *
+   * @prop {string} element - The HTML tag used to render the container (e.g., `div`, `section`, `article`).
+   * @default 'glu-flex'
+   * @readonly
+   */
+  @Prop({ reflect: true }) readonly element: string
+
+  /**
+   * A reference to the host element.
+   * @element {HTMLGluButtonElement} buttonElement - The component's host element.
+   */
+
+  // eslint-disable-next-line no-undef
+  @Element() flexElement!: HTMLGluFlexElement
+
+  /** Container for attributes inherited from the host element */
+  private inheritedAttributes: Attributes = {}
+
+  componentWillLoad() {
+    // Inherit attributes from the host element to forward to the inner <input>
+    this.inheritedAttributes = { ...inheritAttributes(this.flexElement) }
+  }
+
+  /**
+   * Render method to generate the component's HTML.
+   *
+   * @returns {JSX.Element} The rendered HTML of the component.
+   */
   render() {
     const flexStyle = {
       display: 'flex',
@@ -53,10 +101,13 @@ export class GluFlex {
       gap: this.gap
     }
 
+    // Use the provided element (or default to 'div') as the container tag.
+    const TagType = this.element || Host
+
     return (
-      <Host style={flexStyle}>
+      <TagType {...this.inheritedAttributes} style={flexStyle}>
         <slot></slot>
-      </Host>
+      </TagType>
     )
   }
 }

@@ -1,0 +1,23 @@
+.header {
+  padding: var(--spacing-1000, 5rem);
+  max-width: var(--max-site-width, 90rem);
+  margin: auto;
+}
+
+.subtitle {
+  color: var(--tokens-text-on-light-heavy, #191B1E);
+}
+
+.title {
+  color: var(--tokens-text-on-light-heavy, #191B1E);
+  text-align: center;
+}
+
+.title-highline {
+  color: var(--tokens-text-on-light-focused, #0A5BF8);
+}
+
+.description {
+  color: var(--tokens-text-on-light-default, #4B515A);
+  width: 48.75rem;
+}

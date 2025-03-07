@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
 
 import { Component, Element, h, Host, Prop } from '@stencil/core'
@@ -86,6 +85,7 @@ export class GluButton {
    * @element {HTMLGluButtonElement} buttonElement - The component's host element.
    */
 
+  // eslint-disable-next-line no-undef
   @Element() buttonElement!: HTMLGluButtonElement
 
   /** Container for attributes inherited from the host element */

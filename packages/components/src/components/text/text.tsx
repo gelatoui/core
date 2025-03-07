@@ -1,4 +1,6 @@
-import { Component, h, Prop } from '@stencil/core'
+import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
+
+import { Component, Element, h, Prop } from '@stencil/core'
 
 /**
  * A flexible text component that applies design-system-based typography styles.
@@ -75,6 +77,22 @@ export class GluText {
   @Prop({ reflect: true }) readonly align: 'left' | 'center' | 'right' | 'justify' = 'left'
 
   /**
+   * A reference to the host element.
+   * @element {HTMLGluButtonElement} buttonElement - The component's host element.
+   */
+
+  // eslint-disable-next-line no-undef
+  @Element() textElement!: HTMLGluTextElement
+
+  /** Container for attributes inherited from the host element */
+  private inheritedAttributes: Attributes = {}
+
+  componentWillLoad() {
+    // Inherit attributes from the host element to forward to the inner <input>
+    this.inheritedAttributes = { ...inheritAttributes(this.textElement) }
+  }
+
+  /**
    * Constructs a set of inline CSS variables based on the selected
    * `type`, `size`, and `weight` properties. These map to the Figma
    * design tokens defined in your global CSS.
@@ -103,6 +121,7 @@ export class GluText {
 
     return (
       <TagType
+        {...this.inheritedAttributes}
         style={styles}
         class={{
           'glu-text': true,
