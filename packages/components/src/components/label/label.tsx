@@ -53,7 +53,7 @@ export class GluLabel {
   private inheritedAttributes: Attributes = {}
 
   componentWillLoad() {
-    // Inherit attributes from the host element to forward to the inner <input>
+    // Inherit attributes from the host element to forward to the inner element
     this.inheritedAttributes = { ...inheritAttributes(this.labelElement) }
   }
 
