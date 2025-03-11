@@ -5,11 +5,11 @@ import { GluButton, GluFlex, GluIcon, GluText } from '@gelato-ui/react'
 
 export const About = () => (
   <div className={styles.container}>
-    <GluFlex element="section" className={styles.background} direction="column" gap="var(--spacing-1000)">
+    <GluFlex element="section" className={styles.background} direction="column" gap={1000}>
       <div className={styles.content}>
-        <GluFlex direction="column" align="center" justify="space-between" gap="var(--spacing-900) var(--spacing-1000)">
-          <GluFlex direction="column" gap="var(--spacing-800)">
-            <GluFlex direction="column" gap="var(--spacing-500)">
+        <GluFlex direction="column" align="center" justify="space-between" gap="inherit">
+          <GluFlex direction="column" gap={800}>
+            <GluFlex direction="column" gap={500}>
               <GluText element="h2" type="display" size="small" weight="bold">
                 No more rigid design systems tied to specific tools or frameworks.
               </GluText>

@@ -4,10 +4,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 import { GluButton, GluFlex, GluIcon, GluText } from '@gelato-ui/react'
 
 export const Header = () => (
-  <GluFlex element="header" className={styles.header} direction="column" isCenter gap="var(--Spacing-1000, 5rem)">
-    <GluFlex direction="column" isCenter gap="var(--spacing-700, 3.5rem)">
-      <GluFlex direction="column" gap="var(--Spacing-400, 2rem)" isCenter>
-        <GluFlex direction="column" gap="var(--Spacing-100, 0.5rem)" isCenter>
+  <GluFlex element="header" className={styles.header} direction="column" isCenter gap={1000}>
+    <GluFlex direction="column" isCenter gap={700}>
+      <GluFlex direction="column" gap={400} isCenter>
+        <GluFlex direction="column" gap={100} isCenter>
           <GluText element="h3" className={styles.subtitle} type="heading" size="large" weight="medium">
             Framework-agnostic
           </GluText>

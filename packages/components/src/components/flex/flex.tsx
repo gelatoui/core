@@ -46,11 +46,17 @@ export class GluFlex {
   /**
    * Sets the gap between flex items.
    *
-   * @prop {string} gap - The gap between flex items. Accepts any valid CSS gap value.
-   * @default 'var(--spacing-200, 1rem)'
+   * When a number is provided, it is converted to a CSS variable of the form:
+   * `var(--spacing-{gap}, 1rem)`. For example, a value of 200 translates to
+   * `'var(--spacing-200, 1rem)'`.
+   *
+   * You may also pass a full CSS gap value (e.g. "1rem", "10px", etc.) directly.
+   *
+   * @prop {string | number} gap - The gap between flex items.
+   * @default 200 (which translates to 'var(--spacing-200, 1rem)')
    * @readonly
    */
-  @Prop({ reflect: true }) readonly gap: string = 'var(--spacing-200, 1rem)'
+  @Prop({ reflect: true }) readonly gap: string | number = 200
 
   /**
    * Centers the flex items along both axes if set to true.
@@ -66,16 +72,17 @@ export class GluFlex {
    * Specifies the HTML tag to render the container element.
    *
    * @prop {string} element - The HTML tag used to render the container (e.g., `div`, `section`, `article`).
-   * @default 'glu-flex'
+   * If not provided, the Host element will be used.
+   * @default undefined
    * @readonly
    */
   @Prop({ reflect: true }) readonly element: string
 
   /**
    * A reference to the host element.
-   * @element {HTMLGluButtonElement} buttonElement - The component's host element.
+   *
+   * @element {HTMLGluFlexElement} flexElement - The component's host element.
    */
-
   // eslint-disable-next-line no-undef
   @Element() flexElement!: HTMLGluFlexElement
 
@@ -83,7 +90,7 @@ export class GluFlex {
   private inheritedAttributes: Attributes = {}
 
   componentWillLoad() {
-    // Inherit attributes from the host element to forward to the inner <input>
+    // Inherit attributes from the host element to forward to the inner element.
     this.inheritedAttributes = { ...inheritAttributes(this.flexElement) }
   }
 
@@ -93,15 +100,18 @@ export class GluFlex {
    * @returns {JSX.Element} The rendered HTML of the component.
    */
   render() {
+    // Convert a numeric gap value to the corresponding CSS variable.
+    const gapValue = typeof this.gap === 'number' ? `var(--spacing-${this.gap}, 1rem)` : this.gap
+
     const flexStyle = {
       display: 'flex',
       flexDirection: this.direction,
       alignItems: this.isCenter ? 'center' : this.align,
       justifyContent: this.isCenter ? 'center' : this.justify,
-      gap: this.gap
+      gap: gapValue
     }
 
-    // Use the provided element (or default to 'div') as the container tag.
+    // Use the provided element (or default to Host) as the container tag.
     const TagType = this.element || Host
 
     return (
