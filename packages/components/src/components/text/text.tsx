@@ -51,7 +51,9 @@ export class GluText {
    * Typically, each category has multiple size variants in your design system.
    *
    * @default 'medium'
+   * @example 'xsmall'
    * @example 'small'
+   * @example 'medium'
    * @example 'large'
    */
   @Prop({ reflect: true }) readonly size: 'xsmall' | 'small' | 'medium' | 'large' = 'medium'
@@ -77,10 +79,20 @@ export class GluText {
   @Prop({ reflect: true }) readonly align: 'left' | 'center' | 'right' | 'justify' = 'left'
 
   /**
-   * A reference to the host element.
-   * @element {HTMLGluButtonElement} buttonElement - The component's host element.
+   * The text color.
+   * Accepts any valid CSS color value.
+   *
+   * @default undefined (inherits the parent's text color)
+   * @example '#ff0000'
+   * @example 'var(--my-text-color)'
    */
+  @Prop({ reflect: true }) readonly color?: string
 
+  /**
+   * A reference to the host element.
+   *
+   * @element {HTMLGluTextElement} textElement - The component's host element.
+   */
   // eslint-disable-next-line no-undef
   @Element() textElement!: HTMLGluTextElement
 
@@ -88,7 +100,7 @@ export class GluText {
   private inheritedAttributes: Attributes = {}
 
   componentWillLoad() {
-    // Inherit attributes from the host element to forward to the inner <input>
+    // Inherit attributes from the host element to forward to the inner element
     this.inheritedAttributes = { ...inheritAttributes(this.textElement) }
   }
 
@@ -107,13 +119,15 @@ export class GluText {
       '--font-family': `var(--${prefix}-font-family)`,
       '--font-size': `var(--${prefix}-font-size)`,
       '--font-weight': `var(--${prefix}-font-weight)`,
-      '--line-height': `var(--${prefix}-line-height)`
+      '--line-height': `var(--${prefix}-line-height)`,
+      color: this.color
     }
   }
 
   /**
    * Renders the text with the appropriate typography styles.
-   * @returns The configured text element.
+   *
+   * @returns {JSX.Element} The configured text element.
    */
   render() {
     const TagType = this.element
