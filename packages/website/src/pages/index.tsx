@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react'
 
-import { About } from '../components/about/about'
-
 import '@gelato-ui/components/glu.css'
 
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import { defineCustomElements } from '@gelato-ui/components/loader'
+import { About } from '@site/src/components/about/about'
+import { Cards } from '@site/src/components/cards/cards'
 import { Header } from '@site/src/components/header/header'
 import Layout from '@theme/Layout'
 
@@ -16,12 +16,13 @@ export default function Home(): ReactNode {
 
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title={`Home | ${siteConfig.title}`}
+      description="Web Components UI library Monorepo"
     >
       <Header />
       <main>
         <About />
+        <Cards />
       </main>
     </Layout>
   )

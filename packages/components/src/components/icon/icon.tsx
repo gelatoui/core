@@ -37,10 +37,10 @@ export class GluIcon {
 
   /**
    * Uniform size of the icon in pixels (takes precedence over width and height)
-   * @prop {number} size - When set, overrides both width and height
+   * @prop {number | string} size - When set, overrides both width and height
    * @readonly
    */
-  @Prop() readonly size?: number
+  @Prop() readonly size?: number | string
 
   /**
    * Custom width of the icon in pixels

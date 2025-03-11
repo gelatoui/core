@@ -21,3 +21,8 @@
   color: var(--tokens-text-on-light-default, #4B515A);
   width: 48.75rem;
 }
+
+.img {
+  position: relative;
+  z-index: 1;
+}

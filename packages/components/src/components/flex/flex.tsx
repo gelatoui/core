@@ -69,16 +69,6 @@ export class GluFlex {
   @Prop({ reflect: true }) readonly isCenter: boolean = false
 
   /**
-   * Specifies the HTML tag to render the container element.
-   *
-   * @prop {string} element - The HTML tag used to render the container (e.g., `div`, `section`, `article`).
-   * If not provided, the Host element will be used.
-   * @default undefined
-   * @readonly
-   */
-  @Prop({ reflect: true }) readonly element: string
-
-  /**
    * A reference to the host element.
    *
    * @element {HTMLGluFlexElement} flexElement - The component's host element.
@@ -111,13 +101,10 @@ export class GluFlex {
       gap: gapValue
     }
 
-    // Use the provided element (or default to Host) as the container tag.
-    const TagType = this.element || Host
-
     return (
-      <TagType {...this.inheritedAttributes} style={flexStyle}>
+      <Host {...this.inheritedAttributes} style={flexStyle}>
         <slot></slot>
-      </TagType>
+      </Host>
     )
   }
 }

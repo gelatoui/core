@@ -29,6 +29,12 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+html,
+body {
+  /* NOTE: docusaurus puts overflow visible in inline styles */
+  overflow-x: hidden !important;
+}
+
 div.playgroundPreview_wiye {
   background-color: var(--root-base-white);
 }
