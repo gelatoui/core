@@ -107,10 +107,11 @@ const config: Config = {
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: 'Gelato UI',
-      logo: {
-        alt: 'Gelato UI Logo',
-        src: 'img/logo.svg'
-      },
+      // TODO: Logo is not ready yet
+      // logo: {
+      //   alt: 'Gelato UI Logo',
+      //   src: 'img/logo.svg'
+      // },
       items: [
         {
           type: 'docsVersionDropdown'
@@ -139,41 +140,54 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Company',
           items: [
             {
-              label: 'Documentation',
-              to: '/docs/getting-started/about'
+              label: 'About Us',
+              to: '/#about'
+            },
+            {
+              label: 'Careers',
+              to: '/#careers'
             }
           ]
         },
         {
-          title: 'Community',
+          title: 'Resources',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/gelato-ui'
+              label: 'Components',
+              to: '/#components'
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/gelato-ui'
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/gelato-ui'
+              label: 'Doc',
+              to: '/#doc'
             }
           ]
         },
         {
-          title: 'More',
+          title: 'Legal',
           items: [
             {
-              label: 'Blog',
-              to: '/blog'
+              label: 'Terms of service',
+              to: '/#terms'
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/santi020k/gelato-ui'
+              label: 'Privacy Policy',
+              to: '/#privacy'
+            }
+          ]
+        },
+        {
+          title: 'Contact',
+          items: [
+            {
+              label: 'Support',
+              to: '/#support'
+            },
+            {
+              label: 'Sales',
+              to: '/#sales'
             }
           ]
         }

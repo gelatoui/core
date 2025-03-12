@@ -15,7 +15,7 @@ export const Header = () => (
 
             <GluText element="h1" type="display" size="medium" weight="bold" className={styles.title} align="center">
               Design System
-              <GluFlex element="span">
+              <GluFlex>
                 that
                 {' '}
                 <span className={styles['title-highline']}>fits every tech stack</span>
