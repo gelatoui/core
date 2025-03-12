@@ -1,4 +1,4 @@
-import { Component, Element, Fragment, h, Host, Prop, State, Watch } from '@stencil/core'
+import { Component, Element, forceUpdate, Fragment, h, Host, Listen, Prop, State, Watch } from '@stencil/core'
 
 /**
  * @component
@@ -45,11 +45,6 @@ export class GluMenu {
   @Element() hostElement!: HTMLGluMenuElement
 
   /**
-   * Tracks whether the `logo` slot has content.
-   */
-  @State() hasLogoSlot = false
-
-  /**
    * Tracks whether the menu is currently in mobile view.
    */
   @State() isMobileView = false
@@ -59,25 +54,12 @@ export class GluMenu {
    */
   @State() isMobileMenuOpen = false
 
-  // --- Local component variable for the resize listener ---
-  // The window resize listener is used to update the mobile view state.
-  private boundCheckViewportSize = this.checkViewportSize.bind(this)
-
-  componentDidLoad() {
-    if (this.isResponsive && typeof window !== 'undefined') {
-      window.addEventListener('resize', this.boundCheckViewportSize)
-
-      this.checkViewportSize()
-    }
-  }
-
-  disconnectedCallback() {
-    window.removeEventListener('resize', this.boundCheckViewportSize)
+  @Listen('resize', { target: 'window' })
+  onResize() {
+    forceUpdate(this)
   }
 
   componentWillLoad() {
-    this.hasLogoSlot = !!this.hostElement.querySelector('[slot="logo"]')
-
     this.checkViewportSize()
   }
 
@@ -85,12 +67,8 @@ export class GluMenu {
   responsiveChanged() {
     if (this.isResponsive) {
       this.checkViewportSize()
-
-      window.addEventListener('resize', this.boundCheckViewportSize)
     } else {
       this.isMobileView = false
-
-      window.removeEventListener('resize', this.boundCheckViewportSize)
     }
   }
 
@@ -101,11 +79,7 @@ export class GluMenu {
   private checkViewportSize() {
     const width = window.innerWidth
 
-    console.log('[glu-menu] checkViewportSize called, window.innerWidth:', width)
-
     this.isMobileView = this.isResponsive && width < 768
-
-    console.log('[glu-menu] isMobileView:', this.isMobileView)
   }
 
   /**
@@ -205,6 +179,8 @@ export class GluMenu {
   }
 
   render() {
+    this.checkViewportSize()
+
     return (
       <Host
         class={{
