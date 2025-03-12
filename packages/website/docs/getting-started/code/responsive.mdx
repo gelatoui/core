@@ -1,0 +1,61 @@
+---
+sidebar_position: 3
+id: responsive
+title: Responsive
+---
+
+# Responsive
+
+This document provides an overview of recommended media queries for building responsive components using plain CSS. It outlines best practices and common breakpoints to ensure consistency across various devices.
+
+## Recommended Breakpoints
+
+A common approach is to use a mobile-first strategy. The table below lists some recommended breakpoints along with example media queries and descriptions.
+
+| Device        | Breakpoint Range               | Media Query Example                                                                 | Description                                      |
+|---------------|--------------------------------|-------------------------------------------------------------------------------------|--------------------------------------------------|
+| **Mobile (XS)**   | Up to 575px                    | `@media (max-width: 575px) { ... }`                                                    | Styles for small mobile devices.                |
+| **Tablet (SM)**   | 576px to 767px                 | `@media (min-width: 576px) and (max-width: 767px) { ... }`                             | Styles for larger mobiles or portrait tablets.  |
+| **Tablet (MD)**   | 768px to 991px                 | `@media (min-width: 768px) and (max-width: 991px) { ... }`                             | Styles for tablets and small laptops.           |
+| **Desktop (LG)**  | 992px to 1199px                | `@media (min-width: 992px) and (max-width: 1199px) { ... }`                            | Styles for standard desktop displays.           |
+| **Desktop (XL)**  | 1200px and up                  | `@media (min-width: 1200px) { ... }`                                                   | Styles for large desktops and high-resolution screens. |
+
+## Best Practices
+
+- **Mobile-First Approach:**
+  Start by designing for the smallest screens. Then, progressively enhance the layout as the screen size increases.
+
+- **Consistency:**
+  Use the same set of breakpoints across your project to maintain design uniformity.
+
+- **Clear Ranges:**
+  Define non-overlapping media query ranges to avoid conflicts and unexpected behavior.
+
+- **Documentation:**
+  Keep a centralized style guide or configuration file for breakpoints to ensure all team members are on the same page.
+
+## Example Usage
+
+Below is an example of how to use media queries in your CSS:
+
+```css
+/* Base styles for mobile-first design */
+.container {
+  padding: 16px;
+  margin: 0 auto;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .container {
+    padding: 24px;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+  .container {
+    padding: 32px;
+  }
+}
+```
