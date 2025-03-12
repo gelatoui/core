@@ -1,10 +1,19 @@
 .container {
   /* TODO: temporary (Design is nor ready yet) */
-  height: 33.75rem;
-  padding: var(--spacing-500, 2.5rem) var(--spacing-1000, 5rem);
+  min-height: 33.75rem;
+  padding: var(--spacing-200, 1rem) var(--spacing-250, 1.25rem);
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: var(--spacing-500, 2.5rem) var(--spacing-1000, 5rem);
+    flex-direction: row;
+  }
 }
 
 .card-container {
+
   padding: var(--spacing-400, 2rem) var(--spacing-300, 1.5rem);
   border-radius: var(--border-radius-150, 0.75rem);
   background: var(--tokens-background-base-surface-2, #F4F5F6);

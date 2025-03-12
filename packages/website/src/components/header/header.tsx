@@ -9,7 +9,7 @@ export const Header = () => (
       <GluFlex direction="column" isCenter gap={700}>
         <GluFlex direction="column" gap={400} isCenter>
           <GluFlex direction="column" gap={100} isCenter>
-            <GluText element="h3" className={styles.subtitle} type="heading" size="large" weight="medium">
+            <GluText element="h3" className={styles.subtitle} type="heading" size="large" weight="medium" align="center">
               Framework-agnostic
             </GluText>
 
@@ -28,7 +28,7 @@ export const Header = () => (
             and Figma components that work anywhere.
           </GluText>
         </GluFlex>
-        <GluFlex isCenter>
+        <GluFlex isCenter style={{ zIndex: 1 }}>
           <GluButton size="large">
             Explore Components
             <GluIcon slot="end" name="bookmark-square" size={18} />

@@ -4,7 +4,7 @@ import { GluFlex, GluIcon, GluText } from '@gelato-ui/react'
 
 export const Cards = () => (
   <section>
-    <GluFlex isCenter className={styles.container} direction="row" gap={500}>
+    <GluFlex isCenter className={styles.container} gap={500}>
       {/* TODO: Probably should be refactor to a card component */}
       <GluFlex direction="column" gap={250} className={styles['card-container']}>
         <GluFlex direction="column" isCenter gap={150}>

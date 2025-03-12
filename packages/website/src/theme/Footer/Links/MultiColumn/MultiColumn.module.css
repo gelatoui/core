@@ -1,0 +1,13 @@
+.container {
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+.container a {
+  text-wrap: nowrap;
+}

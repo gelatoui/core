@@ -1,0 +1,15 @@
+.container {
+  border-top: 1px solid var(--tokens-stroke-on-light-default, #DCE0E6);
+  padding: var(--spacing-200, 1rem) var(--spacing-250, 1.25rem);
+  flex-direction: column;
+  gap: var(--spacing-200, 1rem)
+}
+
+
+@media (min-width: 768px) {
+  .container {
+    padding: var(--Spacing-500, 2.5rem) var(--Spacing-1000, 5rem);
+    flex-direction: row;
+    gap: 0;
+  }
+}

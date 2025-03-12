@@ -1,7 +1,13 @@
 .header {
-  padding: var(--spacing-1000, 5rem);
   max-width: var(--max-site-width, 90rem);
   margin: auto;
+  padding: var(--spacing-250, 1.25rem);
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: var(--spacing-1000, 5rem);
+  }
 }
 
 .subtitle {

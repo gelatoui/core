@@ -17,6 +17,14 @@ glu-menu {
   border: none;
 }
 
+aside.theme-doc-sidebar-container {
+  border-right: 1px solid var(--tokens-stroke-on-light-default, #DCE0E6);
+}
+
+aside.theme-doc-sidebar-container nav {
+  padding: 2rem 0.5rem;
+}
+
 /* TODO: Temporal link styles */
 a {
   color: var(--tokens-text-on-light-default, #4b515a);

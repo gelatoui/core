@@ -3,31 +3,8 @@
   width: 100%;
   box-sizing: border-box;
 
-  /**
-   * @prop --flex-direction: Specifies the flex container's direction.
-   * Accepts: 'row', 'column', 'row-reverse', or 'column-reverse'.
-   * Default is 'row'.
-   */
   flex-direction: var(--flex-direction, row);
-
-  /**
-   * @prop --flex-align: Specifies the alignment along the cross axis.
-   * Accepts: 'flex-start', 'flex-end', 'center', 'baseline', or 'stretch'.
-   * Default is 'center'.
-   */
   align-items: var(--flex-align, center);
-
-  /**
-   * @prop --flex-justify: Specifies the alignment along the main axis.
-   * Accepts: 'flex-start', 'flex-end', 'center', 'space-between', 'space-around', or 'space-evenly'.
-   * Default is 'flex-start'.
-   */
   justify-content: var(--flex-justify, flex-start);
-
-  /**
-   * @prop --flex-gap: Sets the gap between flex items.
-   * Can be any valid CSS gap value (e.g., '1rem', '10px').
-   * Default is '0'.
-   */
   gap: var(--flex-gap, 0);
 }

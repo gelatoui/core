@@ -7,6 +7,8 @@
 
 import React, { type ReactNode } from 'react'
 
+import styles from './MultiColumn.module.css'
+
 import { GluFlex, GluText } from '@gelato-ui/react'
 import LinkItem from '@theme/Footer/LinkItem'
 import type { Props } from '@theme/Footer/Links/MultiColumn'
@@ -37,7 +39,7 @@ const Column = ({ column }: { column: ColumnType }) => (
 )
 
 const FooterLinksMultiColumn = ({ columns }: Props): ReactNode => (
-  <GluFlex gap={500} align="flex-start">
+  <GluFlex gap={500} align="flex-start" className={styles.container}>
     {columns.map((column, i) => (
       <Column key={i} column={column} />
     ))}

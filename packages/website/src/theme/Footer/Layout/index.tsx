@@ -7,6 +7,8 @@
 
 import React, { type ReactNode } from 'react'
 
+import styles from './Layout.module.css'
+
 import { GluFlex } from '@gelato-ui/react'
 import type { Props } from '@theme/Footer/Layout'
 import NavbarLogo from '@theme/Navbar/Logo'
@@ -16,8 +18,8 @@ export default function FooterLayout({
 }: Props): ReactNode {
   return (
     <footer>
-      <GluFlex justify="space-between" align="flex-start" style={{ padding: 'var(--Spacing-500, 2.5rem) var(--Spacing-1000, 5rem)' }}>
-        <GluFlex direction="column" align="flex-start" justify="space-between">
+      <GluFlex justify="space-between" align="flex-start" className={styles.container}>
+        <GluFlex direction="column" align="flex-start" gap={800} justify="space-between">
           <NavbarLogo />
           {/* TODO: In the future the library should support a way to add more icons to the icon component. */}
           <GluFlex gap={100} align="center">

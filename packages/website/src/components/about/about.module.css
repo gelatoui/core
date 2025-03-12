@@ -40,17 +40,29 @@
   margin: 0 auto 22.75rem;
 }
 
+.container-figma .content {
+  flex-direction: column-reverse;
+}
+
 .content {
-  padding: var(--spacing-900, 5rem) var(--spacing-1000, 5rem);
+  padding: var(--spacing-200, 1rem) var(--spacing-250, 1.25rem);
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .content, .container-figma .content {
+    padding: var(--spacing-900, 4.5rem) var(--spacing-1000, 5rem);
+    flex-direction: row;
+  }
 }
 
 .copies {
   max-width: 31.25rem;
 }
 
-.frameworks, .figma {
+/* .frameworks, .figma {
   height: 600px;
-}
+} */
 
 .frameworks img,
 .figma img {
