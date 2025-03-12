@@ -2,6 +2,8 @@ import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
 
 import { Component, Element, h, Host, Prop } from '@stencil/core'
 
+const DEFAULT_GAP = 0
+
 /**
  * A flexible container component built using CSS Flexbox.
  *
@@ -53,10 +55,10 @@ export class GluFlex {
    * You may also pass a full CSS gap value (e.g. "1rem", "10px", etc.) directly.
    *
    * @prop {string | number} gap - The gap between flex items.
-   * @default 200 (which translates to 'var(--spacing-200, 1rem)')
+   * @default 0
    * @readonly
    */
-  @Prop({ reflect: true }) readonly gap: string | number = 200
+  @Prop({ reflect: true }) readonly gap: string | number = DEFAULT_GAP
 
   /**
    * Centers the flex items along both axes if set to true.
@@ -91,18 +93,17 @@ export class GluFlex {
    */
   render() {
     // Convert a numeric gap value to the corresponding CSS variable.
-    const gapValue = typeof this.gap === 'number' ? `var(--spacing-${this.gap}, 1rem)` : this.gap
+    const gapValue = typeof this.gap === 'number' && this.gap ? `var(--spacing-${this.gap}, 0)` : this.gap
 
-    const flexStyle = {
-      display: 'flex',
-      flexDirection: this.direction,
-      alignItems: this.isCenter ? 'center' : this.align,
-      justifyContent: this.isCenter ? 'center' : this.justify,
-      gap: gapValue
+    const hostStyle = {
+      '--flex-direction': this.direction,
+      '--flex-align': this.isCenter ? 'center' : this.align,
+      '--flex-justify': this.isCenter ? 'center' : this.justify,
+      '--flex-gap': `${gapValue}`
     }
 
     return (
-      <Host {...this.inheritedAttributes} style={flexStyle}>
+      <Host {...this.inheritedAttributes} style={hostStyle}>
         <slot></slot>
       </Host>
     )
