@@ -1,4 +1,6 @@
-import { Component, h, Host, Prop } from '@stencil/core'
+import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
+
+import { Component, Element, h, Host, Prop } from '@stencil/core'
 
 /**
  * @component
@@ -15,25 +17,34 @@ import { Component, h, Host, Prop } from '@stencil/core'
 export class GluMenuLabel {
   /**
    * URL to navigate to when clicking the label.
+   * @prop {string} href - Specifies the native button type.
+   * @default undefined
+   * @readonly
    */
   @Prop() readonly href?: string
 
   /**
-   * Specifies where to open the linked document. Only applicable if `href` is set.
+   * A reference to the host element.
+   *
+   * @element {HTMLGluMenuLabelElement} MenuLabelElement - The component's host element.
    */
-  @Prop() readonly target?: '_self' | '_blank' | '_parent' | '_top'
+  // eslint-disable-next-line no-undef
+  @Element() menuLabelElement!: HTMLGluMenuLabelElement
 
-  /**
-   * Specifies the relationship between the current document and the linked document. Only applicable if `href` is set.
-   */
-  @Prop() readonly rel?: string
+  /** Container for attributes inherited from the host element */
+  private inheritedAttributes: Attributes = {}
+
+  componentWillLoad() {
+    // Inherit attributes from the host element to forward to the inner element.
+    this.inheritedAttributes = { ...inheritAttributes(this.menuLabelElement) }
+  }
 
   render() {
     return (
-      <Host class="glu-menu-label" part="glu-menu-label">
+      <Host class="glu-menu-label">
         {this.href ?
           (
-            <a href={this.href} target={this.target} rel={this.rel}><slot></slot></a>
+            <a href={this.href} {...this.inheritedAttributes}><slot></slot></a>
           ) :
           <slot></slot>}
       </Host>

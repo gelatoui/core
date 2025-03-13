@@ -69,6 +69,6 @@ describe('glu-menu', () => {
       html: '<glu-menu is-responsive></glu-menu>'
     })
 
-    expect(page.root).toHaveClass('glu-menu--mobile')
+    expect(page.root.shadowRoot).toHaveClass('glu-menu--mobile')
   })
 })

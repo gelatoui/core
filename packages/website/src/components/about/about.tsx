@@ -20,7 +20,7 @@ export const About = () => (
             </GluText>
           </GluFlex>
           <GluFlex justify="flex-start">
-            <GluButton size="large" href="/docs/category/design" appearance="outline" style={{ background: 'var(--root-base-white)' }}>
+            <GluButton size="large" href="/docs/category/components" appearance="outline" style={{ background: 'var(--root-base-white)' }}>
               Learn More
               <GluIcon slot="end" name="arrow-up-right" size={18} />
             </GluButton>
@@ -49,7 +49,7 @@ export const About = () => (
             </GluText>
           </GluFlex>
           <GluFlex justify="flex-start">
-            <GluButton size="large" href="/docs/category/components" appearance="outline" style={{ background: 'var(--root-base-white)' }}>
+            <GluButton size="large" href="/docs/category/design" appearance="outline" style={{ background: 'var(--root-base-white)' }}>
               Explore Components Library
               <GluIcon slot="end" name="arrow-up-right" size={18} />
             </GluButton>

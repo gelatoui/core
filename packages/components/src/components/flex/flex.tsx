@@ -86,11 +86,6 @@ export class GluFlex {
     this.inheritedAttributes = { ...inheritAttributes(this.flexElement) }
   }
 
-  /**
-   * Render method to generate the component's HTML.
-   *
-   * @returns {JSX.Element} The rendered HTML of the component.
-   */
   render() {
     // Convert a numeric gap value to the corresponding CSS variable.
     const gapValue = typeof this.gap === 'number' && this.gap ? `var(--spacing-${this.gap}, 0)` : this.gap
