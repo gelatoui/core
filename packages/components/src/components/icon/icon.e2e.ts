@@ -57,7 +57,7 @@ describe('glu-icon (E2E)', () => {
 
     await page.setContent('<glu-icon name="academic-cap" width="40px" height="20px"></glu-icon>')
 
-    const span = await page.find('glu-icon')
+    const span = await page.find('glu-icon >>> span')
 
     expect((await span.getComputedStyle()).height).toBe('20px')
 
@@ -69,7 +69,7 @@ describe('glu-icon (E2E)', () => {
 
     await page.setContent('<glu-icon name="academic-cap" width="40" height="20"></glu-icon>')
 
-    const span = await page.find('glu-icon')
+    const span = await page.find('glu-icon >>> span')
 
     expect((await span.getComputedStyle()).height).toBe('20px')
 

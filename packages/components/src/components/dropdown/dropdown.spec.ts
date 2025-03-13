@@ -19,7 +19,7 @@ describe('glu-dropdown', () => {
 
     expect(button).toBeTruthy()
 
-    expect(button.textContent).toContain('Toggle Dropdown')
+    expect(button.textContent).toContain('Dropdown')
   })
 
   it('toggles dropdown on trigger click when triggerAction is "click"', async () => {

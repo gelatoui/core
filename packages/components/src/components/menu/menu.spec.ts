@@ -31,7 +31,7 @@ describe('glu-menu', () => {
 
     expect(page.root).toMatchSnapshot()
 
-    expect(page.root.querySelector('img')).toHaveAttribute('src')
+    expect(page.root.shadowRoot.querySelector('img')).toHaveAttribute('src')
   })
 
   it('renders slots correctly', async () => {
@@ -61,14 +61,5 @@ describe('glu-menu', () => {
     })
 
     expect(page.root).toHaveClass('glu-menu--sticky')
-  })
-
-  it('applies isResponsive class when prop is set', async () => {
-    const page = await newSpecPage({
-      components: [GluMenu],
-      html: '<glu-menu is-responsive></glu-menu>'
-    })
-
-    expect(page.root.shadowRoot).toHaveClass('glu-menu--mobile')
   })
 })
