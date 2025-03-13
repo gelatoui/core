@@ -7,7 +7,7 @@ describe('glu-link', () => {
   it('renders with default properties', async () => {
     const page = await newSpecPage({
       components: [GluLink],
-      html: '<glu-link href="https://example.com">Test Link</glu-link>'
+      html: '<glu-link href="https://example.com" target="_self">Test Link</glu-link>'
     })
 
     expect(page.root).toEqualHtml(/* html */ `
@@ -29,7 +29,7 @@ describe('glu-link', () => {
     })
 
     expect(page.root).toEqualHtml(/* html */ `
-      <glu-link href="https://example.com" class="glu-link glu-link--size-large" target="_blank" size="large">
+      <glu-link href="https://example.com" class="glu-link glu-link--size-large" size="large">
         <mock:shadow-root>
           <a href="https://example.com" target="_blank">
             <slot></slot>
@@ -43,11 +43,11 @@ describe('glu-link', () => {
   it('applies rel attribute if provided', async () => {
     const page = await newSpecPage({
       components: [GluLink],
-      html: '<glu-link href="https://example.com" rel="noopener noreferrer">Test Link</glu-link>'
+      html: '<glu-link href="https://example.com" rel="noopener noreferrer" target="_self">Test Link</glu-link>'
     })
 
     expect(page.root).toEqualHtml(/* html */ `
-      <glu-link href="https://example.com" rel="noopener noreferrer" class="glu-link  glu-link--size-medium">
+      <glu-link href="https://example.com" class="glu-link  glu-link--size-medium">
         <mock:shadow-root>
           <a href="https://example.com" target="_self" rel="noopener noreferrer">
             <slot></slot>

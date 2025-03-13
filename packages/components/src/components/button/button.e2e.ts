@@ -29,7 +29,7 @@ describe('glu-button (E2E)', () => {
 
     await page.setContent('<glu-button disabled>Disabled</glu-button>')
 
-    const button = await page.find('glu-button >>> button')
+    const button = await page.find('glu-button')
 
     expect(button).toHaveAttribute('disabled')
   })

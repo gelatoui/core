@@ -5,7 +5,7 @@ describe('glu-link', () => {
   it('renders and applies default properties', async () => {
     const page = await newE2EPage()
 
-    await page.setContent('<glu-link href="https://example.com">Example</glu-link>')
+    await page.setContent('<glu-link href="https://example.com" target="_self">Example</glu-link>')
 
     const element = await page.find('glu-link')
     const anchor = await page.find('glu-link >>> a')

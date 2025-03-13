@@ -20,7 +20,7 @@ describe('glu-label (E2E)', () => {
       <input id="input-id" type="text" />
     `)
 
-    const label = await page.find('glu-label')
+    const label = await page.find('glu-label >>> label')
 
     expect(label).toHaveAttribute('for')
 

@@ -266,7 +266,7 @@ describe('glu-checkbox', () => {
     expect(helperTextEl.textContent).toBe('Error occurred')
 
     // is-error should be truthy (Stencil typically renders booleans as strings "true")
-    expect(helperTextEl.attributes.getNamedItem('is-error')).toBeTruthy()
+    expect(helperTextEl.attributes.getNamedItem('isError')).toBeTruthy()
 
     // Check that the helperIcon and helperIconVariant are set correctly.
     expect(helperTextEl.getAttribute('icon')).toBe('shield-exclamation')

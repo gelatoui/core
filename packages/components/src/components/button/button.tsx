@@ -49,10 +49,10 @@ export class GluButton {
   /**
    * If `true`, the user cannot interact with the button.
    * @prop {boolean} disabled - Disables the button when set to `true`.
-   * @default false
+   * @default undefined
    * @readonly
    */
-  @Prop({ reflect: true }) readonly disabled = false
+  @Prop({ reflect: true }) readonly disabled
 
   /**
    * Contains a URL or a URL fragment that the hyperlink points to. If set, an anchor tag will be rendered.
@@ -73,7 +73,7 @@ export class GluButton {
 
   componentWillLoad() {
     // Inherit attributes from the host element to forward to the inner element
-    this.inheritedAttributes = { ...inheritAttributes(this.buttonElement, ['type', 'disabled', 'rel', 'target', 'href']) }
+    this.inheritedAttributes = { ...inheritAttributes(this.buttonElement, ['type', 'rel', 'target', 'href']) }
   }
 
   /**
@@ -94,7 +94,7 @@ export class GluButton {
           'glu-button--disabled': this.disabled
         }}
       >
-        <TagType {...this.inheritedAttributes}>
+        <TagType disabled={this.disabled} {...this.inheritedAttributes}>
           <slot name="icon-only"></slot>
           <slot name="start"></slot>
           <slot></slot>

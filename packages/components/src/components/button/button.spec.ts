@@ -7,7 +7,7 @@ describe('glu-button', () => {
   it('renders correctly with default props', async () => {
     const page = await newSpecPage({
       components: [GluButton],
-      html: '<glu-button></glu-button>'
+      html: '<glu-button type="button"></glu-button>'
     })
 
     expect(page.root).toEqualHtml(/* html */ `
@@ -40,7 +40,6 @@ describe('glu-button', () => {
         appearance="filled"
         button-type="primary"
         class="glu-button glu-button--appearance-filled glu-button--primary glu-button--size-medium"
-        href="https://example.com"
         size="medium"
       >
         <mock:shadow-root>

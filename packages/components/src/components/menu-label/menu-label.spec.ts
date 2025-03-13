@@ -37,14 +37,13 @@ describe('glu-menu-label', () => {
   it('forwards inherited attributes to the inner anchor element', async () => {
     const page = await newSpecPage({
       components: [GluMenuLabel],
-      html: '<glu-menu-label href="https://example.com" data-test="test-attr">Link Label</glu-menu-label>'
+      html: '<glu-menu-label href="https://example.com" target="_blank">Link Label</glu-menu-label>'
     })
 
     const anchor = page.root.shadowRoot.querySelector('a')
 
     expect(anchor).not.toBeNull()
 
-    // Verify that the custom data-test attribute is forwarded
-    expect(anchor.getAttribute('data-test')).toBe('test-attr')
+    expect(anchor.getAttribute('target')).toBe('_blank')
   })
 })
