@@ -21,18 +21,18 @@
     "inspector": "npx @eslint/config-inspector@latest",
     "prepare": "husky config/.husky"
   },
-  "author": "santi020k",
+  "author": "Santiago Molina <santiago@gelatoui.com>",
   "contributors": [
-    "Santiago Molina <info@santi020k.me>"
+    "Santiago Molina <santiago@gelatoui.com>"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/santi020k/gelato-ui.git"
+    "url": "git+https://github.com/gelatoui/core.git"
   },
   "bugs": {
-    "url": "https://github.com/santi020k/gelato-ui/issues"
+    "url": "https://github.com/gelatoui/core/issues"
   },
-  "homepage": "https://github.com/santi020k/gelato-ui#readme",
+  "homepage": "https://github.com/gelatoui/core#readme",
   "keywords": [
     "santi020k",
     "gelato-ui",

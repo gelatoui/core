@@ -1,7 +1,7 @@
 {
   "name": "@gelato-ui/react",
   "version": "0.0.1",
-  "author": "Santiago Molina Orozco <santi020k@gmail.com>",
+  "author": "Santiago Molina <santiago@gelatoui.com>",
   "homepage": "",
   "license": "ISC",
   "main": "dist/components.js",

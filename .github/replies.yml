@@ -3,7 +3,7 @@ replies:
       👋 Hey @{{ author }}! Just checking in, is this still something you have time for? No worries if not - I just don't want to leave it hanging.
     name: Checking In
   - body: |
-      Thanks for posting! This is a duplicate of #<insert issue>. Before filing an issue, please [use our issue search](https://github.com/santi020k/gelato-ui/issues) to check for open and closed issues that already address what you're looking for.
+      Thanks for posting! This is a duplicate of #<insert issue>. Before filing an issue, please [use our issue search](https://github.com/gelatoui/core/issues) to check for open and closed issues that already address what you're looking for.
     name: Clearly Duplicate Issue
   - body: |
       Thanks for the issue!
@@ -16,7 +16,7 @@ replies:
       \
     name: Extension Rule - Reject Due to Enhancement
   - body: |
-      The fix has been merged to main, and will be released Monday, as per our [release schedule](https://santi020k.me/users/releases/#latest)
+      The fix has been merged to main, and will be released Monday, as per our [release schedule](https://gelatoui.com/users/releases/#latest)
       \
       If you need it sooner, please try the `canary` tag on NPM.
     name: Fix Has Been Merged
@@ -33,7 +33,7 @@ replies:
       * We want to raise visibility for the changes to let folks have a chance to discuss nuances before work is done\
       * Even if you're at the 'expert' level where specifically you know to check for duplicates and understand the codebase well enough to make these changes, most users aren't - so it sets a negative precedent\
       \
-      Could you please [file an issue](https://github.com/santi020k/gelato-ui/issues/new/choose) explaining why you'd like this?\
+      Could you please [file an issue](https://github.com/gelatoui/core/issues/new/choose) explaining why you'd like this?\
     name: Needs Issue
   - body: |
       Thanks for the report @<reporter>!\
@@ -77,7 +77,7 @@ replies:
       Closing this PR as it's been stale for ~6 weeks without activity. Feel free to reopen @{{ author }} if you have time - but no worries if not! If anybody wants to drive it forward, please do post your own PR - and if you use this as a start, consider adding `Co-authored-by: @{{ author }}` at the end of your PR description. Thanks! 😊
     name: Pruning Stale PR
   - body: |
-      As per [our contributing guidelines](https://santi020k.me/contributing/pull-requests#addressing-feedback-and-beyond) this PR is in the queue of PRs to reviewed, and will be reviewed when we are able.
+      As per [our contributing guidelines](https://gelatoui.com/contributing/pull-requests#addressing-feedback-and-beyond) this PR is in the queue of PRs to reviewed, and will be reviewed when we are able.
       \
       This project is run by volunteer maintainers, so it might be a bit before we can find the time to get to it.
     name: Review Queue

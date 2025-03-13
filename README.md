@@ -1,17 +1,22 @@
-# @santi020k/gelato-ui
+# @gelatoui/core
 
-Welcome to @santi020k/gelato-ui, a new web components ui library.
+Welcome to @gelatoui, a new web components ui library.
+
+This is an alpha version
+
+Website: [https://gelatoui.com](https://gelatoui.com)
 
 ## Why Use This Library?
 
 - **Coming soon**: Working progress.
+- Beta version.
 
 ## Installation
 
 Then, install Gelato ui package:
 
 ```bash
-  npm install @santi020k/gelato-ui --save-dev
+  npm install @gelatoui/components --save-dev
 ```
 
 ## Usage
@@ -40,9 +45,9 @@ Then, install Gelato ui package:
 
 ## Contributing
 
-If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the [GitHub repository](https://github.com/santi020k/gelato-ui).
+If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the [GitHub repository](https://github.com/gelatoui/core).
 
-Thank you for using @santi020k/gelato-ui.
+Thank you for using @gelatoui/core.
 
 ## Useful posts
 

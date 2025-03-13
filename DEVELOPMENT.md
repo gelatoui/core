@@ -1,4 +1,4 @@
 # Development
 
-See **[https://github.com/santi020k/gelato-ui/README.md](https://github.com/santi020k/gelato-ui/README.md)** for our development instructions.
+See **[https://github.com/gelatoui/code/README.md](https://github.com/gelatoui/core/README.md)** for our development instructions.
 Thanks! 💖

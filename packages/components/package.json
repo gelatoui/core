@@ -44,7 +44,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/santi020k/gelato-ui.git"
+    "url": "https://github.com/gelatoui/core.git"
   },
   "files": [
     "dist/",

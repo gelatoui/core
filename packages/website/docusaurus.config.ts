@@ -73,7 +73,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           sidebarCollapsed: false,
           editUrl:
-            'https://github.com/santi020k/gelato-ui/tree/main/packages/website/',
+            'https://github.com/gelatoui/core/tree/main/packages/website/',
           beforeDefaultRemarkPlugins: [remarkSandpack]
         },
         blog: {
@@ -83,7 +83,7 @@ const config: Config = {
             xslt: true
           },
           editUrl:
-            'https://github.com/santi020k/gelato-ui/tree/main/packages/website/',
+            'https://github.com/gelatoui/core/tree/main/packages/website/',
 
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
