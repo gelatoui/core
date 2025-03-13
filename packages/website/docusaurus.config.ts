@@ -1,4 +1,5 @@
 import { themes as prismThemes } from 'prism-react-renderer'
+import { remarkSandpack } from 'remark-sandpack'
 
 import type * as Preset from '@docusaurus/preset-classic'
 import type { Config } from '@docusaurus/types'
@@ -72,7 +73,8 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           sidebarCollapsed: false,
           editUrl:
-            'https://github.com/santi020k/gelato-ui/tree/main/packages/website/'
+            'https://github.com/santi020k/gelato-ui/tree/main/packages/website/',
+          beforeDefaultRemarkPlugins: [remarkSandpack]
         },
         blog: {
           showReadingTime: true,
