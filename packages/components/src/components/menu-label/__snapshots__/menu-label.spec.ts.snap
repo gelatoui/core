@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`glu-menu-item renders correctly as a button 1`] = `
+<glu-menu-item
+  type="button"
+>
+  Click Me
+</glu-menu-item>
+`;
+
+exports[`glu-menu-item renders correctly as a label 1`] = `
+<glu-menu-item
+  type="label"
+>
+  Label Item
+</glu-menu-item>
+`;

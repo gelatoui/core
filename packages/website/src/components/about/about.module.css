@@ -21,13 +21,13 @@
 }
 
 .background::before {
-  top: -2px;
-  clip-path: polygon(100% 0, 0 0, 0 100%);
+  top: -1px;
+  clip-path: polygon(101% 0, 0 0, 0 100%);
 }
 
 .background::after {
-  bottom: -2px;
-  clip-path: polygon(100% 100%, 0 100%, 0 0);
+  bottom: -1px;
+  clip-path: polygon(101% 100%, 0 100%, 0 0);
 }
 
 .container-frameworks {

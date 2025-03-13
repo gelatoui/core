@@ -29,14 +29,14 @@ export const Header = () => (
           </GluText>
         </GluFlex>
         <GluFlex isCenter style={{ zIndex: 1 }}>
-          <GluButton size="large">
+          <GluButton size="large" href="/docs/category/components">
             Explore Components
             <GluIcon slot="end" name="bookmark-square" size={18} />
           </GluButton>
         </GluFlex>
       </GluFlex>
       <div>
-        <img className={styles.img} src={useBaseUrl('/img/home/screen.jpg')} alt="screen" />
+        <img className={styles.img} src={useBaseUrl('/img/home/screen.png')} alt="screen" />
       </div>
     </GluFlex>
   </header>

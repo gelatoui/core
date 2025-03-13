@@ -113,14 +113,12 @@ const config: Config = {
       //   src: 'img/logo.svg'
       // },
       items: [
+        // TODO: We just have one version for now
+        // {
+        //   type: 'docsVersionDropdown'
+        // },
         {
-          type: 'docsVersionDropdown'
-        },
-        {
-          type: 'docSidebar',
-          sidebarId: 'documentationSidebar',
-          position: 'left',
-          label: 'Components'
+          to: '/docs/category/components', label: 'Components', position: 'left'
         },
         {
           type: 'docSidebar',
@@ -130,7 +128,7 @@ const config: Config = {
         },
         { to: '/templates', label: 'templates', position: 'left' },
         {
-          href: '#',
+          href: '/docs/category/getting-started',
           label: 'Get Started',
           position: 'right'
         }
@@ -157,7 +155,7 @@ const config: Config = {
           items: [
             {
               label: 'Components',
-              to: '/#components'
+              to: '/docs/category/components'
             },
             {
               label: 'Doc',
