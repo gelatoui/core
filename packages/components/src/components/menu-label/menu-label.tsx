@@ -36,7 +36,7 @@ export class GluMenuLabel {
 
   componentWillLoad() {
     // Inherit attributes from the host element to forward to the inner element.
-    this.inheritedAttributes = { ...inheritAttributes(this.menuLabelElement) }
+    this.inheritedAttributes = { ...inheritAttributes(this.menuLabelElement, ['target', 'rel']) }
   }
 
   render() {
@@ -44,7 +44,9 @@ export class GluMenuLabel {
       <Host class="glu-menu-label">
         {this.href ?
           (
-            <a href={this.href} {...this.inheritedAttributes}><slot></slot></a>
+            <a href={this.href} {...this.inheritedAttributes}>
+              <slot></slot>
+            </a>
           ) :
           <slot></slot>}
       </Host>

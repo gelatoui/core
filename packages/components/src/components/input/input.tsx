@@ -15,9 +15,6 @@ import { Component, Element, Event, EventEmitter, Fragment, h, Host, Prop, State
   shadow: true
 })
 export class GluInput {
-  // ---------------------------
-  // Field (wrapper) properties
-  // ---------------------------
   /**
    * Optional label text displayed above the input field.
    * @prop {string} label - The label text.
@@ -57,9 +54,6 @@ export class GluInput {
    */
   @Prop() readonly helperIconVariant: 'solid' | 'outline' = 'outline'
 
-  // ---------------------------
-  // Base input properties
-  // ---------------------------
   /**
    * Determines the type of the input field.
    * Supported types include 'generic', 'currency', 'phone', 'password', 'date', 'url', 'search', 'number'
@@ -162,9 +156,6 @@ export class GluInput {
    */
   @Prop() readonly showClearIcon: boolean = false
 
-  // ---------------------------
-  // Component internal states
-  // ---------------------------
   /**
    * Indicates whether the input field currently has focus.
    * @state {boolean} isFocused - True if the input is focused.
@@ -178,9 +169,6 @@ export class GluInput {
    */
   @State() showPassword = false
 
-  // ---------------------------
-  // References and events
-  // ---------------------------
   /**
    * A reference to the host element.
    * @element {HTMLGluInputElement} inputElement - The component's host element.
@@ -211,12 +199,8 @@ export class GluInput {
 
   componentWillLoad() {
     // Inherit attributes from the host element to forward to the inner element
-    this.inheritedAttributes = { ...inheritAttributes(this.inputElement) }
+    this.inheritedAttributes = { ...inheritAttributes(this.inputElement, ['tabindex', 'title', 'data-form-type']) }
   }
-
-  // ---------------------------
-  // Input event handlers
-  // ---------------------------
 
   private handleInput = (event: Event): void => {
     const input = event.target as HTMLInputElement
@@ -245,10 +229,6 @@ export class GluInput {
   private clearInput = (): void => {
     this.value = ''
   }
-
-  // ---------------------------
-  // Input type and focus helpers
-  // ---------------------------
 
   private getInputType = (): string => {
     // Determine native input type based on the component's type and state.
@@ -287,10 +267,6 @@ export class GluInput {
 
     input?.focus?.()
   }
-
-  // ---------------------------
-  // Render helpers for prefix/suffix
-  // ---------------------------
 
   private renderPrefix = () => {
     // Render prefix based on input type or custom prefix props
@@ -366,10 +342,6 @@ export class GluInput {
         )
     }
   }
-
-  // ---------------------------
-  // Render method
-  // ---------------------------
 
   render() {
     return (

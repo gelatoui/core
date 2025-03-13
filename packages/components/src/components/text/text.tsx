@@ -1,6 +1,4 @@
-import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
-
-import { Component, Element, h, Prop } from '@stencil/core'
+import { Component, h, Prop } from '@stencil/core'
 
 /**
  * A flexible text component that applies design-system-based typography styles.
@@ -81,7 +79,6 @@ export class GluText {
   /**
    * The text color.
    * Accepts any valid CSS color value.
-   *
    * @default undefined (inherits the parent's text color)
    * @example '#ff0000'
    * @example 'var(--my-text-color)'
@@ -89,26 +86,9 @@ export class GluText {
   @Prop({ reflect: true }) readonly color?: string
 
   /**
-   * A reference to the host element.
-   *
-   * @element {HTMLGluTextElement} textElement - The component's host element.
-   */
-  // eslint-disable-next-line no-undef
-  @Element() textElement!: HTMLGluTextElement
-
-  /** Container for attributes inherited from the host element */
-  private inheritedAttributes: Attributes = {}
-
-  componentWillLoad() {
-    // Inherit attributes from the host element to forward to the inner element
-    this.inheritedAttributes = { ...inheritAttributes(this.textElement) }
-  }
-
-  /**
    * Constructs a set of inline CSS variables based on the selected
    * `type`, `size`, and `weight` properties. These map to the Figma
    * design tokens defined in your global CSS.
-   *
    * @private
    * @returns An object of inline style properties (CSS variables).
    */
@@ -135,7 +115,6 @@ export class GluText {
 
     return (
       <TagType
-        {...this.inheritedAttributes}
         style={styles}
         class={{
           'glu-text': true,

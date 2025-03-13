@@ -14,9 +14,6 @@ import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@
   shadow: true
 })
 export class GluToggle {
-  // ---------------------------
-  // Label properties
-  // ---------------------------
   /**
    * Optional left label text
    * @prop {string} leftLabel
@@ -29,9 +26,6 @@ export class GluToggle {
    */
   @Prop() readonly rightLabel: string
 
-  // ---------------------------
-  // State and validation properties
-  // ---------------------------
   /**
    * Error message to display
    * @prop {string} error
@@ -73,14 +67,8 @@ export class GluToggle {
 
   @Element() toggleElement!: HTMLGluToggleElement
 
-  // ---------------------------
-  // Component state
-  // ---------------------------
   @State() isFocused = false
 
-  // ---------------------------
-  // Events
-  // ---------------------------
   /**
    * Emitted when toggle state changes
    * @event glChange
@@ -93,9 +81,6 @@ export class GluToggle {
     this.inheritedAttributes = { ...inheritAttributes(this.toggleElement) }
   }
 
-  // ---------------------------
-  // Event handlers
-  // ---------------------------
   private handleToggle = (event: Event): void => {
     if (this.disabled) return
 
@@ -124,9 +109,6 @@ export class GluToggle {
     this.isFocused = false
   }
 
-  // ---------------------------
-  // Render method
-  // ---------------------------
   render() {
     return (
       <Host

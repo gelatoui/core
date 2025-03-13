@@ -1,6 +1,4 @@
-import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
-
-import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core'
+import { Component, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core'
 
 /**
  * @component
@@ -13,9 +11,6 @@ import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@
   shadow: true
 })
 export class GluCheckbox {
-  // ---------------------------
-  // Label properties
-  // ---------------------------
   /**
    * Optional left label text displayed adjacent to the checkbox.
    * Rendered using the glu-label component.
@@ -30,9 +25,6 @@ export class GluCheckbox {
    */
   @Prop() readonly rightLabel: string
 
-  // ---------------------------
-  // State and validation properties
-  // ---------------------------
   /**
    * The error message to display.
    * When non-empty, the component enters an error state.
@@ -93,42 +85,18 @@ export class GluCheckbox {
    */
   @Prop() readonly hasIndeterminate: boolean = false
 
-  // ---------------------------
-  // Component internal state
-  // ---------------------------
   /**
    * Indicates whether the checkbox currently has focus.
    * @state {boolean} isFocused
    */
   @State() isFocused = false
 
-  // ---------------------------
-  // Events
-  // ---------------------------
   /**
    * Emitted when the checkbox value changes.
    * @event {string} glChange - The updated value of the checkbox.
    */
   @Event() glChange!: EventEmitter<{ value: 'unchecked' | 'checked' | 'indeterminate', event: Event }>
 
-  /**
-   * A reference to the host element.
-   * @element {HTMLGluCheckboxElement} checkboxElement - The component's host element.
-   */
-  // eslint-disable-next-line no-undef
-  @Element() checkboxElement!: HTMLGluCheckboxElement
-
-  /** Container for attributes inherited from the host element */
-  private inheritedAttributes: Attributes = {}
-
-  componentWillLoad() {
-    // Inherit attributes from the host element to forward to the inner element
-    this.inheritedAttributes = { ...inheritAttributes(this.checkboxElement) }
-  }
-
-  // ---------------------------
-  // Event handlers
-  // ---------------------------
   private handleToggle = (event: Event): void => {
     if (this.disabled) return
 
@@ -186,9 +154,6 @@ export class GluCheckbox {
     return 'false'
   }
 
-  // ---------------------------
-  // Render method
-  // ---------------------------
   render() {
     return (
       <Host
@@ -234,14 +199,14 @@ export class GluCheckbox {
           <glu-helper-text
             icon={this.helperIcon}
             iconVariant={this.helperIconVariant}
-            is-error={!!this.error}
+            isError={!!this.error}
           >
             {this.error || this.helperText}
           </glu-helper-text>
         )}
 
         {/* Hidden input for HTML form compatibility */}
-        <input type="hidden" name="checkbox" value={this.value} {...this.inheritedAttributes} />
+        <input type="hidden" name="checkbox" value={this.value} />
       </Host>
     )
   }

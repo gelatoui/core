@@ -1,7 +1,3 @@
-/* ====================== */
-/* Destructive Button Styles */
-/* ====================== */
-
 /* Filled */
 :host(.glu-button--destructive.glu-button--appearance-filled) {
   background-color: var(--tokens-destructive-default);

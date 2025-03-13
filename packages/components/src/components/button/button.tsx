@@ -61,26 +61,6 @@ export class GluButton {
   @Prop() readonly href?: string
 
   /**
-   * Specifies the relationship of the target object to the link object.
-   * @prop {string} [rel] - Space-separated list of link types.
-   */
-  @Prop() readonly rel?: string
-
-  /**
-   * Specifies where to display the linked URL. Only applies when an `href` is provided.
-   * @prop {string} [target] - Specifies where to open the linked document (`_self`, `_blank`, etc.).
-   */
-  @Prop() readonly target?: string
-
-  /**
-   * The type of the button.
-   * @prop {'submit' | 'reset' | 'button'} type - Specifies the native button type.
-   * @default button
-   * @readonly
-   */
-  @Prop() readonly type: 'submit' | 'reset' | 'button' = 'button'
-
-  /**
    * A reference to the host element.
    * @element {HTMLGluButtonElement} buttonElement - The component's host element.
    */
@@ -93,7 +73,7 @@ export class GluButton {
 
   componentWillLoad() {
     // Inherit attributes from the host element to forward to the inner element
-    this.inheritedAttributes = { ...inheritAttributes(this.buttonElement) }
+    this.inheritedAttributes = { ...inheritAttributes(this.buttonElement, ['type', 'disabled', 'rel', 'target', 'href']) }
   }
 
   /**
@@ -101,23 +81,20 @@ export class GluButton {
    * @returns {JSX.Element} The rendered HTML of the button.
    */
   render() {
-    const { buttonType, type, disabled, rel, target, size, href, appearance } = this
     // Determine if the component should render as a button or anchor tag
-    const TagType = href === undefined ? 'button' : 'a'
-    // Define attributes dynamically based on the tag type
-    const attrs = TagType === 'button' ? { type, disabled } : { href, rel, target }
+    const TagType = this.href === undefined ? 'button' : 'a'
 
     return (
       <Host
         class={{
           'glu-button': true,
-          [`glu-button--${buttonType}`]: !!buttonType,
-          [`glu-button--size-${size}`]: !!size,
-          [`glu-button--appearance-${appearance}`]: !!appearance,
-          'glu-button--disabled': disabled
+          [`glu-button--${this.buttonType}`]: !!this.buttonType,
+          [`glu-button--size-${this.size}`]: !!this.size,
+          [`glu-button--appearance-${this.appearance}`]: !!this.appearance,
+          'glu-button--disabled': this.disabled
         }}
       >
-        <TagType {...this.inheritedAttributes} {...attrs}>
+        <TagType {...this.inheritedAttributes}>
           <slot name="icon-only"></slot>
           <slot name="start"></slot>
           <slot></slot>

@@ -20,19 +20,6 @@ export class GluLink {
   @Prop() readonly href!: string
 
   /**
-   * Specifies where to open the linked document (`_self`, `_blank`, etc.).
-   * @prop {string} target - Where to open the link.
-   * @default '_self'
-   */
-  @Prop() readonly target: '_self' | '_blank' | '_parent' | '_top' = '_self'
-
-  /**
-   * Specifies the relationship between the current document and the linked document.
-   * @prop {string} rel - The rel attribute for the link.
-   */
-  @Prop() readonly rel?: string
-
-  /**
    * The size of the link.
    * @prop {string} size - The size of the link.
    * @default 'medium'
@@ -51,20 +38,18 @@ export class GluLink {
 
   componentWillLoad() {
     // Inherit attributes from the host element to forward to the inner element
-    this.inheritedAttributes = { ...inheritAttributes(this.linkElement) }
+    this.inheritedAttributes = { ...inheritAttributes(this.linkElement, ['target', 'rel']) }
   }
 
   render() {
-    const { size, target, rel, href } = this
-
     return (
       <Host
         class={{
           'glu-link': true,
-          [`glu-link--size-${size}`]: !!size
+          [`glu-link--size-${this.size}`]: !!this.size
         }}
       >
-        <a {...this.inheritedAttributes} href={href} target={target} rel={rel}>
+        <a {...this.inheritedAttributes} href={this.href}>
           <slot></slot>
         </a>
       </Host>

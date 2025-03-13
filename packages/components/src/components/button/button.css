@@ -1,6 +1,3 @@
-/* ====================== */
-/* Default Button Styles  */
-/* ====================== */
 :host {
   display: inline-block;
   padding: var(--spacing-050) var(--spacing-100);

@@ -54,14 +54,14 @@ export class GluLabel {
 
   componentWillLoad() {
     // Inherit attributes from the host element to forward to the inner element
-    this.inheritedAttributes = { ...inheritAttributes(this.labelElement) }
+    this.inheritedAttributes = { ...inheritAttributes(this.labelElement, ['id', 'name', 'for', 'title', 'data-form-type']) }
   }
 
   render() {
     return (
       <Host class="glu-label">
-        <div class="container" {...this.inheritedAttributes}>
-          <label class="label-text">
+        <div class="container">
+          <label class="label-text" {...this.inheritedAttributes}>
             <slot></slot>
           </label>
           {this.showTooltip && (

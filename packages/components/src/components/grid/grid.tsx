@@ -1,6 +1,4 @@
-import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
-
-import { Component, Element, h, Host, Prop } from '@stencil/core'
+import { Component, h, Host, Prop } from '@stencil/core'
 
 const DEFAULT_GAP = 0
 
@@ -33,20 +31,6 @@ export class GluGrid {
    */
   @Prop({ reflect: true }) readonly gap: string | number = DEFAULT_GAP
 
-  /**
-   * A reference to the host element.
-   */
-  // eslint-disable-next-line no-undef
-  @Element() gridElement!: HTMLGluGridElement
-
-  /** Container for attributes inherited from the host element */
-  private inheritedAttributes: Attributes = {}
-
-  componentWillLoad() {
-    // Inherit attributes from the host element to forward to the inner element.
-    this.inheritedAttributes = { ...inheritAttributes(this.gridElement) }
-  }
-
   render() {
     // Compute gridTemplateColumns and gap value using CSS variables.
     const gridTemplateColumns = `repeat(${this.columns}, 1fr)`
@@ -63,7 +47,7 @@ export class GluGrid {
     }
 
     return (
-      <Host {...this.inheritedAttributes} style={hostStyle}>
+      <Host style={hostStyle}>
         <slot></slot>
       </Host>
     )

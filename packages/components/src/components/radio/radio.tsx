@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
 
 import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@stencil/core'
 
@@ -14,9 +13,6 @@ import { Component, Element, Event, EventEmitter, h, Host, Prop, State } from '@
   shadow: true
 })
 export class GluRadio {
-  // ---------------------------
-  // Label properties
-  // ---------------------------
   /**
    * Optional left label text displayed adjacent to the radio.
    * @prop {string} leftLabel
@@ -29,9 +25,6 @@ export class GluRadio {
    */
   @Prop() readonly rightLabel: string
 
-  // ---------------------------
-  // State and validation properties
-  // ---------------------------
   /**
    * The error message to display.
    * @prop {string} error
@@ -79,29 +72,14 @@ export class GluRadio {
 
   @Element() radioElement!: HTMLGluRadioElement
 
-  // ---------------------------
-  // Component state
-  // ---------------------------
   @State() isFocused = false
 
-  // ---------------------------
-  // Events
-  // ---------------------------
   /**
    * Emitted when the radio is selected
    * @event glChange
    */
   @Event() glChange!: EventEmitter<{ value: boolean, event: Event }>
 
-  private inheritedAttributes: Attributes = {}
-
-  componentWillLoad() {
-    this.inheritedAttributes = { ...inheritAttributes(this.radioElement) }
-  }
-
-  // ---------------------------
-  // Event handlers
-  // ---------------------------
   private handleSelect = (event: Event): void => {
     if (this.disabled) return
 
@@ -145,9 +123,6 @@ export class GluRadio {
     this.isFocused = false
   }
 
-  // ---------------------------
-  // Render method
-  // ---------------------------
   render() {
     return (
       <Host
@@ -193,7 +168,6 @@ export class GluRadio {
             name={this.name}
             checked={this.checked}
             disabled={this.disabled}
-            {...this.inheritedAttributes}
           />
         </div>
       </Host>

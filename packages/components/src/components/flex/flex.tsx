@@ -1,6 +1,4 @@
-import { Attributes, inheritAttributes } from '@utils/helpers/helpers'
-
-import { Component, Element, h, Host, Prop } from '@stencil/core'
+import { Component, h, Host, Prop } from '@stencil/core'
 
 const DEFAULT_GAP = 0
 
@@ -70,22 +68,6 @@ export class GluFlex {
    */
   @Prop({ reflect: true }) readonly isCenter: boolean = false
 
-  /**
-   * A reference to the host element.
-   *
-   * @element {HTMLGluFlexElement} flexElement - The component's host element.
-   */
-  // eslint-disable-next-line no-undef
-  @Element() flexElement!: HTMLGluFlexElement
-
-  /** Container for attributes inherited from the host element */
-  private inheritedAttributes: Attributes = {}
-
-  componentWillLoad() {
-    // Inherit attributes from the host element to forward to the inner element.
-    this.inheritedAttributes = { ...inheritAttributes(this.flexElement) }
-  }
-
   render() {
     // Convert a numeric gap value to the corresponding CSS variable.
     const gapValue = typeof this.gap === 'number' && this.gap ? `var(--spacing-${this.gap}, 0)` : this.gap
@@ -98,7 +80,7 @@ export class GluFlex {
     }
 
     return (
-      <Host {...this.inheritedAttributes} style={hostStyle}>
+      <Host style={hostStyle}>
         <slot></slot>
       </Host>
     )
