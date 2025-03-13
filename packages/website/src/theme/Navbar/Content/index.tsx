@@ -1,9 +1,8 @@
-/**
- *
- */
-
 import React, { type ReactNode } from 'react'
 
+import styles from './NavbarContent.module.css'
+
+import { useLocation } from '@docusaurus/router'
 import {
   ErrorCauseBoundary,
   useThemeConfig
@@ -22,9 +21,9 @@ const useNavbarItems = () => useThemeConfig().navbar.items as NavbarItemConfig[]
 
 const NavbarItems = ({ items }: { items: NavbarItemConfig[] }): ReactNode => (
   <>
-    {items.map((item, i) => (
+    {items.map((item, index) => (
       <ErrorCauseBoundary
-        key={i}
+        key={index}
         onError={error => new Error(
           `A theme navbar item failed to render.
 Please double-check the following navbar item (themeConfig.navbar.items) of your Docusaurus config:
@@ -41,9 +40,11 @@ const NavbarContent = () => {
   const items = useNavbarItems()
   const [leftItems, rightItems] = splitNavbarItems(items)
   const searchBarItem = items.find(item => item.type === 'search')
+  const location = useLocation()
+  const isDocsPage = location.pathname.includes('/docs/')
 
   return (
-    <GluMenu type="menu-center" isSticky isResponsive>
+    <GluMenu type="menu-center" className={isDocsPage ? styles['border-bottom'] : ''} isSticky isResponsive>
       <div slot="logo">
         <NavbarLogo />
       </div>
@@ -58,7 +59,7 @@ const NavbarContent = () => {
       {/* TODO: This can be improved using NavbarItems */}
       {/* Right Actions */}
       <div slot="right-actions">
-        {rightItems.map((item, index) => (
+        {rightItems?.map((item, index) => (
           <GluButton href={item.href} size="large" key={index}>
             {(item as unknown as { label: string }).label}
             <span slot="end">

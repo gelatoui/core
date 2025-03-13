@@ -1,10 +1,3 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import React, { type ReactNode } from 'react'
 
 import isInternalUrl from '@docusaurus/isInternalUrl'
@@ -26,8 +19,6 @@ export default function NavbarNavLink({
   prependBaseUrlToHref,
   ...props
 }: Props): ReactNode {
-  // TODO all this seems hacky
-  // {to: 'version'} should probably be forbidden, in favor of {to: '/version'}
   const toUrl = useBaseUrl(to)
   const activeBaseUrl = useBaseUrl(activeBasePath)
   const normalizedHref = useBaseUrl(href, { forcePrependBaseUrl: true })
